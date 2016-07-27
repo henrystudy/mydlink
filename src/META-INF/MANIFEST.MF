@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Class-Path: . MyDlinkXmlDriveAuto_lib/log4j-1.2.16.jar MyDlinkXmlDrive
+ Auto_lib/selenium-server-standalone-2.0rc2.jar MyDlinkXmlDriveAuto_li
+ b/mail.jar MyDlinkXmlDriveAuto_lib/testng-6.0.1.jar MyDlinkXmlDriveAu
+ to_lib/dom4j-1.6.1.jar MyDlinkXmlDriveAuto_lib/selenium-java-2.0rc2.j
+ ar MyDlinkXmlDriveAuto_lib/jaxen-1.1-beta-6.jar
+Main-Class: com.hisoft.start.Starter
+

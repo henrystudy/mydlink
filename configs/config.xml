@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/config.xsd">
+	<!-- selenium server config -->
+	<host>192.168.0.103</host>
+	<port>4444</port>
+	<baseUrl>http://twqa.mydlink.com</baseUrl>
+	<browser>*iexplore</browser>
+<!-- 	<browser>*googlechrome</browser> -->
+<!-- 	<browser>*firefox</browser> -->
+
+	<!-- web site test config -->
+	<language>en</language>
+	<timeout>90000</timeout>
+	<retryTimes>3</retryTimes>
+
+	<pageDataPath>webSite/wizard</pageDataPath>
+	<accountFile>account/account_twqa.xml</accountFile>
+	<emailInfoFile>email/email_twqa.xml</emailInfoFile>
+
+	<testCasePath type="include" name="testCase/wizard">
+		<include>testCase/wizard/wizard932L.xml</include>
+	</testCasePath>
+</configs>
