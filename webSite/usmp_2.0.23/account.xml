@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<accounts>
+		<!-- dlink.usmp+back1@gmail.com/dlink123 用了 -->
+		<!-- dlink.usmp+back2@gmail.com/dlink123 -->
+		<!-- dlink.usmp+back3@gmail.com/dlink123 -->
+		<!-- Common use account -->
+		<account type="register">
+			<!-- 这个账号是主账号，很多case需要用到他，请保证他的信息是跟网站上是一样的，有信息的更新请把这里也更新一下，当然还有下面有device信息的账户 -->
+			<email>dlink.usmp@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>First</firstName>
+			<lastName>Last</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1100L</DeviceName>
+					<ModelName>DCS-1100L</ModelName>
+					<ConnectionType>Direct</ConnectionType>
+					<SN>30035033</SN>
+					<Mac>F07D6801FB6F</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>offLine</state>
+					<fw>1.04, 4520</fw>
+				</device>
+				<device>
+					<DeviceName>DCS-1130</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Direct</ConnectionType>
+					<SN>19549277</SN>
+					<Mac>0022B0DDFB34</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03.4108</fw>
+				</device>
+				<device>
+					<DeviceName>DCS-1130L_Port</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>19393930</SN>
+					<Mac>0022B0DDFB32</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+				<device>
+					<DeviceName>DCS-1130L</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Relay</ConnectionType>
+					<SN>13548077</SN>
+					<Mac>0022B0DDFB0D</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03.4108</fw>
+				</device>
+				<device>
+					<DeviceName></DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Xstunt</ConnectionType>
+					<SN>11471035</SN>
+					<Mac>0022B0DDFB04</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+			</devices>
+		</account>
+		<!-- 这个账号用于忘记密码的case，其他case不要使用这个，密码经常是不对的。 -->
+		<account type="forgetPassword">
+			<email>dlink.usmp+forgetpasswd@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>dlink.usmp</firstName>
+			<lastName>forgetpasswd</lastName>
+			<devices />
+		</account>
+		<!-- 错误的账号密码 -->
+		<account type="wrong">
+			<email>aaa</email>
+			<password>bbb</password>
+			<emailPassword />
+			<firstName />
+			<lastName />
+			<devices />
+		</account>
+		<!-- 未注册的账号，请保证他是为注册的。 -->
+		<account type="unRegister">
+			<email>unregister_1731@sina.cn</email>
+			<password>dlink123</password>
+			<emailPassword>123456</emailPassword>
+			<firstName />
+			<lastName />
+			<devices />
+		</account>
+		<!-- 一般的账号，无设备，保证能登陆 -->
+		<account type="signInSignOut">
+			<email>dlink.usmp+nodevice@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices />
+		</account>
+		<!-- 一般的账号，无设备，保证能登陆，用于密码修改，为了保证不影响其他的case，请无使用这个账号 -->
+		<account type="changePassword">
+			<email>dlink.usmp+changepasswd@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>twqa</firstName>
+			<lastName>changepasswd</lastName>
+			<devices />
+		</account>
+		<!-- 一般的账号，无设备，保证能登陆，用于密码修改，为了保证不影响其他的case，请无使用这个账号 -->
+		<!-- 1.2.7 Change Default Password.xml use only -->
+		<account type="changeDefaultPassword">
+			<email>dlink.usmp+changeDefaultPassword@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>twqa</firstName>
+			<lastName>changepasswd</lastName>
+			<devices />
+		</account>
+		<!-- 1.2.7 Change Default Password.xml use only -->
+		<!-- 一般的账号，无设备，保证能登陆 -->
+		<account type="changeSignInAccount">
+			<email>dlink.usmp+back1@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>w</firstName>
+			<lastName>w</lastName>
+			<devices />
+		</account>
+		<!-- 未注册的账号 -->
+		<account type="changedSignInAccount">
+			<email>expired.twqa@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>default</firstName>
+			<lastName>info</lastName>
+			<devices />
+		</account>
+		<!-- 一般的账号，无设备，保证能登陆，很多账号都是成对出现的，用于账户名的交换，肯定是一个能登入，一个是为注册的，请经常保持他们的正确性 -->
+		<!-- 1.2.1.4.1 Blank global navigation.xml use only -->
+		<account type="changeEmailOne">
+			<email>dlink.usmp+changeEmailOne@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>change</firstName>
+			<lastName>Email</lastName>
+			<devices />
+		</account>
+		<!-- 未注册的账号 -->
+		<account type="changeEmailTwo">
+			<email>dlink.usmp+changeEmailTwo@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>change</firstName>
+			<lastName>Email</lastName>
+			<devices />
+		</account>
+		<!-- 1.2.1.4.1 Blank global navigation.xml use only -->
+		<!-- 一般的账号，无设备，保证能登陆 -->
+		<!-- 1.1.4.3 Confirmation E-mail for Changing Sign-in Email.xml use only -->
+		<account type="changeEmail_1">
+			<email>dlink.usmp+changeEmail_1@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>w</firstName>
+			<lastName>w</lastName>
+			<devices />
+		</account>
+		<!-- 未注册的账号 -->
+		<account type="changeEmail_2">
+			<email>dlink.usmp+changeEmail_2@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>w</firstName>
+			<lastName>w</lastName>
+			<devices />
+		</account>
+		<!-- 1.1.4.3 Confirmation E-mail for Changing Sign-in Email.xml use only -->
+		<!-- 一般的账号，无设备，保证能登陆 -->
+		<!-- 1.2.5.5 Email verification process.xml use only -->
+		<account type="changeEmail4">
+			<email>dlink.usmp+changeEmailFour@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>w</firstName>
+			<lastName>2</lastName>
+			<devices />
+		</account>
+		<!-- 未注册的账号 -->
+		<account type="changeEmail5">
+			<email>dlink.usmp+changeEmailFive@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>w</firstName>
+			<lastName>2</lastName>
+			<devices />
+		</account>
+		<!-- 1.2.5.5 Email verification process.xml use only -->
+		<!-- 一般的账号，无设备，保证能登陆 -->
+		<account type="haveNoDevice">
+			<email>dlink.usmp+1@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName />
+			<lastName />
+			<devices />
+		</account>
+		<!-- 一般的账号，无设备，保证能登陆 -->
+		<account type="bak1">
+			<email>dlink.usmp+bak1@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>twqa</firstName>
+			<lastName>bak1</lastName>
+			<devices />
+		</account>
+		<!-- 一般的账号，无设备，保证能登陆 -->
+		<account type="bak2">
+			<email>dlink.usmp+bak2@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>twqa</firstName>
+			<lastName>bak2</lastName>
+			<devices />
+		</account>
+		<!-- 一般的账号，无设备，保证能登陆 -->
+		<!-- 1.1.1.2 Mydlink Footer Verification.xml use only -->
+		<account type="changeEmailFooter">
+			<email>dlink.usmp+footer@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>老</firstName>
+			<lastName>虎</lastName>
+			<devices />
+		</account>
+		<!-- 未注册的账号 -->
+		<account type="changeEmailFooter_1">
+			<email>dlink.usmp+footer_1@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>老</firstName>
+			<lastName>虎</lastName>
+			<devices />
+		</account>
+		<!-- 1.1.1.2 Mydlink Footer Verification.xml use only -->
+		<!-- 一般的账号，无设备，保证能登陆 -->
+		<account type="myprofileEdit">
+			<email>dlink.usmp+MyProfile@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>老</firstName>
+			<lastName>虎</lastName>
+			<devices />
+		</account>
+		<!-- 一般的账号，无设备，保证能登陆 -->
+		<account type="myprofileEditNew">
+			<email>dlink.usmp+profile@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>老</firstName>
+			<lastName>虎</lastName>
+			<devices />
+		</account>
+		<!-- 一般的账号，保证能登陆，用于升级，以下的账号都是取第一个设备。 -->
+		<account type="fw">
+			<email>dlink.usmp@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName></DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Relay</ConnectionType>
+					<SN>11471035</SN>
+					<Mac>0022B0DDFB04</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+			</devices>
+		</account>
+		<!-- 一般的账号，保证能登陆，用于Relay -->
+		<account type="Relay">
+			<email>dlink.usmp@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1130L</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Relay</ConnectionType>
+					<SN>13548077</SN>
+					<Mac>0022B0DDFB0D</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03.4108</fw>
+				</device>
+			</devices>
+		</account>
+		<!-- 一般的账号，保证能登陆，用于Xstunt -->
+		<account type="Xstunt">
+			<email>dlink.usmp@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName></DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Xstunt</ConnectionType>
+					<SN>11471035</SN>
+					<Mac>0022B0DDFB04</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+			</devices>
+		</account>
+		<!-- 一般的账号，保证能登陆，用于Port -->
+		<account type="Port">
+			<email>dlink.usmp@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1130L_Port</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>19393930</SN>
+					<Mac>0022B0DDFB32</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+			</devices>
+		</account>
+		<!-- 一般的账号，保证能登陆，用于Direct -->
+		<account type="Direct">
+			<email>dlink.usmp@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1130</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Direct</ConnectionType>
+					<SN>19549277</SN>
+					<Mac>0022B0DDFB34</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03.4108</fw>
+				</device>
+			</devices>
+		</account>
+		<account type="onLine">
+			<email>dlink.usmp@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1130L_Port</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>19393930</SN>
+					<Mac>0022B0DDFB32</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+			</devices>
+		</account>
+		<!-- 一般的账号，保证能登陆，用于offLine -->
+		<account type="offLine">
+			<email>dlink.usmp@gmail.com</email>
+			<password>dlink123</password>
+			<emailPassword>dlink123456</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1130</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Direct</ConnectionType>
+					<SN>19549277</SN>
+					<Mac>0022B0DDFB34</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+			</devices>
+		</account>
+	</accounts>
+</info>

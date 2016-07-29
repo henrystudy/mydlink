@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<xpath name="WarningText">//div[@class='embed']//span[@class='warning']</xpath>
+		<xpath name="PasswordInput">//div[@class='embed']//input</xpath>
+		<xpath name="PasswordNextButton">//div[@id='mydlink:verifypw:btn_next']</xpath>
+		<xpath name="PasswordCancelButton">//div[@id='mydlink:verifypw:btn_cancel']</xpath>
+		<xpath name="nextButton">//div[@class='btnbar']//div[@class='btn floatr']</xpath>
+		<xpath name="titleBar">//div[@class='content']//div[@class='jeff2']</xpath>
+		<xpath name="PasswordVerificationNeededTitle">//div[@id='popup']//div[@class='jeff2']/strong</xpath>
+		<xpath name="PasswordText">//div[@class='embed']//form//td/strong</xpath>
+		<xpath name="PasswordBox">//div[@class='embed']//form//input[@id='mydlink:verifypw:password']</xpath>
+		<xpath name="Cancel">//div[@id='mydlink:verifypw:btn_cancel']</xpath>
+		<xpath name="Next">//div[@id='mydlink:verifypw:btn_next']</xpath>
+		<xpath name="PleaseEnterText">//div[@class='embed']//div[@class='whitebox']/p/strong</xpath>
+		<xpath name="selectdevice">//td[@class='step_first']</xpath>
+		<xpath name="Confirm">//td[@class='step_on_bg']</xpath>
+		<xpath name="Complete">//td[@class='step']</xpath>
+		<xpath name="CancelButton">//div[@class="btnbar"]/div[1]</xpath>
+		<xpath name="BackButton">//div[@class="btnbar"]/div[@class="btnw floatl"][2]</xpath>
+		<xpath name="Thefollowing">//td[@class='contents']/p[1]</xpath>
+		<xpath name="warning1">//span[@class='hilite warning']</xpath>
+		<xpath name="warning2">//div[@class='alert']</xpath>
+		<xpath name="ifyousure">//td[@class='contents']/p[4]</xpath>
+		<xpath name="img1">//td[@class='deviceimg']//img/@src</xpath>
+		<xpath name="ModelName1">//div[@class='productbox']//td[2]</xpath>
+		<xpath name="mydlinkNo1">//div[@class='productbox']//td[3]</xpath>
+		<xpath name="DeviceName1">//div[@class='productbox']//td[4]</xpath>
+		<xpath name="PasswordVerification">//div[@class='whitebox']/P[1]</xpath>
+		<xpath name="DeviceName1">//div[@class='productbox']//td[4]</xpath>
+		<xpath name="DeviceName1">//div[@id='popup']</xpath>
+
+		<js name="PasswordNextButtonFontColor">window.jQuery('div.btn').css('color')</js>
+		<js name="PasswordNextButtonBGColor">window.jQuery('div.btn').css('background-image')</js>
+		<js name="PasswordCancelButtonFontColor">window.jQuery('div.btnw').css('color')</js>
+		<js name="PasswordCancelButtonBGColor">window.jQuery('div.btnw').css('background-image')</js>
+		<js name="confirmColor">window.jQuery('div.step_on').css('color')</js>
+		<js name="completeColor">window.jQuery('td.step').css('color')</js>
+		<js name="confirmBGIMG">window.jQuery('div.step span.stepn').css('background-image')</js>
+		<js name="completeBGIMG">window.jQuery('div.step span.stepn').css('background-image')</js>
+		<js name="completeOffBGIMG">window.jQuery('td.step span.stepn').css('background-image')</js>
+		<js name="confirmOffBGIMG">window.jQuery('td.step span.stepn').css('background-image')</js>
+		<js name="2CompleteBGIMG">window.jQuery('td.step span.stepn').css('background-image')</js>
+		<js name="2ConfirmBGIMG">window.jQuery('div.step_on span.stepn').css('background-image')</js>
+
+	</targets>
+	<messages>
+		<message name="WarningText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The password is incorrect. Please try again.</content>
+		</message>
+		<message name="PasswordNextButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Next ></content>
+		</message>
+		<message name="PasswordCancelButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Cancel</content>
+		</message>
+		<message name="PleaseEnterText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please enter your mydlink password for verification:</content>
+		</message>
+		<message name="PasswordText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink Password:</content>
+		</message>
+		<message name="PasswordVerificationNeededTitle">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Password Verification Needed</content>
+		</message>
+		<message name="titleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Delete Devices</content>
+		</message>
+		<message name="nextButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Next ></content>
+		</message>
+		<message name="selectdevice">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">1Select Device</content>
+		</message>
+		<message name="Confirm">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">2Confirm</content>
+		</message>
+		<message name="Complete">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">3Complete</content>
+		</message>
+		<message name="CancelButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Cancel</content>
+		</message>
+		<message name="BackButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Back</content>
+		</message>
+		<message name="Thefollowing">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The following devices will be deleted from your account:</content>
+		</message>
+		<message name="warning1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Warning!</content>
+		</message>
+		<message name="warning2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Removing these devices will also remove any mydlink functions related to these devices.</content>
+		</message>
+		<message name="ifyousure">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">If you are sure you want to delete these devices, click Next.</content>
+		</message>
+	</messages>
+	<images>
+		<image name="PasswordNextButtonBGColor">/images/newgraphics/btn_blue_left.gif</image>
+		<image name="PasswordCancelButtonBGColor">/images/newgraphics/btn_white_left.gif</image>
+		<image name="ONBGIMG">/images/newgraphics/i_on.gif</image>
+		<image name="OFFBGIMG">/images/newgraphics/i_off.gif</image>
+		<image name="stepOnBgIMG">/images/newgraphics/vtab_on.gif</image>
+		<image name="img1">/images/products/DCS1100L_delete.gif</image>
+	</images>
+</info>

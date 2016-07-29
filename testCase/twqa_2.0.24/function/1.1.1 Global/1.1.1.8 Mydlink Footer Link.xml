@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.1.1.8 Mydlink Footer Link</testCaseName>
+	<annotation>
+		<description>1.1.1.8 Mydlink Footer Link</description>
+		<testCaseVersion>1</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-05" />
+		<lastUpdated author="yue.chen" date="2011-07-05" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- 1: Verify it will take you to "CHOOSE YOUR LOCATION" page. -->
+		<Verify expected="http://www.dlink.com/corporate/international.asp">
+			<Html command="attribute" target="xml(footer).xpath.GlobalDlinkLink" value="href" />
+		</Verify>
+
+		<!-- 2: Verify it will take you to "About mydlink" page. -->
+		<Html command="clickAndWait" target="xml(footer).xpath.AboutMydlinkLink" value="" />
+		<Verify expected="xml(about).message.TitleBar">
+			<Html command="getValue" target="xml(about).xpath.TitleBar" value="" />
+		</Verify>
+		<Html command="goBack" target="" value="" />
+
+		<!-- 3: Verify that the "Contact mydlink" page will display. -->
+		<Verify expected="/contact">
+			<Html command="attribute" target="xml(footer).xpath.ContactUsLink" value="href" />
+		</Verify>
+
+		<!-- 4: Verify it will take you to "mydlink Terms of Use" page. -->
+		<Html command="clickAndWait" target="xml(footer).xpath.TermsOfUseLink" value="" />
+		<Verify expected="xml(termsOfUse).message.titleBar">
+			<Html command="getValue" target="xml(termsOfUse).xpath.titleBar" value="" />
+		</Verify>
+		<Html command="goBack" target="" value="" />
+
+		<!-- 5: Verify it will take you to ""D-Link Privacy Policy" page. -->
+		<Html command="clickAndWait" target="xml(footer).xpath.PrivacyPolicyLink" value="" />
+		<Verify expected="xml(privacyPolicy).message.titleBar">
+			<Html command="getValue" target="xml(privacyPolicy).xpath.titleBar" value="" />
+		</Verify>
+
+
+	</TestCase>
+</Test>

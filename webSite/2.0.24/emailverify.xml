@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- Xpath -->
+		<xpath name="titleBar">//div[@class='jeff1']/div[@class='jeff2']</xpath>
+		<xpath name="texts">//td[@valign='middle']</xpath>
+		<xpath name="account">//td/span[@class='hilite']</xpath>
+		<xpath name="inputBox">//input[@name='verify_password']</xpath>
+		<xpath name="ok">//div[@id='btn_ok']</xpath>
+		<xpath name="warning">//div[@class='warning']</xpath>
+		
+		<xpath name="successText">//div[@class='whitebox']/p[1]</xpath>
+		<xpath name="successTextBox">//div[@class='whitebox']/p[2]</xpath>
+		<xpath name="successAccount">//div[@class='whitebox']//span[@class='hilite']</xpath>
+		<xpath name="signInBtn">//div[@class='whitebox']/div[@class='btn floatl']</xpath>
+		
+		<xpath name="alreadyText">//div[@class='whitebox']/p[2]</xpath>
+		
+		<xpath name="expiredText">//div[@class='whitebox']/p[2]</xpath>
+		<!-- JS -->
+		<js name="errMsgColorJS">window.jQuery('div.warning').css('color')</js>
+	</targets>
+	
+	<messages>
+		<message name="titleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">E-mail Verification</content>
+		</message>
+		<message name="text">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please verify that you wish to use the following e-mail address for your mydlink account sign-in: </content>
+		</message>
+		<message name="account">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">expired.twqa@gmail.com</content>
+		</message>
+		<message name="textBox">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please enter your mydlink password below to confirm:</content>
+		</message>
+		<message name="warning">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The password is incorrect. Please try again.</content>
+		</message>
+		<message name="ok">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">OK</content>
+		</message>
+		<message name="successText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Your sign-in E-mail has been changed successfully below:</content>
+		</message>
+		<message name="successTextBox">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please click on the button below to return to the mydlink home page to sign in.</content>
+		</message>
+		<message name="signInBtn">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign In</content>
+		</message>
+		<message name="alreadyText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The verification link has already been used, and the e-mail account has already been verified. Please click on the button below to return to the mydlink home page to sign in.</content>
+		</message>
+		<message name="expiredText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The verification link has already expired. If you want to change your e-mail address, please sign in to mydlink, and then go to My Profile to change it again.</content>
+		</message>
+	</messages>
+	
+
+	
+</info>

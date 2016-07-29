@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<colors>
+		<color name="Red">
+			<ie>#cc0000</ie>
+			<notIe>rgb(204, 0, 0)</notIe>
+		</color>
+		<color name="Black">
+			<ie>#000000</ie>
+			<notIe>rgb(0, 0, 0)</notIe>
+		</color>
+		<color name="Blue">
+			<ie>#5588aa</ie>
+			<notIe>rgb(85, 136, 170)</notIe>
+		</color>
+		<color name="Pink">
+			<ie>#ffe1e2</ie>
+			<notIe>rgb(255, 225, 226)</notIe>
+		</color>
+		<color name="LightBlue">
+			<ie>#00b1d1</ie>
+			<notIe>rgb(0, 177, 209)</notIe>
+		</color>
+		<color name="Blue2">
+			<ie>#5b91ac</ie>
+			<notIe>rgb(91, 145, 172)</notIe>
+		</color>
+		<color name="Purplishblue">
+			<ie>#336699</ie>
+			<notIe>rgb(51, 102, 153)</notIe>
+		</color>
+		<color name="White">
+			<ie>#ffffff</ie>
+			<notIe>rgb(255, 255, 255)</notIe>
+		</color>
+		<color name="Gray">
+			<ie>#cccccc</ie>
+			<notIe>rgb(204, 204, 204)</notIe>
+		</color>
+		<color name="Green">
+			<ie>#008000</ie>
+			<notIe>rgb(0, 128, 0)</notIe>
+		</color>
+	</colors>
+</info>

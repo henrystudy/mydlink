@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>404 Error Page</testCaseName>
+	<annotation>
+		<description>404 error page verify !</description>
+		<testCaseVersion>8</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-29" />
+		<lastUpdated author="dayu.lei" date="2011-06-29" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		
+		<!-- 1. Generate a 404 page error such as add some characters after**www.mydlink.com** (This url could be different according to actual conditions)
+Please see screenshot in Reference tab for details. -->
+		<Html command="open" target="xml(url).pagePath.Signout" value=""/>
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(register).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		
+		<!-- check Error Page information -->
+		<Html command="open" target="xml(url).pagePath.Error404"
+			value=""></Html>
+				
+		<!-- step 1: Verify: mydlink Page Error -->
+		<Verify expected="xml(404Error).message.titleBar">
+			<Html command="getValue" target="xml(404Error).xpath.titleBar" value="" />
+		</Verify>
+		
+		<!-- step 2: Check description begin -->
+		<!-- Texts: -->
+		<!-- contents: -->
+		<!-- We are very sorry!(This sentence is blue.) -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText1">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText1"
+				value="" />
+		</Verify>
+		<!-- The page you requested cannot be found -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText11">
+			<Html command="getValue"
+				target="xml(404Error).xpath.PageError404DescriptionText11" value="" />
+		</Verify>
+		<!-- This may be due to: -->
+		<Verify expected="true" type="RESULT">
+			<Html command="isTextPresent"
+				target="xml(404Error).message.PageError404DescriptionText2" value="" />
+		</Verify>
+		<!-- •an incorrect or nonexistent URL. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText21">
+			<Html command="getValue"
+				target="xml(404Error).xpath.PageError404DescriptionText21" value="" />
+		</Verify>
+		<!-- •the page may have been removed or renamed. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText22">
+			<Html command="getValue"
+				target="xml(404Error).xpath.PageError404DescriptionText22" value="" />
+		</Verify>
+		<!-- •a system error has prevented us from providing you the information 
+			you requested. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText23">
+			<Html command="getValue"
+				target="xml(404Error).xpath.PageError404DescriptionText23" value="" />
+		</Verify>
+		<!-- You can click on your browser's Back button or you can click on the 
+			Return to mydlink home button below to return to the mydlink home page. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText3">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText3"
+				value="" />
+		</Verify>
+		<!-- If there is a problem with the site or if you have questions, you 
+			can contact us by clicking on the Contact Us button below. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText4">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText4"
+				value="" />
+		</Verify>
+		<!-- We apologize for the inconvenience. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText5">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText5"
+				value="" />
+		</Verify>
+			
+		<!-- step 2: Check description end -->	
+		<!-- step 3: login in ContactUs&ReturnToHomePage buttons begin -->
+		
+		<Html command="clickAndWait" target="xml(404Error).xpath.ContactUsLinkText"
+				value="" />
+		<Verify expected="account(register).email">
+			<Html command="getValue" target="xml(contact).xpath.contactEmailBox"
+				value="" />
+		</Verify>
+		<Html command="goBack" target="" value="" />
+		<Verify expected="xml(404Error).message.titleBar">
+			<Html command="getValue" target="xml(404Error).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(404Error).xpath.ReturnToHomePageLinkText"
+				value="" />
+		<!-- Title bar: -->
+		<!-- My Devices & Sign out -->
+		<Verify expected="xml(header).message.SignOut">
+			<Html command="getValue" target="xml(header).xpath.SignOut"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(header).message.MyDevicesLink">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLink" value="" />
+		</Verify>
+		
+		<!-- step 3: login in ContactUs&ReturnToHomePage buttons begin -->
+		<!-- step 4: login out begin -->
+		
+		<Html command="open" target="xml(url).pagePath.Signout" value=""/>	
+		<Verify expected="xml(entrance).message.NewsMaintenanceTitle">
+			<Html command="getValue" target="xml(entrance).xpath.NewsMaintenanceTitle"
+				value="" />
+		</Verify>
+		
+		<!-- step 4: login out end -->
+		<!-- step 5: open error page -->
+		
+		<Html command="open" target="xml(404Error).pagePath.pagePath"
+				value="" />
+		<Verify expected="xml(404Error).message.titleBar">
+			<Html command="getValue" target="xml(404Error).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- step 6: Check description login out -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText1">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText1"
+				value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.PageError404DescriptionText11">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText11"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true" type="RESULT">
+			<Html command="isTextPresent" target="xml(404Error).message.PageError404DescriptionText2" value="" />
+		</Verify>
+		
+		<Verify expected="xml(404Error).message.PageError404DescriptionText21">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText21"
+				value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.PageError404DescriptionText22">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText22"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(404Error).message.PageError404DescriptionText23">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText23"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(404Error).message.PageError404DescriptionText3">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText3"
+				value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.PageError404DescriptionText4">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText4"
+				value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.PageError404DescriptionText5">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText5"
+				value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.ReturnToHomePageLinkText">
+			<Html command="getValue" target="xml(404Error).xpath.ReturnToHomePageLinkText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.ContactUsLinkText">
+			<Html command="getValue" target="xml(404Error).xpath.ContactUsLinkText"
+				value="" />
+		</Verify>
+		
+		<!-- step 6: Check description login out end -->
+		<!-- step 7: login out ContactUs&ReturnToHomePage buttons begin -->
+		<Html command="clickAndWait" target="xml(404Error).xpath.ContactUsLinkText"
+				value="" />
+		<Verify expected="">
+			<Html command="getValue" target="xml(contact).xpath.contactEmailBox"
+				value="" />
+		</Verify>
+		<Html command="goBack" target="" value="" />
+		<Verify expected="xml(404Error).message.titleBar">
+			<Html command="getValue" target="xml(404Error).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(404Error).xpath.ReturnToHomePageLinkText"
+				value="" />
+		<Verify expected="xml(entrance).message.NewsMaintenanceTitle">
+			<Html command="getValue" target="xml(entrance).xpath.NewsMaintenanceTitle"
+				value="" />
+		</Verify>
+				
+	</TestCase>
+</Test>

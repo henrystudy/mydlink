@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Camera Settings - Direct</testCaseName>
+	<annotation>
+		<description>verify camera settings in direct connection type !</description>
+		<created author="dayu.lei" date="2011-06-22" />
+		<lastUpdated author="dayu.lei" date="2011-06-22" />
+		<recordInfo deviceIndex="1" account="Direct" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login begin -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox"
+			value="account(Direct).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox"
+			value="account(Direct).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton"
+			value=""></Html>
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- select device -->
+		<Function command="selectDevice" target="account(Direct).device.1.sn"
+			value=""></Function>
+		
+		<!--  select camera settings tab start  -->
+		<Html command="waitForElementDisplay" target="xml(device).xpath.win_mydlinkTabBox"
+			value="120"></Html>
+		<Html command="click" target="xml(device).xpath.LinkCameraSettingsText"
+			value=""></Html>
+		<Html command="waitForElementDisplay" target="xml(device_cameraSetting).xpath.displayPwd"
+			value="120"></Html>
+		<!--  select camera settings tab start  -->
+		
+		<!-- click camera web page and select to new windows start  -->	
+		<Html command="openWindow" target="xml(device_cameraSetting).xpath.cameraWebPageButton" value=""></Html>
+		<Html command="addCustomRequestHeader" target="account(Direct).device.1.userName" value="account(Direct).device.1.passwd"></Html>
+		
+		<!-- click camera web page and select to new windows end 	-->
+		<Verify expected="xml(deviceWebPage).message.stateMsgText">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.stateMsgBar"
+				value="" />
+		</Verify>
+		<Html command="waitForElementDisplay" target="xml(deviceWebPage).xpath.headerTitle"
+			value="120"></Html>
+		<Verify expected="account(Direct).device.1.modelName" type="contains">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.headerTitle"
+				value="" />
+		</Verify>
+				
+	</TestCase>
+</Test>

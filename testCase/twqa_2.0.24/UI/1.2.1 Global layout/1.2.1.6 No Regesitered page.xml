@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>No Regestiered page </testCaseName>
+	<annotation>
+		<description>test the No Regestiered page</description>
+		<testCaseVersion>1</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-05" />
+		<lastUpdated author="dayu.lei" date="2011-07-05" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- open entrance page , click "No Regesitered?" item on the home page. -->
+		<Html command="clickAndWait" target="xml(entrance).xpath.NotRegisteredLink" value="" />
+
+		<!-- Verify the registration page display. -->
+		
+		<!-- check Title bar :How to signup mydlink? -->
+		<!-- <Verify expected="xml(notreg).message.TitleBarText">
+			<Html command="getValue" target="xml(notreg).xpath.TitleBarText" value="" />
+		</Verify> -->
+
+		<!-- Text:To register with www.mydlink.com you need to have a mydlink enabled product. Learn more about those products at mydlink.dlink.com...... -->
+		<Verify expected="xml(notreg).message.ContentText1" type="contains">
+			<Html command="getValue" target="xml(notreg).xpath.ContentText" value="" />
+		</Verify>
+		
+		<!-- check Image:User Account Control -->
+		<Verify expected="xml(notreg).image.ContentImage1" type="contains">
+			<Html command="getValue" target="xml(notreg).xpath.ContentImage1" value="" />
+		</Verify>
+
+		<!-- check Text:If you see this screen appear, click Allow to continue. -->
+		<Verify expected="xml(notreg).message.ContentText3" type="contains">
+			<Html command="getValue" target="xml(notreg).xpath.ContentText" value="" />
+		</Verify>
+
+		<!-- check Image:User Account Control -->
+		<Verify expected="xml(notreg).image.ContentImage2" type="contains">
+			<Html command="getValue" target="xml(notreg).xpath.ContentImage2" value="" />
+		</Verify>
+
+		<!-- check Text:2.Click on the Start button to start the wizard, and follow the instructions from the Setup Wizard to finish setting up your device. -->
+		<Verify expected="xml(notreg).message.ContentText4" type="contains">
+			<Html command="getValue" target="xml(notreg).xpath.ContentText" value="" />
+		</Verify>
+
+		<!-- check Image:"Start" button -->
+		<Verify expected="xml(notreg).image.ButtonImage" type="contains">
+			<Html command="getValue" target="xml(notreg).xpath.ButtonImage" value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

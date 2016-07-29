@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Sign in mydlink</testCaseName>
+	<annotation>
+		<description>test sign in mydlink page</description>
+		<created author="dayu.lei" date="2011-06-14" />
+		<lastUpdated author="dayu.lei" date="2011-06-14" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		
+		<!-- check image  -->
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo"
+				value="" />
+		</Verify>
+		
+		<!-- check titleBar  -->
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+		
+		<!-- check header  -->
+		<Verify expected="xml(commonInfo).message.mydlinkLiteLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLiteLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.signInToMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.signInToMydlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.notRegisteredLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.notRegisteredLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.FAQLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.SupportLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.SupportLink" value="" />
+		</Verify>
+		
+		<!-- check footer -->
+		<Verify expected="xml(commonInfo).message.globalDlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.globalDlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.aboutMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.aboutMydlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.termsOfUseLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.termsOfUseLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.privacyPolicyLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.privacyPolicyLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.contactUsLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.contactUsLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.bottom" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.bottom"
+				value="" />
+		</Verify>
+		
+		<!-- check Content -->
+		<Verify expected="xml(login).message.NotRegisteredyet">
+			<Html command="getValue" target="xml(login).xpath.NotRegisteredyet" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.Toregisterwith">
+			<Html command="getValue" target="xml(login).xpath.Toregisterwith" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.Ifyoudo">
+			<Html command="getValue" target="xml(login).xpath.Ifyoudo" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.PlacetheCD">
+			<Html command="getValue" target="xml(login).xpath.PlacetheCD" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.Macusers">
+			<Html command="getValue" target="xml(login).xpath.Macusers" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.more">
+			<Html command="getValue" target="xml(login).xpath.more" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.Forgotyourpassword">
+			<Html command="getValue" target="xml(login).xpath.Forgotyourpassword" value="" />
+		</Verify>
+		
+		<!-- 2 -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value=""></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value=""></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(login).message.warning">
+			<Html command="getValue" target="xml(login).xpath.warning" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).color.red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+		
+		<!-- 3 -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(wrong).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(login).message.warning2">
+			<Html command="getValue" target="xml(login).xpath.warning2" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).color.red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+		
+	</TestCase>
+</Test>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+		<pagePath name="1130">d:\DCS-1130\index_frame.html</pagePath>
+		<pagePath name="1130L">d:\DCS-1130L\index_frame.html</pagePath>
+		<pagePath name="1100">d:\DCS-1100\index_frame.html</pagePath>
+		<pagePath name="1100L">d:\DCS-1100L\index_frame.html</pagePath>
+		<pagePath name="940L">d:\DCS-940L\index_frame.html</pagePath>
+		<pagePath name="942L">d:\DCS-942L\index_frame.html</pagePath>
+		<pagePath name="5230L">d:\DCS-5230L\index_frame.html</pagePath>
+		<pagePath name="930L">d:\DCS-930L\index_frame.html</pagePath>
+		<pagePath name="932L">d:\DCS-932L\index_frame.html</pagePath>
+
+		<!-- 页面一 -->
+		<!-- Welcome -->
+		<xpath name="StartButton">//span[@id='home_4']</xpath>
+
+		<!-- 页面二 -->
+		<!-- Checking PC Lan port ... -->
+
+		<!-- 页面三 -->
+		<!-- Does your router have WPS support? -->
+		<xpath name="RouterWPSNext">//span[@id='router_wps_10']</xpath>
+		<xpath name="RouterWPSBack">//span[@id='router_wps_9']</xpath>
+
+		<!-- 页面四 -->
+		<!-- Attach the antennas -->
+		<xpath name="AntennaBack">//span[@id='install_1_6']</xpath>
+		<xpath name="AntennaNext">//span[@id='install_1_7']</xpath>
+
+		<!-- 页面五 -->
+		<!-- Connect the camera base -->
+		<xpath name="CameraBaseBack">//span[@id='install_2_back']</xpath>
+		<xpath name="CameraBaseNext">//span[@id='install_2_next']</xpath>
+
+		<!-- 页面六 -->
+		<!-- Connect the Ethernet cable -->
+		<xpath name="EthernetCableBack">//span[@id='install_4_10']</xpath>
+		<xpath name="EthernetCableNext">//span[@id='install_4_11']</xpath>
+
+		<!-- 页面六 -->
+		<!-- Connect the power adapter -->
+		<xpath name="PowerAdapterBack">//span[@id='install_3_8']</xpath>
+		<xpath name="PowerAdapterNext">//span[@id='install_3_9']</xpath>
+		<!-- Is the status LED on the front of your camera lit solid green? -->
+		<xpath name="GreenYes">//span[@id='select_cam_20']</xpath>
+		<xpath name="GreenNo">//span[@id='select_cam_21']</xpath>
+
+		<!-- 页面七 -->
+		<!-- First, select your camera -->
+		<!-- Checking connection...Please wait... -->
+
+		<!-- 页面八 -->
+		<!-- First, select your camera -->
+		<xpath name="SelectCameraBack">//span[@id='select_cam_6']</xpath>
+		<xpath name="SelectCameraNext">//span[@id='select_cam_7']</xpath>
+		<xpath name="SelectCameraRetry">//span[@id='select_cam_9']</xpath>
+		
+		<!-- 页面九 -->
+		<!-- Loading the password ...  -->
+	
+		<!-- 页面十 -->
+		<!-- Confirm your camera's password -->
+		<xpath name="Passwd_old">//input[@id='passwd_old']</xpath>
+		<xpath name="Passwd_new">//input[@id='passwd_new']</xpath>
+		<xpath name="Passwd_new_r">//input[@id='passwd_new_r']</xpath>
+		<xpath name="PasswdBack1">//span[@id='pwd_confirm_17']</xpath>
+		<xpath name="PasswdNext1">//span[@id='pwd_confirm_18']</xpath>
+		<xpath name="PasswdNext2">//span[@id='pwd_14']</xpath>
+		
+		<!-- 页面十二 -->
+		<!-- Set up your network -->
+		<xpath name="NetworkBack">//span[@id='lan_21']</xpath>
+		<xpath name="NetworkNext">//span[@id='lan_22']</xpath>
+		
+		<!-- Let's add your camera to your mydlink account -->
+		<xpath name="HaveAccoutYes">//input[@id='account_type1']</xpath>
+		<xpath name="dlife_email">//input[@id='dlife_email']</xpath>
+		<xpath name="dlife_passwd">//input[@id='dlife_passwd']</xpath>
+		
+		<xpath name="HaveAccoutNo">//input[@id='account_type2']</xpath>
+		<xpath name="dlife_signup_email">//input[@id='dlife_signup_email']</xpath>
+		<xpath name="dlife_signup_passwd">//input[@id='dlife_signup_passwd']</xpath>
+		<xpath name="dlife_signup_passwd_retype">//input[@id='dlife_signup_passwd_retype']</xpath>
+		<xpath name="dlife_signup_name_first">//input[@id='dlife_signup_name_first']</xpath>
+		<xpath name="dlife_signup_name_last">//input[@id='dlife_signup_name_last']</xpath>
+		<xpath name="dlife_signup_EULA">//input[@id='dlife_signup_EULA']</xpath>
+		<xpath name="AccountNext">//span[@id='dlife_29']</xpath>
+		<xpath name="AccountBack">//span[@id='dlife_29']</xpath>
+		
+		<xpath name="Btn_Finish">//div[@id='btn_Finish']</xpath>
+		
+		
+	</targets>
+
+	<messages>
+	</messages>
+
+</info>

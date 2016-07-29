@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.1.2.4 remember me.xml</testCaseName>
+	<annotation>
+		<description>1.1.2.4 remember me.xml</description>
+		<testCaseVersion>7</testCaseVersion>
+		<created author="yue.chen" date="2011-07-05" />
+		<lastUpdated author="yue.chen" date="2011-07-06" />
+		<recordInfo />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		<Choose>
+			<When>
+				<Verify expected="re_checkbox">
+					<Html command="attribute" target="xml(entrance).xpath.RememberMeCheckBox" value="class" />
+				</Verify>
+			</When>
+			<Do>
+				<Html command="runScript" target="xml(entrance).js.RememberMeBoxClick" value=""></Html>
+			</Do>
+			<Otherwise></Otherwise>
+		</Choose>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(haveNoDevice).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(haveNoDevice).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Html command="open" target="xml(url).pagePath.Signout" value=""></Html>
+
+		<!-- 1. Verify that the email you logined last time is preloaded here and it can edit. -->
+		<Verify expected="account(haveNoDevice).email">
+			<Html command="getValue" target="xml(entrance).xpath.EmailInput" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(entrance).xpath.EmailInput" value="" />
+		</Verify>
+
+		<!-- Verify that the password you logined last time is not remembered here. -->
+		<Verify expected="">
+			<Html command="getValue" target="xml(entrance).xpath.PasswordInput" value="" />
+		</Verify>
+
+		<!-- 2. Keep the password empty and click "Sign In" button on the top right corner of the root page. -->
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+
+		<!-- 2. Verify that the "Sign In to mydlink" page is displayed. -->
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+
+		<!-- Verify that the email you logined last time is also preloaded in this page and it can edit. -->
+		<Verify expected="account(haveNoDevice).email">
+			<Html command="getValue" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+
+		<!-- Verify that the password you logined last time is not remembered here. -->
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+
+		<!-- 3. Enter the correct password. -->
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(haveNoDevice).pwd"></Html>
+
+		<!-- Click "Sign In" button on "Sign In to mydlink" page. -->
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+
+		<!-- 3. Verify user can log in to live view page successfully. -->
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Verify>
+
+		<!-- Enter the correct password on the top right corner of the root page. -->
+		<Html command="open" target="xml(url).pagePath.Signout" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(haveNoDevice).pwd"></Html>
+
+		<!-- Click "Sign In" button. -->
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+
+		<!-- 4. Verify user can log in to live view page successfully. -->
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Verify>
+
+		<!-- Input new correct account name and password on the top right corner of the root page. -->
+		<Html command="open" target="xml(url).pagePath.Signout" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+
+		<!-- Check Remember me -->
+		<Choose>
+			<When>
+				<Verify expected="re_checkbox_filled">
+					<Html command="attribute" target="xml(entrance).xpath.RememberMeCheckBox" value="class" />
+				</Verify>
+			</When>
+			<Do>
+			</Do>
+			<Otherwise>
+				<Html command="runScript" target="xml(entrance).js.RememberMeBoxClick" value=""></Html>
+			</Otherwise>
+		</Choose>
+
+		<!-- Click "Sign In" button. -->
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<!-- 5. Verify the new user can login to live view page successfully. -->
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Verify>
+
+		<!-- 6. Verify that the new email you logined last time are preloaded on entrance page and it can edit. -->
+		<Html command="open" target="xml(url).pagePath.Signout" value=""></Html>
+		<Verify expected="account(onLine).email">
+			<Html command="getValue" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+
+		<!-- Password is not remembered. -->
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+
+		<!-- 7. Verify that the new email you logined last time are preloaded on "Sign in mydlink" page and it can edit. -->
+		<Html command="open" target="xml(url).pagePath.Login" value=""></Html>
+		<Verify expected="account(onLine).email">
+			<Html command="getValue" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+
+		<!-- Password is not remembered. -->
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+
+		<!-- Uncheck Remember me on root page. -->
+		<Html command="open" target="xml(url).pagePath.Signout" value=""></Html>
+		<Choose>
+			<When>
+				<Verify expected="re_checkbox_filled">
+					<Html command="attribute" target="xml(entrance).xpath.RememberMeCheckBox" value="class" />
+				</Verify>
+			</When>
+			<Do>
+				<Html command="runScript" target="xml(entrance).js.RememberMeBoxClick" value=""></Html>
+			</Do>
+			<Otherwise>
+			</Otherwise>
+		</Choose>
+
+		<!-- Click "Sign In" button with the correct info -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Verify>
+
+		<!-- Sign out. -->
+		<Html command="open" target="xml(url).pagePath.Signout" value=""></Html>
+
+		<!-- 8. Verify the email and password should be empty on entrance page. -->
+		<Verify expected="">
+			<Html command="getValue" target="xml(entrance).xpath.EmailInput" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(entrance).xpath.PasswordInput" value="" />
+		</Verify>
+
+		<!-- Navigate to Sign In to mydlink page. -->
+		<Html command="open" target="xml(url).pagePath.Login" value=""></Html>
+
+		<!-- 9. Verify the email and password should be empty on "Sign In mydlink" page. -->
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+
+		<!-- 10. Input new correct account name and password on "Sign In to mydlink" page. -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(register).pwd"></Html>
+
+		<!-- Check Remember me -->
+		<Choose>
+			<When>
+				<Verify expected="off">
+					<Html command="getValue" target="xml(login).xpath.rememberMeCheckBox" value="" />
+				</Verify>
+			</When>
+			<Do>
+				<Html command="click" target="xml(login).xpath.rememberMeCheckBox" value=""></Html>
+			</Do>
+			<Otherwise></Otherwise>
+		</Choose>
+
+		<!-- Click "Sign In" button on Sign In to mydlink page. -->
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+
+		<!-- 10. Verify the new user can login to live view page successfully. -->
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Verify>
+
+		<!-- 11. Verify that the new email you logined last time are preloaded on entrance page and it can edit. -->
+		<Html command="open" target="xml(url).pagePath.Signout" value=""></Html>
+		<Verify expected="account(register).email">
+			<Html command="getValue" target="xml(entrance).xpath.EmailInput" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(entrance).xpath.EmailInput" value="" />
+		</Verify>
+		<!-- Password is not remembered. -->
+		<Verify expected="">
+			<Html command="getValue" target="xml(entrance).xpath.PasswordInput" value="" />
+		</Verify>
+
+		<!-- 12. Verify that the new email you logined last time are preloaded on "Sign In to mydlink" page and it can edit. -->
+		<Html command="open" target="xml(url).pagePath.Login" value=""></Html>
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+		<Verify expected="account(register).email">
+			<Html command="getValue" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+
+		<!-- Password is not remembered. -->
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+
+		<!-- Navigate to "Sign In to mydlink" page -->
+		<Html command="open" target="xml(url).pagePath.Login" value=""></Html>
+
+		<!-- Uncheck Remember me. -->
+		<Choose>
+			<When>
+				<Verify expected="on">
+					<Html command="getValue" target="xml(login).xpath.rememberMeCheckBox" value="" />
+				</Verify>
+			</When>
+			<Do>
+				<Html command="click" target="xml(login).xpath.rememberMeCheckBox" value=""></Html>
+			</Do>
+			<Otherwise></Otherwise>
+		</Choose>
+
+		<!-- Click "Sign In" button with the correct info -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<!-- Sign out. -->
+		<Html command="open" target="xml(url).pagePath.Signout" value=""></Html>
+
+		<!-- 14. Verify the email and password should be empty on root page. -->
+		<Verify expected="">
+			<Html command="getValue" target="xml(entrance).xpath.EmailInput" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(entrance).xpath.PasswordInput" value="" />
+		</Verify>
+
+		<!-- 13. Verify the email and password should be empty on Sign In to mydlink page. -->
+		<Html command="open" target="xml(url).pagePath.Login" value=""></Html>
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

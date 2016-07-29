@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.1.3.1.1 Camera offline</testCaseName>
+	<annotation>
+		<description>1.1.3.1.1 Camera offline</description>
+		<testCaseVersion>7</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-14" />
+		<lastUpdated author="dayu.lei" date="2011-07-14" />
+		<recordInfo deviceIndex="1" account="offLine" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value="" />
+		
+		<!-- open entrance page , sign in -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(offLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(offLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(offLine).device.1.sn" value=""></Function>
+		<!-- Logo: -->
+		<!-- mydlink(image link) -->
+		<Verify expected="xml(header).image.LogoImage" type="contains">
+			<Html command="getValue" target="xml(header).js.LogoImage" value="" />
+		</Verify>
+		
+		<!-- Title bar: -->
+		<!-- My Devices -->
+		<Verify expected="xml(header).message.MyDevicesLink">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLink" value="" />
+		</Verify>
+		
+		<!-- Hyperlink texts: -->
+		<!-- top right corner: My Devices || My Profile || Sign out ("My Devices" is selected by default) -->
+		<Verify expected="xml(header).message.FAQLink">
+			<Html command="getValue" target="xml(header).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SupportLink">
+			<Html command="getValue" target="xml(header).xpath.SupportLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.MyProfileLink">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLink" value="" />
+		</Verify>
+		
+		<!-- bottom: Global D-Link || About mydlink || Terms of Use || Privacy Policy || Contact US -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<ImportXML src="checkfooter.xml"></ImportXML>
+		<Verify expected="xml(color).color.Blue2">
+			<Html command="getValue" target="xml(footer).js.LinkFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(footer).js.LinkFontWeight" value="" />
+		</Verify>
+
+		<!-- The "mydlink lite" icon is on the bottom of listed devices. (Image link) -->
+		<Verify expected="xml(device).image.MydlinkonMobileImage" type="contains">
+			<Html command="getValue" target="xml(device).xpath.MydlinkonMobileImage" value="" />
+		</Verify>
+
+		<!-- Device list: -->
+		<!-- List all registered devices on the left of live view UI. -->
+		<!-- Device list item structure: [camera icon] [device name] [mydlink No.] -->
+		<!-- normal status: gray fonts (Normal status for items after in list: no top-border) -->
+		<!-- mouseover status: bright color and change text color of device name to bold black fonts -->
+		<!-- selected status: bright color and change text color of device name to bold black fonts(no top-border) -->
+		<!-- Show below tooltips when mouse over: [device name] ([mydlink No.]) -->
+		<!-- The camera offline status icon(a white character "x" in red circle ) displays in right bottom of the camera icon. -->
+		<!-- Button: -->
+		<!-- top left corner: Delete Device -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: bright color and change text of button to be black color and underline effect. -->
+		<!-- middle bottom: Refresh -->
+		<!-- normal status: blue background and bold white fonts -->
+		<!-- mouseover status: bright blue color. -->
+
+		<!-- Text: -->
+		<!-- top right corner: Welcome, [user’s First Name] [user’s Last Name] -->
+		<Verify expected="xml(header).message.Welcome" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Welcome" value="" />
+		</Verify>
+		<Verify expected="account(haveNoDevice).firstName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="account(haveNoDevice).lastName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		
+		<!-- offline img -->
+		<Verify expected="xml(device).image.OfflineImage" type="contains">
+			<Html command="getValue" target="xml(device).xpath.OfflineImage" value="" />
+		</Verify>
+		
+		<!-- Your camera is offline.( This sentence is red. ) -->
+		<Function command="selectDevice" target="account(offLine).device.1.sn" value=""></Function>
+		<Html command="waitForElementDisplay" target="xml(device).xpath.OfflineTitle" value="60" />
+		<Verify expected="xml(device).message.OfflineTitle">
+			<Html command="getValue" target="xml(device).xpath.OfflineTitle" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(device).js.WarningColor" value="" />
+		</Verify>
+		
+		<!-- Please try the following: -->
+		<Verify expected="xml(device).message.OfflineTitle">
+			<Html command="getValue" target="xml(device).xpath.OfflineTitle" value="" />
+		</Verify>
+		
+		<!-- ● Check to make sure that the Internet connection to your camera is working properly. -->
+		<Verify expected="xml(device).message.OfflineText2">
+			<Html command="getValue" target="xml(device).xpath.OfflineText2" value="" />
+		</Verify>
+
+		<!-- ● Try restarting your Internet router. -->
+		<Verify expected="xml(device).message.OfflineText3">
+			<Html command="getValue" target="xml(device).xpath.OfflineText3" value="" />
+		</Verify>
+
+		<!-- ● Unplug your camera, then plug it back in. -->
+		<Verify expected="xml(device).message.OfflineText4">
+			<Html command="getValue" target="xml(device).xpath.OfflineText4" value="" />
+		</Verify>
+
+		<!-- ● Check your camera's cable connections and make sure they are secure. -->
+		<Verify expected="xml(device).message.OfflineText5">
+			<Html command="getValue" target="xml(device).xpath.OfflineText5" value="" />
+		</Verify>
+
+		<!-- ● Check to make sure that the LED is lit solid green. -->
+		<Verify expected="xml(device).message.OfflineText6">
+			<Html command="getValue" target="xml(device).xpath.OfflineText6" value="" />
+		</Verify>
+
+		<!-- ● If you still can't access your camera, reset your camera and run the Camera Installation Wizard again from the CD-ROM included in your package. -->
+		<Verify expected="xml(device).message.OfflineText7">
+			<Html command="getValue" target="xml(device).xpath.OfflineText7" value="" />
+		</Verify>
+		<Verify expected="xml(device).message.OfflineText8">
+			<Html command="getValue" target="xml(device).xpath.OfflineText8" value="" />
+		</Verify>
+
+		<!-- Please click Refresh (Bold type) to reconnect to your camera. -->
+		<Verify expected="xml(device).message.OfflineButton">
+			<Html command="getValue" target="xml(device).xpath.OfflineButton" value="" />
+		</Verify>
+		
+		<!-- Please click Refresh (Bold type) to reconnect to your camera. -->
+		<Verify expected="xml(device).message.OfflineButton">
+			<Html command="getValue" target="xml(device).xpath.OfflineButton" value="" />
+		</Verify>
+		
+		<Html command="click" target="xml(device).xpath.OfflineButton" value="" />
+		
+		<!-- Your camera is offline.( This sentence is red. ) -->
+		<Verify expected="xml(device).message.OfflineTitle">
+			<Html command="getValue" target="xml(device).xpath.OfflineTitle" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(device).js.WarningColor" value="" />
+		</Verify>
+		
+		<!-- bottom: -->
+		<!-- Copyright claims: Copyright © 2008-2011 mydlink/D-Link Corporation Inc. All rights reserved. -->
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom" value="" />
+		</Verify>
+						
+		
+	</TestCase>
+</Test>

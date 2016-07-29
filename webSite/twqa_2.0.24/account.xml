@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<accounts>
+		<!-- dlink.usmp+back1@gmail.com/dlink123 用了 -->
+		<!-- dlink.usmp+back2@gmail.com/dlink123 -->
+		<!-- dlink.usmp+back3@gmail.com/dlink123 -->
+		<!-- Common use account -->
+		<account type="register">
+			<!-- 这个账号是主账号，很多case需要用到他，请保证他的信息是跟网站上是一样的，有信息的更新请把这里也更新一下，当然还有下面有device信息的账户 -->
+			<email>123@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-5230L</DeviceName>
+					<ModelName>DCS-5230L</ModelName>
+					<ConnectionType>Xstunt</ConnectionType>
+					<SN>30038227</SN>
+					<Mac>F07D68021DCD</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.02, 4317</fw>
+				</device>
+				<device>
+					<DeviceName>DCS-5230L</DeviceName>
+					<ModelName>DCS-5230L</ModelName>
+					<ConnectionType>Relay</ConnectionType>
+					<SN>30038190</SN>
+					<Mac>F07D68021DA8</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.02, 4317</fw>
+				</device>
+				<device>
+					<DeviceName>DCS-1130</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>30035079</SN>
+					<Mac>F07D6802046C</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+				<device>
+					<DeviceName>DCS-1100L</DeviceName>
+					<ModelName>DCS-1100L</ModelName>
+					<ConnectionType>Relay</ConnectionType>
+					<SN>30035032</SN>
+					<Mac>F07D6801FB6E</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.04, 4520</fw>
+				</device>
+				<device>
+					<DeviceName>DCS-1130</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Direct</ConnectionType>
+					<SN>19811364</SN>
+					<Mac>0022B0DDFB35</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>offLine</state>
+					<fw>1.03.4108</fw>
+				</device>
+				<device>
+					<DeviceName>DCS-1130</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Direct</ConnectionType>
+					<SN>19549277</SN>
+					<Mac>0022B0DDFB34</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>offLine</state>
+					<fw>1.03.4108</fw>
+				</device>
+			</devices>
+		</account>
+		<account type="profile">
+			<email>test.twqa+profile@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices/>
+		</account>
+		<account type="profileUn">
+			<email>test.twqa+profileUn@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices/>
+		</account>
+		<account type="haveNoDevice">
+			<email>test.twqa+nodevice@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices/>
+		</account>
+		<account type="changePassword">
+			<email>test.twqa+changePassword@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices/>
+		</account>
+		<account type="unRegister">
+			<email>test.twqa+unRegister_23@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>l '/中国@$%</firstName>
+			<lastName>l '/中国@$%</lastName>
+			<devices />
+		</account>
+		<account type="changeDefaultPassword">
+			<email>test.twqa+changeDefaultPassword@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>changeDefaultPassword</firstName>
+			<lastName>test.twqa</lastName>
+			<devices />
+		</account>
+		<account type="wrong">
+			<email>wrong</email>
+			<password>wrong</password>
+			<emailPassword>wrong</emailPassword>
+			<firstName />
+			<lastName />
+			<devices />
+		</account>
+		<account type="forgetPassword">
+			<email>test.twqa+forgetPassword@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>test.twqa+forgetPassword@gmail.com</firstName>
+			<lastName>test.twqa</lastName>
+			<devices />
+		</account>
+		<account type="Relay">
+			<email>123@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>rdsite</firstName>
+			<lastName>dlink</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1100L</DeviceName>
+					<ModelName>DCS-1100L</ModelName>
+					<ConnectionType>Relay</ConnectionType>
+					<SN>30035032</SN>
+					<Mac>F07D6801FB6E</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.04, 4520</fw>
+				</device>
+			</devices>
+		</account>
+		<account type="offLine">
+			<email>123@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>rdsite</firstName>
+			<lastName>dlink</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1100L</DeviceName>
+					<ModelName>DCS-1100L</ModelName>
+					<ConnectionType>Relay</ConnectionType>
+					<SN>30035032</SN>
+					<Mac>F07D6801FB6E</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.04, 4520</fw>
+				</device>
+			</devices>
+		</account>	
+		<account type="onLine">
+			<email>123@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>rdsite</firstName>
+			<lastName>dlink</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1130</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>30035079</SN>
+					<Mac>F07D6802046C</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+			</devices>
+		</account>
+		<account type="fw">
+			<email>123@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>rdsite</firstName>
+			<lastName>dlink</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1100L</DeviceName>
+					<ModelName>DCS-1100L</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>30035025</SN>
+					<Mac>F07D6801FB67</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.04, 4520</fw>
+				</device>
+			</devices>
+		</account>
+		<account type="Direct">
+			<email>123@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>rdsite</firstName>
+			<lastName>dlink</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1130</DeviceName>
+					<ModelName>DCS-1130</ModelName>
+					<ConnectionType>Direct</ConnectionType>
+					<SN>19549277</SN>
+					<Mac>0022B0DDFB34</Mac>
+					<UserName>admin</UserName>
+					<Passwd>dlink123</Passwd>
+					<state>onLine</state>
+					<fw>1.03.4108</fw>
+				</device>
+			</devices>
+		</account>
+		<account type="Port">
+			<email>123@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>rdsite</firstName>
+			<lastName>dlink</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-5230L</DeviceName>
+					<ModelName>DCS-5230L</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>30038220</SN>
+					<Mac>F07D68021DC6</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.04, 4520</fw>
+				</device>
+			</devices>
+		</account>	
+		<!-- ***************************************************************************** -->
+		<!-- 1.2.5.5 Email verification process.xml -->
+		<account type="changeEmail_1">
+			<email>test.twqa+changeEmail_1@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>changeEmail_1</firstName>
+			<lastName>test.twqa</lastName>
+			<devices />
+		</account>
+		<account type="changeEmail_1_un">
+			<email>test.twqa+changeEmail_1_un@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>changeEmail_1</firstName>
+			<lastName>test.twqa</lastName>
+			<devices />
+		</account>
+		<!-- 1.2.1.4.1 Blank global navigation.xml -->
+		<account type="changeEmail_2">
+			<email>test.twqa+changeEmail_2@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>changeEmail_2</firstName>
+			<lastName>test.twqa</lastName>
+			<devices />
+		</account>
+		<account type="changeEmail_2_un">
+			<email>test.twqa+changeEmail_2_un@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>changeEmail_2</firstName>
+			<lastName>test.twqa</lastName>
+			<devices />
+		</account>
+		<!-- 1.1.1.2 Mydlink Footer Verification -->
+		<account type="changeEmail_3">
+			<email>test.twqa+changeEmail_3@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>changeEmail_3</firstName>
+			<lastName>test.twqa</lastName>
+			<devices />
+		</account>
+		<account type="changeEmail_3_un">
+			<email>test.twqa+changeEmail_3_un@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>changeEmail_3</firstName>
+			<lastName>test.twqa</lastName>
+			<devices />
+		</account>
+		
+		<!-- 1.1.1.2 Mydlink Footer Verification -->
+		<account type="changeEmail_4">
+			<email>test.twqa+changeEmail_4@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>changeEmail_4</firstName>
+			<lastName>test.twqa</lastName>
+			<devices />
+		</account>
+		<account type="changeEmail_4_un">
+			<email>test.twqa+changeEmail_4_un@gmail.com</email>
+			<password>123456</password>
+			<emailPassword>dlink123</emailPassword>
+			<firstName>changeEmail_4</firstName>
+			<lastName>test.twqa</lastName>
+			<devices />
+		</account>
+		
+		<!-- *********************************************************************************-->	
+	</accounts>
+</info>

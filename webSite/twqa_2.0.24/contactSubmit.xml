@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+
+
+		<!-- xpath -->
+
+		<xpath name="titleBar">//div[@class='jeff1']/div[@class='jeff2']</xpath>
+		<xpath name="thankYouText">//p[@class='hilite']</xpath>
+
+		<!-- JS -->
+		<js name="redWarningColorJS">window.jQuery('div.warning').css('color')</js>
+	</targets>
+	<messages>
+		<message name="titleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Contact mydlink</content>
+		</message>
+		<message name="thankYouText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Thank You.</content>
+		</message>
+</messages>
+</info>

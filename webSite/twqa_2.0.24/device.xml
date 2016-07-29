@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<pagePath name="pagePath">/device</pagePath>
+		<xpath name="skipfwupdate">skipfwupdate</xpath>
+		<!-- 		offline -->
+		<xpath name="OfflineMsg">//div[@id='win_content']/div/p[1]</xpath>
+		<xpath name="browserErrorTitle">//div[@id='DIV_BrowserError']/p[1]</xpath>
+		<xpath name="browserErrorText">//div[@id='DIV_BrowserError']/p[3]</xpath>
+		<xpath name="downloadJRETitle">//div[@id='DIV_JREError']/p[1]</xpath>
+		<xpath name="downloadJREText">//div[@id='DIV_JREError']/p[3]</xpath>
+		<xpath name="noDevice">//div[@class='content']/div[@class='jeff3s']/p/strong</xpath>
+		<xpath name="maximumConnectionsTitle">//div[@id='div_tssmFull']/div/p[1]</xpath>
+		<xpath name="maximumConnectionsText">//div[@id='div_tssmFull']/div/p[3]</xpath>
+		<xpath name="stateMsgBar">//div[@id='win_progress']//span</xpath>
+		<xpath name="titleBar">//div[@class='content']//div[@class='jeff2']</xpath>
+		<xpath name="myProfile">//div[@class='links']/a[@href='/profile']</xpath>
+		<xpath name="MyDevices">//div[@class='links']/a[@href='/device']</xpath>
+		
+		<!-- link mydlinkTabBox start -->
+		<xpath name="LinkLiveVideoText">//div[@id='mydlinkTabBox']/div[1]/a</xpath>
+		<xpath name="LinkCameraSettingsText">//div[@id='mydlinkTabBox']/div[2]/a</xpath>
+		<xpath name="LinkCameraInfoText">//div[@id='mydlinkTabBox']/div[3]/a</xpath>
+		<xpath name="LiveVideoText">//div[@id='mydlinkTabBox']/div[1]</xpath>
+		<xpath name="CameraSettingsText">//div[@id='mydlinkTabBox']/div[2]</xpath>
+		<xpath name="CameraInfoText">//div[@id='mydlinkTabBox']/div[3]</xpath>
+		<xpath name="DeleteDeviceBtn">//div[@class='jeff3']/div[@class='btnbart']/div</xpath>
+		<!-- link mydlinkTabBox end -->
+		
+		<xpath name="checkBox">//input[@id='pw_toggle']</xpath>
+		
+		<xpath name="liveVideoDisplay">//div[@id='div_install_dcs']</xpath>
+	<!--<xpath name="cameraInfo">//div[@class='whitebox']/div[@class='hmenu']/div[3]/a</xpath>-->
+		<xpath name="basicInfoSpan">//div[@class='whitebox']/h2[1]</xpath>
+		
+		<xpath name="win_mydlinkTabBox">//div[@id='mydlinkTabBox']</xpath>
+		<xpath name="selectedTab">//div[@id='mydlinkTabBox']/div[@class='selected']</xpath>
+		<xpath name="vedioDiv">//div[@id='player_container']</xpath>
+		<xpath name="relayCountDown">P_Relay_Countdown</xpath>
+		<xpath name="relayCountDownImg">//p[@id='P_Relay_Countdown']//img/@src</xpath>		
+
+		<xpath name="buttonSpeed">//ul[@id='LV_icons']/li[@class='PT'][2]</xpath>
+		<xpath name="buttonAuto">//ul[@id='LV_icons']/li[@class='PT'][4]</xpath>
+		<xpath name="buttonStop">//ul[@id='LV_icons']/li[@class='PT'][5]</xpath>
+		<xpath name="buttonZoomIn">//ul[@id='LV_icons']/li[@class='zoomIO'][2]</xpath>
+		<xpath name="buttonZoomOut">//ul[@id='LV_icons']/li[@class='zoomIO'][3]</xpath>
+		<xpath name="buttonZoomReset">//ul[@id='LV_icons']/li[@class='zoomIO'][4]</xpath>
+		
+		
+		<!-- Device Password Verification Needed! -->
+		<xpath name="DevicePasswordVerificationNeeded">//div[@id='win_content']/div/p[1]</xpath>
+		<xpath name="PasswordMsg">//div[@id='error_message']</xpath>
+		<xpath name="PasswordInput">//input[@id='b_password']</xpath>
+		<xpath name="ThePasswordOfThisDeviceHasBeenChanged">//div[@id='win_content']/div/p[3]</xpath>
+		<xpath name="PleaseEnterYourDevicePassword">//div[@id='win_content']/div/p[3]</xpath>
+		<xpath name="DevicePasswordVerificationButton">//div[@id='win_content']//div[@id='btn_ok']</xpath>
+		
+		<!-- js -->
+		<js name="buttonSpeed">window.jQuery('li.PT').css('display')</js>
+		<js name="buttonAuto">window.jQuery('li.PT').css('display')</js>
+		<js name="buttonStop">window.jQuery('li.PT').css('display')</js>
+		<js name="buttonZoomIn">window.jQuery('#mydlink_camera_PTZ_zoom_in').css('display')</js>
+		<js name="buttonZoomOut">window.jQuery('#mydlink_camera_PTZ_zoom_out').css('display')</js>
+		<js name="buttonZoomReset">window.jQuery('#mydlink_camera_PTZ_zoom_reset').css('display')</js>
+		<js name="liveVideoHeight">window.jQuery("#player_iframe").contents().find('#player')[0].clientHeight</js>
+		<js name="liveVideoWidth">window.jQuery("#player_iframe").contents().find('#player')[0].clientWidth</js>
+		
+		<jsEachBrowser name="liveVideoHeight">
+			<ie>window.jQuery("#player_container")[0].clientHeight</ie>
+			<notIe>window.jQuery("#player_iframe").contents().find('#player')[0].clientHeight</notIe>
+		</jsEachBrowser>
+		
+		<jsEachBrowser name="liveVideoWidth">
+			<ie>window.jQuery("#player_container")[0].clientWidth</ie>
+			<notIe>window.jQuery("#player_iframe").contents().find('#player')[0].clientWidth</notIe>
+		</jsEachBrowser>
+		
+	</targets>
+	<messages>
+		<message name="signOutLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign out</content>
+		</message>
+		<message name="myProfile">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">My Profile</content>
+		</message>
+		<message name="myDevices">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">My Devices</content>
+		</message>
+		<message name="browserErrorTitle">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Unsupported Browser Detected!</content>
+		</message>
+		<message name="browserErrorText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">You are currently using an unsupported browser.Please use Internet Explorer, Firefox, Chrome, or Safari to view this page. </content>
+		</message>
+		<message name="downloadJRETitle">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Java Runtime Environment Needed!</content>
+		</message>
+		<message name="downloadJREText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">You will need to download and install the Java Runtime Environment in order to view video from your camera.</content>
+		</message>
+		<message name="noDevice">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Your account has no devices yet.</content>
+		</message>
+		<message name="maximumConnectionsTitle">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Maximum number of viewers reached</content>
+		</message>
+		<message name="maximumConnectionsText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">This camera is already being viewed by 3 viewers.Please wait for a while, then click Refresh to try again.</content>
+		</message>
+		<message name="titleBar">
+			<content language="zh_CN">我的设备</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">My Devices</content>
+		</message>
+		<message name="MydeviceTitelText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink - Device</content>
+		</message>
+		<message name="NoDeviceMessage">
+			<content language="zh_CN">您的帐户中无设备.</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Your account has no devices yet.</content>
+		</message>
+		<message name="DeleteDeviceBtn">
+			<content language="zh_CN">删除设备</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Delete Device</content>
+		</message>
+		<message name="Setup">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">SETUP</content>
+		</message>
+		<message name="Maintenance">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">MAINTENANCE</content>
+		</message>
+		<message name="LinkLiveVideoText">
+			<content language="zh_CN">实时视频</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Live Video</content>
+		</message>
+		<message name="LinkCameraInfoText">
+			<content language="zh_CN">摄像机信息</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Camera Info</content>
+		</message>
+		<message name="LinkCameraSettingsText">
+			<content language="zh_CN">摄像机设置</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Camera Settings</content>
+		</message>
+		<message name="ButtonOK">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">OK</content>
+		</message>
+		<message name="ErrorPasswordMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The password is incorrect. Please try again.</content>
+		</message>
+		<message name="NullPasswordMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The password is incorrect. Please try again.</content>
+		</message>
+		<message name="DevicePasswordVerificationNeeded">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Device Password Verification Needed!</content>
+		</message>
+		<message name="ThePasswordOfThisDeviceHasBeenChanged">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The password of this device has been changed.</content>
+		</message>
+		<message name="PleaseEnterYourDevicePassword">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please enter your Device Password below to verify:</content>
+		</message>
+		<message name="OfflineMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Your camera is offline.</content>
+		</message>
+		
+		<message name="basicInfoSpan">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Basic Information</content>
+		</message>
+		<message name="buttonSpeed">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">speed</content>
+		</message>
+		<message name="buttonAuto">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">auto pan</content>
+		</message>
+		<message name="buttonStop">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">stop</content>
+		</message>
+		<message name="buttonZoomIn">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">zoom in</content>
+		</message>
+		<message name="buttonZoomOut">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">zoom out</content>
+		</message>
+		<message name="buttonZoomReset">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">zoom 100%</content>
+		</message>	
+		<message name="stateMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Connecting to your camera</content>
+		</message>	
+		<message name="relayCountDownFront">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Remaining Time:</content>
+		</message>	
+		<message name="relayCountDownBack">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">seconds</content>
+		</message>	
+		<!-- DevicePasswordVerificationNeeded -->
+		<message name="ErrorPasswordMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The password is incorrect. Please try again.</content>
+		</message>
+		<message name="NullPasswordMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The password is incorrect. Please try again.</content>
+		</message>
+		<message name="DevicePasswordVerificationNeeded">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Device Password Verification Needed!</content>
+		</message>
+		<message name="ThePasswordOfThisDeviceHasBeenChanged">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The password of this device has been changed.</content>
+		</message>
+		<message name="PleaseEnterYourDevicePassword">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please enter your Device Password below to verify:</content>
+		</message>
+		<message name="ConnectingToYourCamera">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Connecting to your camera</content>
+		</message>
+	</messages>
+	
+	<images>
+		<image name="relayCountDownImg">/images/ucp/help.gif</image>
+	</images>
+	
+	<buttons>
+		<deviceButton name="DCS-1130L">
+			<button>
+				<name>buttonSpeed</name>
+				<buttonDisplay>
+					<broswer name="ie">false</broswer>
+					<broswer name="notIe">false</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonAuto</name>
+				<buttonDisplay>
+					<broswer name="ie">false</broswer>
+					<broswer name="notIe">false</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonStop</name>
+				<buttonDisplay>
+					<broswer name="ie">false</broswer>
+					<broswer name="notIe">false</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomIn</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomOut</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomReset</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+		</deviceButton>
+		<deviceButton name="DCS-1130">
+			<button>
+				<name>buttonSpeed</name>
+				<buttonDisplay>
+					<broswer name="ie">false</broswer>
+					<broswer name="notIe">false</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonAuto</name>
+				<buttonDisplay>
+					<broswer name="ie">false</broswer>
+					<broswer name="notIe">false</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonStop</name>
+				<buttonDisplay>
+					<broswer name="ie">false</broswer>
+					<broswer name="notIe">false</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomIn</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomOut</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomReset</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+		</deviceButton>
+		<deviceButton name="DCS-930L">
+			<button>
+				<name>buttonSpeed</name>
+				<buttonDisplay>
+					<broswer name="ie">false</broswer>
+					<broswer name="notIe">false</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonAuto</name>
+				<buttonDisplay>
+					<broswer name="ie">false</broswer>
+					<broswer name="notIe">false</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonStop</name>
+				<buttonDisplay>
+					<broswer name="ie">false</broswer>
+					<broswer name="notIe">false</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomIn</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomOut</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomReset</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+		</deviceButton>
+		<deviceButton name="DCS-5230L">
+			<button>
+				<name>buttonSpeed</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonAuto</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonStop</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomIn</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomOut</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+			<button>
+				<name>buttonZoomReset</name>
+				<buttonDisplay>
+					<broswer name="ie">true</broswer>
+					<broswer name="notIe">true</broswer>
+				</buttonDisplay>
+			</button>
+		</deviceButton>
+	</buttons>
+</info>

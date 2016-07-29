@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+		<pagePath name="Entrance">/entrance</pagePath>
+		<pagePath name="Support">/support</pagePath>
+		<pagePath name="Lite">/Lite</pagePath>
+		<pagePath name="Signout">/signout</pagePath>
+		<pagePath name="Error404">/Error404</pagePath>
+		<pagePath name="Qa3_19549277">http://19549277.qa3.mydlink.com</pagePath>
+		<pagePath name="TWQA_19549277">http://19549277.twqa.mydlink.com</pagePath>
+		<pagePath name="Contact">/contact</pagePath>
+		<pagePath name="Faq">/faq</pagePath>
+		<pagePath name="WhatsMydlink">/whats_mydlink</pagePath>
+		<pagePath name="Login">/login</pagePath>
+		<pagePath name="Profile">/profile</pagePath>
+		<pagePath name="RequestPassword">/request_password</pagePath>
+	</targets>
+</info>

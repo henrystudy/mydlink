@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+		<pagePath name="pagePath">/profile</pagePath>
+		
+		<!-- Xpath -->
+		<xpath name="titleBar">//div[@class='jeff1']/div[@class='jeff2']/span[@class='floatl']</xpath>
+		<xpath name="EditBasicInfo">//div[@class='whitebox']/div[@class='titlebar'][3]/div[@class='btn floatr']</xpath>
+		<xpath name="Editemail">//div[@class='whitebox']/div[@class='titlebar']/div[@id='btn_email_edit']</xpath>
+		<xpath name="EditPassword">//div[@id='btn_password_edit']</xpath>
+		<xpath name="TitlemydlinkPasswordText">//div[@class='whitebox']/div[@class='titlebar'][2]/div[@class='floatl']</xpath>
+		<xpath name="TitleSignInAccountText">//div[@class='whitebox']/div[@class='titlebar'][1]/div[@class='floatl']</xpath>
+		
+		
+		<xpath name="signinEmail">//div[@class='whitebox']/table[@class='info2'][1]//td[2]</xpath>
+		<xpath name="LabelFirstNameText">//div[@class='whitebox']/table[@class='info2'][2]//tr[1]/td[1]</xpath>
+		<xpath name="LabelLastNameText">//div[@class='whitebox']/table[@class='info2'][2]//tr[2]/td[1]</xpath>
+		<xpath name="LabelDateOfBirthText">//div[@class='whitebox']/table[@class='info2'][2]//tr[3]/td[1]</xpath>
+		<xpath name="LabelGenderText">//div[@class='whitebox']/table[@class='info2'][2]//tr[4]/td[1]</xpath>
+		<xpath name="LabelContactMeInText">//div[@class='whitebox']/table[@class='info2'][2]//tr[5]/td[1]</xpath>
+		<xpath name="LabelCountryText">//div[@class='whitebox']/table[@class='info2'][2]//tr[6]/td[1]</xpath>
+		<xpath name="LabelAddressText">//div[@class='whitebox']/table[@class='info2'][2]//tr[7]/td[1]</xpath>
+		<xpath name="LabelCityText">//div[@class='whitebox']/table[@class='info2'][2]//tr[9]/td[1]</xpath>
+		<xpath name="LabelStateProvinceText">//div[@class='whitebox']/table[@class='info2'][2]//tr[10]/td[1]</xpath>
+		<xpath name="LabelStateProvinceText">//div[@class='whitebox']/table[@class='info2'][2]//tr[11]/td[1]</xpath>
+		<xpath name="LabelPhoneText">//div[@class='whitebox']/table[@class='info2'][2]//tr[12]/td[1]</xpath>
+		
+		<xpath name="FirstNameValue">//div[@class='whitebox']/table[@class='info2'][2]//tr[1]/td[2]</xpath>
+		<xpath name="LastNameValue">//div[@class='whitebox']/table[@class='info2'][2]//tr[2]/td[2]</xpath>
+		<xpath name="DateOfBirthValue">//div[@class='whitebox']/table[@class='info2'][2]//tr[3]/td[2]</xpath>
+		<xpath name="GenderValue">//div[@class='whitebox']/table[@class='info2'][2]//tr[4]/td[2]</xpath>
+		<xpath name="ContactMeInValue">//div[@class='whitebox']/table[@class='info2'][2]//tr[5]/td[2]</xpath>
+		<xpath name="CountryValue">//div[@class='whitebox']/table[@class='info2'][2]//tr[6]/td[2]</xpath>
+		<xpath name="AddressValue">//div[@class='whitebox']/table[@class='info2'][2]//tr[7]/td[2]</xpath>
+		<xpath name="CityValue">//div[@class='whitebox']/table[@class='info2'][2]//tr[9]/td[2]</xpath>
+		<xpath name="StateProvinceValue">//div[@class='whitebox']/table[@class='info2'][2]//tr[10]/td[2]</xpath>
+		<xpath name="ZIPPostalCodeValue">//div[@class='whitebox']/table[@class='info2'][2]//tr[11]/td[2]</xpath>
+		<xpath name="PhoneValue">//div[@class='whitebox']/table[@class='info2'][2]//tr[12]/td[2]</xpath>
+		<xpath name="unverified">//a[@href='/profile/emailUnverified']</xpath>
+		
+		<!-- JS -->
+		<js name="errMsgColorJS">window.jQuery('#errMsg').css('color')</js>
+	</targets>
+	
+	<messages>
+		<message name="titleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">My Profile</content>
+		</message>
+		<message name="LabelFirstNameText">
+			<content language="zh_CN">名：</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">First Name:</content>
+		</message>
+		<message name="LabelLastNameText">
+			<content language="zh_CN">姓：</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Last Name:</content>
+		</message>
+		<message name="LabelDateOfBirthText">
+			<content language="zh_CN">出生日期：</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Date of Birth:</content>
+		</message>
+		<message name="LabelGenderText">
+			<content language="zh_CN">性别：</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Gender:</content>
+		</message>
+		<message name="LabelContactMeInText">
+			<content language="zh_CN">联系语言：</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Contact me in:</content>
+		</message>
+		<message name="LabelCountryText">
+			<content language="zh_CN">国家：</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Country:</content>
+		</message>
+		<message name="LabelAddressText">
+			<content language="zh_CN">地址：</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Address:</content>
+		</message>
+		<message name="LabelCityText">
+			<content language="zh_CN">城市：</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">City:</content>
+		</message>
+		<message name="LabelStateProvinceText">
+			<content language="zh_CN">州/省:</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">State/Province:</content>
+		</message>
+		<message name="LabelZIPPostalCodeText">
+			<content language="zh_CN">ZIP/邮编：</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">ZIP/Postal code:</content>
+		</message>
+		<message name="LabelPhoneText">
+			<content language="zh_CN">电话号码（带区号）：</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Phone (with area code):</content>
+		</message>
+		<message name="TitleBar">
+			<content language="zh_CN">我的信息</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">My Profile</content>
+		</message>
+		<message name="LinkProfile">
+			<content language="zh_CN">我的信息</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">My Profile</content>
+		</message>
+		<message name="TitleSignInAccountText">
+			<content language="zh_CN">登录账户</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign-in Account</content>
+		</message>
+		<message name="TitlemydlinkPasswordText">
+			<content language="zh_CN">mydlink密码</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink Password</content>
+		</message>
+		<message name="TitleBasicInformationText">
+			<content language="zh_CN">基本信息</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Basic Information</content>
+		</message>
+		<message name="LabelEmailText">
+			<content language="zh_CN">电子邮件:</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">E-mail:</content>
+		</message>
+		<message name="ButtonEdit">
+			<content language="zh_CN">编辑</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Edit</content>
+		</message>
+		<message name="LinkUnverifiedText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Unverified</content>
+		</message>		
+		<message name="LabelFirstNameDisplayText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en"></content>
+		</message>
+		<message name="LabelLastNameDisplayText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">w</content>
+		</message>
+		<message name="LabelContactMeInDisplayText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">English</content>
+		</message>
+		<message name="Editemail">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Edit</content>
+		</message>
+		<message name="EditBasicInfo">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Edit</content>
+		</message>
+		
+		
+	</messages>
+	
+
+	
+</info>

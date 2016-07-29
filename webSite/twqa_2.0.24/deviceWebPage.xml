@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<pagePath name="19549277">http://19549277.twqa.mydlink.com</pagePath>
+		
+		<xpath name="stateMsgBar">//span[@id='span_progress_bar_msg']</xpath>
+		<xpath name="selectedTab">//td[@id='topnavon']/a</xpath>
+		<xpath name="headerTitle">//table[@id='header_container']/tbody/tr/td[1]</xpath>
+		<xpath name="changeMsg">//div[@id='box_header']/div/font</xpath>
+		<xpath name="mydlink_logo_wait">//a[@id='mydlink_logo']/img</xpath>
+		<xpath name="mydlink_logo">//a[@id='mydlink_logo']/img/@src</xpath>
+		<xpath name="ddnsMessage">//div[@class='popup']/p[@class='w_blueb12']</xpath>
+		<xpath name="ddnsOKButton">//div[@id='mydlink_signin']/div</xpath>
+		<xpath name="ddnsBottom">//div[@class='copyright floatl']</xpath>
+		<xpath name="ddnsMessage2_1">//div[@class='popup']/p[@class='w_blueb12']</xpath>
+		<xpath name="ddnsMessage2_2">//div[@class='popup']/p[2]</xpath>
+		<xpath name="ddnsMessage2_3">//div[@class='popup']/ul/li[1]</xpath>
+		<xpath name="ddnsMessage2_4">//div[@id='content_msg']/div[@class='popup']/ul/li[2]</xpath>
+		<xpath name="ddnsMessage2_5">//div[@id='content_msg']/div[@class='popup']</xpath>
+		<xpath name="ddnsBottom2">//div[@class='copyright']</xpath>
+		<xpath name="adminPasswordNew">//form[@id='form1']//input[@id='password']</xpath>
+		<xpath name="adminPasswordRetype">//form[@id='form1']//input[@id='admConfirm']</xpath>
+		<xpath name="adminPasswordButton">//form[@id='form1']//input[@name='button22']</xpath>
+	</targets>
+	<messages>
+		<message name="Setup">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">SETUP</content>
+		</message>
+		<message name="Maintenance">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">MAINTENANCE</content>
+		</message>
+		<message name="stateMsgText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Connecting to your device</content>
+		</message>
+		<message name="ddnsMessage2_1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">This mydlink Direct URL cannot be accessed.</content>
+		</message>
+		<message name="ddnsMessage2_2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">This may be due to one of the following reasons:</content>
+		</message>
+		<message name="ddnsMessage2_3">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The device has not been registered with a mydlink account yet.</content>
+		</message>
+		<message name="ddnsMessage2_4">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The device has been registered to another mydlink account.</content>
+		</message>
+		<message name="ddnsMessage2_5">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please check the mydlink Direct URL and your device and try again.</content>
+		</message>
+	
+		<message name="ddnsMessage">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">For security concerns, you will need to sign in to your mydlink account to access this page.</content>
+		</message>
+		<message name="ddnsOKButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">OK</content>
+		</message>
+		<message name="ddnsBottom">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Copyright©2008-2011 mydlink/D-Link Corporation Inc. All rights reserved.</content>
+		</message>
+	</messages>
+	<images>
+		<image name="mydlink_logo">images/ucp/logo.gif</image>
+	</images>
+</info>

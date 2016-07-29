@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>404 Error Page</testCaseName>
+	<annotation>
+		<description>1.2.10 404 error page.xml</description>
+		<created author="dayu.lei" date="2011-06-14" />
+		<lastUpdated author="dayu.lei" date="2011-06-14" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		
+		<!-- login out  -->
+		<Html command="open" target="xml(entrance).pagePath.pagePath" value=""></Html>
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(register).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Html command="clickAndWait" target="xml(commonInfo).xpath.signOutLink" value=""></Html>
+		
+		<!-- check Error Page information -->
+		<Html command="open" target="xml(404Error).pagePath.pagePath" value=""></Html>
+		
+		<!-- check Title -->
+		<Verify expected="xml(404Error).message.titleBar">
+			<Html command="getValue" target="xml(404Error).xpath.titleBar" value="" />
+		</Verify>
+		
+		<!-- check HEAD -->
+		<Verify expected="xml(commonInfo).message.mydlinkLiteLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLiteLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.signInToMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.signInToMydlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.notRegisteredLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.notRegisteredLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.FAQLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.FAQLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.SupportLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.SupportLink"
+				value="" />
+		</Verify>
+		<!-- check HEAD end -->
+		
+		<!-- check Logo -->
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo" value="" />
+		</Verify>
+		
+		<!-- check 404 page description -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText1">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText1" value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.PageError404DescriptionText11">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText11" value="" />
+		</Verify>
+			<Verify expected="true" type="RESULT">
+				<Html command="isTextPresent" target="xml(404Error).message.PageError404DescriptionText2" value="" />
+			</Verify>
+		<Verify expected="xml(404Error).message.PageError404DescriptionText21">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText21" value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.PageError404DescriptionText22">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText22" value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.PageError404DescriptionText23">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText23" value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.PageError404DescriptionText3">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText3" value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.PageError404DescriptionText4">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText4" value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.PageError404DescriptionText5">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText5" value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.ReturnToHomePageLinkText">
+			<Html command="getValue" target="xml(404Error).xpath.ReturnToHomePageLinkText" value="" />
+		</Verify>
+		<Verify expected="xml(404Error).message.ContactUsLinkText">
+			<Html command="getValue" target="xml(404Error).xpath.ContactUsLinkText" value="" />
+		</Verify>
+		
+		<!-- check button font color -->
+		<Verify expected="xml(commonInfo).color.blue">
+			<Html command="getValue" target="xml(404Error).js.buttonFontColorJS" value="" />
+		</Verify>
+		
+		<!-- check button bgcolor -->
+		<Verify expected="xml(commonInfo).image.buttonBG" type="contains">
+			<Html command="getValue" target="xml(404Error).js.buttonFontBgImgJS" value="" />
+		</Verify>
+		
+		<!-- check Error Page information-->
+		
+		<!-- check FOOT -->
+		<Verify expected="xml(commonInfo).message.globalDlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.globalDlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.aboutMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.aboutMydlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.termsOfUseLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.termsOfUseLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.privacyPolicyLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.privacyPolicyLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.contactUsLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.contactUsLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.bottom" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.bottom"
+				value="" />
+		</Verify>
+		
+	</TestCase>
+</Test>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>	
+		<!-- Xpath -->
+		<xpath name="titleBar">//div[@class='jeff1']/div[@class='jeff2']</xpath>
+	</targets>
+	<messages>
+		<message name="titleBar">
+			<content language="zh_CN">mydlink 隱私權政策</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">D-Link Privacy Policy</content>
+		</message>
+	</messages>
+</info>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.7.7 Delete Device (2.0.24 and later)</testCaseName>
+	<annotation>
+		<description>1.2.7.7 Delete Device (2.0.24 and later)</description>
+		<testCaseVersion>1</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="yue.chen" date="2011-07-11" />
+		<recordInfo account="onLine" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value="" />
+		<!-- login -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(onLine).device.1.sn" value=""></Function>
+		<Assert expected="true">
+			<Html command="waitForElementDisplay" target="xml(device).xpath.win_mydlinkTabBox" value="60"></Html>
+		</Assert>
+		<Html command="click" target="xml(device).xpath.LinkCameraInfoText" value=""></Html>
+		<Assert expected="true">
+			<Html command="waitForElementDisplay" target="xml(device.cameraInfo).xpath.DeleteCameraButton" value="60"></Html>
+		</Assert>
+		<Html command="click" target="xml(device.cameraInfo).xpath.DeleteCameraButton" value=""></Html>
+
+		<!-- 1: "Delete Device" window shows. -->
+		<Assert expected="true">
+			<Html command="waitForElementDisplay" target="xml(device.cameraInfo).xpath.DeleteDeviceTitle" value="60"></Html>
+		</Assert>
+
+		<!-- Delete Device -->
+		<Verify expected="xml(device.cameraInfo).message.DeleteDeviceTitle">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceTitle" value="" />
+		</Verify>
+
+		<!-- The following device will be deleted from your account: -->
+		<Verify expected="xml(device.cameraInfo).message.DeleteDeviceText1">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceText1" value="" />
+		</Verify>
+
+		<!-- Device name: DCS-1130 -->
+		<Verify expected="xml(device.cameraInfo).message.DeleteDeviceDeviceNameText">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceDeviceNameText" value="" />
+		</Verify>
+		<Verify expected="account(onLine).device.1.deviceName">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceDeviceName" value="" />
+		</Verify>
+
+		<!-- mydlink No.: 30035083 -->
+		<Verify expected="xml(device.cameraInfo).message.DeleteDeviceSNText">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceSNText" value="" />
+		</Verify>
+		<Verify expected="account(onLine).device.1.sn">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceSN" value="" />
+		</Verify>
+
+		<!-- Device model: DCS-1130 -->
+		<Verify expected="xml(device.cameraInfo).message.DeleteDeviceModelNameText">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceModelNameText" value="" />
+		</Verify>
+		<Verify expected="account(onLine).device.1.modelName">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceModelName" value="" />
+		</Verify>
+
+		<!-- Warning! -->
+		<Verify expected="xml(device.cameraInfo).message.DeleteDeviceWarningText">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceWarningText" value="" />
+		</Verify>
+
+		<!-- Remove the device will also remove any mydlink functions related to the device. -->
+		<Verify expected="xml(device.cameraInfo).message.DeleteDeviceWarningContext">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceWarningContext" value="" />
+		</Verify>
+
+		<!-- (With red color background.) -->
+		<Verify expected="xml(color).color.Pink">
+			<Html command="getValue" target="xml(device.cameraInfo).js.DeleteDeviceWarningBGColor" value="" />
+		</Verify>
+
+		<!-- Please enter your password to proceed: -->
+		<Verify expected="xml(device.cameraInfo).message.DeleteDeviceText2">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceText2" value="" />
+		</Verify>
+
+		<!-- text box: Password -->
+		<Verify expected="xml(device.cameraInfo).message.DeleteDeviceTextPassword">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceTextPassword" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(device.cameraInfo).xpath.DeleteDeviceTextPasswordInput" value="" />
+		</Verify>
+		
+		<!-- Two buttons ： Canel; Delete Device -->
+		<Verify expected="xml(device.cameraInfo).message.DeleteDeviceTextCancelButton">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceTextCancelButton" value="" />
+		</Verify>
+		<Verify expected="xml(device.cameraInfo).message.DeleteDeviceButton">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDeviceButton" value="" />
+		</Verify>
+		
+		<!-- 2: Another Delete Device page shows the complete delete information. -->
+
+		<!-- Message: -->
+
+		<!-- Delete Device -->
+
+		<!-- The following device has been successfully deleted from your mydlink account: -->
+
+		<!-- Deivce name: DCS-1130 -->
+		<!-- mydlink No.: 30035083 -->
+		<!-- Device model: DCS-1130 -->
+
+		<!-- To add the device to a mydlink account and enable remote access to it, please run the device's Setup Wizard again from its included CD, or you can download the Setup Wizard from 
+			the Support page. -->
+
+		<!-- Test Link: Support (with blue color) -->
+
+		<!-- Button: Done -->
+		
+		<!-- 删除设备步骤 略过 -->
+
+	</TestCase>
+</Test>

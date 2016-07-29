@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Camera Settings - UI</testCaseName>
+	<annotation>
+		<description>verify camera settings UI !</description>
+		<created author="dayu.lei" date="2011-06-22" />
+		<lastUpdated author="dayu.lei" date="2011-06-22" />
+		<recordInfo deviceIndex="1" account="onLine" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login begin -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox"
+			value="account(onLine).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox"
+			value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton"
+			value=""></Html>
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- select device -->
+		<Function command="selectDevice" target="account(onLine).device.1.sn"
+			value=""></Function>
+		
+		<!-- page test begin -->
+		<Html command="waitForElementDisplay" target="xml(device).xpath.LinkCameraSettingsText"
+			value="60"></Html>
+		<Html command="click" target="xml(device).xpath.LinkCameraSettingsText"
+			value=""></Html>
+		<Html command="waitForElementDisplay" target="xml(device_cameraSetting).xpath.displayPwd"
+			value="60"></Html>
+		<Verify expected="xml(device_cameraSetting).message.middleText" type="contains">
+			<Html command="getValue" target="xml(device_cameraSetting).xpath.middleContainText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device_cameraSetting).message.UserName" type="contains">
+			<Html command="getValue" target="xml(device_cameraSetting).xpath.middleContainText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device_cameraSetting).message.CameraPassword" type="contains">
+			<Html command="getValue" target="xml(device_cameraSetting).xpath.middleContainText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device_cameraSetting).message.ShowPassword" type="contains">
+			<Html command="getValue" target="xml(device_cameraSetting).xpath.middleContainText"
+				value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isVisible" target="xml(device_cameraSetting).xpath.displayPwd"
+				value="" />
+		</Verify>
+		<Verify expected="xxxxxxxx">
+			<Html command="getValue" target="xml(device_cameraSetting).xpath.displayPwd"
+				value="" />
+		</Verify>
+		<Html command="click" target="xml(device).xpath.checkBox"
+			value=""></Html>
+		<Verify expected="account(onLine).device.1.passwd" type="contains">
+			<Html command="getValue" target="xml(device_cameraSetting).xpath.displayPwd"
+				value="" />
+		</Verify>	
+		<!-- page test end -->
+		
+		<!-- common verify begin -->
+
+		<!-- check image  -->
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo"
+				value="" />
+		</Verify>
+		 
+		<!-- check titleBar  -->
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar" value="" />
+		</Verify>
+		
+		<!-- check header  -->
+		<Verify expected="xml(commonInfo).message.mydlinkLiteLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLiteLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.myDevicesLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myDevicesLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.myProfileLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myProfileLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.signOutLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.signOutLink" value="" />
+		</Verify>
+		
+		<!-- check footer -->
+		<Verify expected="xml(commonInfo).message.globalDlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.globalDlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.aboutMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.aboutMydlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.termsOfUseLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.termsOfUseLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.privacyPolicyLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.privacyPolicyLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.contactUsLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.contactUsLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.bottom" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.bottom"
+				value="" />
+		</Verify>
+		<!-- check footer end  -->
+	
+		<!-- common verify end -->			
+	</TestCase>
+</Test>

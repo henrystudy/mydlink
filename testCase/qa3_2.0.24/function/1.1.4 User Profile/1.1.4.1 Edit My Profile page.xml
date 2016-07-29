@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.1.4.1 Edit My Profile page.xml</testCaseName>
+	<annotation>
+		<description>1.1.4.1 Edit My Profile page.xml</description>
+		<testCaseVersion>7</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="yue.chen" date="2011-07-07" />
+		<recordInfo deviceIndex="1" account="myprofile" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(myprofile).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(myprofile).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+
+		<!-- 1. Verify the my profile page will be displayed. -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Verify expected="xml(header).message.MyProfileLink">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLink" value="" />
+		</Verify>
+
+		<!-- 2. Verify below inputs are allowed for first name: -->
+		<!--  Spaces, apostrophe -->
+		<!--  special characters on the keyboard -->
+		<!--  different language eg. Chinese -->
+		<Html command="type" target="xml(myProfile).xpath.FirstNameValue" value="l '/中国@$%" />
+		<Verify expected="l '/中国@$%">
+			<Html command="getValue" target="xml(myProfile).xpath.FirstNameValue" value="" />
+		</Verify>
+
+		<!-- Without entering the name. -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Html command="type" target="xml(myProfile).xpath.FirstNameValue" value="" />
+
+
+		<!-- Click Save button. -->
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(myprofile).pwd" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveButton" value="" />
+
+		<!-- 3. Verify the text "Please enter your first name." with red colour will display under the text box. -->
+		<Verify expected="xml(myProfile).message.LabelFirstNameWarning">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelFirstNameWarning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(myProfile).js.WarningColor" value="" />
+		</Verify>
+
+		<!-- 4. Verify below inputs are allowed for last name: -->
+		<!--  Spaces, apostrophe -->
+		<!--  special characters on the keyboard -->
+		<!--  different language eg. Chinese -->
+		<Html command="type" target="xml(myProfile).xpath.LastNameValue" value="l '/中国@$%" />
+		<Verify expected="l '/中国@$%">
+			<Html command="getValue" target="xml(myProfile).xpath.LastNameValue" value="" />
+		</Verify>
+
+		<!-- Input the first name. -->
+		<!-- Leave the last name empty, click "Save". -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Html command="type" target="xml(myProfile).xpath.LastNameValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(myprofile).pwd" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveButton" value="" />
+
+		<!-- 5. Verify the text "Please enter your last name." with red colour will display under the text box. -->
+		<Verify expected="xml(myProfile).message.LabelLastNameWarning">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelLastNameWarning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(myProfile).js.WarningColor" value="" />
+		</Verify>
+
+		<!-- 6. Verify there are two radio buttons for "Gender" , are MALE, FEMALE. -->
+		<!-- Verify the default is non selected. -->
+		<Verify expected="xml(myProfile).message.LabelGenderText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelGenderText" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.LabelMale">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelMale" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.LabelIFemale">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelIFemale" value="" />
+		</Verify>
+
+		<!-- 7. Verify there are three drop-down menu beside the "Date Of Birth", were year, month, day. -->
+		<Verify expected="xml(myProfile).message.LabelDateOfBirthText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelDateOfBirthText" value="" />
+		</Verify>
+
+		<!-- Verify the default is "january 01 1900" . -->
+		<Verify expected="1900">
+			<Html command="getSelectedLabel" target="xml(myProfile).xpath.DateOfBirthYearValue" value="" />
+		</Verify>
+		<Verify expected="01">
+			<Html command="getSelectedLabel" target="xml(myProfile).xpath.DateOfBirthDayValue" value="" />
+		</Verify>
+		<Verify expected="January">
+			<Html command="getSelectedLabel" target="xml(myProfile).xpath.DateOfBirthMonthValue" value="" />
+		</Verify>
+
+		<!-- 8. Verify there is a pull-down menu beside "Language". -->
+		<Verify expected="xml(myProfile).message.LabelContactMeInText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelContactMeInText" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isVisible" target="xml(myProfile).xpath.ContactMeInValue" value="" />
+		</Verify>
+
+		<!-- Verify default shows the language selected from the user running the wizard -->
+		<Verify expected="" type="contains">
+			<Html command="getSelectedLabel" target="xml(myProfile).xpath.ContactMeInValue" value="" />
+		</Verify>
+
+		<!-- 9. Verify there is a pull-down menu beslide "Country". -->
+		<Verify expected="xml(myProfile).message.LabelCountryText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelCountryText" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isVisible" target="xml(myProfile).xpath.CountryValue" value="" />
+		</Verify>
+
+		<!-- Verify the default is"Please select…." -->
+		<Verify expected="" type="contains">
+			<Html command="getSelectedLabel" target="xml(myProfile).xpath.CountryValue" value="" />
+		</Verify>
+
+		<!-- 10. Verify there are two text boxes for "Address". -->
+		<Verify expected="xml(myProfile).message.LabelAddressText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelAddressText" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isVisible" target="xml(myProfile).xpath.Address1Value" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isVisible" target="xml(myProfile).xpath.Address2Value" value="" />
+		</Verify>
+
+		<!-- Verify each text box accepts: multiple language, all characters on the keyboard -->
+		<Html command="type" target="xml(myProfile).xpath.Address1Value" value="l '/中国@$%" />
+		<Verify expected="l '/中国@$%">
+			<Html command="getValue" target="xml(myProfile).xpath.Address1Value" value="" />
+		</Verify>
+		<Html command="type" target="xml(myProfile).xpath.Address2Value" value="l '/中国@$%" />
+		<Verify expected="l '/中国@$%">
+			<Html command="getValue" target="xml(myProfile).xpath.Address2Value" value="" />
+		</Verify>
+
+		<!-- 11. Verify there is a text box for "City". -->
+		<!-- Verify it accepts multiple language, all characters on the keyboard -->
+		<Html command="type" target="xml(myProfile).xpath.CityValue" value="l '/中国@$%" />
+		<Verify expected="l '/中国@$%">
+			<Html command="getValue" target="xml(myProfile).xpath.CityValue" value="" />
+		</Verify>
+
+		<!-- 12. Verify there is a text box for "State/Province". -->
+		<!-- Verify it accepts multiple language, all characters on the keyboard -->
+		<Html command="type" target="xml(myProfile).xpath.StateProvinceValue" value="l '/中国@$%" />
+		<Verify expected="l '/中国@$%">
+			<Html command="getValue" target="xml(myProfile).xpath.StateProvinceValue" value="" />
+		</Verify>
+
+		<!-- 13. Verify there is a text box for "ZIP/Postal code". -->
+		<!-- Verify able to accept Canadian postal codes: 0~9, A~Z, space, dash -->
+		<Html command="type" target="xml(myProfile).xpath.StateProvinceValue" value="4 4-k" />
+		<Verify expected="4 4-k">
+			<Html command="getValue" target="xml(myProfile).xpath.StateProvinceValue" value="" />
+		</Verify>
+
+		<!-- Input the ZIP/Postal code with incorrect format. -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Html command="type" target="xml(myProfile).xpath.ZIPPostalCodeValue" value="你好" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(myprofile).pwd" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveButton" value="" />
+
+		<!-- 14. Verify the text "ZIP/Postal code contains invalid characters." with red colour will display under the text box. -->
+		<Verify expected="xml(myProfile).message.LabelZIPPostalCodeWarning">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelZIPPostalCodeWarning" value="" />
+		</Verify>
+
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(myProfile).js.WarningColor" value="" />
+		</Verify>
+
+		<!-- 15. Verify there is a text box for "Phone(With area code)". -->
+		<!-- Verify able to accept Canadian postal codes: 0~9,space, dash -->
+		<Html command="type" target="xml(myProfile).xpath.PhoneValue" value="4 4-k" />
+		<Verify expected="4 4-k">
+			<Html command="getValue" target="xml(myProfile).xpath.PhoneValue" value="" />
+		</Verify>
+
+		<!-- Input the Phone(With area code) with incorrect format. -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Html command="type" target="xml(myProfile).xpath.PhoneValue" value="你好" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(myprofile).pwd" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveButton" value="" />
+
+		<!-- 16. Verify the text "Phone number contains invalid characters." with red colour will display under the text box. -->
+		<Verify expected="xml(myProfile).message.LabelPhoneWarning">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelPhoneWarning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(myProfile).js.WarningColor" value="" />
+		</Verify>
+
+		<!-- 17. Verify the default is unchecked -->
+		<Verify expected="off">
+			<Html command="getValue" target="xml(myProfile).xpath.IWouldLikeInput" value="" />
+		</Verify>
+
+		<!-- Fill some informations in above item. Click "Reset" button. -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Html command="type" target="xml(myProfile).xpath.PhoneValue" value="Reset" />
+		<Html command="type" target="xml(myProfile).xpath.StateProvinceValue" value="Reset" />
+		<Html command="type" target="xml(myProfile).xpath.FirstNameValue" value="Reset" />
+		<Html command="type" target="xml(myProfile).xpath.LastNameValue" value="Reset" />
+		<Html command="type" target="xml(myProfile).xpath.Address1Value" value="Reset" />
+		<Html command="type" target="xml(myProfile).xpath.Address2Value" value="Reset" />
+		<Html command="type" target="xml(myProfile).xpath.CityValue" value="Reset" />
+		<Html command="type" target="xml(myProfile).xpath.ZIPPostalCodeValue" value="Reset" />
+		<Html command="click" target="xml(myProfile).xpath.ResetButton" value="" />
+		<Html command="sleep" target="2" value="Reset" />
+
+		<!-- 18. Verify the changed information can not be saved and will be reset to previous configuation. -->
+		<Verify expected="account(myprofile).firstName">
+			<Html command="getValue" target="xml(myProfile).xpath.FirstNameValue" value="" />
+		</Verify>
+		<Verify expected="account(myprofile).lastName">
+			<Html command="getValue" target="xml(myProfile).xpath.LastNameValue" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(myProfile).xpath.Address1Value" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(myProfile).xpath.Address2Value" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(myProfile).xpath.CityValue" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(myProfile).xpath.ZIPPostalCodeValue" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(myProfile).xpath.PhoneValue" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(myProfile).xpath.StateProvinceValue" value="" />
+		</Verify>
+
+		<!-- 19. Verify "Profile saved." message box will pop up "The change on your profile information has been saved. " Click ok button the updated information is saved. -->
+		<!-- Input correct "Current Password". Click "Save" button after all enter is OK. -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="type" target="xml(myProfile).xpath.CityValue" value="test" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(myprofile).pwd" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Html command="waitForElementDisplay" target="xml(myProfile).xpath.ProfileSaved" value="60" />
+		<Html command="click" target="xml(myProfile).xpath.ProfileSavedButton" value="" />
+		<Verify expected="test">
+			<Html command="getValue" target="xml(myProfile).xpath.CityValue" value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="type" target="xml(myProfile).xpath.CityValue" value="" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(myprofile).pwd" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Html command="waitForElementDisplay" target="xml(myProfile).xpath.ProfileSaved" value="60" />
+		<Html command="click" target="xml(myProfile).xpath.ProfileSavedButton" value="" />
+		<Verify expected="">
+			<Html command="getValue" target="xml(myProfile).xpath.CityValue" value="" />
+		</Verify>
+
+		<!-- 20. Select "Language", the language of page will translate to the correct language. -->
+		<Html command="clickAndWait" target="xml(header).xpath.Language5" value="" />
+		<Verify expected="English" type="notContains">
+			<Html command="getValue" target="xml(header).xpath.Language" value="" />
+		</Verify>
+	</TestCase>
+</Test>

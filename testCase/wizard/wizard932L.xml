@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>wizard1130.xml</testCaseName>
+	<annotation>
+		<description>wizard1130.xml</description>
+		<testCaseVersion>1</testCaseVersion>
+		<created author="yue.chen" date="2011-04-23" />
+		<lastUpdated author="yue.chen" date="2011-05-16" />
+	</annotation>
+	<TestCase>
+	<!-- 变量赋值 -->
+	<!-- 是否有密碼 有的話 true 沒有為false -->
+	<Html command="setProperty" target="mimafalg" value="false" />
+	<!-- 设备密码 -->
+	<Html command="setProperty" target="mima" value="mydlink" />
+	
+	<!-- 是否创新账号創建的話 true 綁定到舊的帳號為false -->
+	<Html command="setProperty" target="falg" value="true" />
+	<!-- email账号 -->
+	<Html command="setProperty" target="email" value="mydlink" />
+	<!-- 密码 -->
+	<Html command="setProperty" target="pwd" value="mylink123" />
+	<!-- firstname -->
+	<Html command="setProperty" target="firstname" value="firstname" />
+	<!-- lastname -->
+	<Html command="setProperty" target="lastname" value="lastname" />
+	
+	<Html command="open" target="url(wizard).932L" value="" />
+	
+	<!-- 第一面 -->
+	<Html command="waitForElementDisplay" target="xpath(wizard).StartButton" value="60" />
+	
+	<Html command="clickAndWait" target="xpath(wizard).StartButton" value="" />
+
+	<!-- 第二面 -->
+	<Html command="waitForElementDisplay" target="xpath(wizard).RouterWPSNext" value="60" />
+	
+	<Html command="clickAndWait" target="xpath(wizard).RouterWPSNext" value="" />
+
+	<!-- 第四面 -->
+	<Html command="waitForElementDisplay" target="xpath(wizard).CameraBaseNext" value="60" />
+	
+	<Html command="clickAndWait" target="xpath(wizard).CameraBaseNext" value="" />
+	
+	<!-- 第五面 -->
+	<Html command="waitForElementDisplay" target="xpath(wizard).EthernetCableNext" value="60" />
+	
+	<Html command="clickAndWait" target="xpath(wizard).EthernetCableNext" value="" />
+	
+	<!-- 第六面 -->
+	<Html command="waitForElementDisplay" target="xpath(wizard).PowerAdapterNext" value="60" />
+	
+	<Html command="clickAndWait" target="xpath(wizard).PowerAdapterNext" value="" />
+	
+	<!-- 第led面 -->
+	<Html command="waitForElementDisplay" target="xpath(wizard).GreenYes" value="60" />
+	
+	<Html command="click" target="xpath(wizard).GreenYes" value="" />
+	
+	<Html command="sleep" target="20" value="" />
+	
+	<!-- 选择设备 -->
+	<Html command="waitForElementDisplay" target="xpath(wizard).SelectCameraNext" value="60" />
+	
+	<Html command="clickAndWait" target="xpath(wizard).SelectCameraNext" value="" />
+
+	<!-- 输入密码 -->
+	<Choose>
+		<When>
+			<Verify expected="true" type="contains">
+				<Html command="getTarget" target="${mimafalg}" value="" />
+			</Verify>
+		</When>
+		<Do>
+			<Html command="type" target="xpath(wizard).Passwd_old" value="${mima}" />
+			
+			<Html command="waitForElementDisplay" target="xpath(wizard).PasswdNext1" value="60" />
+	
+			<Html command="clickAndWait" target="xpath(wizard).PasswdNext1" value="" />
+		</Do>
+		<Otherwise>
+			<Html command="type" target="xpath(wizard).Passwd_new" value="${mima}" />
+			
+			<Html command="type" target="xpath(wizard).Passwd_new_r" value="${mima}" />
+			
+			<Html command="waitForElementDisplay" target="xpath(wizard).PasswdNext2" value="60" />
+	
+			<Html command="clickAndWait" target="xpath(wizard).PasswdNext2" value="" />
+		</Otherwise>
+	</Choose>
+	
+	<!-- Set up your network -->
+	<Html command="waitForElementDisplay" target="xpath(wizard).NetworkNext" value="60" />
+	
+	<Html command="clickAndWait" target="xpath(wizard).NetworkNext" value="" />
+	
+	<!-- Let's add your camera to your mydlink account -->
+	<Html command="waitForElementDisplay" target="xpath(wizard).HaveAccoutYes" value="60" />
+	
+	<Choose>
+		<When>
+			<Verify expected="false" type="contains">
+				<Html command="getTarget" target="${falg}" value="" />
+			</Verify>
+		</When>
+		<Do>
+			<Html command="click" target="xpath(wizard).HaveAccoutYes" value="" />
+	
+			<Html command="sleep" target="2" value="" />
+	
+			<Html command="type" target="xpath(wizard).dlife_email" value="${email}" />
+			
+			<Html command="type" target="xpath(wizard).dlife_passwd" value="${pwd}" />
+	
+			<Html command="waitForElementDisplay" target="xpath(wizard).AccountNext" value="60" />
+	
+			<Html command="clickAndWait" target="xpath(wizard).AccountNext" value="" />
+		</Do>
+		<Otherwise>
+			<Html command="click" target="xpath(wizard).HaveAccoutNo" value="" />
+	
+			<Html command="sleep" target="2" value="" />
+	
+			<Html command="type" target="xpath(wizard).dlife_signup_email" value="${email}" />
+			
+			<Html command="type" target="xpath(wizard).dlife_signup_passwd" value="${pwd}" />
+			
+			<Html command="type" target="xpath(wizard).dlife_signup_passwd_retype" value="${pwd}" />
+			
+			<Html command="type" target="xpath(wizard).dlife_signup_name_first" value="${firstname}" />
+			
+			<Html command="type" target="xpath(wizard).dlife_signup_name_last" value="${lastname}" />
+			
+			<Html command="click" target="xpath(wizard).dlife_signup_EULA" value="" />
+	
+			<Html command="waitForElementDisplay" target="xpath(wizard).AccountNext" value="60" />
+	
+			<Html command="click" target="xpath(wizard).AccountNext" value="" />
+		</Otherwise>
+	</Choose>
+	
+	
+	<!-- <Html command="sleep" target="10" value="" /> -->
+	
+	<Html command="waitForElementDisplay" target="xpath(wizard).Btn_Finish" value="30" />
+	</TestCase>
+</Test>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+
+	<targets>
+		<xpath name="TitleBarText">//span[@class='floatl']</xpath>
+		<xpath name="ContentText">//body/div[3]</xpath>
+		<xpath name="ContentImage1">//body/div[3]//li[1]/img[1]/@src</xpath>
+		<xpath name="ContentImage2">//body/div[3]//li[1]/img[2]/@src</xpath>
+		<xpath name="ButtonImage">//body/div[3]//li[2]/img/@src</xpath>
+		
+		<xpath name="Link">//a[@href='/download']</xpath>
+	</targets>
+
+	<messages>
+		<message name="TitleBarText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">How to signup mydlink?</content>
+		</message>
+		<message name="ContentText1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">To register with www.mydlink.com you need to have a mydlink enabled product. Learn more about those products at mydlink.dlink.com.</content>
+		</message>
+		<message name="ContentText2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Place the CD that was included with your mydlinkTM-enabled device into your CD-ROM drive, and make sure your PC has an Internet connection, and the Installation Wizard will start automatically.If you cannot find your Installation CD, you can download the Installation Wizard for your model by visiting qa3.mydlink.com/downloadIf the Installation Wizard does not start, open the CD from My Computer, and double-click the autorun.exe file. Vista Users: You need to be logged in to an account with administrative access to use the D-Link Installation Wizard.If you see the following screen appear, select a user account with administrative access, enter the password if needed, then click OK.</content>
+		</message>
+		<message name="ContentText3">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">If you see this screen appear, click Allow to continue.</content>
+		</message>
+		<message name="ContentText4">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Click on the Start button to start the wizard, and follow the instructions from the Setup Wizard to finish setting up your device.</content>
+		</message>
+	</messages>
+	<images>
+		<image name="ContentImage1">/images/ucp/noreg1.gif</image>
+		<image name="ContentImage2">/images/ucp/noreg2.gif</image>
+		<image name="ButtonImage">/images/ucp/noreg3.gif</image>
+	</images>
+
+</info>

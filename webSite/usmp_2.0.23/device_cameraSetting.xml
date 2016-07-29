@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+		
+		<!-- Xpath -->
+		<xpath name="checkBox">//div[@class='whitebox']/input[@type='checkbox']</xpath>
+		<xpath name="displayPwd">//span[@id='b_password']</xpath>
+		<!--<xpath name="noDisplayPwd">//span[@id='b_password_hide']</xpath>-->
+		<xpath name="middleContainText">//div[@class='whitebox']</xpath>
+		<xpath name="cameraWebPageButton">//div[@id='win_content']//div[@class='btn floatl']</xpath>		
+		
+		<!-- JS -->
+		<js name="errMsgColorJS">window.jQuery('#errMsg').css('color')</js>
+	</targets>
+	
+	<messages>
+		<message name="DownloadLink">
+			<content language="zh_CN">下载</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Download</content>
+		</message>
+		<message name="FAQLink">
+			<content language="zh_CN">常见问题</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">FAQ</content>
+		</message>
+		<message name="middleText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please use the following password to sign in to the Camera Utility after clicking Camera web page.</content>
+		</message>
+			<message name="UserName">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">User name:</content>
+		</message>
+			<message name="CameraPassword">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Camera Password:</content>
+		</message>
+			<message name="ShowPassword">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Show Password</content>
+		</message>
+	</messages>
+	
+	<images>
+		<image name="logoImg">/images/ucp/dlife_logo.gif</image>
+	</images>
+	
+</info>

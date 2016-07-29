@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.6.1 FW update needed page.xml</testCaseName>
+	<annotation>
+		<description>1.2.6.1 FW update needed page.xml</description>
+		<testCaseVersion>4</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="yue.chen" date="2011-07-07" />
+		<recordInfo deviceIndex="1" account="fw" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		<!-- login -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(fw).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(fw).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(fw).device.1.sn" value=""></Function>
+		<Html command="waitForElementDisplay" target="xml(fwupgrade).xpath.UpdateLater" value="120" />
+		<!-- Logo: -->
+		<!-- mydlink(image link) -->
+		<!-- Title bar: -->
+		<!-- My Devices -->
+		<!-- Hyperlink texts: -->
+		<!-- top right corner: FAQ | Support -->
+		<!-- normal status: normal white fonts -->
+		<!-- mouseover status: underline effect -->
+		<!-- Dropdown list: the language selections as below: -->
+		<!-- Language English▼ -->
+		<!-- Française -->
+		<!-- Español -->
+		<!-- Português -->
+		<!-- 中文(繁體) -->
+		<!-- 中文(简体) -->
+		<!-- top left Navigation: My Devices | My Profile ("My Devices" is selected by default) -->
+		<!-- selected status: deepen background blue color -->
+		<!-- normal status: white fonts -->
+		<!-- mouseover status: deepen background color effect -->
+		<!-- top right corner: Sign out -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<!-- bottom: Global D-Link || About mydlink || Terms of Use || Privacy Policy || Contact US -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<ImportXML src="commonUI.xml"></ImportXML>
+
+		<!-- Device list: -->
+		<!-- List all registered devices on the left of live view UI. -->
+		<!-- Device list item structure: [camera icon] [device name] [mydlink No.] -->
+		<!-- normal status: gray fonts (Normal status for items after in list: no top-border) -->
+		<!-- mouseover status: bright color and change text color of device name to bold black fonts -->
+		<!-- selected status: bright color and change text color of device name to bold black fonts(no top-border) -->
+		<!-- Show below tooltips when mouse over: [device name] ([mydlink No.]) -->
+		<!-- The camera offline status icon(a white character "x" in red circle ) displays in right bottom of the camera icon. -->
+
+		<!-- Button: -->
+		<!-- top left corner: Delete Device -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: bright color and change text of button to be black color and underline effect. -->
+		<!-- middle bottom: Update now(blue background and bold white fonts) -->
+
+		<!-- Update later(white background and bold blue fonts) -->
+		<Verify expected="xml(fwupgrade).message.UpdateLater">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateLater" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Blue">
+			<Html command="getValue" target="xml(fwupgrade).js.UpdateLaterButtonFontColor" value="" />
+		</Verify>
+
+		<!-- Text: -->
+		<!-- top right corner: Welcome, [user’s First Name] [user’s Last Name] -->
+		<Verify expected="xml(header).message.Welcome" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Welcome" value="" />
+		</Verify>
+		<Verify expected="account(fw).firstName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="account(fw).lastName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		
+		<!-- middle: -->
+		<!-- Firmware update needed!( red & bold. ) -->
+		<Verify expected="xml(fwupgrade).message.UpdateNeededMsg">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateNeededMsg" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(fwupgrade).js.UpdateNeededMsgFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(fwupgrade).js.warningFontJS" value="" />
+		</Verify>
+
+		<!-- Your device's firmware needs to be updated in order to ensure that you get the best performance out of your device. -->
+		<Verify expected="xml(fwupgrade).message.UpdateNeededMsgDetail">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateNeededMsgDetail" value="" />
+		</Verify>
+
+		<!-- middle left: -->
+		<!-- Update information: -->
+		<Verify expected="xml(fwupgrade).message.UpdateInformation">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateInformation" value="" />
+		</Verify>
+		
+		<!-- Current Firmware Version: xxxxxx -->
+		<Verify expected="xml(fwupgrade).message.CurrentFirmwareVersion" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.CurrentFirmwareVersion" value="" />
+		</Verify>
+		
+		<!-- New Firmware Version: xxxxxx -->
+		<Verify expected="xml(fwupgrade).message.NewFirmwareVersion" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.NewFirmwareVersion" value="" />
+		</Verify>
+		
+		<!-- File Size: xxxxxx -->
+		<Verify expected="xml(fwupgrade).message.FileSize" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.FileSize" value="" />
+		</Verify>
+		
+		<!-- middle right: -->
+		<!-- Estimated update time: -->
+		<Verify expected="xml(fwupgrade).message.UpdateInformation">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateInformation" value="" />
+		</Verify>
+		
+		<!-- Dial-up (56K): xxxxxx -->
+		<Verify expected="xml(fwupgrade).message.DialUp56" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.DialUp56" value="" />
+		</Verify>
+		
+		<!-- DSL/Cable (256K): xxxxxx -->
+		<Verify expected="xml(fwupgrade).message.DSLCable256" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.DSLCable256" value="" />
+		</Verify>
+		
+		<!-- DSL/Cable (768K): xxxxxx -->
+		<Verify expected="xml(fwupgrade).message.DSLCable768" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.DSLCable768" value="" />
+		</Verify>
+		
+		<!-- T1 (1.5M): xxxxxx -->
+		<Verify expected="xml(fwupgrade).message.T1" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.T1" value="" />
+		</Verify>
+		
+		<!-- Warning : -->
+		<Verify expected="xml(fwupgrade).message.Warning" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.Warning" value="" />
+		</Verify>
+		
+		<!-- (1) Please use a wired Internet connection for your device when updating. -->
+		<Verify expected="xml(fwupgrade).message.WarningDetailOne" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.WarningDetailOne" value="" />
+		</Verify>
+		
+		<!-- (2) Please do not unplug your device while it is updating. -->
+		<Verify expected="xml(fwupgrade).message.WarningDetailTwo" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.WarningDetailTwo" value="" />
+		</Verify>
+		
+		<!-- Verify that the warning and warning messages is displayed as red & bold. -->
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(fwupgrade).js.warningColorJS" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(fwupgrade).js.warningFontJS" value="" />
+		</Verify>
+		
+		<!-- bottom: -->
+		<!-- Copyright claims: Copyright © 2008-2011 mydlink/D-Link Corporation Inc. All rights reserved. -->
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom" value="" />
+		</Verify>
+	</TestCase>
+</Test>

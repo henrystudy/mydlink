@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- footer -->
+		<xpath name="GlobalDlinkLink">//div[@id='footer']/a[@href='http://www.dlink.com/corporate/international.asp']</xpath>
+		<xpath name="AboutMydlinkLink">//div[@id='footer']/a[@href='/about']</xpath>
+		<xpath name="TermsOfUseLink">//div[@id='footer']/a[@href='/termsOfUse']</xpath>
+		<xpath name="PrivacyPolicyLink">//div[@id='footer']/a[@href='/privacyPolicy']</xpath>
+		<xpath name="ContactUsLink">//div[@id='footer']/a[@href='/contact']</xpath>
+		<xpath name="Bottom">//div[@id='footer']</xpath>
+		
+		<js name="LinkFontColor">window.jQuery('#footer a').css('color')</js>
+		<js name="LinkFontWeight">window.jQuery('#footer a').css('font-weight')</js>
+	</targets>
+	<messages>
+		<!-- footer start  -->
+		<message name="GlobalDlinkLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Global D-Link</content>
+		</message>
+		<message name="AboutMydlinkLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">About mydlink</content>
+		</message>
+		<message name="TermsOfUseLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Terms of Use</content>
+		</message>
+		<message name="PrivacyPolicyLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Privacy Policy</content>
+		</message>
+		<message name="ContactUsLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Contact Us</content>
+		</message>
+		<message name="Bottom">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Copyright©2008-2011 D-Link Corp. All rights reserved.</content>
+		</message>
+		<!-- footer end  -->	
+	</messages>
+</info>

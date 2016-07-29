@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<xpath name="TitleBarText">//span[@class='floatl']</xpath>
+		
+		<xpath name="CategoryTitle1">//div[@class='floatl support_main']//div[@class='middle']/div[@class='floatl'][1]/h3</xpath>
+		<xpath name="CategoryTitle2">//div[@class='floatl support_main']//div[@class='middle']/div[@class='floatl'][2]/h3</xpath>
+		<xpath name="CategoryTitle3">//div[@class='floatl support_main']//div[@class='middle']/div[@class='floatl'][3]/h3</xpath>
+		<xpath name="CategoryTitle4">//div[@class='floatl support_main']//div[@class='middle']/div[@class='floatl'][4]/h3</xpath>
+		
+		<xpath name="RightButton">//a[@id='arrow_right']</xpath>
+		<xpath name="RightButtonClass">//a[@id='arrow_right']/@class</xpath>
+		<xpath name="LeftButton">//a[@id='arrow_right']</xpath>
+		<xpath name="LeftButtonClass">//a[@id='arrow_right']/@class</xpath>
+		
+		<xpath name="930LButton">//li[@id='btn_dcs930l']/a</xpath>
+		<xpath name="932LButton">//li[@id='btn_dcs932l']/a</xpath>
+		
+		<xpath name="WizardList">//div[@id='wizard_list']</xpath>
+		
+		<xpath name="ContactOptionsText">//div[@class='floatl support_side']/div[@class='jeff1']/div[@class]</xpath>
+		<xpath name="MailCustomerServiceText">//div[@class='contact_opinion']/a[1]</xpath>
+		<xpath name="ContacttoGlobalD-LinkText">//div[@class='contact_opinion']/a[2]</xpath>
+		
+		<xpath name="MydlinkonMobileImage">//div[@class='floatl']/a/img/@src</xpath>
+		<xpath name="MydlinkonMobileLink">//div[@class='floatl']/a[@href='/Lite']</xpath>
+			
+		<js name="TitleBarFontColor">window.jQuery('span.floatl').css('color')</js>
+		<js name="TitleBarFontWeight">window.jQuery('span.floatl').css('font-weight')</js>
+		<js name="TitleBarBGImage">window.jQuery('div.jeff2').css('background-image')</js>
+		
+		<js name="CategoryTitleFontWeight">window.jQuery('h3').css('font-weight')</js>
+		<js name="CategoryTitleFontColor">window.jQuery('h3').css('color')</js>
+		
+		<js name="ContactOptionsTextFontWeight">window.jQuery('div.jeff2').css('font-weight')</js>
+		<js name="ContactOptionsTextFontColor">window.jQuery('div.jeff2').css('color')</js>
+			
+		<js name="ContactOptionsTextBGImage">window.jQuery('div.jeff2').css('background-image')</js>
+		<js name="ContactOptionsBGImage">window.jQuery('div.contact_opinion').css('background-image')</js>
+		
+		<js name="CategoryColumnBGImage">window.jQuery('div.bottom').css('background-image')</js>
+		
+		<js name="ArrowLeftBGImage">window.jQuery('#arrow_left').css('background-image')</js>
+		<js name="ArrowRightBGImage">window.jQuery('#arrow_right').css('background-image')</js>
+		
+		<js name="932LButtonClick">window.jQuery('#btn_dcs932l a').click()</js>
+			
+	</targets>
+
+	<messages>
+		<message name="MailCustomerServiceText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Mail Customer Service</content>
+		</message>
+		<message name="ContacttoGlobalD-LinkText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Contact to Global D-Link</content>
+		</message>
+		<message name="ContactOptionsText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Contact Options</content>
+		</message>
+		<message name="TitleBarText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Support</content>
+		</message>
+		<message name="WizardText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Wizard</content>
+		</message>
+		<message name="UserManualText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">User Manual</content>
+		</message>
+		<message name="FirmwareText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Firmware</content>
+		</message>
+		<message name="QuickInstallationGuideText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Quick Installation Guide</content>
+		</message>
+	</messages>
+	<images>
+		<image name="TitleBarBGImage">/images/newgraphics/box2_header_right.gif</image>
+		<image name="ContactOptionsBGImage">/images/newgraphics/support/co_bg.gif</image>
+		<image name="ContactOptionsTextBGImage">/images/newgraphics/box2_header_right.gif</image>
+		<image name="MydlinkonMobileImage">/images/newgraphics/banner_insidepage_big.png</image>
+		<image name="CategoryColumnBGImage">/images/newgraphics/support/contentbg_3.gif</image>
+		<image name="ArrowLeftBGImage">/images/newgraphics/arrowLeft.png</image>
+		<image name="ArrowRightBGImage">/images/newgraphics/arrowRight.png</image>
+	</images>
+
+</info>

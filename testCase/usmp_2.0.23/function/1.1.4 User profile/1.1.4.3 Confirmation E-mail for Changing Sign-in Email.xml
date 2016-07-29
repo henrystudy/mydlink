@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.1.4.3 Confirmation E-mail for Changing Sign-in Email</testCaseName>
+	<annotation>
+		<description>1.1.4.3 Confirmation E-mail for Changing Sign-in Email</description>
+		<created author="yue.chen" date="2011-02-25" />
+		<lastUpdated author="yue.chen" date="2011-06-28" />
+		<recordInfo account="changeEmail_1"/>
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		<!-- login begin -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(changeEmail_1).email"></Html>
+		
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(changeEmail_1).pwd"></Html>
+		
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value="" />
+		
+		<Verify expected="xml(device).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- 到达 My Profile 页面 -->
+		
+		<Html command="waitForElementDisplay" target="xml(commonInfo).xpath.myProfileLink" value="60"></Html>
+		
+		<Html command="clickAndWait" target="xml(commonInfo).xpath.myProfileLink" value=""></Html>
+		
+		<!-- 检查 My Profile Root Page Title -->
+		
+		<Verify expected="xml(myProfile).message.titleBar">
+			<Html command="getValue" target="xml(myProfile).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<!--enter Change Sign In E-mail page -->
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.Editemail" value=""></Html>
+		
+		<Verify expected="xml(emailedit).message.titleBar">
+			<Html command="getValue" target="xml(emailedit).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<Html command="type" target="xml(emailedit).xpath.newEmailbox" value="account(changeEmail_2).email"></Html>
+		
+		<Html command="type" target="xml(emailedit).xpath.newEmailboxverify" value="account(changeEmail_2).email"></Html>
+	
+		<Html command="clickAndWait" target="xml(emailedit).xpath.save" value=""></Html>
+
+		<Verify expected="xml(emailedit).message.titleBar">
+			<Html command="getValue" target="xml(emailedit).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<Verify expected="xml(emailedit).message.Averificatione-mail" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.Averificatione-mail" value=""></Html>
+		</Verify>
+		
+		<Verify expected="account(changeEmail_2).email" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.Averificatione-mail" value=""></Html>
+		</Verify>
+		
+		<Function command="getEmailInfo" target="changeEmail_2" value="" />
+		
+		<Html command="goBack" target="" value=""></Html>
+		
+		<Verify expected="xml(emailedit).message.titleBar">
+			<Html command="getValue" target="xml(emailedit).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<Html command="type" target="xml(emailedit).xpath.newEmailbox" value="account(changeEmail_2).email"></Html>
+		
+		<Html command="type" target="xml(emailedit).xpath.newEmailboxverify" value="account(changeEmail_2).email"></Html>
+	
+		<Html command="clickAndWait" target="xml(emailedit).xpath.save" value=""></Html>
+
+		<Verify expected="xml(emailedit).message.titleBar">
+			<Html command="getValue" target="xml(emailedit).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<Verify expected="xml(emailedit).message.Averificatione-mail" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.Averificatione-mail" value=""></Html>
+		</Verify>
+		
+		<Verify expected="account(changeEmail_2).email" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.Averificatione-mail" value=""></Html>
+		</Verify>
+		
+		<Html command="open" target="${link}" value=""></Html>
+		
+		<Verify expected="xml(emailverify).message.expiredText">
+			<Html command="getValue" target="xml(emailverify).xpath.expiredText" value=""></Html>
+		</Verify>
+		
+		<!--3. Go to the mail box.(You just change now) Click the URL   -->
+	
+		<Function command="getEmailInfo" target="changeEmail_2" value="" />
+		
+		<Html command="open" target="${link}" value=""></Html>
+		
+		<Verify expected="xml(emailverify).message.titleBar">
+			<Html command="getValue" target="xml(emailverify).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<Verify expected="xml(emailverify).message.text" type="contains">
+			<Html command="getValue" target="xml(emailverify).xpath.texts" value=""></Html>
+		</Verify>
+		
+		<Verify expected="account(changeEmail_2).email" type="contains">
+			<Html command="getValue" target="xml(emailverify).xpath.account" value=""></Html>
+		</Verify>
+	
+		<!--4. Check "Successful verification URL" page  -->
+	
+		<Verify expected="xml(emailverify).message.textBox" type="contains">
+			<Html command="getValue" target="xml(emailverify).xpath.texts" value=""></Html>
+		</Verify>
+		
+		<Verify expected="xml(emailverify).message.ok">
+			<Html command="getValue" target="xml(emailverify).xpath.ok" value=""></Html>
+		</Verify>
+		
+		<!--5. Enter an incorrect password.  -->
+		
+		<Html command="type" target="xml(emailverify).xpath.inputBox" value="147258"></Html>
+	
+		<Html command="clickAndWait" target="xml(emailverify).xpath.ok" value=""></Html>
+	
+		<Verify expected="xml(emailverify).message.warning">
+			<Html command="getValue" target="xml(emailverify).xpath.warning" value=""></Html>
+		</Verify>
+		
+		<Verify expected="xml(commonInfo).color.red">
+			<Html command="getValue" target="xml(emailverify).js.errMsgColorJS" value=""></Html>
+		</Verify>
+		
+		<!--6. Enter your correct password and click "OK".  -->
+		
+		<Html command="type" target="xml(emailverify).xpath.inputBox" value="account(changeEmail_2).pwd"></Html>
+		
+		<Html command="clickAndWait" target="xml(emailverify).xpath.ok" value=""></Html>
+
+		<Verify expected="xml(emailverify).message.titleBar">
+			<Html command="getValue" target="xml(emailverify).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<Verify expected="xml(emailverify).message.successText">
+			<Html command="getValue" target="xml(emailverify).xpath.successText" value=""></Html>
+		</Verify>
+		
+		<Verify expected="xml(emailverify).message.successTextBox">
+			<Html command="getValue" target="xml(emailverify).xpath.successTextBox" value=""></Html>
+		</Verify>
+		
+		<!--8. Verify "Expired URL" page will display.	-->
+		
+		<Html command="open" target="${link}" value=""></Html>
+		
+		<Verify expected="xml(emailverify).message.titleBar">
+			<Html command="getValue" target="xml(emailverify).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<Verify expected="xml(emailverify).message.expiredText">
+			<Html command="getValue" target="xml(emailverify).xpath.alreadyText" value=""></Html>
+		</Verify>
+		
+		<Verify expected="xml(emailverify).message.signInBtn">
+			<Html command="getValue" target="xml(emailverify).xpath.signInBtn" value=""></Html>
+		</Verify>
+		
+		<!-- login begin -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(changeEmail_2).email"></Html>
+		
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(changeEmail_2).pwd"></Html>
+		
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value="" />
+		
+		<Verify expected="xml(device).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- 到达 My Profile 页面 -->
+		
+		<Html command="waitForElementDisplay" target="xml(commonInfo).xpath.myProfileLink" value="60"></Html>
+		
+		<Html command="clickAndWait" target="xml(commonInfo).xpath.myProfileLink" value=""></Html>
+		
+		<!-- 检查 My Profile Root Page Title -->
+		
+		<Verify expected="xml(myProfile).message.titleBar">
+			<Html command="getValue" target="xml(myProfile).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<!--enter Change Sign In E-mail page -->
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.Editemail" value=""></Html>
+		
+		<Verify expected="xml(emailedit).message.titleBar">
+			<Html command="getValue" target="xml(emailedit).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<Html command="type" target="xml(emailedit).xpath.newEmailbox" value="account(changeEmail_1).email"></Html>
+		
+		<Html command="type" target="xml(emailedit).xpath.newEmailboxverify" value="account(changeEmail_1).email"></Html>
+	
+		<Html command="clickAndWait" target="xml(emailedit).xpath.save" value=""></Html>
+		
+		<Function command="getEmailInfo" target="changeEmail_1" value="" />
+		
+		<Html command="open" target="${link}" value=""></Html>
+		
+		<Verify expected="xml(emailverify).message.titleBar">
+			<Html command="getValue" target="xml(emailverify).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<Html command="type" target="xml(emailverify).xpath.inputBox" value="account(changeEmail_1).pwd"></Html>
+		
+		<Html command="clickAndWait" target="xml(emailverify).xpath.ok" value=""></Html>
+
+		<Verify expected="xml(emailverify).message.titleBar">
+			<Html command="getValue" target="xml(emailverify).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<Verify expected="xml(emailverify).message.successText">
+			<Html command="getValue" target="xml(emailverify).xpath.successText" value=""></Html>
+		</Verify>
+		
+		<Verify expected="xml(emailverify).message.successTextBox">
+			<Html command="getValue" target="xml(emailverify).xpath.successTextBox" value=""></Html>
+		</Verify>
+		
+	</TestCase>
+</Test>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Live view page</testCaseName>
+	<annotation>
+		<description>Test the live view page</description>
+		<testCaseVersion>4</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-15" />
+		<lastUpdated author="dayu.lei" date="2011-06-15" />
+		<recordInfo deviceIndex="1" account="onLine" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		<!-- login -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(onLine).device.1.sn" value=""></Function>
+
+		<!-- Verify that the real-time video displays in Live Video window after above messages, and a countdown message is displayed under the window with below text: -->
+		<!-- Remaining Time: ** seconds. (** count down from "60") (should be displayed in local language) -->
+		<!-- Verify that an icon "?" displays on the end of countdown text -->
+
+		<Choose>
+			<When>
+				<Verify expected="Relay">
+					<Function command="getConnectionType" target="120" value="" />
+				</Verify>
+			</When>
+			<Do>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.relayCountDown" value="" />
+				</Verify>
+				<Verify expected="xml(device).message.relayCountDownFront" type="contains">
+					<Html command="getValue" target="xml(device).xpath.relayCountDown" value="" />
+				</Verify>
+				<Verify expected="xml(device).message.relayCountDownBack" type="contains">
+					<Html command="getValue" target="xml(device).xpath.relayCountDown" value="" />
+				</Verify>
+				<Verify expected="xml(device).image.relayCountDownImg" type="contains">
+					<Html command="getValue" target="xml(device).xpath.relayCountDownImg" value="" />
+				</Verify>
+			</Do>
+			<Otherwise>
+			</Otherwise>
+		</Choose>
+
+		<!-- Verify that below 3 control buttons are displayed and the button name should be localized -->
+		<!-- (Don't apply to DCS 5230(L)) -->
+		<!-- zoom out x1 x2 x3 x4 zoom in -->
+		<!-- Verify that below 7 control buttons are displayed and the button name should be localized. (Some devices also have more buttons ) -->
+		<!-- (Only apply to DCS 5230(L)) -->
+		<!-- -Direction control -->
+		<!-- -Speed -->
+		<!-- -auto pan -->
+		<!-- -stop -->
+		<!-- zoom out x1 x2 x3 x4 zoom in -->
+		<Choose>
+			<When>
+				<Verify expected="DCS-1100,DCS-1100L,DCS-1130L,DCS-1130,DCS-930L" type="in">
+					<Html command="getTarget" target="account(onLine).device.1.modelName" value="" />
+				</Verify>
+			</When>
+			<Do>
+				<Verify expected="false">
+					<Html command="isVisible" target="xml(device).xpath.ButtonSpeed" value="" />
+				</Verify>
+				<Verify expected="false">
+					<Html command="isVisible" target="xml(device).xpath.ButtonAuto" value="" />
+				</Verify>
+				<Verify expected="false">
+					<Html command="isVisible" target="xml(device).xpath.ButtonStop" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonZoomIn" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonZoomOut" value="" />
+				</Verify>
+				<Verify expected="false">
+					<Html command="isVisible" target="xml(device).xpath.ButtonContral" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ZoomBar" value="" />
+				</Verify>
+			</Do>
+			<Otherwise>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonSpeed" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonAuto" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonStop" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonZoomIn" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonZoomOut" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonContral" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ZoomBar" value="" />
+				</Verify>
+			</Otherwise>
+		</Choose>
+
+		<!-- 2. Verify that below item and contents are displayed in required local language and conforms to the form/fit. -->
+		<!-- Make sure all strings on screens fit the UI elements: screen space, buttons, dropdown lists are correct, make sure none of the lines are truncated or cut off. -->
+		<!-- Logo: -->
+		<!-- mydlink(image link) -->
+		<Verify expected="xml(header).image.LogoImage" type="contains">
+			<Html command="getValue" target="xml(header).js.LogoImage" value="" />
+		</Verify>
+
+		<!-- Title bar: -->
+		<!-- My Devices -->
+		<Verify expected="xml(header).message.MyDevicesLink">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLink" value="" />
+		</Verify>
+
+		<!-- Hyperlink texts: -->
+		<!-- top right corner: FAQ | Support -->
+		<Verify expected="xml(header).message.FAQLink">
+			<Html command="getValue" target="xml(header).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SupportLink">
+			<Html command="getValue" target="xml(header).xpath.SupportLink" value="" />
+		</Verify>
+
+		<!-- normal status: normal white fonts -->
+		<!-- mouseover status: underline effect -->
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(header).js.LinkFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(header).js.LinkFontWeight" value="" />
+		</Verify>
+
+
+		<!-- Dropdown list: the language selections as below: -->
+		<!-- Language English▼ -->
+		<Verify expected="xml(header).message.Language" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Language" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.Language_en" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Language" value="" />
+		</Verify>
+
+		<!-- Française -->
+		<Verify expected="xml(header).message.Language_fr">
+			<Html command="getValue" target="xml(header).xpath.Language1" value="" />
+		</Verify>
+
+		<!-- Español -->
+		<Verify expected="xml(header).message.Language_es">
+			<Html command="getValue" target="xml(header).xpath.Language2" value="" />
+		</Verify>
+
+		<!-- Português -->
+		<Verify expected="xml(header).message.Language_pt">
+			<Html command="getValue" target="xml(header).xpath.Language3" value="" />
+		</Verify>
+
+		<!-- 中文(繁體) -->
+		<Verify expected="xml(header).message.Language_zh_TW">
+			<Html command="getValue" target="xml(header).xpath.Language4" value="" />
+		</Verify>
+
+		<!-- 中文(简体) -->
+		<Verify expected="xml(header).message.Language_zh_CN">
+			<Html command="getValue" target="xml(header).xpath.Language5" value="" />
+		</Verify>
+
+		<!-- top left Navigation: My Devices | My Profile ("My Devices" is selected by default) -->
+		<!-- selected status: deepen background blue color -->
+		<!-- normal status: white fonts -->
+		<!-- mouseover status: deepen background color effect -->
+		<Verify expected="xml(header).message.MyProfileLink">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.MyDevicesLink">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLink" value="" />
+		</Verify>
+		<Verify expected="navBtn_on">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLinkClass" value="" />
+		</Verify>
+
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(device).js.NavBtn_onFontWeight" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(device).js.NavBtn_onFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(device).js.NavBtnFontWeight" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(device).js.NavBtnFontColor" value="" />
+		</Verify>
+
+		<!-- top right corner: Sign out -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<Verify expected="xml(header).message.SignOut">
+			<Html command="getValue" target="xml(header).xpath.SignOut" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Blue2">
+			<Html command="getValue" target="xml(header).js.SignoutLinkFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(header).js.SignoutLinkFontWeight" value="" />
+		</Verify>
+
+		<!-- bottom: Global D-Link || About mydlink || Terms of Use || Privacy Policy || Contact US -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<ImportXML src="checkfooter.xml"></ImportXML>
+		<Verify expected="xml(color).color.Blue2">
+			<Html command="getValue" target="xml(footer).js.LinkFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(footer).js.LinkFontWeight" value="" />
+		</Verify>
+
+		<!-- Banners in the right: -->
+		<!-- News -->
+		<Verify expected="xml(device).message.NewsBoardTitle">
+			<Html command="getValue" target="xml(device).xpath.NewsBoardTitle" value="" />
+		</Verify>
+
+		<!-- Support -->
+		<Verify expected="xml(device).message.SupportBoardTitle">
+			<Html command="getValue" target="xml(device).xpath.SupportBoardTitle" value="" />
+		</Verify>
+
+		<!-- mydlink on mobile icon. (Image link) -->
+		<Verify expected="xml(device).image.MydlinkonMobileImage" type="contains">
+			<Html command="getValue" target="xml(device).xpath.MydlinkonMobileImage" value="" />
+		</Verify>
+
+		<!-- Button: Go-> -->
+		<!-- normal status: normal blue color -->
+		<!-- mouseover status: orange color -->
+		<Verify expected="xml(device).message.SupportOkButton">
+			<Html command="getValue" target="xml(device).xpath.SupportOkButton" value="" />
+		</Verify>
+		<Verify expected="xml(device).image.GoButtonBGImage" type="contains">
+			<Html command="getValue" target="xml(device).js.GoButtonBGImage" value="" />
+		</Verify>
+
+		<!-- Device list: -->
+		<!-- List all registered devices on the left of live view UI -->
+		<!-- Device list item structure: [camera icon] [device name] [mydlink No.] -->
+		<!-- normal status: gray fonts (Normal status for items after in list: no top-border) -->
+		<!-- mouseover status: bright color and change text color of device name to bold black fonts -->
+		<!-- selected status: bright color and change text color of device name to bold black fonts(no top-border) -->
+		<!-- Show below tooltips when mouse over: [device name] ([mydlink No.]) -->
+		<!-- The camera online status icon(a white character "√" in green circle ) displays in right bottom of the camera icon. -->
+
+		<!-- Tabs: -->
+		<!-- Live Video || Camera Info ("Live Video" is selected currently) -->
+		<!-- normal status: bold black fonts -->
+		<!-- mouse over status: underline effect -->
+		<!-- selected status: white background -->
+		<Verify expected="xml(device).message.LinkLiveVideoText">
+			<Html command="getValue" target="xml(device).xpath.LiveVideoText" value="" />
+		</Verify>
+		<Verify expected="xml(device).message.LinkCameraInfoText">
+			<Html command="getValue" target="xml(device).xpath.CameraInfoText" value="" />
+		</Verify>
+		<Verify expected="selected">
+			<Html command="getValue" target="xml(device).xpath.LiveVideoClass" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(device).js.SelectedBGColor" value="" />
+		</Verify>
+
+		<!-- Text: -->
+		<!-- top right corner: Welcome, [user’s First Name] [user’s Last Name] -->
+		<Verify expected="xml(header).message.Welcome" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Welcome" value="" />
+		</Verify>
+		<Verify expected="account(haveNoDevice).firstName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="account(haveNoDevice).lastName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+
+		<!-- middle: Live Video Mode -->
+
+		<!-- bottom: -->
+		<!-- Copyright claims: Copyright © 2008-2011 mydlink/D-Link Corporation Inc. All rights reserved. -->
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom" value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

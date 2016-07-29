@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<pagePath name="pagePath">/global</pagePath>
+		<xpath name="titleBar">//div[@id='content_v2']//table//td[1]//p[@class='hilite']</xpath>
+		<xpath name="emailText">//table[@id='signup_table']//tr[2]/td[2]</xpath>
+		<xpath name="emailTextbox">//input[@id='email']</xpath>
+		<xpath name="passwordText">//table[@id='signup_table']//tr[3]//td[2]</xpath>
+		<xpath name="passwordTextbox">//input[@id='password']</xpath>
+		<xpath name="rememberMeCheckBox">//input[@id='RememberMe']</xpath>
+		<xpath name="rememberMeCheckBoxText">//table[@id='signup_table']//tr[5]//label</xpath>
+		<xpath name="signinDivButton">//table[@id='signup_table']//div[@class='btn floatl']</xpath>
+		<xpath name="nullErrMsg">//td[@id='errMsg']</xpath>
+		<xpath name="errMsg">//td[@id='errMsg']</xpath>
+		<xpath name="forgotYourPassword">//table[@id='+signup_table']//tr[7]//p/a</xpath>
+	</targets>
+	<messages>
+		<message name="signinDivButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign In</content>
+		</message>
+		<message name="forgotYourPassword">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Forgot your password</content>
+		</message>
+		<message name="nullErrMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please enter your e-mail and password to
+				sign in to mydlink.</content>
+		</message>
+		<message name="errMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Invalid e-mail and password combination.
+			</content>
+		</message>
+		<message name="titleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign In to mydlink</content>
+		</message>
+		<message name="emailText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">E-mail:</content>
+		</message>
+		<message name="passwordText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Password:</content>
+		</message>
+		<message name="rememberMeCheckBoxText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Remember me</content>
+		</message>
+	</messages>
+	<images>
+		<image name="logoImg">/images/ucp/dlife_logo.gif</image>
+	</images>
+</info>

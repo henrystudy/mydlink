@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<fonts>
+		<font name="Bold">
+			<ie>700</ie>
+			<notIe>bold</notIe>
+		</font>
+		<font name="Normal">
+			<ie>400</ie>
+			<notIe>400</notIe>
+		</font>
+	</fonts>
+</info>

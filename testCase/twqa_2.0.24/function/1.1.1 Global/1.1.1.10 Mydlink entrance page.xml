@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.1.1 mydlink entrance page</testCaseName>
+	<annotation>
+		<description>test the Entrance page</description>
+		<testCaseVersion>5</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-05" />
+		<lastUpdated author="dayu.lei" date="2011-07-05" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- 1. Verify the FAQ page is displayed successfully. -->
+		<Html command="openWindow" target="xml(header).xpath.FAQLink" value="" />
+		<Verify expected="xml(faq).message.TitleBarText">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Html command="selectWindow" target="1" value="" />
+
+		<!-- 2. Verify the Support page is displayed successfully. -->
+		<Html command="openWindow" target="xml(header).xpath.SupportLink" value="" />
+		<Verify expected="xml(support).message.TitleBarText">
+			<Html command="getValue" target="xml(support).xpath.TitleBarText" value="" />
+		</Verify>
+		<Html command="selectWindow" target="1" value="" />
+
+		<!-- 3. Verify the web page content is consistent with you select language. -->
+		<Verify expected="xml(header).message.Language">
+			<Html command="getValue" target="xml(header).xpath.Language" value="" />
+		</Verify>
+
+		<Verify expected="Русский">
+			<Html command="getValue" target="xml(header).xpath.Language1" value="" />
+		</Verify>
+
+		<Verify expected="한국어">
+			<Html command="getValue" target="xml(header).xpath.Language2" value="" />
+		</Verify>
+
+		<Verify expected="日本語">
+			<Html command="getValue" target="xml(header).xpath.Language3" value="" />
+		</Verify>
+
+		<Verify expected="xml(header).message.Language_zh_TW">
+			<Html command="getValue" target="xml(header).xpath.Language4" value="" />
+		</Verify>
+
+		<Verify expected="xml(header).message.Language_zh_CN">
+			<Html command="getValue" target="xml(header).xpath.Language5" value="" />
+		</Verify>
+		
+<!-- 		<Verify expected="xml(header).message.Language"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Française"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language1" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Русский"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language2" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Español"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language3" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Português"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language4" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Português do Brasil"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language5" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="日本語"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language6" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="中文(繁體)"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language7" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="中文(简体)"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language8" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="한국어"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language9" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Česky"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language10" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Danske"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language11" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Deutsch"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language12" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Ελληνικά"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language13" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Hrvatski"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language14" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Magyar"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language15" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Italiano"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language16" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Nederlandse"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language17" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Nynorsk"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language18" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Polski"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language19" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Romanian"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language20" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Slovenian"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language21" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Svenska"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language22" value="" /> -->
+<!-- 		</Verify> -->
+<!-- 		<Verify expected="Suomalainen"> -->
+<!-- 			<Html command="getValue" target="xml(header).xpath.Language23" value="" /> -->
+<!-- 		</Verify> -->
+
+		<!-- 4. Verify the facebook portal is displayed successfully. -->
+		<Verify expected="xml(entrance).image.FacebookImage" type="contains">
+			<Html command="getEval" target="xml(entrance).js.FacebookImage" value="" />
+		</Verify>
+		<Verify expected="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.mydlink.com" type="contains">
+			<Html command="attribute" target="xml(entrance).xpath.FacebookImageLink" value="href" />
+		</Verify>
+		<Verify expected="facebook">
+			<Html command="attribute" target="xml(entrance).xpath.FacebookImageLink" value="target" />
+		</Verify>
+
+		<!-- 5. Verify the twitter portal is displayed successfully. -->
+		<Verify expected="xml(entrance).image.TwitterImage" type="contains">
+			<Html command="getEval" target="xml(entrance).js.TwitterImage" value="" />
+		</Verify>
+		<Verify
+			expected="http://twitter.com/?status=Watch%20what%20matters%3B%20see%20your%20cameras%20on%20your%20PC%20or%20iOS%20or%20Android%20device%20with%20mydlink%20%23mydlink%20http%3A%2F%2Fwww.mydlink.com">
+			<Html command="attribute" target="xml(entrance).xpath.TwitterImageLink" value="href" />
+		</Verify>
+		<Verify expected="twitter">
+			<Html command="attribute" target="xml(entrance).xpath.TwitterImageLink" value="target" />
+		</Verify>
+
+		<!-- 6. Verify that randomly displays 1 from n concept images. -->
+		<!-- 未实现 -->
+
+		<!-- 7. Verify the "Not Registered?" page is displayed successfully. -->
+		<Verify expected="xml(entrance).message.NotRegisteredLink">
+			<Html command="getValue" target="xml(entrance).xpath.NotRegisteredLink" value="" />
+		</Verify>
+
+		<!-- Verify the "What's mydlink" subitem is default selected. -->
+		<Verify expected="menu_selected">
+			<Html command="attribute" target="xml(entrance).xpath.WhatsMydlinkLink" value="class" />
+		</Verify>
+		<!-- 8. Verify that have 4 subitems: What's mydlink || Access Anywhere || Product Family || Experience mydlink. -->
+		<!-- Verify the all subitem pages is displayed successfully. -->
+		<!-- check What's mydlink subitem -->
+		<Verify expected="xml(entrance).message.WhatsMydlinkLink">
+			<Html command="getValue" target="xml(entrance).xpath.WhatsMydlinkLink" value="" />
+		</Verify>
+
+		<Verify expected="xml(entrance).message.WhatsMydlinkText">
+			<Html command="getValue" target="xml(entrance).xpath.WhatsMydlinkText" value="" />
+		</Verify>
+
+		<Verify expected="xml(entrance).message.WhatsMydlinkContent" type="contains">
+			<Html command="getValue" target="xml(entrance).xpath.WhatsMydlinkContent" value="" />
+		</Verify>
+
+		<Verify expected="xml(entrance).message.WhatsMydlinkButton">
+			<Html command="getValue" target="xml(entrance).xpath.WhatsMydlinkButton" value="" />
+		</Verify>
+
+		<!-- check Access Anywhere -->
+		<Verify expected="xml(entrance).message.AccessAnywhereLink">
+			<Html command="getValue" target="xml(entrance).xpath.AccessAnywhereLink" value="" />
+		</Verify>
+
+		<Html command="click" target="xml(entrance).xpath.AccessAnywhereLink" value="" />
+
+		<Verify expected="xml(entrance).message.AccessAnywhereText">
+			<Html command="getValue" target="xml(entrance).xpath.AccessAnywhereText" value="" />
+		</Verify>
+
+		<Verify expected="xml(entrance).message.AccessAnywhereContent" type="contains">
+			<Html command="getValue" target="xml(entrance).xpath.AccessAnywhereContent" value="" />
+		</Verify>
+
+		<Verify expected="xml(entrance).message.AccessAnywhereButton">
+			<Html command="getValue" target="xml(entrance).xpath.AccessAnywhereButton" value="" />
+		</Verify>
+
+		<Verify expected="xml(entrance).image.AccessAnywhereImage" type="contains">
+			<Html command="getValue" target="xml(entrance).xpath.AccessAnywhereImage" value="" />
+		</Verify>
+
+		<!-- check Product Family -->
+		<Verify expected="xml(entrance).message.ProductFamilyLink">
+			<Html command="getValue" target="xml(entrance).xpath.ProductFamilyLink" value="" />
+		</Verify>
+
+		<Html command="click" target="xml(entrance).xpath.ProductFamilyLink" value="" />
+
+		<Verify expected="xml(entrance).image.ArrowLeftBGImage" type="contains">
+			<Html command="getEval" target="xml(entrance).js.ArrowLeftBGImage" value="" />
+		</Verify>
+
+		<!-- <Verify expected="xml(entrance).image.ArrowRightBGImage" type="contains"> -->
+		<!-- <Html command="getEval" target="xml(entrance).js.ArrowRightBGImage" value="" /> -->
+		<!-- </Verify> -->
+
+		<!-- <Verify expected="xml(entrance).image.NewImg" type="contains"> -->
+		<!-- <Html command="getEval" target="xml(entrance).js.NewImg" value="" /> -->
+		<!-- </Verify> -->
+
+		<!-- <Verify expected="xml(entrance).message.DeviceName1"> -->
+		<!-- <Html command="getValue" target="xml(entrance).xpath.DeviceName1" value="" /> -->
+		<!-- </Verify> -->
+
+		<!-- <Verify expected="xml(entrance).message.DeviceText1"> -->
+		<!-- <Html command="getValue" target="xml(entrance).xpath.DeviceText1" value="" /> -->
+		<!-- </Verify> -->
+
+		<!-- <Verify expected="xml(color).color.LightBlue"> -->
+		<!-- <Html command="getEval" target="xml(entrance).js.TextFontColor" value="" /> -->
+		<!-- </Verify> -->
+
+		<!-- check Experience mydlink -->
+		<Verify expected="xml(entrance).message.ExperienceMydlinkLink">
+			<Html command="getValue" target="xml(entrance).xpath.ExperienceMydlinkLink" value="" />
+		</Verify>
+
+		<Html command="click" target="xml(entrance).xpath.ExperienceMydlinkLink" value="" />
+
+
+		<Verify expected="xml(entrance).image.ExperienceMydlinkImage" type="contains">
+			<Html command="getValue" target="xml(entrance).xpath.ExperienceMydlinkImage" value="" />
+		</Verify>
+
+		<Verify expected="xml(entrance).message.ExperienceMydlinkText">
+			<Html command="getValue" target="xml(entrance).xpath.ExperienceMydlinkText" value="" />
+		</Verify>
+
+		<Verify expected="xml(entrance).message.ExperienceMydlinkContent">
+			<Html command="getValue" target="xml(entrance).xpath.ExperienceMydlinkContent" value="" />
+		</Verify>
+
+		<Verify expected="xml(entrance).message.ExperienceMydlinkButton">
+			<Html command="getValue" target="xml(entrance).xpath.ExperienceMydlinkButton" value="" />
+		</Verify>
+
+		<!-- 9. Verify the "What's mydlink" page is displayed successfully. -->
+		<Html command="click" target="xml(entrance).xpath.WhatsMydlinkLink" value="" />
+		<Html command="sleep" target="2" value="" />
+		<Html command="clickAndWait" target="xml(entrance).xpath.WhatsMydlinkButton" value="" />
+		<Verify expected="xml(whats_mydlink).message.TitleText1">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.TitleText1" value="" />
+		</Verify>
+		<Html command="goBack" target="" value="" />
+
+		<!-- 10. Verify the "mydlink Lite" page is displayed successfully. -->
+		<Html command="click" target="xml(entrance).xpath.AccessAnywhereLink" value="" />
+		<Html command="sleep" target="2" value="" />
+		<Html command="clickAndWait" target="xml(entrance).xpath.AccessAnywhereButton" value="" />
+		<Verify expected="xml(lite).message.TitleBar">
+			<Html command="getValue" target="xml(lite).xpath.TitleBar" value="" />
+		</Verify>
+		<Html command="goBack" target="" value="" />
+
+		<!-- 11. Click "Learn more..." button for all product introductions in "Product Family" subitem. -->
+		<!-- <Verify expected="/product/DCS942L" type="contains"> -->
+		<!-- <Html command="attribute" target="xml(entrance).xpath.LearnMoreLink1" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="/product/DCS940L" type="contains"> -->
+		<!-- <Html command="attribute" target="xml(entrance).xpath.LearnMoreLink2" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="/product/DNR322L" type="contains"> -->
+		<!-- <Html command="attribute" target="xml(entrance).xpath.LearnMoreLink3" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="/product/DCS11001130" type="contains"> -->
+		<!-- <Html command="attribute" target="xml(entrance).xpath.LearnMoreLink4" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="/product/DCS11001130" type="contains"> -->
+		<!-- <Html command="attribute" target="xml(entrance).xpath.LearnMoreLink5" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="/product/DCS930L" type="contains"> -->
+		<!-- <Html command="attribute" target="xml(entrance).xpath.LearnMoreLink6" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="/product/DCS932L" type="contains"> -->
+		<!-- <Html command="attribute" target="xml(entrance).xpath.LearnMoreLink7" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="/product/DCS5230L" type="contains"> -->
+		<!-- <Html command="attribute" target="xml(entrance).xpath.LearnMoreLink8" value="href" /> -->
+		<!-- </Verify> -->
+
+		<!-- 12. Verify that navigate to "Sign in to mydlink" position. -->
+		<Html command="click" target="xml(entrance).xpath.ExperienceMydlinkLink" value="" />
+		<Html command="sleep" target="2" value="" />
+		<Verify expected="/try" type="contains">
+			<Html command="attribute" target="xml(entrance).xpath.ExperienceMydlinkButton" value="href" />
+		</Verify>
+		<Verify expected="_blank">
+			<Html command="attribute" target="xml(entrance).xpath.ExperienceMydlinkButton" value="target" />
+		</Verify>
+
+		<!-- 13. Verify the corresponding page is displayed successfully. -->
+		<!-- 未实现 -->
+
+		<!-- 14. Verify the news link will scroll from top to down. -->
+		<!-- 15. Verify the news link will scroll from down to top. -->
+		<!-- <Verify expected="true"> -->
+		<!-- <Html command="isVisible" target="xml(entrance).xpath.News1" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="true"> -->
+		<!-- <Html command="isVisible" target="xml(entrance).xpath.News2" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="false"> -->
+		<!-- <Html command="isVisible" target="xml(entrance).xpath.News3" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Html command="click" target="xml(entrance).xpath.NewsDownButton" value="" /> -->
+		<!-- <Html command="sleep" target="2" value="" /> -->
+		<!-- <Verify expected="false"> -->
+		<!-- <Html command="isVisible" target="xml(entrance).xpath.News1" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="true"> -->
+		<!-- <Html command="isVisible" target="xml(entrance).xpath.News2" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="true"> -->
+		<!-- <Html command="isVisible" target="xml(entrance).xpath.News3" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Html command="click" target="xml(entrance).xpath.NewsUpButton" value="" /> -->
+		<!-- <Html command="sleep" target="2" value="" /> -->
+		<!-- <Verify expected="true"> -->
+		<!-- <Html command="isVisible" target="xml(entrance).xpath.News1" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="true"> -->
+		<!-- <Html command="isVisible" target="xml(entrance).xpath.News2" value="href" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="false"> -->
+		<!-- <Html command="isVisible" target="xml(entrance).xpath.News3" value="href" /> -->
+		<!-- </Verify> -->
+
+		<!-- 16. Verify the "Support" page is displayed successfully. -->
+		<Html command="clickAndWait" target="xml(entrance).xpath.SupportDownloadButton" value="" />
+		<Verify expected="xml(support).message.TitleBarText">
+			<Html command="getValue" target="xml(support).xpath.TitleBarText" value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

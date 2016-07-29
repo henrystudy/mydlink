@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Sign in mydlink</testCaseName>
+	<annotation>
+		<description>test sign in mydlink page</description>
+		<created author="dayu.lei" date="2011-06-21" />
+		<lastUpdated author="dayu.lei" date="2011-06-21" />
+		<recordInfo account="haveNoDevice" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		
+		<!--
+		1. Launch the browser.
+		2. Click "Sign In to mydlink" on the top right corner of the root page. 
+		-->
+		
+		<!-- check page open  -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo"
+				value="" />
+		</Verify>
+		 
+		<!-- check titleBar  -->
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+		
+		<!-- check Content -->
+		<Verify expected="xml(login).message.NotRegisteredyet">
+			<Html command="getValue" target="xml(login).xpath.NotRegisteredyet" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.Toregisterwith">
+			<Html command="getValue" target="xml(login).xpath.Toregisterwith" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.Ifyoudo">
+			<Html command="getValue" target="xml(login).xpath.Ifyoudo" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.PlacetheCD">
+			<Html command="getValue" target="xml(login).xpath.PlacetheCD" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.Macusers">
+			<Html command="getValue" target="xml(login).xpath.Macusers" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.more">
+			<Html command="getValue" target="xml(login).xpath.more" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.Forgotyourpassword">
+			<Html command="getValue" target="xml(login).xpath.Forgotyourpassword" value="" />
+		</Verify>
+		
+		<!-- 3. Without input any email and password.
+				Click "Sign In" button. -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value=""></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value=""></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(login).message.warning">
+			<Html command="getValue" target="xml(login).xpath.warning" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).color.red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+		
+		<!-- 4. Input your sign-in email and empty password in the box.
+				Click "Sign In" button. -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(login).message.warning2">
+			<Html command="getValue" target="xml(login).xpath.warning2" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).color.red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>		
+				
+		<!--5. Input your sign-in email and invalid password in the box. Click "Sign In" button.-->		
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(wrong).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(login).message.warning2">
+			<Html command="getValue" target="xml(login).xpath.warning2" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).color.red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>		
+		
+		<!--6. Input an un-register email and valid password in the box. Click "Sign In" button.-->		
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(unRegister).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(haveNoDevice).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(login).message.warning2">
+			<Html command="getValue" target="xml(login).xpath.warning2" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).color.red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>		
+		
+		<!--7. Input your sign-in email and correct password. Click "Sign In" button.-->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(haveNoDevice).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(haveNoDevice).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar" value="" />
+		</Verify>
+		
+	</TestCase>
+</Test>

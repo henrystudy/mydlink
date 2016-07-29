@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Rm-Mydlink entrance page</testCaseName>
+	<annotation>
+		<description>1.1.1.5 Rm-Mydlink entrance page.xml</description>
+		<created author="dayu.lei" date="2011-06-21" />
+		<lastUpdated author="dayu.lei" date="2011-06-21" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		
+		<Html command="open" target="xml(entrance).pagePath.entrance" value=""></Html>
+		<Verify expected="xml(entrance).message.en" type="contains">
+			<Html command="getValue" target="xml(entrance).xpath.selectedLanguage" value="" />
+		</Verify>
+		<!-- Mydlink entrance page will displays with the language you selected. -->
+				
+		<!-- check header  -->
+		<Verify expected="xml(commonInfo).message.mydlinkLiteLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLiteLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.signInToMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.signInToMydlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.notRegisteredLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.notRegisteredLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.FAQLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.SupportLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.SupportLink" value="" />
+		</Verify>
+		
+		<!-- check footer -->
+		<Verify expected="xml(commonInfo).message.globalDlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.globalDlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.aboutMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.aboutMydlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.termsOfUseLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.termsOfUseLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.privacyPolicyLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.privacyPolicyLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.contactUsLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.contactUsLink"
+				value="" />
+		</Verify>
+				
+		<!-- Logo: mydlink-->
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(entrance).message.NewsAndMaintenanceBarText">
+			<Html command="getValue" target="xml(entrance).xpath.NewsAndMaintenanceBarText"
+				value="" />
+		</Verify>
+		
+		<!-- Text: bottom: Copyright ® 2008-2010 mydlink D-Link Corporation Inc. All right reserved.-->
+		<Verify expected="xml(commonInfo).message.bottom" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.bottom"
+				value="" />
+		</Verify>
+		
+		<!--	Verify the language display as below sequence:-->
+		<!--    -  English-->
+		<!--    -  Français-->
+		<!--    - zh_cn-->
+		<!--    - zh_tw-->
+		<Verify expected="xml(entrance).message.en" type="contains">
+			<Html command="getValue" target="xml(entrance).xpath.selectedLanguage"
+				value="" />
+		</Verify>
+		<Verify expected="xml(entrance).message.fr">
+			<Html command="getValue" target="xml(entrance).xpath.language1"
+				value="" />
+		</Verify>
+		<Verify expected="xml(entrance).message.es">
+			<Html command="getValue" target="xml(entrance).xpath.language2"
+				value="" />
+		</Verify>
+		<Verify expected="xml(entrance).message.pt">
+			<Html command="getValue" target="xml(entrance).xpath.language3"
+				value="" />
+		</Verify>
+		<Verify expected="xml(entrance).message.zh_TW">
+			<Html command="getValue" target="xml(entrance).xpath.language4"
+				value="" />
+		</Verify>
+		<Verify expected="xml(entrance).message.zh_CN">
+			<Html command="getValue" target="xml(entrance).xpath.language5"
+				value="" />
+		</Verify>
+		<!-- language6、7、8、9、10、……、23 -->
+		
+		<!-- Verify: mydlink webpage include 3 parts:-->
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(entrance).xpath.header" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(entrance).xpath.content" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(entrance).xpath.footer" value="" />
+		</Verify>
+		
+		<!--1. The “Support” page link will direct to http://support.dlink.com (US) for US IP.-->
+		<!--2. The “Support” page link will direct to http://support.dlink.ca (Canada) for Canada IP.)-->
+		<!-- ...... -->
+		
+	</TestCase>
+</Test>

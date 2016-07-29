@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+
+	<targets>
+		<xpath name="TitleText1">//div[@id='title']//h1</xpath>
+		<xpath name="ContentText1">//div[@id='title']/div</xpath>
+		
+		<xpath name="TitleText2">//div[@id='stay_connected']//h2</xpath>
+		<xpath name="ContentText2">//div[@id='stay_connected']/div[2]</xpath>
+		<xpath name="Link2">//div[@id='stay_connected']//a[@class]</xpath>
+		
+		<xpath name="TitleText3">//div[@id='access_anywhere']//h2</xpath>
+		<xpath name="ContentText3">//div[@id='access_anywhere']/div[2]</xpath>
+		<xpath name="IphoneLink">//div[@id='access_anywhere']//a[@id='btn_iphone']</xpath>
+		<xpath name="AndroidLink">//div[@id='access_anywhere']//a[@id='btn_android']</xpath>
+		
+		<xpath name="TitleText4">//div[@id='getting_start']/div/h2</xpath>
+		<xpath name="ContentText4">//div[@id='getting_start']/div</xpath>
+		<xpath name="Block1">//div[@id='getting_start']/div/div[1]/div[1]</xpath>
+		<xpath name="Block2">//div[@id='getting_start']/div/div[1]/div[3]</xpath>
+		<xpath name="Block3">//div[@id='getting_start']/div/div[1]/div[5]</xpath>
+		<xpath name="Note">//div[@id='getting_start']//div[@class='note']</xpath>
+		<xpath name="Button">//div[@id='getting_start']//a[@class]</xpath>
+		
+		<xpath name="TitleText5">//div[@id='bottom']//h2</xpath>
+		
+		<js name="Link2Image">window.jQuery('a.mydlink_video').css('background-image')</js>
+		<js name="IphoneImage">window.jQuery('#btn_iphone').css('background-image')</js>
+		<js name="AndroidImage">window.jQuery('#btn_android').css('background-image')</js>
+	</targets>
+
+	<messages>
+		<message name="TitleText1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">See what you care anywhere anytime</content>
+		</message>
+		<message name="ContentText1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">With mydlink-enabled products, it's simple to stay connected to everything that you love.</content>
+		</message>
+		<message name="TitleText2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Stay connected to what matters most</content>
+		</message>
+		<message name="Link2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Watch how easy it is to monitor home</content>
+		</message>
+		<message name="ContentText2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Throughout your busy week, stay connected to everything that you love 24/7. View your home and keep an eye on your kids, your pets and your valued possessions from anywhere over the Internet and enjoy the peace of mind that comes from knowing everything is safe and secure.</content>
+		</message>
+		<message name="TitleText3">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Access anywhere anytime</content>
+		</message>
+		<message name="ContentText3">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">To make home monitoring a truly simple experience, we created mydlink.com so you can access your live camera feed from any Internet-connected computer or mobile device, anytime.</content>
+		</message>
+		<message name="TitleText4">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Getting started is easy</content>
+		</message>
+		<message name="ContentText4">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Think home surveillance is too difficult to set up? Think again. mydlink-enabled network cameras were designed to be installed by people just like you - not IT experts. You'll be surprised how easily and quickly your network cameras will be up and running - ready to connect you to your home, ready to monitor what matters most, ready to deliver priceless peace of mind.</content>
+		</message>
+		<message name="Block1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">1Connect the camera to your existing Wi-Fi network.</content>
+		</message>
+		<message name="Block2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">2Run the short installation wizard on your PC.</content>
+		</message>
+		<message name="Block3">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">3Log into mydlink.com to see and hear what's going on in your home in real time - it's that simple!</content>
+		</message>
+		<message name="Note">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">* mydlink supports both PC and MAC user.</content>
+		</message>
+		<message name="Button">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Try It Now</content>
+		</message>
+		<message name="TitleText5">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">How remote viewing works</content>
+		</message>
+	</messages>
+	<images>
+		<image name="Link2Image">/images/whats_mydlink/mydlink_video.jpg</image>
+		<image name="IphoneImage">images/whats_mydlink/btn_iphone.png</image>
+		<image name="AndroidImage">images/whats_mydlink/btn_android.png</image>
+	</images>
+
+</info>

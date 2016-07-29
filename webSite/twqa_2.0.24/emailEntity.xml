@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<emailEntitys>
+		<emailEntity name="changeEmail_1">
+			<mailTo>test.twqa+changeEmail_1@gmail.com</mailTo>
+			<mailFrom>notification@dlink.com</mailFrom>
+			<mailFromPersonal>mydlink</mailFromPersonal>
+			<sentDate>2011-02-16</sentDate>
+			<message name="subject">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Verify your e-mail account</content>
+			</message>
+			<message name="content">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+			<message name="contentText">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+		</emailEntity>
+		<emailEntity name="changeEmail_2">
+			<mailTo>test.twqa+changeEmail_2@gmail.com</mailTo>
+			<mailFrom>notification@dlink.com</mailFrom>
+			<mailFromPersonal>mydlink</mailFromPersonal>
+			<sentDate>2011-02-16</sentDate>
+			<message name="subject">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Verify your e-mail account</content>
+			</message>
+			<message name="content">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+			<message name="contentText">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+		</emailEntity>
+		
+		<emailEntity name="forgetPassword">
+			<mailTo>test.twqa+forgetPassword@gmail.com</mailTo>
+			<mailFrom>notification@mydlink.com</mailFrom>
+			<mailFromPersonal>mydlink</mailFromPersonal>
+			<sentDate>2011-02-18</sentDate>
+			<message name="subject">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Your mydlink password has been reset</content>
+			</message>
+			<message name="content">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+			<message name="contentText">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">
+Hello #$firstName$#,
+
+We have received a request to recover your password. Your mydlink sign-in password is:
+#$password$#
+
+Please use your new password when signing in to #$DNSName$#
+
+=======================================================
+To keep your information safe, please change your password by selecting 
+Change Password in the My Profile section after signing in to mydlink. 
+This e-mail message was sent from a notification-only address that cannot 
+accept incoming e-mail. Please do not reply to this message.
+
+If you have any questions, please contact mydlink customer service 
+at #$DNSName$#/content/contact
+=======================================================
+
+</content>
+			</message>
+		</emailEntity>
+		
+		
+		<emailEntity name="changeEmail_1_un">
+			<mailTo>test.twqa+changeEmail_1_un@gmail.com</mailTo>
+			<mailFrom>notification@mydlink.com</mailFrom>
+			<mailFromPersonal>mydlink</mailFromPersonal>
+			<sentDate>2011-02-18</sentDate>
+			<message name="subject">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Verify your e-mail account</content>
+			</message>
+			<message name="content">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+			<message name="contentText">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">
+Hello #$firstName$#,
+Thank you for joining mydlink.
+
+We have received your request to change your sign-in e-mail account.
+Old e-mail: test.twqa+changeEmail_1@gmail.com
+New e-mail: test.twqa+changeEmail_1_un@gmail.com
+
+Before clicking on the below link to verify your e-mail address,
+ PLEASE be sure close any applications signed in to mydlink, including any browsers logged into the mydlink website.
+Please click the link below to verify your e-mail address:
+#$URL$#
+
+If clicking the link doesn't work, copy and paste the URL address into Internet Explorer.
+
+If you have received this e-mail in error, please ignore this e-mail and we apologize for the inconvenience.
+
+#$DNSName$#.
+=======================================================
+This e-mail message was sent from a notification-only
+address that cannot accept incoming e-mail. Please do not 
+reply to this message.
+If you have any questions, please contact mydlink customer
+service at at #$DNSName$#/content/contact
+=======================================================
+
+
+</content>
+</message>
+</emailEntity>
+<emailEntity name="changeEmail_2_un">
+			<mailTo>test.twqa+changeEmail_2_un@gmail.com</mailTo>
+			<mailFrom>notification@mydlink.com</mailFrom>
+			<mailFromPersonal>mydlink</mailFromPersonal>
+			<sentDate>2011-02-18</sentDate>
+			<message name="subject">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Verify your e-mail account</content>
+			</message>
+			<message name="content">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+			<message name="contentText">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+</message>
+</emailEntity>
+<emailEntity name="changeEmail_3">
+			<mailTo>test.twqa+changeEmail_3@gmail.com</mailTo>
+			<mailFrom>notification@mydlink.com</mailFrom>
+			<mailFromPersonal>mydlink</mailFromPersonal>
+			<sentDate>2011-02-18</sentDate>
+			<message name="subject">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Verify your e-mail account</content>
+			</message>
+			<message name="content">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+			<message name="contentText">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+</message>
+</emailEntity>
+<emailEntity name="changeEmail_3_un">
+			<mailTo>test.twqa+changeEmail_3_un@gmail.com</mailTo>
+			<mailFrom>notification@mydlink.com</mailFrom>
+			<mailFromPersonal>mydlink</mailFromPersonal>
+			<sentDate>2011-02-18</sentDate>
+			<message name="subject">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Verify your e-mail account</content>
+			</message>
+			<message name="content">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+			<message name="contentText">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+</message>
+</emailEntity>
+<emailEntity name="changeDefaultPassword">
+			<mailTo>test.twqa+forgetPassword@gmail.com</mailTo>
+			<mailFrom>notification@mydlink.com</mailFrom>
+			<mailFromPersonal>mydlink</mailFromPersonal>
+			<sentDate>2011-02-16</sentDate>
+			<message name="subject">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Your mydlink password has been reset</content>
+			</message>
+			<message name="content">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Your mydlink password has been reset</content>
+			</message>
+			<message name="contentText">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Your mydlink password has been reset</content>
+			</message>
+		</emailEntity>
+		<emailEntity name="changeEmail_4">
+			<mailTo>test.twqa+changeEmail_4@gmail.com</mailTo>
+			<mailFrom>notification@mydlink.com</mailFrom>
+			<mailFromPersonal>mydlink</mailFromPersonal>
+			<sentDate>2011-02-18</sentDate>
+			<message name="subject">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Verify your e-mail account</content>
+			</message>
+			<message name="content">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+			<message name="contentText">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">
+Hello #$firstName$#,
+Thank you for joining mydlink.
+
+We have received your request to change your sign-in e-mail account.
+Old e-mail: test.twqa+changeEmail_4_un@gmail.com
+New e-mail: test.twqa+changeEmail_4@gmail.com
+
+Before clicking on the below link to verify your e-mail address,
+ PLEASE be sure close any applications signed in to mydlink, including any browsers logged into the mydlink website.
+Please click the link below to verify your e-mail address:
+#$URL$#
+
+If clicking the link doesn't work, copy and paste the URL address into Internet Explorer.
+
+If you have received this e-mail in error, please ignore this e-mail and we apologize for the inconvenience.
+
+#$DNSName$#.
+=======================================================
+This e-mail message was sent from a notification-only
+address that cannot accept incoming e-mail. Please do not 
+reply to this message.
+If you have any questions, please contact mydlink customer
+service at at #$DNSName$#/content/contact
+=======================================================
+
+
+</content>
+</message>
+</emailEntity>
+<emailEntity name="changeEmail_4_un">
+			<mailTo>test.twqa+changeEmail_4_un@gmail.com</mailTo>
+			<mailFrom>notification@mydlink.com</mailFrom>
+			<mailFromPersonal>mydlink</mailFromPersonal>
+			<sentDate>2011-02-18</sentDate>
+			<message name="subject">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Verify your e-mail account</content>
+			</message>
+			<message name="content">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+			<message name="contentText">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">
+Hello #$firstName$#,
+Thank you for joining mydlink.
+
+We have received your request to change your sign-in e-mail account.
+Old e-mail: test.twqa+changeEmail_4@gmail.com
+New e-mail: test.twqa+changeEmail_4_un@gmail.com
+
+Before clicking on the below link to verify your e-mail address,
+ PLEASE be sure close any applications signed in to mydlink, including any browsers logged into the mydlink website.
+Please click the link below to verify your e-mail address:
+#$URL$#
+
+If clicking the link doesn't work, copy and paste the URL address into Internet Explorer.
+
+If you have received this e-mail in error, please ignore this e-mail and we apologize for the inconvenience.
+
+#$DNSName$#.
+=======================================================
+This e-mail message was sent from a notification-only
+address that cannot accept incoming e-mail. Please do not 
+reply to this message.
+If you have any questions, please contact mydlink customer
+service at at #$DNSName$#/content/contact
+=======================================================
+
+
+</content>
+</message>
+</emailEntity>
+<emailEntity name="unRegister">
+			<mailTo>test.twqa+unRegister_23@gmail.com</mailTo>
+			<mailFrom>notification@mydlink.com</mailFrom>
+			<mailFromPersonal>mydlink</mailFromPersonal>
+			<sentDate>2011-02-18</sentDate>
+			<message name="subject">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">Verify your e-mail account</content>
+			</message>
+			<message name="content">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en"></content>
+			</message>
+			<message name="contentText">
+				<content language="zh_CN"></content>
+				<content language="zh_TW"></content>
+				<content language="fr"></content>
+				<content language="en">
+Hello #$firstName$#,
+Thank you for joining mydlink.
+
+We have received your request to change your sign-in e-mail account.
+Old e-mail: test.twqa+profile@gmail.com
+New e-mail: test.twqa+unRegister_23@gmail.com
+
+Before clicking on the below link to verify your e-mail address,
+ PLEASE be sure close any applications signed in to mydlink, including any browsers logged into the mydlink website.
+Please click the link below to verify your e-mail address:
+#$URL$#
+
+If clicking the link doesn't work, copy and paste the URL address into Internet Explorer.
+
+If you have received this e-mail in error, please ignore this e-mail and we apologize for the inconvenience.
+
+#$DNSName$#.
+=======================================================
+This e-mail message was sent from a notification-only
+address that cannot accept incoming e-mail. Please do not 
+reply to this message.
+If you have any questions, please contact mydlink customer
+service at at #$DNSName$#/content/contact
+=======================================================
+
+
+</content>
+</message>
+</emailEntity>
+	</emailEntitys>
+</info>

@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>screenshot</testCaseName>
+	<annotation>
+		<description>screenshot!</description>
+		<testCaseVersion>1</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-22" />
+		<lastUpdated author="dayu.lei" date="2011-07-22" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>		
+		<Html command="screenshot" target="Mydlink Entrance - What's mydlink" value=""></Html>
+		
+		<Html command="click" target="//div[@id='menu_selection']/a[@href='#accessanywhere']" value="" />
+		<Html command="sleep" target="2" value="" />
+		<Html command="screenshot" target="Mydlink Entrance - Access Anywhere" value=""></Html>
+		
+		<Html command="click" target="//div[@id='menu_selection']/a[@href='#productfamily']" value="" />
+		<Html command="sleep" target="2" value="" />
+		<Html command="screenshot" target="Mydlink Entrance - Product Family" value=""></Html>
+		
+		<Html command="click" target="//div[@id='menu_selection']/a[@href='#experience']" value="" />
+		<Html command="sleep" target="2" value="" />
+		<Html command="screenshot" target="Mydlink Entrance - Experience mydlink" value=""></Html>
+		
+		<Html command="open" target="/whats_mydlink" value="" />
+		<Html command="screenshot" target="Mydlink Entrance - What's mydlink - More Details" value=""></Html>
+		
+		<Html command="open" target="/try" value="" />
+		<Html command="sleep" target="8" value="" />
+		<Html command="screenshot" target="Mydlink Entrance - Experience mydlink - Try it Now" value=""></Html>
+		
+		<Html command="open" target="/product/DCS942L" value="" />
+		<Html command="screenshot" target="Mydlink Entrance - Product Family - DCS-942L - Learn more" value=""></Html>
+		
+		<Html command="open" target="/product/DCS940L" value="" />
+		<Html command="screenshot" target="Mydlink Entrance - Product Family - DCS-940L - Learn more" value=""></Html>
+		
+		<Html command="open" target="/product/DNR322L" value="" />
+		<Html command="screenshot" target="Mydlink Entrance - Product Family - DNR-322L - Learn more" value=""></Html>
+		
+		<Html command="open" target="/product/DCS932L" value="" />
+		<Html command="screenshot" target="Mydlink Entrance - Product Family - DCS-932L - Learn more" value=""></Html>
+		
+		<Html command="open" target="/support" value="" />
+		<Html command="screenshot" target="Mydlink Entrance - Support and Dowload" value=""></Html>
+		
+		<Html command="open" target="/faq" value="" />
+		<Html command="screenshot" target="FAQs Menu page" value=""></Html>
+		
+		<Html command="open" target="/faq/mydlink/ans1" value="" />
+		<Html command="screenshot" target="FAQs - mydlink - mydlink web site - 1.Which devices does the mydlink website support" value=""></Html>
+		
+		<Html command="open" target="/faq/mydlink/ans7" value="" />
+		<Html command="screenshot" target="FAQs - mydlink - mydlink member - 3.I didn't receive the verification e-mail. What should I do" value=""></Html>
+		
+		<Html command="open" target="/faq/mydlink/ans21" value="" />
+		<Html command="screenshot" target="FAQs - mydlink - mydlink member - 4.What services does the mydlink website provide" value=""></Html>
+		
+		<Html command="open" target="/faq/mydlink/ans9" value="" />
+		<Html command="screenshot" target="FAQs - mydlink - mydlink member - 6.How do I change my sign-in e-mail" value=""></Html>
+		
+		<Html command="open" target="/faq/mydlink/ans12" value="" />
+		<Html command="screenshot" target="FAQs - mydlink - mydlink member - 9.How can I download the user manual" value=""></Html>
+		
+		<Html command="open" target="/faq/mydlink/ans15" value="" />
+		<Html command="screenshot" target="FAQs - mydlink - mydlink member - 12.Can I change my personal information on mydlink.com" value=""></Html>
+		
+		<Html command="open" target="/faq/mydlink/ans16" value="" />
+		<Html command="screenshot" target="FAQs - mydlink - mydlink member - 13.How can I change the language used for e-mails and notifications sent from mydlink" value=""></Html>
+		
+		<Html command="open" target="/faq/mydlink/ans17" value="" />
+		<Html command="screenshot" target="FAQs - mydlink - mydlink member - 14.On the My Profile page, what is Contact me in for" value=""></Html>
+		
+		<Html command="open" target="/faq/mydlink/ans19" value="" />
+		<Html command="screenshot" target="FAQs - mydlink - mydlink member - 18.How do I delete my mydlink account" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS930L" value="" />
+		<Html command="screenshot" target="FAQs - DCS-930L Menu page" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS930L/ans4" value="" />
+		<Html command="screenshot" target="FAQs - DCS-930L - 5.Does my D-Link router support WPS" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS930L/ans12" value="" />
+		<Html command="screenshot" target="FAQs - DCS-930L - 9.How can I remove a camera from my mydlink account" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS930L/ans13" value="" />
+		<Html command="screenshot" target="FAQs - DCS-930L - 10.How do I hard reset my camera's settings to the factory defaults" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS930L/ans20" value="" />
+		<Html command="screenshot" target="FAQs - DCS-930L - 14.Why can I only view my camera's Live Video for one minute" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS930L/ans23" value="" />
+		<Html command="screenshot" target="FAQs - DCS-930L - 17.Why is my camera's Live Video delayed" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS930L/ans24" value="" />
+		<Html command="screenshot" target="FAQs - DCS-930L - 18.How can I view my camera's Live Video for longer than one minute" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS932L" value="" />
+		<Html command="screenshot" target="FAQs - DCS-932L Menu page" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS932L/ans1" value="" />
+		<Html command="screenshot" target="FAQs - DCS-932L - 1.Can I run the Camera Setup Wizard on my Mac PC or Linux PC" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS932L/ans5" value="" />
+		<Html command="screenshot" target="FAQs - DCS-932L - 5.Does my D-Link router support WPS" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS932L/ans9" value="" />
+		<Html command="screenshot" target="FAQs - DCS-932L - 9.How can I remove a camera from my mydlink account" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS932L/ans10" value="" />
+		<Html command="screenshot" target="FAQs - DCS-932L - 10.How do I perform a hard reset to recover the factory settings" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS932L/ans12" value="" />
+		<Html command="screenshot" target="FAQs - DCS-932L - 12.How do I perform a hard reset to recover the factory settings" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS932L/ans14" value="" />
+		<Html command="screenshot" target="FAQs - DCS-932L - 14.Why can I only view my camera's Live Video for one minute" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS932L/ans17" value="" />
+		<Html command="screenshot" target="FAQs - DCS-932L - 17.Why is my camera's Live Video delayed or skipping" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS932L/ans18" value="" />
+		<Html command="screenshot" target="FAQs - DCS-932L - 18.How can I view my camera's Live Video for longer than one minute" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS932L/ans20" value="" />
+		<Html command="screenshot" target="FAQs - DCS-932L - 20.How can I enable my camera's night view function" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS932L/ans21" value="" />
+		<Html command="screenshot" target="FAQs - DCS-932L - 21.I use a Mac computer. How can I set up my camera" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS940L" value="" />
+		<Html command="screenshot" target="FAQs - DCS-940L Menu page" value=""></Html>
+		
+		<Html command="open" target="/faq/11301100/ans7" value="" />
+		<Html command="screenshot" target="FAQs - DCS-1100,DCS-1130,DCS-1100L,DCS-1130L - 7.Does my D-Link router support WPS" value=""></Html>
+		
+		<Html command="open" target="/faq/11301100/ans13" value="" />
+		<Html command="screenshot" target="FAQs - DCS-1100,DCS-1130,DCS-1100L,DCS-1130L - 11.How can I remove a camera from my mydlink account" value=""></Html>
+		
+		<Html command="open" target="/faq/11301100/ans20" value="" />
+		<Html command="screenshot" target="FAQs - DCS-1100,DCS-1130,DCS-1100L,DCS-1130L - 17.Why can I only view my camera's Live Video for one minute" value=""></Html>
+		
+		<Html command="open" target="/faq/11301100/ans23" value="" />
+		<Html command="screenshot" target="FAQs - DCS-1100,DCS-1130,DCS-1100L,DCS-1130L - 20.Why is my camera's Live Video delayed( content)" value=""></Html>
+		
+		<Html command="open" target="/faq/11301100/ans24" value="" />
+		<Html command="screenshot" target="FAQs - DCS-1100,DCS-1130,DCS-1100L,DCS-1130L - 21.How can I view my camera's Live Video for longer than one minute" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS942L" value="" />
+		<Html command="screenshot" target="FAQs - DCS-942L Menu page" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS942L/ans1" value="" />
+		<Html command="screenshot" target="FAQs - DCS-942L - 1.Can I run the Camera Setup Wizard on my Mac PC or Linux PC" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS942L/ans2" value="" />
+		<Html command="screenshot" target="FAQs - DCS-942L - 2.Can I run the Camera Setup Wizard on Firefox, Safari, Opera, or another browser" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS942L/ans3" value="" />
+		<Html command="screenshot" target="FAQs - DCS-942L - 3.How can I enable my camera's night view function" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS942L/ans4" value="" />
+		<Html command="screenshot" target="FAQs - DCS-942L - 4.How can I enable the motion detect function" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS942L/ans5" value="" />
+		<Html command="screenshot" target="FAQs - DCS-942L - 5.Where can I set up my email notification" value=""></Html>
+		
+		<Html command="open" target="/faq/DCS942L/ans6" value="" />
+		<Html command="screenshot" target="FAQs - DCS-942L - 6.How can I view my camera's Live Video for longer than one minute" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L Menu page" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L/ans1" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L - 1. How much Cameras can connect to NVR" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L/ans2" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L - 2. What kind of Cameras can connect to NVR" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L/ans3" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L - 3. What kind of Hard Drive can be used with NVR" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L/ans4" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L - 4. How to connect Network Cameras to NVR" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L/ans5" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L - 5. Can I use NVR as a NAS" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L/ans6" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L - 6. How can I check the disk status" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L/ans7" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L - 7. How can I replace a failed disk drive" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L/ans8" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L - 8. How can I check RAID volumn status" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L/ans9" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L - 9. How can I restore the default administrator's password" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L/ans10" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L - 10. Why can't I login to the unit through Internet Explorer" value=""></Html>
+		
+		<Html command="open" target="/faq/DNR322L/ans11" value="" />
+		<Html command="screenshot" target="FAQs - DNR-322L - 11. How can I view my camera's Live Video for longer than one minute" value=""></Html>
+
+		<Html command="open" target="/entrance" value="" />
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="mydlinkvenders@gmail.com"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="mydlink123"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+<<<<<<< .mine
+		<Html command="sleep" target="4" value="" />
+		<Function command="selectDevice" target="30300031" value=""></Function>
+=======
+		
+		<Function command="selectDevice" target="30035056" value=""></Function>
+>>>>>>> .r1535
+		<Html command="waitForElementDisplay" target="//div[@id='mydlinkTabBox']/div[2]/a" value="120" />
+		<Html command="click" target="//div[@id='mydlinkTabBox']/div[2]/a" value=""></Html>
+		<Html command="sleep" target="8" value="" />
+		<Html command="screenshot" target="Mydlink - My Devices – Camera info" value=""></Html>
+		
+<<<<<<< .mine
+<!-- 		<Function command="selectDevice" target="30300031" value=""></Function> -->
+<!-- 		<Html command="waitForElementDisplay" target="//a[@id='delDev_link']" value="120"></Html> -->
+<!-- 		<Html command="sleep" target="2" value="" /> -->
+<!-- 		<Html command="screenshot" target="Mydlink - My Devices – Offline" value=""></Html> -->
+=======
+		<Function command="selectDevice" target="30035056" value=""></Function>
+<!-- 	<Html command="open" target="/device#44441258" value=""></Html> -->
+		<Html command="waitForElementDisplay" target="//a[@id='delDev_link']" value="120"></Html>
+		<Html command="sleep" target="2" value="" />
+		<Html command="screenshot" target="Mydlink - My Devices – Offline" value=""></Html>
+>>>>>>> .r1535
+		
+		
+		
+<!-- 	<Html command="open" target="/entrance" value="" /> -->
+<!--    <Html command="type" target="xml(login).xpath.emailTextbox" value="dlink598@sina.cn"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="123456"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html> -->
+<!-- 	<Function command="selectDevice" target="44441258" value=""></Function> -->
+<!-- 	<Html command="open" target="/device#44441258" value=""></Html> -->
+		<Html command="waitForElementDisplay" target="//div[@id='btn_delete_device']" value="120"></Html>
+		<Html command="click" target="//a[@id='delDev_link']" value=""></Html>
+		<Html command="sleep" target="2" value="" />
+		<Html command="screenshot" target="Mydlink - My Devices - Delete Device" value=""></Html>
+		<Html command="type" target="//input[@id='mydlink_password']" value=""></Html>
+		<Html command="click" target="//div[@id='btn_delete_submit']" value=""></Html>
+		<Html command="sleep" target="2" value="" />
+		<Html command="screenshot" target="Mydlink - My Devices - Delete Device-Incorrect pw" value=""></Html>
+		 
+		<Html command="open" target="/profile" value="" />
+<!--    <Html command="type" target="xml(login).xpath.emailTextbox" value="dlink598@sina.cn"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="123456"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html> -->
+<!--    <Function command="selectDevice" target="30300031" value=""></Function>
+		<Html command="clickAndWait" target="//div[@class='rightBG']/a[2]" value=""></Html>-->
+		<Html command="sleep" target="2" value="" />
+		<Html command="screenshot" target="1 Mydlink - My Profile" value=""></Html>
+		
+		
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="123456" />
+		<Html command="type" target="xml(myProfile).xpath.FirstNameValue" value="" />
+		<Html command="type" target="xml(myProfile).xpath.LastNameValue" value="" />
+		<Html command="type" target="xml(myProfile).xpath.ZIPPostalCodeValue" value="中国" />
+		<Html command="type" target="xml(myProfile).xpath.PhoneValue" value="中国" />
+		<Html command="clickAndWait" target="//div[@id='btn_profile_save']" value=""></Html>
+		<Html command="sleep" target="3" value="" />
+		<Html command="screenshot" target="2 Mydlink - My Profile - Information-Warning" value=""></Html>
+		
+		<Html command="sleep" target="3" value="" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="123456" />
+		<Html command="type" target="xml(myProfile).xpath.FirstNameValue" value="hisoft!!!2" />
+		<Html command="type" target="xml(myProfile).xpath.LastNameValue" value="sgdsgs" />
+		<Html command="type" target="xml(myProfile).xpath.ZIPPostalCodeValue" value="123" />
+		<Html command="type" target="xml(myProfile).xpath.PhoneValue" value="123456" />
+		<Html command="clickAndWait" target="//div[@id='btn_profile_save']" value=""></Html>
+		<Html command="sleep" target="3" value="" />
+		<Html command="screenshot" target="3 Mydlink - My Profile - Updated" value=""></Html>
+		
+		<Html command="open" target="/entrance" value="" />
+		<!-- <Html command="type" target="xml(login).xpath.emailTextbox" value="dlink598@sina.cn"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="123456"></Html> 
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>-->
+		<Function command="selectDevice" target="30300031" value=""></Function>
+		<Html command="clickAndWait" target="//div[@class='rightBG']/a[2]" value=""></Html>
+		<Html command="sleep" target="3" value="" />
+		<Html command="type" target="xml(myProfile).xpath.signinEmail" value="dlink598@sina.cn" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="123" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Html command="sleep" target="3" value="" />
+		<Html command="screenshot" target="4 Mydlink - My Profile - My Profile - Password Required" value=""></Html>
+		<Html command="sleep" target="3" value="" />
+		<Html command="open" target="/entrance" value="" />
+		<!-- <Html command="type" target="xml(login).xpath.emailTextbox" value="dlink598@sina.cn"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="123456"></Html> 
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>-->
+		<Function command="selectDevice" target="30300031" value=""></Function>
+		<Html command="clickAndWait" target="//div[@class='rightBG']/a[2]" value=""></Html>
+		<Html command="sleep" target="3" value="" />
+<!-- 		<Html command="type" target="xml(myProfile).xpath.signinEmail" value="123" /> -->
+		<Html command="type" target="xml(myProfile).xpath.signinEmail" value="  " />
+<!--  		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="123456" /> -->
+<!-- 		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveButton" value="" /> -->
+		<Html command="sleep" target="3" value="" />
+		<Html command="screenshot" target="5 Mydlink - My Profile - Change email-Warning" value=""></Html>
+		<Html command="sleep" target="3" value="" />
+		<Html command="type" target="xml(myProfile).xpath.signinEmail" value="abcd" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="123456" />
+		<Html command="click" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Html command="sleep" target="3" value="" />
+		<Html command="screenshot" target="6 Mydlink - My Profile - Change email-Verification Required" value=""></Html>
+		
+		<Html command="open" target="/entrance" value="" />
+		<!-- <Html command="type" target="xml(login).xpath.emailTextbox" value="dlink598@sina.cn"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="123456"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html> -->
+		<Function command="selectDevice" target="30300031" value=""></Function>
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Html command="click" target="xml(myProfile).xpath.ChangePassword" value=""></Html>
+		<Html command="sleep" target="2" value=""></Html>
+<!-- 		<Html command="screenshot" target="X Mydlink - My Profile - xxxxxxx" value=""></Html> -->
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="123456" />
+		<Html command="type" target="xml(myProfile).xpath.NewPasswordValue" value="12" />
+		<Html command="type" target="xml(myProfile).xpath.ConfirmNewPasswordValue" value="12" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Html command="sleep" target="3" value="" />
+		<Html command="screenshot" target="7 Mydlink - My Profile - Password-Warning1" value=""></Html>
+		<Html command="sleep" target="3" value="" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="123456" />
+		<Html command="type" target="xml(myProfile).xpath.NewPasswordValue" value="123456" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Html command="sleep" target="3" value="" />
+		<Html command="screenshot" target="8 Mydlink - My Profile - Password-Warning2" value=""></Html> 
+
+	</TestCase>
+</Test>

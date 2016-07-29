@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+		
+		<!-- Xpath -->
+		<xpath name="BasicInformation">//div[@id='win_content']/h2[1]</xpath>
+		<xpath name="Support">//div[@id='win_content']/h2[2]</xpath>
+		<xpath name="DeviceName">//div[@class='indent'][1]/table/tbody/tr[1]/td[1]</xpath>
+		<xpath name="DeviceNameValue">//div[@class='indent'][1]/table/tbody/tr[1]/td[2]</xpath>
+		<xpath name="CameraPassword">//div[@class='indent'][1]/table/tbody/tr[2]/td[1]</xpath>
+		<xpath name="mydlinkNo.">//div[@class='indent'][1]/table/tbody/tr[3]/td[1]</xpath>
+		<xpath name="mydlinkNoValue">//div[@class='indent'][1]/table/tbody/tr[3]/td[2]</xpath>
+		<xpath name="ModelName">//div[@class='indent'][1]/table/tbody/tr[4]/td[1]</xpath>
+		<xpath name="ModelNameValue">//div[@class='indent'][1]/table/tbody/tr[4]/td[2]</xpath>
+		<xpath name="MAC">//div[@class='indent'][1]/table/tbody/tr[5]/td[1]</xpath>
+		<xpath name="MACValue">//div[@class='indent'][1]/table/tbody/tr[5]/td[2]</xpath>
+		<xpath name="DeviceActivatedOn">//div[@class='indent'][1]/table/tbody/tr[6]/td[1]</xpath>
+														
+		<xpath name="checkBox">pw_toggle</xpath>
+		<xpath name="passwordLink">//a[@id='passwd_stars']</xpath>
+		<xpath name="displayPwd">//span[@id='password_show']</xpath>
+		<xpath name="noDisplayPwd">//span[@id='password_hide']</xpath>
+
+		<xpath name="DownloadLink">//div[@class='indent']/table[@class='info2']//tr[1]/td[1]/a</xpath>
+		<xpath name="FAQLink">//div[@class='indent']/table[@class='info2']//tr[2]/td[1]/a</xpath>
+		
+		<!-- JS -->
+		<js name="errMsgColorJS">window.jQuery('#errMsg').css('color')</js>
+	</targets>
+	
+	<messages>
+		<message name="BasicInformation">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Basic Information</content>
+		</message>
+
+		<message name="Support">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Support</content>
+		</message>
+		<message name="DeviceName">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Device Name:</content>
+		</message>
+		<message name="CameraPassword">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Camera Password:</content>
+		</message>
+		<message name="mydlinkNo.">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink No. :</content>
+		</message>
+		<message name="ModelName">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Model Name:</content>
+		</message>
+		<message name="MAC">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">MAC:</content>
+		</message>
+		<message name="DeviceActivatedOn">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Device activated on:</content>
+		</message>
+	</messages>
+	
+	<images>
+		<image name="logoImg">/images/ucp/dlife_logo.gif</image>
+		
+	</images>
+	
+</info>

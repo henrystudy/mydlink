@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<accounts>
+<!-- 	testqaidhs.qa3+back1@gmail.com/mydlink123 -->
+
+		<!-- Common use account  -->
+		<account type="register">
+		<!-- 这个账号是主账号，很多case需要用到他，请保证他的信息是跟网站上是一样的，有信息的更新请把这里也更新一下，当然还有下面有device信息的账户 -->
+			<email>testqaidhs.qa3@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName>mydlink</firstName>
+			<lastName>qa3</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1130L</DeviceName>
+					<ModelName>DCS-1130L</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>30035061</SN>
+					<Mac>F07D6802045A</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>offLine</state>
+					<fw>need to change</fw>  
+				</device>
+				<device>
+					<DeviceName>DCS-1100L</DeviceName>
+					<ModelName>DCS-1100L</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>30035041</SN>
+					<Mac>F07D6801FB77</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+				<device>
+					<DeviceName>DCS-930L</DeviceName>
+					<ModelName>DCS-930L</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>30034961</SN>
+					<Mac>F07D6801EA85</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.03.4108</fw>
+				</device>			
+			</devices>
+		</account>
+		<!-- 这个账号用于忘记密码的case，其他case不要使用这个，密码经常是不对的。 -->
+		<account type="forgetPassword">
+			<email>testqaidhs.qa3+forgetpasswd@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName>dlink</firstName>
+			<lastName>forgetpasswd</lastName>
+			<devices />
+		</account>
+		<!-- 错误的账号密码 -->
+		<account type="wrong">
+			<email>aaa</email>
+			<password>bbb</password>
+			<emailPassword />
+			<firstName />
+			<lastName />
+			<devices />
+		</account>
+		<!-- 未注册的账号，请保证他是为注册的。 -->
+		<account type="unRegister">
+			<email>unregister_1712@sina.cn</email>
+			<password>mydlink123</password>
+			<emailPassword>123456</emailPassword>
+			<firstName />
+			<lastName />
+			<devices />
+		</account>
+		
+		<!-- 一般的账号，无设备，保证能登陆，用于密码修改，为了保证不影响其他的case，请无使用这个账号-->
+		<!-- 1.2.7 Change Default Password.xml use only -->
+		<account type="changeDefaultPassword">
+			<email>testqaidhs.qa3+changeDefaultPassword@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName>twqa</firstName>
+			<lastName>changepasswd</lastName>
+			<devices />
+		</account>
+		
+		<!-- 一般的账号，无设备，保证能登陆-->
+		<account type="haveNoDevice">
+			<email>testqaidhs.qa3+haveNoDevice@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName />
+			<lastName />
+			<devices/>
+		</account>
+				
+		<!-- 一般的账号，无设备，保证能登陆-->
+		<account type="myprofile">
+			<email>testqaidhs.qa3+myProfile@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName>老</firstName>
+			<lastName>虎</lastName>
+			<devices/>
+		</account>
+			
+		<!-- 一般的账号，无设备，保证能登陆-->
+		 <account type="myprofileUn">
+			<email>testqaidhs.qa3+myprofileUn@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName>老</firstName>
+			<lastName>虎</lastName>
+			<devices/>
+		</account>
+		<!-- 一般的账号，保证能登陆，用于升级，以下的账号都是取第一个设备。-->
+		<account type="fw">
+			<email>testqaidhs.qa3@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1100L</DeviceName>
+					<ModelName>DCS-1100</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>30035041</SN>
+					<Mac>F07D6801FB77</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+			</devices>
+		</account>
+		<!-- 一般的账号，保证能登陆，用于Relay-->
+		<account type="Relay">
+			<email>testqaidhs.qa3@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-930L</DeviceName>
+					<ModelName>DCS-930L</ModelName>
+					<ConnectionType>Relay</ConnectionType>
+					<SN>30034961</SN>
+					<Mac>F07D6801EA85</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.03.4108</fw>
+				</device>
+			</devices>
+		</account>
+		<!-- 一般的账号，保证能登陆，用于Port-->
+		<account type="Port">
+			<email>testqaidhs.qa3@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-930L</DeviceName>
+					<ModelName>DCS-930L</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>30034961</SN>
+					<Mac>F07D6801EA85</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.03.4108</fw>
+				</device>		
+			</devices>
+		</account>
+		<!-- 一般的账号，保证能登陆，用于Direct-->
+		<account type="Direct">
+			<email>testqaidhs.qa3@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1100L</DeviceName>
+					<ModelName>DCS-1100L</ModelName>
+					<ConnectionType>Direct</ConnectionType>
+					<SN>19549277</SN>
+					<Mac>F07D6801FB6F</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>offLine</state>
+					<fw>need to change</fw>  
+				</device>
+			</devices>
+		</account>
+		<account type="onLine">
+			<email>testqaidhs.qa3@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName>DCS-1100L</DeviceName>
+					<ModelName>DCS-1100L</ModelName>
+					<ConnectionType>Port</ConnectionType>
+					<SN>19549277</SN>
+					<Mac>F07D6801FB77</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>onLine</state>
+					<fw>1.03, 4108</fw>
+				</device>
+			</devices>
+		</account>
+		<!-- 一般的账号，保证能登陆，用于offLine-->
+		<account type="offLine">
+			<email>testqaidhs.qa3@gmail.com</email>
+			<password>mydlink123</password>
+			<emailPassword>mydlink123</emailPassword>
+			<firstName>test</firstName>
+			<lastName>twqa</lastName>
+			<devices>
+				<device>
+					<DeviceName></DeviceName>
+					<ModelName>DCS-1130L</ModelName>
+					<ConnectionType>Direct</ConnectionType>
+					<SN>30035061</SN>
+					<Mac>F07D6801FB6F</Mac>
+					<UserName>admin</UserName>
+					<Passwd>mydlink</Passwd>
+					<state>offLine</state>
+					<fw>need to change</fw>
+				</device>
+			</devices>
+		</account>
+	</accounts>
+</info>

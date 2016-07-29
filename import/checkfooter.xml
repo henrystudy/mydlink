@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Sign in mydlink</testCaseName>
+	<annotation>
+		<description>test sign in mydlink page</description>
+		<created author="dayu.lei" date="2011-06-14" />
+		<lastUpdated author="dayu.lei" date="2011-06-14" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<!-- check footer -->
+		<Verify expected="xml(footer).message.GlobalDlinkLink">
+			<Html command="getValue" target="xml(footer).xpath.GlobalDlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.AboutMydlinkLink">
+			<Html command="getValue" target="xml(footer).xpath.AboutMydlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.TermsOfUseLink">
+			<Html command="getValue" target="xml(footer).xpath.TermsOfUseLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.PrivacyPolicyLink">
+			<Html command="getValue" target="xml(footer).xpath.PrivacyPolicyLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.ContactUsLink">
+			<Html command="getValue" target="xml(footer).xpath.ContactUsLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom" value="" />
+		</Verify>
+	</TestCase>
+</Test>

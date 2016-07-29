@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>FW upgrade</testCaseName>
+	<annotation>
+		<description>verify fwupgrade page</description>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="dayu.lei" date="2011-06-16" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login begin -->
+		<Html command="open" target="xml(global).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(global).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(global).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(global).xpath.emailTextbox"
+			value="account(fw).email"></Html>
+		<Html command="type" target="xml(global).xpath.passwordTextbox"
+			value="account(fw).pwd"></Html>
+		<Html command="clickAndWait" target="xml(global).xpath.signinDivButton"
+			value=""></Html>
+		<Verify expected="xml(device).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		<!-- login end -->
+
+		<!-- page test begin -->
+		<Html command="waitForElementDisplay" target="xml(device).xpath.stateMsgBar"
+			value="60" />
+		<Function command="selectDevice" target="account(fw).device.1.sn"
+			value=""></Function>	
+		<Html command="waitForElementDisplay" target="xml(fwupgrade).xpath.UpdateNeededMsg"
+			value="60" />
+		<Verify expected="xml(fwupgrade).message.UpdateNeededMsg">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateNeededMsg"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.UpdateNeededMsgDetail">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateNeededMsgDetail"
+				value="" />
+		</Verify>	
+		<Verify expected="xml(fwupgrade).message.UpdateInformation">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateInformation"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.EstimatedUpdateTime">
+			<Html command="getValue" target="xml(fwupgrade).xpath.EstimatedUpdateTime"
+				value="" />
+		</Verify>
+			
+		<!-- check LOGO -->
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo"
+				value="" />
+		</Verify>
+		<!-- check LOGO 结束 -->	
+			
+		<Verify expected="xml(fwupgrade).message.UpdateNow">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateNow"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.UpdateLater">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateLater"
+				value="" />
+		</Verify>	
+		<!-- page test end -->
+		
+		<!-- common verify begin -->
+		
+		<!-- check image  -->
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo"
+				value="" />
+		</Verify>
+		
+		<!-- check titleBar  -->
+		<Verify expected="xml(device).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- check head -->
+		<Verify expected="xml(commonInfo).message.mydlinkLiteLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLiteLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.myDevicesLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myDevicesLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.myProfileLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myProfileLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.signOutLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.signOutLink"
+				value="" />
+		</Verify>
+		<!-- 检查 HEAD 结束 -->
+
+		<!-- check footer -->
+		<Verify expected="xml(commonInfo).message.globalDlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.globalDlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.aboutMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.aboutMydlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.termsOfUseLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.termsOfUseLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.privacyPolicyLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.privacyPolicyLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.contactUsLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.contactUsLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.bottom" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.bottom"
+				value="" />
+		</Verify>
+		<!-- check footer end -->
+		
+		<!-- common verify end -->
+		
+	</TestCase>
+</Test>

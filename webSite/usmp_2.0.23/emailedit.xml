@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+		<pagePath name="pagePath">/profile/emailedit</pagePath>
+		
+		<!-- Xpath -->
+		<xpath name="titleBar">//div[@class='jeff1']/div[@class='jeff2']/span[@class='floatl']</xpath>
+		<xpath name="note">//div[@class='note']</xpath>
+		<xpath name="oldEmail">//table[@class='info2']//tr[1]/td[1]</xpath>
+		<xpath name="newEmail">//table[@class='info2']//tr[2]/td[1]</xpath>
+		<xpath name="retryNewemail">//table[@class='info2']//tr[3]/td[1]</xpath>
+		
+		<xpath name="save">//div[@class='btn floatl']</xpath>
+		<xpath name="cancel">//div[@class='btnw floatl']</xpath>
+		<xpath name="BacktoMyProfile">//div[@class='btn floatr']</xpath>
+		
+		<xpath name="newEmailbox">//input[@id='change_email_new_email']</xpath>
+		<xpath name="newEmailboxverify">//input[@id='change_email_new_email_verify']</xpath>
+		<xpath name="warning">//div[@class='warning'][1]</xpath>
+		<xpath name="warning3">//table[@class='info2']//tr[3]//div[@class='warning']</xpath>
+		<xpath name="Averificatione-mail">//p[@class='indent']</xpath>
+		<xpath name="pleasecheck">//div[@class='whitebox']//td/p[2]</xpath>
+		<xpath name="table">//table[@id='moreinfo']</xpath>
+		<xpath name="didntreceive">//td[@class='more']</xpath>
+		<xpath name="note2">//td[@class='note']</xpath>
+		<xpath name="link1">//td[@class='note']/a[1]</xpath>
+		<xpath name="link2">//td[@class='note']/a[2]</xpath>
+		<xpath name="Resende-mail">//div[@class='whitebox']/div[@class='btn floatl'][1]/div</xpath>
+		<xpath name="Changee-mail">//div[@class='whitebox']/div[@class='btn floatl'][2]</xpath>
+		<xpath name="notnow">//div[@class='whitebox']/div[@class='btnw floatl']</xpath>
+		<xpath name="notverified">//p[@class='warning']</xpath>
+		<xpath name="click">//div[@class='whitebox']/p[2]</xpath>
+		<xpath name="resent">//div[@class='whitebox']/div[@class='warning']</xpath>
+		
+		<!-- JS -->
+		<js name="errMsgColorJS">window.jQuery('#errMsg').css('color')</js>
+	</targets>
+	
+	<messages>
+		<message name="titleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Change Sign-in E-mail</content>
+		</message>
+		<message name="note">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Set your email client to accept messages from @mydlink.com so you will receive our updates regarding products and support.</content>
+		</message>
+		<message name="oldEmail">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Old e-mail:</content>
+		</message>
+		<message name="newEmail">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">New e-mail:</content>
+		</message>
+		<message name="retryNewemail">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Retype new e-mail:</content>
+		</message>
+		<message name="save">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Save</content>
+		</message>
+		<message name="cancel">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Cancel</content>
+		</message>
+		<message name="warning1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please enter a valid e-mail address.</content>
+		</message>
+		<message name="warning2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">This e-mail address already has a mydlink account. Try a different e-mail address.</content>
+		</message>
+		<message name="warning3">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">E-mail addresses do not match.</content>
+		</message>
+		<message name="Averificatione-mail">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">An verification e-mail has been sent to</content>
+		</message>
+		<message name="Averificatione-mailResent">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">An verification e-mail has been sent to</content>
+		</message>
+
+		<message name="pleasecheck">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please check your e-mail inbox and click on the verification link in the e-mail to finish activating your account.</content>
+		</message>
+		<message name="BacktoMyProfile">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Back to My Profile</content>
+		</message>
+		<message name="didntreceive">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Didn't receive the verification e-mail?</content>
+		</message>
+		<message name="note1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">If you haven't received the verification e-mail within 15 minutes, try the following:</content>
+		</message>
+		<message name="note2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">(1) Check the spam folder of your e-mail account.</content>
+		</message>
+		<message name="link1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Resend the verification e-mail</content>
+		</message>
+		<message name="link2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Change your signin e-mail</content>
+		</message>
+	
+		<message name="titleBar2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Verify your e-mail address</content>
+		</message>
+		<message name="Resende-mail">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Resend e-mail</content>
+		</message>
+		<message name="Changee-mail">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Change e-mail</content>
+		</message>
+		<message name="notnow">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Not now, thanks</content>
+		</message>
+		<message name="notverified">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">You have not verified your e-mail address yet.</content>
+		</message>
+		<message name="click1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Click Resend e-mail to resend your verification e-mail.</content>
+		</message>
+		<message name="click2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Click Change e-mail to change your sign in e-mail.</content>
+		</message>
+		<message name="resent">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">An verification e-mail has been sent to</content>
+		</message>
+	
+	
+	</messages>
+	
+
+	
+</info>

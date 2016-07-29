@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+
+	<targets>
+		<pagePath name="pagePath">/entrance</pagePath>
+		<pagePath name="entrance">/entrance</pagePath>
+		<xpath name="News">//td//div[1]//div[@class='jeff2']</xpath>
+		<xpath name="Maintenance">//td//div[5]//div[@class='jeff2']</xpath>
+		
+		<xpath name="SignInToMydlink">//div[@id='rt_menu']/a[2]</xpath>
+		<xpath name="NewsAndMaintenanceBarText">//div[@class='content']//tr/td[2]/div[@class='jeff1'][2]/div[@class='jeff2']</xpath>
+		
+<!--		<xpath name="SignIntoMydlink">//div[@id='rt_menu']/a[1]</xpath>-->
+		<xpath name="selectedLanguage">//div[@id='rt_menu']/div/a</xpath>
+		<xpath name="language1">//div[@id='rt_menu']/div//ul/li[1]/a</xpath>
+		<xpath name="language2">//div[@id='rt_menu']/div//ul/li[2]/a</xpath>
+		<xpath name="language3">//div[@id='rt_menu']/div//ul/li[3]/a</xpath>
+		<xpath name="language4">//div[@id='rt_menu']/div//ul/li[4]/a</xpath>
+		<xpath name="language5">//div[@id='rt_menu']/div//ul/li[5]/a</xpath>
+		<xpath name="language6">//div[@id='rt_menu']/div//ul/li[6]/a</xpath>
+		<xpath name="language7">//div[@id='rt_menu']/div//ul/li[7]/a</xpath>
+		<xpath name="language8">//div[@id='rt_menu']/div//ul/li[8]/a</xpath>
+		<xpath name="language9">//div[@id='rt_menu']/div//ul/li[9]/a</xpath>
+		<xpath name="language10">//div[@id='rt_menu']/div//ul/li[10]/a</xpath>
+		<xpath name="language11">//div[@id='rt_menu']/div//ul/li[11]/a</xpath>
+		<xpath name="language12">//div[@id='rt_menu']/div//ul/li[12]/a</xpath>
+		<xpath name="language13">//div[@id='rt_menu']/div//ul/li[13]/a</xpath>
+		<xpath name="language14">//div[@id='rt_menu']/div//ul/li[14]/a</xpath>
+		<xpath name="language15">//div[@id='rt_menu']/div//ul/li[15]/a</xpath>
+		<xpath name="language16">//div[@id='rt_menu']/div//ul/li[16]/a</xpath>
+		<xpath name="language17">//div[@id='rt_menu']/div//ul/li[17]/a</xpath>
+		<xpath name="language18">//div[@id='rt_menu']/div//ul/li[18]/a</xpath>
+		<xpath name="language19">//div[@id='rt_menu']/div//ul/li[19]/a</xpath>
+		<xpath name="language20">//div[@id='rt_menu']/div//ul/li[20]/a</xpath>
+		<xpath name="language21">//div[@id='rt_menu']/div//ul/li[21]/a</xpath>
+		<xpath name="language22">//div[@id='rt_menu']/div//ul/li[22]/a</xpath>
+		<xpath name="language23">//div[@id='rt_menu']/div//ul/li[23]/a</xpath>
+		
+		<xpath name="header">//div[@id='header']</xpath>
+		<xpath name="content">//div[@class='content']</xpath>
+		<xpath name="footer">//div[@id='footer']</xpath>
+		
+		<xpath name="country">//a[@id='ctl00_link_country']</xpath>
+	</targets>
+	<messages>
+		<message name="en">
+			<content language="zh_CN">English</content>
+			<content language="zh_TW">English</content>
+			<content language="fr">English</content>
+			<content language="en">English</content>
+		</message>
+		<message name="fr">
+			<content language="zh_CN">Française</content>
+			<content language="zh_TW">Française</content>
+			<content language="fr">Française</content>
+			<content language="en">Française</content>
+		</message>
+		<message name="ru">
+			<content language="zh_CN">Россию</content>
+			<content language="zh_TW">Россию</content>
+			<content language="fr">Россию</content>
+			<content language="en">Россию</content>
+		</message>
+		<message name="es">
+			<content language="zh_CN">Español</content>
+			<content language="zh_TW">Español</content>
+			<content language="fr">Español</content>
+			<content language="en">Español</content>
+		</message>
+		<message name="pt">
+			<content language="zh_CN">Português</content>
+			<content language="zh_TW">Português</content>
+			<content language="fr">Português</content>
+			<content language="en">Português</content>
+		</message>
+		<message name="pt_BR">
+			<content language="zh_CN">Português</content>
+			<content language="zh_TW">Português</content>
+			<content language="fr">Português</content>
+			<content language="en">Português</content>
+		</message>
+		<message name="ja">
+			<content language="zh_CN">日本語</content>
+			<content language="zh_TW">日本語</content>
+			<content language="fr">日本語</content>
+			<content language="en">日本語</content>
+		</message>
+		<message name="zh_TW">
+			<content language="zh_CN">中文(繁體)</content>
+			<content language="zh_TW">中文(繁體)</content>
+			<content language="fr">中文(繁體)</content>
+			<content language="en">中文(繁體)</content>
+		</message>
+		<message name="zh_CN">
+			<content language="zh_CN">中文(简体)</content>
+			<content language="zh_TW">中文(简体)</content>
+			<content language="fr">中文(简体)</content>
+			<content language="en">中文(简体)</content>
+		</message>
+		<message name="ko">
+			<content language="zh_CN">한국어</content>
+			<content language="zh_TW">한국어</content>
+			<content language="fr">한국어</content>
+			<content language="en">한국어</content>
+		</message>
+		<message name="cs">
+			<content language="zh_CN">České</content>
+			<content language="zh_TW">České</content>
+			<content language="fr">České</content>
+			<content language="en">České</content>
+		</message>
+		<message name="da">
+			<content language="zh_CN">Danske</content>
+			<content language="zh_TW">Danske</content>
+			<content language="fr">Danske</content>
+			<content language="en">Danske</content>
+		</message>
+		<message name="de">
+			<content language="zh_CN">Deutsch</content>
+			<content language="zh_TW">Deutsch</content>
+			<content language="fr">Deutsch</content>
+			<content language="en">Deutsch</content>
+		</message>
+		<message name="el">
+			<content language="zh_CN">Ελληνικά</content>
+			<content language="zh_TW">Ελληνικά</content>
+			<content language="fr">Ελληνικά</content>
+			<content language="en">Ελληνικά</content>
+		</message>
+		<message name="hr">
+			<content language="zh_CN">Hrvatski</content>
+			<content language="zh_TW">Hrvatski</content>
+			<content language="fr">Hrvatski</content>
+			<content language="en">Hrvatski</content>
+		</message>
+		<message name="hu">
+			<content language="zh_CN">Magyar</content>
+			<content language="zh_TW">Magyar</content>
+			<content language="fr">Magyar</content>
+			<content language="en">Magyar</content>
+		</message>
+		<message name="it">
+			<content language="zh_CN">Italiano</content>
+			<content language="zh_TW">Italiano</content>
+			<content language="fr">Italiano</content>
+			<content language="en">Italiano</content>
+		</message>
+		<message name="nl">
+			<content language="zh_CN">Nederlandse</content>
+			<content language="zh_TW">Nederlandse</content>
+			<content language="fr">Nederlandse</content>
+			<content language="en">Nederlandse</content>
+		</message>
+		<message name="no">
+			<content language="zh_CN">Nynorsk</content>
+			<content language="zh_TW">Nynorsk</content>
+			<content language="fr">Nynorsk</content>
+			<content language="en">Nynorsk</content>
+		</message>
+		<message name="pl">
+			<content language="zh_CN">Polska</content>
+			<content language="zh_TW">Polska</content>
+			<content language="fr">Polska</content>
+			<content language="en">Polska</content>
+		</message>
+		<message name="ro">
+			<content language="zh_CN">Romanian</content>
+			<content language="zh_TW">Romanian</content>
+			<content language="fr">Romanian</content>
+			<content language="en">Romanian</content>
+		</message>
+		<message name="sl">
+			<content language="zh_CN">Slovenian</content>
+			<content language="zh_TW">Slovenian</content>
+			<content language="fr">Slovenian</content>
+			<content language="en">Slovenian</content>
+		</message>
+		<message name="sv">
+			<content language="zh_CN">Svenska</content>
+			<content language="zh_TW">Svenska</content>
+			<content language="fr">Svenska</content>
+			<content language="en">Svenska</content>
+		</message>
+		<message name="fi">
+			<content language="zh_CN">Suomalainen</content>
+			<content language="zh_TW">Suomalainen</content>
+			<content language="fr">Suomalainen</content>
+			<content language="en">Suomalainen</content>
+		</message>
+				
+		<message name="News">
+			<content language="zh_CN">News</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">News</content>
+		</message>
+		<message name="Maintenance">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Maintenance Announcement</content>
+		</message>
+      <message name="NewsAndMaintenanceBarText">
+			<content language="zh_CN">News &amp; Maintenance</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<!--<content language="en">News</content>  --> 
+			<content language="en">News &amp; Maintenance</content>
+		</message>
+		<message name="SignInToMydlink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign In to mydlink</content>
+		</message>
+
+	</messages>
+
+
+
+	
+</info>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Sign in mydlink</testCaseName>
+	<annotation>
+		<description>test sign in mydlink page</description>
+		<created author="dayu.lei" date="2011-06-21" />
+		<lastUpdated author="dayu.lei" date="2011-06-21" />
+		<recordInfo account="haveNoDevice" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		
+		<!-- step 1: -->
+
+		<!-- open entrance page -->
+		<Html command="open" target="xml(entrance).pagePath.pagePath" value=""></Html>
+		<Html command="clickAndWait" target="xml(commonInfo).xpath.signInToMydlinkLink" value=""></Html>
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(register).pwd"></Html>
+		<Html command="check" target="xml(login).xpath.rememberMeCheckBox" value=""></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		<Verify expected="account(register).email">
+			<Html command="getValue" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+		
+		
+				
+		<Html command="check" target="xml(login).xpath.rememberMeCheckBox" value=""></Html>
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(register).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- step 2: -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(register).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- step 3: -->
+		<!-- open error page -->
+		<Html command="open" target="xml(entrance).pagePath.pagePath" value=""></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInToMydlink" value=""></Html>
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(register).pwd"></Html>
+		<Html command="check" target="xml(login).xpath.rememberMeCheckBox" value=""></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- step 4: -->
+		<Html command="clickAndWait" target="xml(device).xpath.signOutLink" value=""></Html>
+		<Html command="waitForElementDisplay" target="xml(entrance).xpath.SignInToMydlink" value="60"></Html>
+		<Html command="clickAndWait" target="xml(commonInfo).xpath.signInToMydlinkLink" value=""></Html>
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).email">
+			<Html command="getValue" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+		
+		<!-- step 5: -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(register).pwd"></Html>
+		<Html command="uncheck" target="xml(login).xpath.rememberMeCheckBox" value=""></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="clickAndWait" target="xml(device).xpath.signOutLink" value=""></Html>
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(login).xpath.emailTextbox" value="" />
+		</Verify>
+		<Verify expected="">
+			<Html command="getValue" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(login).xpath.passwordTextbox" value="" />
+		</Verify>
+		
+		
+	</TestCase>
+</Test>

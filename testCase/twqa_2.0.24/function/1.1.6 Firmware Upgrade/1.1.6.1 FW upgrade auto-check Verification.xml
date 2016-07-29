@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>FW upgrade auto-check Verification</testCaseName>
+	<annotation>
+		<description>1.6.1 FW upgrade auto-check Verification.xml</description>
+		<testCaseVersion>5</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-12" />
+		<lastUpdated author="dayu.lei" date="2011-07-12" />
+		<recordInfo deviceIndex="1" account="fw" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(fw).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(fw).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(fw).device.1.sn" value=""></Function>
+		<Html command="waitForElementDisplay" target="xml(fwupgrade).xpath.UpdateLater" value="120" />
+
+		<!-- page test begin -->
+		<!-- Logo: -->
+		<!-- mydlink(image link) -->
+		<!-- Title bar: -->
+		<!-- My Devices -->
+		<!-- Hyperlink texts: -->
+		<!-- top right corner: FAQ | Support -->
+		<!-- normal status: normal white fonts -->
+		<!-- mouseover status: underline effect -->
+		<!-- Dropdown list: the language selections as below: -->
+		<!-- Language English▼ -->
+		<!-- Française -->
+		<!-- Español -->
+		<!-- Português -->
+		<!-- 中文(繁體) -->
+		<!-- 中文(简体) -->
+		<!-- top left Navigation: My Devices | My Profile ("My Devices" is selected by default) -->
+		<!-- selected status: deepen background blue color -->
+		<!-- normal status: white fonts -->
+		<!-- mouseover status: deepen background color effect -->
+		<!-- top right corner: Sign out -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<!-- bottom: Global D-Link || About mydlink || Terms of Use || Privacy Policy || Contact US -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<ImportXML src="commonUI.xml"></ImportXML>
+		
+		<Function command="selectDevice" target="account(fw).device.1.sn"
+			value=""></Function>
+			
+		<!-- wait for Update Needed Msg page -->	
+				
+		<Html command="waitForElementDisplay" target="xml(fwupgrade).xpath.UpdateNeededMsg"
+			value="60" />
+			
+		<!--	 (1): "Firmware update needed!" screen will dispay with the description: "Your device's firmware needs to be updated in order to ensure that you get the best performance out of your device."-->
+		
+		<Verify expected="xml(fwupgrade).message.UpdateNeededMsg">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateNeededMsg"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.UpdateNeededMsgDetail">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateNeededMsgDetail"
+				value="" />
+		</Verify>	
+		
+		<!--	 (2): Verify the title "Firmware update needed!" is highlighted as red font. -->
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(fwupgrade).js.UpdateNeededMsgColor"
+				value="" />
+		</Verify>
+		
+		<!--	(1). Update information:-->
+		<!--      - Current Firmware Version: xxxxx-->
+		<!--      - New Firmware Version: xxxxx-->
+		<!--      - File Size: x.xM-->
+				
+		<Verify expected="xml(fwupgrade).message.UpdateInformation">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateInformation"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.CurrentFirmwareVersion" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.CurrentFirmwareVersion"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.NewFirmwareVersion" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.NewFirmwareVersion"
+				value="" />
+		</Verify>
+		<Verify expected="M" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.FileSize"
+				value="" />
+		</Verify>
+		
+		<!--   (2). Estimated update time: -->
+		<!--      - Dial-up (56 K): xx mins/sec-->
+		<!--      - DSL/Cable (256K): xx mins/sec -->
+		<!--      - DSL/Cable (768K): xx mins/sec-->
+		<!--      - T1 (1.5M): xx mins/sec-->
+		<Verify expected="xml(fwupgrade).message.UpdateInformation">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateInformation"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.DialUp56" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.DialUp56"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.DSLCable256" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.DSLCable256"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.DSLCable768" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.DSLCable768"
+				value="" />
+		</Verify>
+		<Verify expected="M" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.T1"
+				value="" />
+		</Verify>
+		
+		<!--	 (3). Warning :-->
+		<!--      -  Please use a wired Internet connection for your device when updating. -->
+		<!--      -  Please do not unplug your device while it is updating.-->
+		<Verify expected="xml(fwupgrade).message.Warning" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.Warning"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.WarningDetailOne" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.WarningDetailOne"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.WarningDetailTwo" type="contains">
+			<Html command="getValue" target="xml(fwupgrade).xpath.WarningDetailTwo"
+				value="" />
+		</Verify>
+		
+		<!--"Update Now" and "Update Later" buttons will display under the image and "Update Now" is the default button.-->
+		
+		<Verify expected="xml(fwupgrade).message.UpdateNow">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateNow"
+				value="" />
+		</Verify>
+		<Verify expected="xml(fwupgrade).message.UpdateLater">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdateLater"
+				value="" />
+		</Verify>
+		
+		<!--	(1): the "Warning:" will display correctly as highlight red font and with below descriptions:-->
+		<!--      - Please use a wired Internet connection for your device when updating. -->
+		<!--      - Please do not unplug your device while it is updating-->
+		<!--	-->
+		
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(fwupgrade).js.warningColorJS"
+				value="" />
+		</Verify>
+		
+		<!-- page test end -->
+		
+		<!-- common verify begin -->
+		
+		<!-- check footer -->
+		<ImportXML src="checkfooter.xml" />
+		<!-- check footer end -->
+		
+		<!-- common verify end -->
+				
+	</TestCase>
+</Test>

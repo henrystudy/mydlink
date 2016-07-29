@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Edit my profile basic info</testCaseName>
+	<annotation>
+		<description>1.2.5.4 Edit my profile basic info.xml</description>
+		<created author="Tiger Wei" date="2011-02-11" />
+		<lastUpdated author="Tiger Wei" date="2011-02-11" />
+		<recordInfo account="register"/>
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		<!-- login begin -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(register).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value="" />
+		<Verify expected="xml(device).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- 到达 My Profile 页面 -->
+		<Html command="waitForElementDisplay" target="xml(commonInfo).xpath.myProfileLink" value="60"></Html>
+		
+		<Html command="clickAndWait" target="xml(commonInfo).xpath.myProfileLink" value=""></Html>
+		<!-- 检查 My Profile Root Page Title -->
+		<Verify expected="xml(myProfile).message.titleBar">
+			<Html command="getValue" target="xml(myProfile).xpath.titleBar" value=""></Html>
+		</Verify>
+		
+		<!-- check header  -->
+		<Verify expected="xml(commonInfo).message.mydlinkLiteLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLiteLink" value="" />
+		</Verify>
+		
+		<Verify expected="xml(commonInfo).message.myDevicesLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myDevicesLink" value="" />
+		</Verify>
+		
+		<Verify expected="xml(commonInfo).message.myProfileLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myProfileLink" value="" />
+		</Verify>
+		
+		<Verify expected="xml(commonInfo).message.signOutLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.signOutLink" value="" />
+		</Verify>
+		
+		<!-- 检查页面 Logo -->
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo" value=""></Html>
+		</Verify>
+		
+		<ImportXML src="checkfooter.xml"></ImportXML>
+		
+		<!--  User’s mydlink signin email will display here. -->
+		<Verify expected="account(register).email">
+			<Html command="getValue" target="xml(myProfile).xpath.signinEmail" value="" />
+		</Verify>
+		
+		<!-- 检查 information -->
+		<Verify expected="xml(myProfile).message.LabelFirstNameText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelFirstNameText" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.LabelLastNameText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelLastNameText" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.LabelDateOfBirthText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelDateOfBirthText" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.LabelContactMeInText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelContactMeInText" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.LabelCountryText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelCountryText" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.LabelAddressText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelAddressText" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.LabelCityText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelCityText" value="" />
+		</Verify>
+			
+		<Verify expected="xml(myProfile).message.LabelStateProvinceText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelStateProvinceText" value="" />
+		</Verify>
+		
+		<Verify expected="xml(myProfile).message.LabelPhoneText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelPhoneText" value="" />
+		</Verify>
+		
+		<!-- Basic Information If no data leave blank -->
+		<Verify expected="account(register).firstName">
+			<Html command="getValue" target="xml(myProfile).xpath.FirstNameValue" value="" />
+		</Verify>
+		
+		<Verify expected="account(register).lastName">
+			<Html command="getValue" target="xml(myProfile).xpath.LastNameValue" value="" />
+		</Verify>
+		
+		<Verify expected="2010-10-30">
+			<Html command="getValue" target="xml(myProfile).xpath.DateOfBirthValue" value="" />
+		</Verify>
+		
+		<Verify expected="MALE">
+			<Html command="getValue" target="xml(myProfile).xpath.GenderValue" value="" />
+		</Verify>
+		
+		<Verify expected="English">
+			<Html command="getValue" target="xml(myProfile).xpath.ContactMeInValue" value="" />
+		</Verify>
+		
+		<Verify expected="China">
+			<Html command="getValue" target="xml(myProfile).xpath.CountryValue" value="" />
+		</Verify>
+		
+		<Verify expected="">
+			<Html command="getValue" target="xml(myProfile).xpath.AddressValue" value="" />
+		</Verify>
+		
+		<Verify expected="">
+			<Html command="getValue" target="xml(myProfile).xpath.CityValue" value="" />
+		</Verify>
+		
+		<Verify expected="">
+			<Html command="getValue" target="xml(myProfile).xpath.StateProvinceValue" value="" />
+		</Verify>
+		
+		<Verify expected="0510-abc 110">
+			<Html command="getValue" target="xml(myProfile).xpath.ZIPPostalCodeValue" value="" />
+		</Verify>
+		
+		<Verify expected="0510-110 119">
+			<Html command="getValue" target="xml(myProfile).xpath.PhoneValue" value="" />
+		</Verify>
+
+		<!-- page test begin -->
+	
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value="" />
+	
+		<Verify expected="xml(myProfile_BasicInfoEdit).xpath.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar" value="" />
+		</Verify>
+	
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputFirstName" value="" />
+
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value="" />
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).xpath.FirstNameWarningText">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.FirstNameWarningText" value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputFirstName" value="test" />
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputLastName" value="" />
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value="" />
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).xpath.LaseNameWarningText">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.LaseNameWarningText" value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputZIP" value="关公面前耍大刀" />
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value="" />
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).xpath.ZIPWarningText">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.ZIPWarningText" value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputPhone" value="中国移动" />
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value="" />
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).xpath.PhoneWarningText">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.PhoneWarningText" value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.SelectMonth" value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.SelectDate" value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.SelectYear" value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.SelectContactMeIn" value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.SelectCountry" value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputAddress1" value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputAddress2" value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputCity" value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputState" value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputZIP" value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputPhone" value="" />
+		</Verify>
+		
+	</TestCase>
+</Test>

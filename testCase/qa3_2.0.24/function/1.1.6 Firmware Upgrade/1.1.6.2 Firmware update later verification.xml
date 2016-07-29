@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Firmware update later verification</testCaseName>
+	<annotation>
+		<description>1.1.6.2 Firmware update later verification.xml</description>
+		<testCaseVersion>6</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-12" />
+		<lastUpdated author="dayu.lei" date="2011-07-12" />
+		<recordInfo deviceIndex="1" account="fw" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(fw).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(fw).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(fw).device.1.sn" value=""></Function>
+		<Html command="waitForElementDisplay" target="xml(fwupgrade).xpath.UpdateLater" value="120" />
+		<!-- login end -->
+
+		<!-- Logo: -->
+		<!-- mydlink(image link) -->
+		<!-- Title bar: -->
+		<!-- My Devices -->
+		<!-- Hyperlink texts: -->
+		<!-- top right corner: FAQ | Support -->
+		<!-- normal status: normal white fonts -->
+		<!-- mouseover status: underline effect -->
+		<!-- Dropdown list: the language selections as below: -->
+		<!-- Language English▼ -->
+		<!-- Française -->
+		<!-- Español -->
+		<!-- Português -->
+		<!-- 中文(繁體) -->
+		<!-- 中文(简体) -->
+		<!-- top left Navigation: My Devices | My Profile ("My Devices" is selected by default) -->
+		<!-- selected status: deepen background blue color -->
+		<!-- normal status: white fonts -->
+		<!-- mouseover status: deepen background color effect -->
+		<!-- top right corner: Sign out -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<!-- bottom: Global D-Link || About mydlink || Terms of Use || Privacy Policy || Contact US -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<ImportXML src="commonUI.xml"></ImportXML>
+		
+		<Function command="selectDevice" target="account(fw).device.1.sn"
+			value=""></Function>	
+			
+		<!--	1: Verify auto-firmware update page will pop up. -->
+		<Html command="waitForElementDisplay" target="xml(fwupgrade).xpath.UpdateNeededMsg"
+			value="60" />
+		<!--	 (1): "Firmware update needed!" screen will dispay -->
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(fwupgrade).xpath.UpdateNeededMsg"
+				value="" />
+		</Verify>
+		
+						
+		<!-- common verify begin -->
+		<!-- check footer -->
+		<!-- bottom: -->
+		<!-- Copyright claims: Copyright © 2008-2011 mydlink/D-Link Corporation Inc. All rights reserved. -->
+		<ImportXML src="checkfooter.xml" />
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom" value="" />
+		</Verify>
+		<!-- check footer end -->
+		
+<!--	2:  Verify this camera’s Live Video page will display correctly. -->
+<!--	If the camera's live video page loaded failure, -->
+<!--	"Unable to access your camera's Live View..." page will display.-->
+	
+		<Html command="click" target="xml(fwupgrade).xpath.UpdateLater"
+				value="" />
+		<Function command="waitForLiveView" target="120" value="" />
+		
+		
+	</TestCase>
+</Test>

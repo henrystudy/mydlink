@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>URL cannot access page</testCaseName>
+	<annotation>
+		<description>1.2.9.2 URL cannot access page.xml</description>
+		<created author="dayu.lei" date="2011-06-20" />
+		<lastUpdated author="dayu.lei" date="2011-06-20" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login out -->
+		<Html command="open" target="xml(entrance).pagePath.pagePath" value=""></Html>
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox"
+			value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox"
+			value="account(register).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton"
+			value=""></Html>
+		<Verify expected="xml(device).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.signOutLink" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.signOutLink"
+				value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(commonInfo).xpath.signOutLink"
+			value=""></Html>
+		<!-- login end -->
+		
+		<!-- check page open  -->
+		<Html command="open" target="xml(deviceWebPage).pagePath.19549277" value=""></Html>
+		<Html command="waitForElementDisplay" target="xml(deviceWebPage).xpath.ddnsBottom"
+			value="60"></Html>
+		<Html command="sleep" target="3" value=""></Html>
+		<Html command="clickAndWait" target="xml(deviceWebPage).xpath.ddnsOKButton"
+			value=""></Html>
+		<Verify expected="xml(global).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(global).xpath.titleBar"
+				value="" />
+		</Verify>	
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(haveNoDevice).email"></Html>	
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(haveNoDevice).pwd"></Html>	
+		<Html command="clickAndWait" target="xml(global).xpath.signinDivButton"
+			value=""></Html>
+		<Html command="waitForElementDisplay" target="xml(deviceWebPage).xpath.ddnsBottom2"
+			value="60"></Html>	
+		<Html command="sleep" target="3" value=""></Html>	
+		<Verify expected="xml(deviceWebPage).image.mydlink_logo" type="contains">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.mydlink_logo"
+				value="" />
+		</Verify>
+		<Html command="selectFrame" target="content" value=""></Html>
+		<Verify expected="xml(deviceWebPage).message.ddnsMessage2_1">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsMessage2_1"
+				value="" />
+		</Verify>
+		<Verify expected="xml(deviceWebPage).message.ddnsMessage2_2">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsMessage2_2"
+				value="" />
+		</Verify>
+		<Verify expected="xml(deviceWebPage).message.ddnsMessage2_3">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsMessage2_3"
+				value="" />
+		</Verify>
+		<Verify expected="xml(deviceWebPage).message.ddnsMessage2_4">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsMessage2_4"
+				value="" />
+		</Verify>
+		<Verify expected="xml(deviceWebPage).message.ddnsMessage2_5" type="contains">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsMessage2_5"
+				value="" />
+		</Verify>
+		<Verify expected="xml(deviceWebPage).message.ddnsBottom">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsBottom2"
+				value="" />
+		</Verify>
+			
+	</TestCase>
+</Test>

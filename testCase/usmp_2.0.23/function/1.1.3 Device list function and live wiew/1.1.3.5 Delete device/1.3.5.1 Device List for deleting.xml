@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Device list for deleting</testCaseName>
+	<annotation>
+		<description>Test Device list for deleting</description>
+		<created author="dayu.lei" date="2011-06-28" />
+		<lastUpdated author="dayu.lei" date="2011-06-28" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login begin -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox"
+			value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox"
+			value="account(register).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton"
+			value=""></Html>
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		<!-- login end -->
+		
+		<!-- Enter Device list page begin -->
+		<Verify expected="xml(device).message.DeleteDeviceBtn">
+			<Html command="getValue" target="xml(device).xpath.DeleteDeviceBtn"
+				value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(device).xpath.DeleteDeviceBtn"
+			value=""></Html>
+		<!--	2: Check Title bar: text-->
+		<Verify expected="xml(device.unbind1).message.titleBar">
+			<Html command="getValue" target="xml(device.unbind1).xpath.titleBar"
+				value="" />
+		</Verify>
+		<!-- Enter Device list page end -->
+		
+		<!-- 3: Check Process Status-->
+		<Verify expected="xml(device.unbind1).message.selectDeviceText">
+			<Html command="getValue" target="xml(device.unbind1).xpath.selectDeviceText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind1).message.completeText">
+			<Html command="getValue" target="xml(device.unbind1).xpath.completeText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind1).message.confirmText">
+			<Html command="getValue" target="xml(device.unbind1).xpath.confirmText"
+				value="" />
+		</Verify>
+		
+		<!-- check step on bg img -->
+		<Verify expected="xml(device.unbind1).image.stepOnBg" type="contains">
+			<Html command="getValue" target="xml(device.unbind1).js.stepOnBg"
+				value="" />
+		</Verify>
+		
+		<!-- check font color -->
+		<Verify expected="xml(commonInfo).color.purplishblue">
+			<Html command="getValue" target="xml(device.unbind1).js.stepOnColor"
+				value="" />
+		</Verify>
+		
+		<!-- check serial No. BG -->
+		<Verify expected="xml(device.unbind1).image.stepOnNumBg" type="contains">
+			<Html command="getValue" target="xml(device.unbind1).js.stepOnNumBg"
+				value="" />
+		</Verify>
+		
+		<!-- check serial No. font color -->
+		<Verify expected="xml(commonInfo).color.white">
+			<Html command="getValue" target="xml(device.unbind1).js.stepNumColor"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).color.gray">
+			<Html command="getValue" target="xml(device.unbind1).js.stepOffColor"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind1).image.stepOffNumBg" type="contains">
+			<Html command="getValue" target="xml(device.unbind1).js.stepOffNumBg"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).color.white">
+			<Html command="getValue" target="xml(device.unbind1).js.stepNumColor"
+				value="" />
+		</Verify>
+		<!-- check process status end -->
+		
+		<!-- 4: Check Description (text)-->
+		<Verify expected="xml(device.unbind1).message.Pleaseselect">
+			<Html command="getValue" target="xml(device.unbind1).xpath.Pleaseselect"
+				value="" />
+		</Verify>
+		
+		<!-- 5: Device list table-->
+		<Verify expected="xml(device.unbind1).message.ModelName">
+			<Html command="getValue" target="xml(device.unbind1).xpath.ModelName"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind1).message.DeviceName">
+			<Html command="getValue" target="xml(device.unbind1).xpath.DeviceName"
+				value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(device.unbind1).xpath.checkbox1"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.1.modelName">
+			<Html command="getValue" target="xml(device.unbind1).xpath.ModelName1"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.1.sn">
+			<Html command="getValue" target="xml(device.unbind1).xpath.DeviceNo1"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.1.deviceName">
+			<Html command="getValue" target="xml(device.unbind1).xpath.DeviceName1"
+				value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(device.unbind1).xpath.checkbox2"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.2.modelName">
+			<Html command="getValue" target="xml(device.unbind1).xpath.ModelName2"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.2.sn">
+			<Html command="getValue" target="xml(device.unbind1).xpath.DeviceNo2"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.2.deviceName">
+			<Html command="getValue" target="xml(device.unbind1).xpath.DeviceName2"
+				value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(device.unbind1).xpath.checkbox3"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.3.modelName">
+			<Html command="getValue" target="xml(device.unbind1).xpath.ModelName3"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.3.sn">
+			<Html command="getValue" target="xml(device.unbind1).xpath.DeviceNo3"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.3.deviceName">
+			<Html command="getValue" target="xml(device.unbind1).xpath.DeviceName3"
+				value="" />
+		</Verify>
+	
+		<!--6: No check boxes are ticked, then click “Next” button-->
+		<Html command="click" target="xml(device.unbind1).xpath.next"
+			value=""></Html>
+		<Html command="waitForElementDisplay" target="xml(device.unbind1).xpath.Pleaseselect"
+			value="60"></Html>
+		<Verify expected="xml(device.unbind1).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device.unbind1).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind1).message.Pleaseselect">
+			<Html command="getValue" target="xml(device.unbind1).xpath.Pleaseselect"
+				value="" />
+		</Verify>
+		
+		<!--7: Check each button-->
+		<Verify expected="xml(device.unbind1).message.cancelButton">
+			<Html command="getValue" target="xml(device.unbind1).xpath.cancelButton"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind1).message.nextButton">
+			<Html command="getValue" target="xml(device.unbind1).xpath.nextButton"
+				value="" />
+		</Verify>
+		
+		<!--8: Select a device then click "Next" button -->
+		<Html command="check" target="xml(device.unbind1).xpath.checkbox"
+			value=""></Html>
+		<Html command="clickAndWait" target="xml(device.unbind1).xpath.next"
+			value="60"></Html>
+		<Verify expected="xml(device.unbind2).message.Thefollowing">
+			<Html command="getValue" target="xml(device.unbind2).xpath.Thefollowing"
+				value="" />
+		</Verify>
+		
+		
+		
+		
+		
+		
+		
+	</TestCase>
+</Test>

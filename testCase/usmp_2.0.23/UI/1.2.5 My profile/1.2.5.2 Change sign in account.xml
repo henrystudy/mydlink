@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Change sign in account</testCaseName>
+	<annotation>
+		<description>1.2.5.2 Change sign in account page.xml</description>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="dayu.lei" date="2011-06-16" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login begin -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(bak1).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(bak1).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value="" />
+		<Verify expected="xml(device).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device).xpath.titleBar" value="" />
+		</Verify>
+		<!-- login end -->
+
+		<!-- check page content -->
+		<Html command="clickAndWait" target="xml(commonInfo).xpath.myProfileLink" value="" />
+		<Verify expected="xml(myProfile).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(myProfile).xpath.titleBar" value="" />
+		</Verify>
+
+		<!-- 1 -->
+		<Html command="clickAndWait" target="xml(myProfile).xpath.Editemail" value="" />
+		<Verify expected="xml(emailedit).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.titleBar" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.note">
+			<Html command="getValue" target="xml(emailedit).xpath.note" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.oldEmail">
+			<Html command="getValue" target="xml(emailedit).xpath.oldEmail" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.newEmail">
+			<Html command="getValue" target="xml(emailedit).xpath.newEmail" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.retryNewemail">
+			<Html command="getValue" target="xml(emailedit).xpath.retryNewemail" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.save">
+			<Html command="getValue" target="xml(emailedit).xpath.save" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.cancel">
+			<Html command="getValue" target="xml(emailedit).xpath.cancel" value="" />
+		</Verify>
+
+		<!--2. Without input and then click “Save” button. -->
+
+		<Html command="clickAndWait" target="xml(emailedit).xpath.save" value="" />
+		<Verify expected="xml(emailedit).message.warning1">
+			<Html command="getValue" target="xml(emailedit).xpath.warning" value="" />
+		</Verify>
+
+		<!--3. Input an invalid email address. -->
+		<Html command="type" target="xml(emailedit).xpath.newEmailbox" value="232323" />
+		<Html command="clickAndWait" target="xml(emailedit).xpath.save" value="" />
+		<Verify expected="xml(emailedit).message.warning1">
+			<Html command="getValue" target="xml(emailedit).xpath.warning" value="" />
+		</Verify>
+
+		<!--4. Input the e-mail is the same as the above and already has a mydlink account -->
+		<Html command="type" target="xml(emailedit).xpath.newEmailbox" value="account(haveNoDevice).email" />
+		<Html command="type" target="xml(emailedit).xpath.newEmailboxverify" value="account(haveNoDevice).email" />
+		<Html command="clickAndWait" target="xml(emailedit).xpath.save" value="" />
+		<Verify expected="xml(emailedit).message.warning2">
+			<Html command="getValue" target="xml(emailedit).xpath.warning" value="" />
+		</Verify>
+
+		<!--5. Input another email in New e-mail.Input a different mail address in the retype box. Click "Save". -->
+		<Html command="type" target="xml(emailedit).xpath.newEmailbox" value="987.twqa@gmail.com" />
+		<Html command="type" target="xml(emailedit).xpath.newEmailboxverify" value="123.twqa@gmail.com" />
+		<Html command="clickAndWait" target="xml(emailedit).xpath.save" value="" />
+		<Verify expected="xml(emailedit).message.warning3">
+			<Html command="getValue" target="xml(emailedit).xpath.warning3" value="" />
+		</Verify>
+
+		<!-- 6. Input another email account which is not register before. Input it again in the retype box. Click "Save" button. Check the Verification email Info page -->
+		<Html command="type" target="xml(emailedit).xpath.newEmailbox" value="account(unRegister).email" />
+		<Html command="type" target="xml(emailedit).xpath.newEmailboxverify" value="account(unRegister).email" />
+		<Html command="clickAndWait" target="xml(emailedit).xpath.save" value="" />
+		<Verify expected="xml(emailedit).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.titleBar" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.Averificatione-mail" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.Averificatione-mail" value="" />
+		</Verify>
+		<Verify expected="account(unRegister).email" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.Averificatione-mail" value="" />
+		</Verify>
+		<Html command="click" target="xml(emailedit).xpath.didntreceive" value="" />
+		<Verify expected="true">
+			<Html command="isVisible" target="xml(emailedit).xpath.table" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.note1" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.note2" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.note2" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.note2" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.link1">
+			<Html command="getValue" target="xml(emailedit).xpath.link1" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.link2">
+			<Html command="getValue" target="xml(emailedit).xpath.link2" value="" />
+		</Verify>
+
+		<!-- 7. Follow step 6, click link "(2) Resend the verification e-mail", check resend page. -->
+		<Html command="clickAndWait" target="xml(emailedit).xpath.link1" value="" />
+		<Verify expected="xml(emailedit).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.titleBar" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.Averificatione-mail" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.Averificatione-mail" value="" />
+		</Verify>
+		<Html command="click" target="xml(emailedit).xpath.didntreceive" value="" />
+		<Verify expected="true">
+			<Html command="isVisible" target="xml(emailedit).xpath.table" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.note1" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.note2" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.note2" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.note2" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.link1">
+			<Html command="getValue" target="xml(emailedit).xpath.link1" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.link2">
+			<Html command="getValue" target="xml(emailedit).xpath.link2" value="" />
+		</Verify>
+
+		<!-- 8. Follow above steps, click the "Edit" button with the"Unverified" item. Check all items/contents in the page. -->
+		<Html command="clickAndWait" target="xml(commonInfo).xpath.myProfileLink" value="" />
+		<Verify expected="xml(myProfile).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(myProfile).xpath.titleBar" value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(myProfile).xpath.unverified" value="" />
+		<Verify expected="xml(emailedit).message.titleBar2" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.titleBar" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.Resende-mail">
+			<Html command="getValue" target="xml(emailedit).xpath.Resende-mail" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.Changee-mail">
+			<Html command="getValue" target="xml(emailedit).xpath.Changee-mail" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.notnow">
+			<Html command="getValue" target="xml(emailedit).xpath.notnow" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.notverified">
+			<Html command="getValue" target="xml(emailedit).xpath.notverified" value="" />
+		</Verify>
+		<Verify expected="xml(emailedit).message.click2" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.click" value="" />
+		</Verify>
+
+		<Verify expected="xml(emailedit).message.click1" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.click" value="" />
+		</Verify>
+
+		<!-- check FOOT -->
+		<Verify expected="xml(commonInfo).message.globalDlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.globalDlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.aboutMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.aboutMydlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.termsOfUseLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.termsOfUseLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.privacyPolicyLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.privacyPolicyLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.contactUsLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.contactUsLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.bottom" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.bottom" value="" />
+		</Verify>
+		<!-- check foot end -->
+
+		<!-- 9. Click Resend e-mail, check the page. -->
+		<Html command="clickAndWait" target="xml(emailedit).xpath.Resende-mail" value="" />
+		<Verify expected="xml(emailedit).message.resent" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.resent" value="" />
+		</Verify>
+		<Verify expected="account(bak1).email" type="contains">
+			<Html command="getValue" target="xml(emailedit).xpath.resent" value="" />
+		</Verify>
+
+		<!-- check FOOT -->
+		<Verify expected="xml(commonInfo).message.globalDlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.globalDlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.aboutMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.aboutMydlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.termsOfUseLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.termsOfUseLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.privacyPolicyLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.privacyPolicyLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.contactUsLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.contactUsLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.bottom" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.bottom" value="" />
+		</Verify>
+		<!-- check foot end -->
+
+	</TestCase>
+</Test>

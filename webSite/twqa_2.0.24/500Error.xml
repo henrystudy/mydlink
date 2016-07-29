@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>	
+		<!-- Xpath -->
+		<xpath name="titleBar">//div[@class='jeff1']/div[@class='jeff2']</xpath>
+		<xpath name="ReturnToHomePageLinkText">//div[@class='btnw floatl'][1]/div</xpath>
+		<xpath name="ContactUsLinkText">//div[@class='btnw floatl'][2]/div</xpath>
+		<xpath name="PageError500DescriptionText1">//div[@class='whitebox']//div[@class='hilite']</xpath>
+		<xpath name="PageError500DescriptionText2">//div[@class='whitebox']//span[@class='unread']</xpath>
+		<xpath name="PageError500DescriptionText3">//div[@class='whitebox']/div[@class='indent']</xpath>
+		<xpath name="PageError500DescriptionText4">//div[@class='whitebox']/div[@class='indent']/p[2]</xpath>
+
+		<!-- JS -->
+		<js name="buttonFontColorJS">window.jQuery('div.btnw div').css('color')</js>
+		<js name="buttonFontBgImgJS">window.jQuery('div.btnw div').css('background-image')</js>
+	</targets>
+
+	<messages>
+	<message name="titleBar">
+			<content language="zh_CN">mydlink Page Error</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink Page Error</content>
+		</message>
+		<message name="PageError500DescriptionText1">
+			<content language="zh_CN">We are very sorry!</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">We are very sorry!</content>
+		</message>
+		<message name="PageError500DescriptionText2">
+			<content language="zh_CN">There was an internal server error.</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">There was an internal server error.</content>
+		</message>
+		<message name="PageError500DescriptionText3">
+			<content language="zh_CN">You can click your browser's Reload button or you can click Return to mydlink home below to return to the mydlink home page. If there is a problem with the site or if you have questions, you can contact us by clicking on the Contact Us button below.</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">You can click your browser's Reload button or you can click Return to mydlink home below to return to the mydlink home page. If there is a problem with the site or if you have questions, you can contact us by clicking on the Contact Us button below.</content>
+		</message>
+		<message name="PageError500DescriptionText4">
+			<content language="zh_CN">We apologize for the inconvenience.</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">We apologize for the inconvenience.</content>
+		</message>
+		<message name="ReturnToHomePageLinkText">
+			<content language="zh_CN">返回到mydlink主页</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Return to mydlink home</content>
+		</message>
+		<message name="ContactUsLinkText">
+			<content language="zh_CN">联系我们</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Contact Us</content>
+		</message>
+	</messages>
+
+	
+</info>

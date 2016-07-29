@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>FAQ</testCaseName>
+	<annotation>
+		<description>test the FAQ page</description>
+		<testCaseVersion>5</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-05" />
+		<lastUpdated author="dayu.lei" date="2011-07-05" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- open entrance page , sign in -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(register).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(register).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<!-- check Greeting message: Welcome, [Name]: show the user’s name here My Device, My Profiles, Sign out See attached screenshot for "Sign-in global navigation" -->
+		<Verify expected="xml(header).message.Welcome" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Welcome" value="" />
+		</Verify>
+		<Verify expected="account(register).firstName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="account(register).lastName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.MyProfileLink">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.MyDevicesLink">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SignOut">
+			<Html command="getValue" target="xml(header).xpath.SignOut" value="" />
+		</Verify>
+
+		<!-- 1: Verify: Sign-in global navigation is displayed, Click it to its device default home page If: On status: bold black fonts If: Off status: normal blue fonts -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyDevicesLink" value="" />
+		<Verify expected="navBtn_on">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLinkClass" value="" />
+		</Verify>
+		<Verify expected="navBtn">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLinkClass" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(device).js.NavBtn_onFontWeight" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Black">
+			<Html command="getValue" target="xml(device).js.NavBtn_onFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(device).js.NavBtnFontWeight" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Blue">
+			<Html command="getValue" target="xml(device).js.NavBtnFontColor" value="" />
+		</Verify>
+
+		<!-- 2: Verify: Sign-in global navigation is displayed Click it to My Profile home page If: On status: bold black fonts If: Off status: normal blue fonts -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Verify expected="navBtn">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLinkClass" value="" />
+		</Verify>
+		<Verify expected="navBtn_on">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLinkClass" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(device).js.NavBtn_onFontWeight" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Black">
+			<Html command="getValue" target="xml(device).js.NavBtn_onFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(device).js.NavBtnFontWeight" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Blue">
+			<Html command="getValue" target="xml(device).js.NavBtnFontColor" value="" />
+		</Verify>
+
+		<!-- 3: Verify: Sign out: click it to log out and back to mydlink home page -->
+		<Html command="clickAndWait" target="xml(header).xpath.SignOut" value="" />
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(entrance).xpath.WhatsMydlinkLink" value=""></Html>
+		</Verify>
+
+	</TestCase>
+</Test>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.1.7 What's mydlink</testCaseName>
+	<annotation>
+		<description>1.2.1.7 What's mydlink.xml</description>
+		<testCaseVersion>1</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-05" />
+		<lastUpdated author="dayu.lei" date="2011-07-05" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- Open mydlink site, select What's mydlink in promotion area, click More Detail button -->
+		<Html command="click" target="xml(entrance).xpath.WhatsMydlinkLink" value="" />
+		<Html command="waitForElementDisplay" target="xml(entrance).xpath.WhatsMydlinkButton" value="60"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.WhatsMydlinkButton" value=""></Html>
+
+		<!-- check Logo: mydlink -->
+		<Verify expected="xml(header).image.LogoImage" type="contains">
+			<Html command="getValue" target="xml(header).js.LogoImage" value="" />
+		</Verify>
+
+		<!-- check Link : top right corner: Home | FAQ | Support bottom: Global D-Link | About mydlink | Terms of Use | Privacy Policy | Contact US -->
+		<Verify expected="xml(header).message.HomeLink">
+			<Html command="getValue" target="xml(header).xpath.HomeLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.FAQLink">
+			<Html command="getValue" target="xml(header).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SupportLink">
+			<Html command="getValue" target="xml(header).xpath.SupportLink" value="" />
+		</Verify>
+
+		<ImportXML src="checkfooter.xml" />
+
+		<!-- 1. Check the first part - See what you care anywhere anytime -->
+		<!-- Title : See what you care anywhere anytime Text: With mydlink-enabled products, it's simple to stay connected to everything that you love. -->
+		<Verify expected="xml(whats_mydlink).message.TitleText1">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.TitleText1" value="" />
+		</Verify>
+		<Verify expected="xml(whats_mydlink).message.ContentText1" type="contains">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.ContentText1" value="" />
+		</Verify>
+
+		<!-- 2. Check the second part - Stay connected to what matters most -->
+		<!-- Title: Stay connected to what matters most Text: Throughout your busy week, stay connected to everything that you love 24/7. View your home and keep an eye on your kids, your 
+			pets and your valued possessions from anywhere over the Internet and enjoy the peace of mind that comes from knowing everything is safe and secure. -->
+		<Verify expected="xml(whats_mydlink).message.TitleText2">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.TitleText2" value="" />
+		</Verify>
+		<Verify expected="xml(whats_mydlink).message.ContentText2" type="contains">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.ContentText2" value="" />
+		</Verify>
+
+		<!-- check Text Link: Watch how easy it is to monitor home (with an embed video) -->
+		<Verify expected="xml(whats_mydlink).message.Link2">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.Link2" value="" />
+		</Verify>
+		<Verify expected="xml(whats_mydlink).image.Link2Image" type="contains">
+			<Html command="getValue" target="xml(whats_mydlink).js.Link2Image" value="" />
+		</Verify>
+
+		<!-- 3. Check the third part - Access anywhere anytime -->
+		<!-- Title: Access anywhere anytime Text: To make home monitoring a truly simple experience, we created mydlink.com so you can access your live camera feed from any Internet-connected 
+			computer or mobile device, anytime. -->
+		<Verify expected="xml(whats_mydlink).message.TitleText3">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.TitleText3" value="" />
+		</Verify>
+		<Verify expected="xml(whats_mydlink).message.ContentText3" type="contains">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.ContentText3" value="" />
+		</Verify>
+
+		<!-- check Image Link: App Store; Android Market -->
+		<Verify expected="xml(whats_mydlink).image.IphoneImage" type="contains">
+			<Html command="getValue" target="xml(whats_mydlink).js.IphoneImage" value="" />
+		</Verify>
+
+		<Verify expected="xml(whats_mydlink).image.AndroidImage" type="contains">
+			<Html command="getValue" target="xml(whats_mydlink).js.AndroidImage" value="" />
+		</Verify>
+
+		<!-- check Title: Getting started is easy -->
+		<Verify expected="xml(whats_mydlink).message.TitleText4">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.TitleText4" value="" />
+		</Verify>
+
+		<!--check Text: Think home surveillance is too difficult to set up? Think again. mydlink-enabled network cameras were designed to be installed by people just like you - not IT experts. 
+			You'll be surprised how easily and quickly your network cameras will be up and running - ready to connect you to your home, ready to monitor what matters most, ready to deliver priceless 
+			peace of mind. -->
+		<Verify expected="xml(whats_mydlink).message.ContentText4" type="contains">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.ContentText4" value="" />
+		</Verify>
+
+		<!-- check 1 Connect the camera to your existing Wi-Fi network. -> 2 Run the short installation wizard on your PC. -> 3 Log into mydlink.com to see and hear what's going on in your 
+			home in real time - it's that simple! * mydlink supports both PC and MAC user. Button: Try It Now -> -->
+		<Verify expected="xml(whats_mydlink).message.Block1">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.Block1" value="" />
+		</Verify>
+		<Verify expected="xml(whats_mydlink).message.Block2">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.Block2" value="" />
+		</Verify>
+		<Verify expected="xml(whats_mydlink).message.Block3">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.Block3" value="" />
+		</Verify>
+		<Verify expected="xml(whats_mydlink).message.Note">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.Note" value="" />
+		</Verify>
+		<Verify expected="xml(whats_mydlink).message.Button">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.Button" value="" />
+		</Verify>
+
+		<!-- 4 Check the forth part - How remote viewing works -->
+		<!-- Title: How remote viewing works -->
+		<Verify expected="xml(whats_mydlink).message.TitleText5">
+			<Html command="getValue" target="xml(whats_mydlink).xpath.TitleText5" value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

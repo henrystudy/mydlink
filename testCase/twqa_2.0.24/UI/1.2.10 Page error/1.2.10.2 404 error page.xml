@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.10.2 404 error page.xml </testCaseName>
+	<annotation>
+		<description>1.2.10.2 404 error page.xml</description>
+		<testCaseVersion>4</testCaseVersion>
+		<created author="yue.chen" date="2011-07-05" />
+		<lastUpdated author="yue.chen" date="2011-07-06" />
+		<recordInfo />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- 1. Without sign in mydlink portal,generate a 404 page error such as 
+			add some characters after**www.mydlink.com** (This url could be different 
+			according to actual conditions). -->
+		<Html command="open" target="xml(url).pagePath.Signout" value=""/>
+
+		<!-- check Error Page information -->
+		<Html command="open" target="xml(url).pagePath.Error404"
+			value=""></Html>
+
+		<!-- Logo:mydlink(image) -->
+		<Verify expected="xml(header).image.LogoImage" type="contains">
+			<Html command="getValue" target="xml(header).js.LogoImage"
+				value="" />
+		</Verify>
+
+		<!-- Title:mydlink Page Error -->
+		<Verify expected="xml(404Error).message.titleBar">
+			<Html command="getValue" target="xml(404Error).xpath.titleBar"
+				value="" />
+		</Verify>
+
+		<!-- Hyperlink: -->
+		<!-- top right corner: Home | FAQ | Support -->
+		<Verify expected="xml(header).message.HomeLink">
+			<Html command="getValue" target="xml(header).xpath.HomeLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(header).message.FAQLink">
+			<Html command="getValue" target="xml(header).xpath.FAQLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SupportLink">
+			<Html command="getValue" target="xml(header).xpath.SupportLink"
+				value="" />
+		</Verify>
+
+		<!-- Welcome, xxx xxx | Sign out (For sign in account) -->
+
+		<!-- bottom:Global D-Link || About mydlink || Terms of Use || Privacy Policy 
+			|| Contact Us -->
+		<ImportXML src="checkfooter.xml" />
+
+		<!-- Verify that the hyperlinks in top right corner change into black color 
+			with underline and the hyperlinks in the bottom only change with underline 
+			after moving the cursor on hyperlinks . -->
+
+		<!-- Texts: -->
+		<!-- contents: -->
+		<!-- We are very sorry!(This sentence is blue.) -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText1">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText1"
+				value="" />
+		</Verify>
+		<!-- The page you requested cannot be found -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText11">
+			<Html command="getValue"
+				target="xml(404Error).xpath.PageError404DescriptionText11" value="" />
+		</Verify>
+		<!-- This may be due to: -->
+		<Verify expected="true" type="RESULT">
+			<Html command="isTextPresent"
+				target="xml(404Error).message.PageError404DescriptionText2" value="" />
+		</Verify>
+		<!-- •an incorrect or nonexistent URL. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText21">
+			<Html command="getValue"
+				target="xml(404Error).xpath.PageError404DescriptionText21" value="" />
+		</Verify>
+		<!-- •the page may have been removed or renamed. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText22">
+			<Html command="getValue"
+				target="xml(404Error).xpath.PageError404DescriptionText22" value="" />
+		</Verify>
+		<!-- •a system error has prevented us from providing you the information 
+			you requested. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText23">
+			<Html command="getValue"
+				target="xml(404Error).xpath.PageError404DescriptionText23" value="" />
+		</Verify>
+		<!-- You can click on your browser's Back button or you can click on the 
+			Return to mydlink home button below to return to the mydlink home page. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText3">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText3"
+				value="" />
+		</Verify>
+		<!-- If there is a problem with the site or if you have questions, you 
+			can contact us by clicking on the Contact Us button below. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText4">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText4"
+				value="" />
+		</Verify>
+		<!-- We apologize for the inconvenience. -->
+		<Verify expected="xml(404Error).message.PageError404DescriptionText5">
+			<Html command="getValue" target="xml(404Error).xpath.PageError404DescriptionText5"
+				value="" />
+		</Verify>
+		<!-- bottom:Copyright©2008-2011 mydlink/D-Link Corporation Inc. All rights 
+			reserved. -->
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom"
+				value="" />
+		</Verify>
+		<!-- Button:Return to mydlink home(white background and blue font) -->
+		<Verify expected="xml(404Error).message.ReturnToHomePageLinkText">
+			<Html command="getValue" target="xml(404Error).xpath.ReturnToHomePageLinkText"
+				value="" />
+		</Verify>
+		<!-- Contact US(white background and blue font) -->
+		<Verify expected="xml(404Error).message.ContactUsLinkText">
+			<Html command="getValue" target="xml(404Error).xpath.ContactUsLinkText"
+				value="" />
+		</Verify>
+
+		<!-- check button font color -->
+		<Verify expected="xml(color).color.Blue">
+			<Html command="getValue" target="xml(404Error).js.buttonFontColorJS"
+				value="" />
+		</Verify>
+
+		<!-- check button bgcolor -->
+		<Verify expected="xml(404Error).image.ButtonBG" type="contains">
+			<Html command="getValue" target="xml(404Error).js.buttonFontBgImgJS"
+				value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

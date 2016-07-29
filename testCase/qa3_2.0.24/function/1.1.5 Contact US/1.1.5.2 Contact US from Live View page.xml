@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Contact US from Live View page</testCaseName>
+	<annotation>
+		<description>test the Contact US from Live View page</description>
+		<created author="dayu.lei" date="2011-07-11" />
+		<lastUpdated author="dayu.lei" date="2011-07-11" />
+		<recordInfo account="register"/>
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(login).xpath.emailTextbox"
+			value="account(register).email"></Html>
+			
+		<Html command="type" target="xml(login).xpath.passwordTextbox"
+			value="account(register).pwd"></Html>
+			
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton"
+			value=""></Html>
+	
+		<!-- login end -->
+
+		<!-- check page open  -->
+		
+		<Html command="open" target="xml(contact).pagePath.pagePath" value=""></Html>
+		
+		<!-- check titleBar  -->
+		
+		<Verify expected="xml(contact).message.titleBar">
+			<Html command="getValue" target="xml(contact).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!--2. Check the first name item.-->
+		
+		<Verify expected="account(register).firstName">
+			<Html command="getValue" target="xml(contact).xpath.firstnameBox"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(contact).xpath.firstnameBox"
+				value="" />
+		</Verify>
+		
+		<!--3. Check the last name item.-->
+		<Verify expected="account(register).lastName">
+			<Html command="getValue" target="xml(contact).xpath.lastnameBox"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(contact).xpath.lastnameBox"
+				value="" />
+		</Verify>
+		
+		<!--4. Check the E-mail item.-->
+		
+		<Verify expected="account(register).email">
+			<Html command="getValue" target="xml(contact).xpath.contactEmailBox"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(contact).xpath.contactEmailBox"
+				value="" />
+		</Verify>
+	
+		<!--5. Check the product item.-->
+		<!--
+			<operate>
+				<command>verifySelecteLabel</command>
+				<target path="contact.xml" type="xpath">selectProduct</target>
+				<value path="contact.xml" type="dropdownList">defaultselect</value>
+				<errorMsg>Default "Others" display error.</errorMsg>
+			</operate>	
+			-->
+		<!--6. Check the mydlink No. item.	-->
+		
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(contact).xpath.MyDlinkNoBox"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(contact).xpath.DescriptionBox"
+				value="" />
+		</Verify>
+
+		<!--8. Check the subject item.-->
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.InstallationDevicecheckbox"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.mydlinkregistrationcheckbox"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.DeviceProblemcheckbox"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.mydlinkwebsitecheckbox"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.Productinquirycheckbox"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.Suggestioncheckbox"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.Otherscheckbox"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(contact).message.note2">
+			<Html command="getValue" target="xml(contact).xpath.note2"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(contact).message.Description" type="contains">
+			<Html command="getValue" target="xml(contact).xpath.Description"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(contact).message.Maximum" type="contains">
+			<Html command="getValue" target="xml(contact).xpath.Description"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(contact).message.regionNote">
+			<Html command="getValue" target="xml(contact).xpath.regionNote"
+				value="" />
+		</Verify>
+		
+		<Verify expected="Others">
+			<Html command="getSelectedLabel" target="xml(contact).xpath.selectProduct"
+				value="" />
+		</Verify>	
+
+		<!--7. Check the device location item.-->
+		<!--9. Click Submit button with all checkbox unchecked-->
+		<!--11. Click Submit button with "Description" field empty-->
+
+		<!-- click and wait -->
+		
+		<Html command="clickAndWait" target="xml(contact).xpath.submit"
+			value="" />
+	
+		<!-- check warning -->
+		
+		<Verify expected="xml(contact).message.submitwarning42">
+			<Html command="getValue" target="xml(contact).xpath.submitwarning42"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(contact).message.submitwarning5">
+			<Html command="getValue" target="xml(contact).xpath.submitwarning5"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(contact).message.submitwarning6">
+			<Html command="getValue" target="xml(contact).xpath.submitwarning6"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(contact).js.redWarningColorJS"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(contact).js.redWarning-WeightJS"
+				value="" />
+		</Verify>
+	
+		<!--10. Check the description item.-->
+		
+		<Html command="type" target="xml(contact).xpath.DescriptionBox"
+			value="^@#$% *?:" />
+			
+		<Verify expected="^@#$% *?:">
+			<Html command="getValue" target="xml(contact).xpath.DescriptionBox"
+				value="" />
+		</Verify>
+	
+		<!--12. Click Submit button-->
+		<!--Will send junk e-mail to customers	-->
+		
+		<!-- 13 Click "more" link on right top corner of contact us . -->
+		<Html command="openWindow" target="xml(contact).xpath.More" value="" />
+		
+		<Verify expected="xml(contact).message.FaqMydlinkAns25">
+			<Html command="getValue" target="xml(contact).xpath.FaqMydlinkAns25"
+				value="" />
+		</Verify>		
+		
+		
+	</TestCase>
+</Test>

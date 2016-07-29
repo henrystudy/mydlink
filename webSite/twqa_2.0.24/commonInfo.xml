@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- logo -->
+		<xpath name="mydlinkLogo">//div[@id='header']/table/tbody/tr/td/a/img/@src</xpath>
+	    <xpath name="headerLogopath">//div[@id='header']/table/tbody/tr/td[1]/a/img</xpath>
+		<!-- header edit by maiza lin  -->
+		<xpath name="myDevicesLink">//div[@id='header']//a[@href='/device']</xpath>
+		<xpath name="myProfileLink">//div[@id='header']//a[@href='/profile']</xpath>
+		<xpath name="signOutLink">//div[@id='header']//a[@href='/signout']</xpath>
+		<xpath name="mydlinkLiteLink">//div[@id='header']//a[@href='/Lite']</xpath>
+		<xpath name="signInToMydlinkLink">//div[@id='header']//a[@href='/login']</xpath>
+		<xpath name="notRegisteredLink">//div[@id='header']//a[@href='/content/notreg']</xpath>
+		<xpath name="FAQLink">//div[@id='header']//a[@href='/faq']</xpath>
+		<xpath name="SupportLink">//div[@id='header']//a[@href='/support']</xpath>
+		<xpath name="myDeviceLinkClass">//div[@id='header']//a[@href='/device']/@class</xpath>
+		
+		<!-- footer -->
+		<xpath name="globalDlinkLink">//div[@id='footer']/a[@href='http://www.dlink.com/corporate/international.asp']</xpath>
+		<xpath name="aboutMydlinkLink">//div[@id='footer']/a[@href='/about']</xpath>
+		<xpath name="termsOfUseLink">//div[@id='footer']/a[@href='/termsOfUse']</xpath>
+		<xpath name="privacyPolicyLink">//div[@id='footer']/a[@href='/privacyPolicy']</xpath>
+		<xpath name="contactUsLink">//div[@id='footer']/a[@href='/contact']</xpath>
+		<xpath name="bottom">//div[@id='footer']</xpath>
+		
+		<!-- global page titlebar  -->
+		<xpath name="globalPageTitleBar">//div[@id='wwBody']/div[1]/h2</xpath>
+		
+		<!-- device list target -->
+		<deviceListItem name="common">
+			<replaceFlag>$#num#$</replaceFlag>
+			<cameraIconXpath>//tr[@id='device_list_$#num#$']//td[@class='deviceimg']/img/@src</cameraIconXpath>
+			<deviceNameXpath>//tr[@id='device_list_$#num#$']//td[@class='devicename']/div[@class='devicename_width']</deviceNameXpath>
+			<mydlinkNoXpath>//tr[@id='device_list_$#num#$']//td[@class='devicename']/span</mydlinkNoXpath>
+			<onLineImage>/images/products/$#num#$_online.gif</onLineImage>
+			<offLineImage>/images/products/$#num#$_offline.gif</offLineImage>
+			<changePwdImage>/images/products/$#num#$__online_un.gif</changePwdImage>
+		</deviceListItem>
+		
+		<liveVideoTarget name="common">
+			<liveVideoDiv>//div[@id='player_container']</liveVideoDiv>
+			<judgeElements>
+				<element xpath="win_content" type="pass">Live video displays.</element>
+				<element xpath="win_ConnError" type="refresh">Unable to access your camera's Live Video.(256K)</element>
+				<element xpath="win_tunnelBusy" type="refresh">Unable to connect to your camera.(Busy)</element>
+				<element xpath="win_TunnelFull" type="refresh">Maximum number of viewers reached</element>
+				<element xpath="win_JREError" type="error">Java Runtime Environment Needed!</element>
+				<element xpath="win_OSError" type="error">Unsupported Operating System Detected!</element>
+				<element xpath="win_BrowserError" type="error">Unsupported Browser Detected!</element>
+			</judgeElements>
+		</liveVideoTarget>
+		
+	</targets>
+	<messages>
+		<!-- header start -->
+		<message name="mydlinkLiteLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink Lite</content>
+		</message>
+		<message name="signInToMydlinkLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign In to mydlink</content>
+		</message>
+		<message name="notRegisteredLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Not Registered?</content>
+		</message>
+		<message name="FAQLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">FAQs</content>
+		</message>
+		<message name="SupportLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Support</content>
+		</message>
+		<message name="myDevicesLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">My Devices</content>
+		</message>
+		<message name="myProfileLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">My Profile</content>
+		</message>
+		<message name="signOutLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign out</content>
+		</message>
+		<!-- header end -->
+
+		<!-- footer start  -->
+		<message name="globalDlinkLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Global D-Link</content>
+		</message>
+		<message name="aboutMydlinkLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">About mydlink</content>
+		</message>
+		<message name="notRegisteredLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Terms of Use</content>
+		</message>
+		<message name="termsOfUseLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Terms of Use</content>
+		</message>
+		<message name="privacyPolicyLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Privacy Policy</content>
+		</message>
+		<message name="contactUsLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Contact Us</content>
+		</message>
+		
+		<message name="bottom">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Copyright©2008-2011 mydlink/D-Link Corporation Inc. All rights reserved.</content>
+		</message>
+		
+		<message name="globalPageTitleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">CHOOSE YOUR LOCATION</content>
+		</message>
+		<!-- footer end  -->
+		
+	</messages>
+	<images>
+		<image name="mydlinkLogo">/images/ucp/dlife_logo.gif</image>
+		<image name="buttonBG">images/newgraphics/btn_white_right.gif</image>
+		<image name="BlueButtonBG">images/newgraphics/btn_blue_left.gif</image>
+		<image name="WhiteButtonBG">images/newgraphics/btn_white_left.gif</image>
+	</images>
+	<colors>
+		<color name="red">
+			<ie>#cc0000</ie>
+			<notIe>rgb(204, 0, 0)</notIe>
+		</color>
+		<color name="blue">
+			<ie>#5588aa</ie>
+			<notIe>rgb(85, 136, 170)</notIe>
+		</color>
+		<color name="pink">
+			<ie>#ffe1e2</ie>
+			<notIe>rgb(255, 225, 226)</notIe>
+		</color>	
+		<color name="purplishblue">
+			<ie>#336699</ie>
+			<notIe>rgb(51, 102, 153)</notIe>
+		</color>
+		<color name="white">
+			<ie>#ffffff</ie>
+			<notIe>rgb(255, 255, 255)</notIe>
+		</color>
+		<color name="gray">
+			<ie>#cccccc</ie>
+			<notIe>rgb(204, 204, 204)</notIe>
+		</color>
+		<color name="blue2">
+			<ie>#5b91ac</ie>
+			<notIe>rgb(91, 145, 172)</notIe>
+		</color>
+		<color name="green">
+			<ie>#008000</ie>
+			<notIe>rgb(0, 128, 0)</notIe>
+		</color>
+	</colors>
+	<fonts>
+		<font name="bold">
+			<ie>700</ie>
+			<notIe>bold</notIe>
+		</font>
+	</fonts>
+	<timeTypes>
+		<timeType name="Direct">120</timeType>
+		<timeType name="Port">120</timeType>
+		<timeType name="Relay">120</timeType>
+		<timeType name="Xstunt">120</timeType>
+		<timeType name="Common">60</timeType>
+	</timeTypes>
+	
+</info>

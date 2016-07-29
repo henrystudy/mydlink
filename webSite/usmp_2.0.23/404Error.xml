@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+		<pagePath name="pagePath">/errrrrorpage</pagePath>
+		
+		<!-- Xpath -->
+		<xpath name="titleBar">//div[@class='jeff1']/div[@class='jeff2']</xpath>
+		<xpath name="PageError404DescriptionText1">//div[@class='jeff3']//div[@class='hilite']</xpath>
+		<xpath name="PageError404DescriptionText11">//div[@class='jeff3']//span[@class='unread']</xpath>
+		<xpath name="PageError404DescriptionText21">//div[@class='jeff3']//ul/li[1]</xpath>
+		<xpath name="PageError404DescriptionText22">//div[@class='jeff3']//ul/li[2]</xpath>
+		<xpath name="PageError404DescriptionText23">//div[@class='jeff3']//ul/li[3]</xpath>
+		<xpath name="PageError404DescriptionText3">//div[@class='jeff3']//p[2]</xpath>
+		<xpath name="PageError404DescriptionText4">//div[@class='jeff3']//p[3]</xpath>
+		<xpath name="PageError404DescriptionText5">//div[@class='jeff3']//p[4]</xpath>
+		<xpath name="ReturnToHomePageLinkText">//div[@class='btnw floatl'][1]/div</xpath>
+		<xpath name="ContactUsLinkText">//div[@class='btnw floatl'][2]</xpath>
+		<xpath name="SignIntoMydlink">//div[@class='links']/a[1]</xpath>
+
+		<!-- JS -->
+		<js name="buttonFontColorJS">window.jQuery('div.btnw div').css('color')</js>
+		<js name="buttonFontBgImgJS">window.jQuery('div.btnw div').css('background-image')</js>
+	</targets>
+
+	<messages>
+		<message name="titleBar">
+			<content language="zh_CN">mydlink 页面错误</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink Page Error</content>
+		</message>
+		<message name="PageError404DescriptionText1">
+			<content language="zh_CN">非常遗憾！!</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">We are very sorry!</content>
+		</message>
+		<message name="PageError404DescriptionText11">
+			<content language="zh_CN">无法找到您所请求的页面 </content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The page you requested cannot be found</content>
+		</message>
+		<message name="PageError404DescriptionText2">
+			<content language="zh_CN">可能由于以下原因所致:</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">This may be due to:</content>
+		</message>
+		<message name="PageError404DescriptionText21">
+			<content language="zh_CN">URL错误或不存在。</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">an incorrect or nonexistent URL.</content>
+		</message>
+		<message name="PageError404DescriptionText22">
+			<content language="zh_CN">该页面已被删除或重命名。</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">the page may have been removed or renamed.</content>
+		</message>
+		<message name="PageError404DescriptionText23">
+			<content language="zh_CN">系统错误，由此我们不能向您提供您所需信息。</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">a system error has prevented us from providing you the information you requested.</content>
+		</message>
+		<message name="PageError404DescriptionText3">
+			<content language="zh_CN">您可以单击浏览器的返回按钮，或是单击下面的「返回mydlink首页」，返回到mydlink的首页。</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">You can click on your browser's Back button or you can click on the Return to mydlink home button below to return to the mydlink home page.</content>
+		</message>
+		<message name="PageError404DescriptionText4">
+			<content language="zh_CN">如果站点有故障，或是您有任何问题，可以通过单击下方的联系我们链接按钮来联系我们。</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">If there is a problem with the site or if you have questions, you can contact us by clicking on the Contact Us button below.</content>
+		</message>
+		<message name="PageError404DescriptionText5">
+			<content language="zh_CN">对此造成的不便感到抱歉。</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">We apologize for the inconvenience.</content>
+		</message>
+		<message name="ReturnToHomePageLinkText">
+			<content language="zh_CN">返回到mydlink主页</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Return to mydlink home</content>
+		</message>
+		<message name="ContactUsLinkText">
+			<content language="zh_CN">联系我们</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Contact Us</content>
+		</message>
+	</messages>
+	
+	<images>
+		<image name="logoImg">/images/ucp/dlife_logo.gif</image>
+	</images>
+	
+</info>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.6.2 FW Update progressing.xml</testCaseName>
+	<annotation>
+		<description>1.2.6.2 FW Update progressing.xml</description>
+		<testCaseVersion>4</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="yue.chen" date="2011-07-07" />
+		<recordInfo deviceIndex="1" account="fw" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		<!-- login -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(fw).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(fw).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(fw).device.1.sn" value=""></Function>
+		<Html command="waitForElementDisplay" target="xml(fwupgrade).xpath.UpdateLater" value="120" />
+		<Html command="click" target="xml(fwupgrade).xpath.UpdateNow" value="60" />
+		<Html command="waitForElementDisplay" target="xml(fwupgrade).xpath.InstallingFirmware" value="60" />
+		<!-- Animation image: -->
+		<!-- Progression circle -->
+		<Verify expected="xml(fwupgrade).image.InstallingFirmwareImg">
+			<Html command="getValue" target="xml(fwupgrade).xpath.InstallingFirmwareImg" value="" />
+		</Verify>
+		
+		<!-- Texts: -->
+		<!-- Installing firmware… -->
+				<Verify expected="xml(fwupgrade).message.InstallingFirmware">
+			<Html command="getValue" target="xml(fwupgrade).xpath.InstallingFirmware" value="" />
+		</Verify>
+		
+		<!-- "Updating your firmware may take some time depending on your Internet connection and bandwidth." -->
+				<Verify expected="xml(fwupgrade).message.UpdatingYourFirmware">
+			<Html command="getValue" target="xml(fwupgrade).xpath.UpdatingYourFirmware" value="" />
+		</Verify>
+		
+		<!-- "Do not unplug your camera or computer during the firmware update process." -->
+				<Verify expected="xml(fwupgrade).message.DoNotUnplug">
+			<Html command="getValue" target="xml(fwupgrade).xpath.DoNotUnplug" value="" />
+		</Verify>
+		
+		<!-- Verify that this warning sentence will display as highlight red font. -->
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(fwupgrade).js.warningColorJS" value="" />
+		</Verify>
+		
+	</TestCase>
+</Test>

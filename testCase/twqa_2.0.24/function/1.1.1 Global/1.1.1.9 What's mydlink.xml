@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.1.7 What's mydlink</testCaseName>
+	<annotation>
+		<description>1.2.1.7 What's mydlink.xml</description>
+		<testCaseVersion>1</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-05" />
+		<lastUpdated author="yue.chen" date="2011-07-05" />
+		<recordInfo deviceIndex="1" account="onLine" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- Open mydlink site, select What's mydlink in promotion area, click More Detail button -->
+		<Html command="click" target="xml(entrance).xpath.WhatsMydlinkLink" value="" />
+		<Html command="waitForElementDisplay" target="xml(entrance).xpath.WhatsMydlinkButton" value="60"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.WhatsMydlinkButton" value=""></Html>
+
+		<!-- check Logo: mydlink -->
+		<Verify expected="xml(header).image.LogoImage" type="contains">
+			<Html command="getValue" target="xml(header).js.LogoImage" value="" />
+		</Verify>
+
+		<!-- 1. A new window Youtobe video page will pop up. -->
+		<!-- Youtobe 需要翻墙 -->
+		<Verify expected="intro_video">
+			<Html command="attribute" target="xml(whats_mydlink).xpath.Link2" value="target" />
+		</Verify>
+		<Verify expected="http://www.youtube.com/watch?v=aOtr3h-XLNk">
+			<Html command="attribute" target="xml(whats_mydlink).xpath.Link2" value="href" />
+		</Verify>
+		
+		<!-- 2. It links to http://itunes.apple.com/us/app/mydlink-lite/id372571229?mt=8 in new window. -->
+		<Verify expected="_blank">
+			<Html command="attribute" target="xml(whats_mydlink).xpath.IphoneLink" value="target" />
+		</Verify>
+		<Verify expected="http://itunes.apple.com/us/app/mydlink-lite/id372571229?mt=8">
+			<Html command="attribute" target="xml(whats_mydlink).xpath.IphoneLink" value="href" />
+		</Verify>
+		<!-- It links to https://market.android.com/details?id=com.dlink.mydlink in new window. -->
+		<Verify expected="_blank">
+			<Html command="attribute" target="xml(whats_mydlink).xpath.AndroidLink" value="target" />
+		</Verify>
+		<Verify expected="https://market.android.com/details?id=com.dlink.mydlink">
+			<Html command="attribute" target="xml(whats_mydlink).xpath.AndroidLink" value="href" />
+		</Verify>
+		<!-- TBD -->
+
+		<!-- 3. There will show "Welcome, xxx xxx | Sign out" in the top right corner. -->
+		<Html command="open" target="xml(url).pagePath.Entrance" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Html command="open" target="xml(url).pagePath.WhatsMydlink" value=""></Html>
+				<Verify expected="xml(header).message.Welcome" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Welcome" value="" />
+		</Verify>
+		<Verify expected="account(onLine).firstName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="account(onLine).lastName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SignOut">
+			<Html command="getValue" target="xml(header).xpath.SignOut" value="" />
+		</Verify>
+	</TestCase>
+</Test>

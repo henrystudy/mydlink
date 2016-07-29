@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Edit My Profile page</testCaseName>
+	<annotation>
+		<description>1.1.4.1 Edit My Profile page.xml</description>
+		<created author="dayu.lei" date="2011-06-28" />
+		<lastUpdated author="dayu.lei" date="2011-06-28" />
+		<recordInfo account="bak1" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login begin -->
+		<Html command="open" target="xml(global).pagePath.pagePath" value=""></Html>
+		
+		<Verify expected="xml(global).message.titleBar">
+			<Html command="getValue" target="xml(global).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(global).xpath.emailTextbox" value="account(Direct).email"></Html>
+		<Html command="type" target="xml(global).xpath.passwordTextbox" value="account(Direct).pwd"></Html>
+		<Html command="clickAndWait" target="xml(global).xpath.signinDivButton" value="" />
+		<Verify expected="xml(device).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>	
+		<!-- login end -->	
+		
+		<!-- goto My Profile page -->	
+		<Html command="waitForElementDisplay" target="xml(commonInfo).xpath.myProfileLink" value="60" />
+		<Html command="clickAndWait" target="xml(commonInfo).xpath.myProfileLink" value="" />
+		<Verify expected="xml(myProfile).message.titleBar">
+			<Html command="getValue" target="xml(myProfile).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- page test begin -->
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value="" />
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar"
+				value="" />
+		</Verify>
+		
+		<!-- clean the infomation -->
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputFirstName" value="F"></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputLastName" value="L"></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputAddress1" value=""></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputAddress2" value=" "></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputZIP" value=" "></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputCity" value=" "></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputState" value=" "></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputPhone" value=" "></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<Verify expected="xml(myProfile).message.titleBar">
+			<Html command="getValue" target="xml(myProfile).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value="" />
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar"
+				value="" />
+		</Verify>
+		
+		<!--2. Check the first name item.
+  
+  		Verify below inputs are allowed for first name:
+ 		Spaces, apostrophe 
+		special characters on the keyboard
+ 		different language eg. Chinese-->
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputFirstName" value="l '/中国@$%"></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<!--3. Without entering the first name.Click Save button.	-->
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputFirstName" value=""></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.FirstNameWarningText">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.FirstNameWarningText"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(commonInfo).color.red">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).js.errMsgColorJS"
+				value="" />
+		</Verify>
+		
+		<!-- 4. Check the last name item.
+  
+ 		 Verify below inputs are allowed for first name:
+		 Spaces, apostrophe 
+ 			special characters on the keyboard
+ 			different language eg. Chinese-->
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputFirstName" value="test"></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputLastName" value="l '/中国@$%"></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<!--5. Input the first name.
+		Leave the last name empty, click "Save".-->
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputFirstName" value="test"></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputLastName" value=""></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.LaseNameWarningText">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.LaseNameWarningText"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(commonInfo).color.red">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).js.errMsgColorJS"
+				value="" />
+		</Verify>
+		
+		<!--6. Check the date of birth item.	-->
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.SelectMonth"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.SelectDate"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.SelectYear"
+				value="" />
+		</Verify>
+		
+		<!--7. Check the gender item. -->
+		<!-- 
+		<operate>
+		<command>verifySelecteLabel</command>
+		<target path="myProfile_BasicInfoEdit.xml" type="xpath">SelectGender</target>
+		<value path="myProfile_BasicInfoEdit.xml" type="dropdownList">gender</value>
+		<errorMsg></errorMsg>
+		</operate>
+		 -->
+		
+		<!-- 8. Check the "contact me in" item. -->
+		<!-- 
+		<operate>
+		<command>verifySelecteLabel</command>
+		<target path="myProfile_BasicInfoEdit.xml" type="xpath">SelectContactMeIn</target>
+		<value path="myProfile_BasicInfoEdit.xml" type="dropdownList">language</value>
+		<errorMsg></errorMsg>
+		</operate>
+		 -->
+		
+		<!-- 9. Check the country item.-->
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.SelectCountry"
+				value="" />
+		</Verify>
+		
+		<!-- 10. Check the address item.  -->
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputAddress1"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputAddress2"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputFirstName" value="FirstName"></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputLastName" value="LastName"></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputAddress1" value="l '/中国@$%"></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputAddress2" value="l '/中国@$%"></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<!-- 11. Check the city item. -->
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputCity"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputCity" value="l '/中国@$%"></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputState"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputState" value="l '/中国@$%"></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar"
+				value="" />
+		</Verify>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputZIP"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputZIP" value="Mm- a7"></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<Verify expected="Mm- a7">
+			<Html command="getValue" target="xml(myProfile).xpath.ZIPPostalCodeValue"
+				value="" />
+		</Verify>
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar"
+				value="" />
+		</Verify>
+		
+		
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputZIP" value="a 10-110"></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		
+		
+		<Verify expected="a 10-110">
+			<Html command="getValue" target="xml(myProfile).xpath.ZIPPostalCodeValue"
+				value="" />
+		</Verify>
+		
+		<!--14. Input the ZIP/Postal code with incorrect  format.	-->
+		
+	
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputZIP" value="ads@轻轻的我来了"></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.ZIPWarningText">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.ZIPWarningText"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(commonInfo).color.red">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).js.errMsgColorJS"
+				value="" />
+		</Verify>
+		
+		<!--15. Check the Phone(with area code) item.  -->
+		
+		<Html command="waitForElementDisplay" target="xml(commonInfo).xpath.myProfileLink" value="60"></Html>
+		
+		<Html command="clickAndWait" target="xml(commonInfo).xpath.myProfileLink" value="60"></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value=""></Html>
+		
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(myProfile_BasicInfoEdit).xpath.InputPhone"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputPhone" value="0510-110 119"/>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<Verify expected="0510-110 119">
+			<Html command="getValue" target="xml(myProfile).xpath.PhoneValue"
+				value="" />
+		</Verify>
+		
+		<!--16. Input the Phone(With area code) with incorrect  format.	 -->
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputPhone" value="%，7正如我轻轻的走"/>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.PhoneWarningText">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.PhoneWarningText"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(commonInfo).color.red">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).js.errMsgColorJS"
+				value="" />
+		</Verify>
+		
+		<!-- 17. Click "Cancel" button. -->
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.CancelBtn" value=""></Html>
+		
+		<Verify expected="xml(myProfile).message.titleBar">
+			<Html command="getValue" target="xml(myProfile).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!--18. Back to the edit page, enter all the information.
+		Click "Save" button after all enter is OK.  -->
+		
+		<Html command="clickAndWait" target="xml(myProfile).xpath.EditBasicInfo" value=""></Html>
+		
+		<Verify expected="xml(myProfile_BasicInfoEdit).message.TitleBar">
+			<Html command="getValue" target="xml(myProfile_BasicInfoEdit).xpath.TitleBar"
+				value="" />
+		</Verify>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputFirstName" value="FirstName"></Html>
+		
+		<Html command="type" target="xml(myProfile_BasicInfoEdit).xpath.InputLastName" value="LastName"></Html>
+		
+		<Html command="clickAndWait" target="xml(myProfile_BasicInfoEdit).xpath.saveBtn" value=""></Html>
+		
+		<Verify expected="xml(myProfile).message.titleBar">
+			<Html command="getValue" target="xml(myProfile).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- page test end -->
+		
+	</TestCase>
+</Test>

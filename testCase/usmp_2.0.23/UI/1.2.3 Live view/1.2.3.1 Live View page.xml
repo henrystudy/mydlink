@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Live view page</testCaseName>
+	<annotation>
+		<description>Test the live view page</description>
+		<created author="dayu.lei" date="2011-06-15" />
+		<lastUpdated author="dayu.lei" date="2011-06-15" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login begin -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox"
+			value="account(Relay).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox"
+			value="account(Relay).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton"
+			value=""></Html>
+
+		<!-- 暂时未能处理，留在以后处理 
+			<operate> 
+				<command>assertText</command> 
+				<target path="device.xml" 
+				type="xpath">titleBar</target> 
+				<value path="device.xml" type="msg">titleBar</value> 
+				<errorMsg>Login failed.</errorMsg> 
+			</operate> -->
+				
+		<!-- login end -->
+
+		<!-- check live video start -->
+		<!-- waitForElementDisplay -->
+		<Function command="selectDevice" target="account(Relay).device.1.sn"
+			value=""></Function>
+
+		<Function command="waitForLiveView" target="120" value=""></Function>
+
+		<!-- verify relay count down bar start -->
+		<!--
+			<Verify expected="">
+				<Html command="getValue" target="xml(device).xpath.relayCountDown"
+					value="" />
+			</Verify>
+			<Verify expected="xml(device).message.relayCountDownFront"
+				type="contains">
+				<Html command="getValue" target="xml(device).xpath.relayCountDown"
+					value="" />
+			</Verify>
+			<Verify expected="xml(device).message.relayCountDownBack" type="contains">
+				<Html command="getValue" target="xml(device).xpath.relayCountDown"
+					value="" />
+			</Verify>
+			<Verify expected="xml(device).image.relayCountDownImg" type="contains">
+				<Html command="getValue" target="xml(device).xpath.relayCountDownImg"
+					value="" />
+			</Verify>
+		-->
+		<!-- verify relay count down bar end -->
+
+		<!-- Verify button-texts 开始 -->
+
+		<Choose>
+			<When>
+				<Verify expected="DCS-1100,DCS-1100L,DCS-1130L,DCS-1130,DCS-930L" type="in">
+					<Html command="getTarget" target="account(Relay).device.1.modelName"
+						value="" />
+				</Verify>
+			</When>
+			<Do>
+				<Verify expected="none" >
+					<Html command="getEval" target="xml(device).js.buttonSpeed"
+						value="" />
+				</Verify>
+				<Verify expected="none" >
+					<Html command="getEval" target="xml(device).js.buttonAuto"
+						value="" />
+				</Verify>
+				<Verify expected="none" >
+					<Html command="getEval" target="xml(device).js.buttonStop"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomIn"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomOut"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomReset"
+						value="" />
+				</Verify>
+			</Do>
+			<Otherwise>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonSpeed"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonAuto"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonStop"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomIn"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomOut"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomReset"
+						value="" />
+				</Verify>
+			</Otherwise>
+		</Choose>
+
+		<!-- Verify button-texts 结束 -->
+		<!-- check live video end -->
+
+		<!-- check tabs -->
+		<Html command="waitForElementDisplay" target="xml(device).xpath.win_mydlinkTabBox"
+			value="60" />
+		<Verify expected="xml(device).message.LinkLiveVideoText">
+			<Html command="getValue" target="xml(device).xpath.LiveVideoText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device).message.LinkCameraSettingsText">
+			<Html command="getValue" target="xml(device).xpath.CameraSettingsText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device).message.LinkCameraInfoText">
+			<Html command="getValue" target="xml(device).xpath.CameraInfoText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device).message.LinkLiveVideoText">
+			<Html command="getValue" target="xml(device).xpath.selectedTab"
+				value="" />
+		</Verify>
+		<!-- check tabs 结束 -->
+
+		<!-- check LOGO -->
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo"
+				value="" />
+		</Verify>
+		<!-- check LOGO 结束 -->
+
+		<!-- check head -->
+		<Verify expected="xml(commonInfo).message.mydlinkLiteLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLiteLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.myDevicesLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myDevicesLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.myProfileLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myProfileLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.signOutLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.signOutLink"
+				value="" />
+		</Verify>
+		<!-- 检查 HEAD 结束 -->
+
+		<!-- check footer -->
+		<ImportXML src="checkfooter.xml"></ImportXML>
+		<!-- check footer end -->
+
+	</TestCase>
+</Test>

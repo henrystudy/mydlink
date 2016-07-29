@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Live Video UI Checking</testCaseName>
+	<annotation>
+		<description>1.3.2.1 Live Video UI Checking.xml</description>
+		<created author="dayu.lei" date="2011-06-21" />
+		<lastUpdated author="dayu.lei" date="2011-06-21" />
+		<recordInfo deviceIndex="1" account="onLine" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login begin -->
+		<Html command="open" target="xml(global).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(global).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(global).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(global).xpath.emailTextbox"
+			value="account(onLine).email"></Html>
+		<Html command="type" target="xml(global).xpath.passwordTextbox"
+			value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(global).xpath.signinDivButton"
+			value=""></Html>
+		<Verify expected="xml(device).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		<!-- login end -->
+		
+		<!-- select device -->
+		<Function command="selectDevice" target="account(onLine).device.1.sn"
+			value=""></Function>
+		
+		<!-- check HEAD -->
+		<Verify expected="xml(commonInfo).message.mydlinkLiteLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLiteLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.myDevicesLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myDevicesLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.myProfileLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myProfileLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.signOutLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.signOutLink"
+				value="" />
+		</Verify>
+		<!-- check HEAD end -->
+	
+		<!-- check FOOT -->
+		<Verify expected="xml(commonInfo).message.globalDlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.globalDlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.aboutMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.aboutMydlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.termsOfUseLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.termsOfUseLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.privacyPolicyLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.privacyPolicyLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.contactUsLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.contactUsLink"
+				value="" />
+		</Verify>
+		<!-- check footer end -->
+		
+		<!-- check LOGO  -->
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo"
+				value="" />
+		</Verify>
+		<!-- check LOGO 结束 -->
+		
+		<!-- check titleBar  -->
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- check titleBar end -->
+	
+		<!-- check delete device button -->
+		<Verify expected="xml(device).message.DeleteDeviceBtn">
+			<Html command="getValue" target="xml(device).xpath.DeleteDeviceBtn"
+				value="" />
+		</Verify>
+		<!-- check delete device button 结束 -->
+		
+		<!-- select device -->
+		<!-- wait for live video display  -->
+		<Function command="waitForLiveView" target="account(onLine).device.1.connectionType" value="xml(commonInfo).timeType.Relay"></Function>
+		<!-- wait for live video display end -->
+		
+		<!-- check tabs  -->
+		<Html command="waitForElementDisplay" target="xml(device).xpath.win_mydlinkTabBox"
+			value="60" />
+		<Verify expected="xml(device).message.LinkLiveVideoText">
+			<Html command="getValue" target="xml(device).xpath.LiveVideoText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device).message.LinkCameraSettingsText">
+			<Html command="getValue" target="xml(device).xpath.CameraSettingsText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device).message.LinkCameraInfoText">
+			<Html command="getValue" target="xml(device).xpath.CameraInfoText"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device).message.LinkLiveVideoText">
+			<Html command="getValue" target="xml(device).xpath.selectedTab"
+				value="" />
+		</Verify>
+		<!-- check tabs 结束 -->
+		
+		<!-- Verify button-texts -->
+		<Choose>
+			<When>
+				<Verify expected="DCS-1100,DCS-1100L,DCS-1130L,DCS-1130,DCS-930L" type="in">
+					<Html command="getTarget" target="account(Relay).device.1.modelName"
+						value="" />
+				</Verify>
+			</When>
+			<Do>
+				<Verify expected="none" >
+					<Html command="getEval" target="xml(device).js.buttonSpeed"
+						value="" />
+				</Verify>
+				<Verify expected="none" >
+					<Html command="getEval" target="xml(device).js.buttonAuto"
+						value="" />
+				</Verify>
+				<Verify expected="none" >
+					<Html command="getEval" target="xml(device).js.buttonStop"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomIn"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomOut"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomReset"
+						value="" />
+				</Verify>
+			</Do>
+			<Otherwise>
+			</Otherwise>
+		</Choose>
+		<!-- <Choose>
+			<When>
+				<Verify expected="DCS-5230L" type="in">
+					<Html command="getTarget" target="account(Relay).device.1.modelName"
+						value="" />
+				</Verify>
+			</When>
+			<Do>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonSpeed"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonAuto"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonStop"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomIn"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomOut"
+						value="" />
+				</Verify>
+				<Verify expected="block" >
+					<Html command="getEval" target="xml(device).js.buttonZoomReset"
+						value="" />
+				</Verify>
+			</Do>
+			<Otherwise>
+			</Otherwise>
+		</Choose> -->
+		<!-- Verify button-texts 结束 -->
+		
+	</TestCase>
+</Test>

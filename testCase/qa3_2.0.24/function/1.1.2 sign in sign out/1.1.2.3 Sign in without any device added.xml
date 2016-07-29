@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.1.2.3 Sign in without any device added.xml</testCaseName>
+	<annotation>
+		<description>1.1.2.3 Sign in without any device added.xml</description>
+		<testCaseVersion>7</testCaseVersion>
+		<created author="yue.chen" date="2011-07-05" />
+		<lastUpdated author="yue.chen" date="2011-07-06" />
+		<recordInfo />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- 1. Verify user can log in successfully. -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(haveNoDevice).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(haveNoDevice).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+
+		<!-- Verify "No Device" page will display for user -->
+		<!-- 2. Verify the description of title bar is "My Devices". -->
+		<Verify expected="xml(header).message.MyDevicesLink">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLink" value="" />
+		</Verify>
+		<Verify expected="navBtn_on">
+			<Html command="attribute" target="xml(header).xpath.MyDevicesLink" value="class" />
+		</Verify>
+
+		<!-- Verify the text displayed as:"Your account has no devices yet." -->
+		<Verify expected="true">
+			<Html command="isVisible" target="xml(device).xpath.noDevice" value="" />
+		</Verify>
+		<Verify expected="xml(device).message.noDevice">
+			<Html command="getValue" target="xml(device).xpath.noDevice" value="" />
+		</Verify>
+
+		<!-- 3. Verify it will go back to the home screen of mydlink.com. -->
+		<Html command="clickAndWait" target="xml(header).xpath.SignOut" value=""></Html>
+		<Verify expected="xml(entrance).message.WhatsMydlinkLink">
+			<Html command="getValue" target="xml(entrance).xpath.WhatsMydlinkLink" value="" />
+		</Verify>
+
+		<!-- 4. Verify user can log in successfully. -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(onLine).device.1.sn" value=""></Function>
+		
+		<!-- Verify it will go to "Live Video" page -->
+		<Html command="waitForElementDisplay" target="xml(device).xpath.LiveVideoText" value="120" />
+	</TestCase>
+</Test>

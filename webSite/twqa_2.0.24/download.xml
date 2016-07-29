@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+		<pagePath name="pagePath">/download</pagePath>
+
+		<!-- Xpath -->
+		<xpath name="titleBar">//div[@class='content']/div/div/span</xpath>
+
+		<!-- JS -->
+		<js name="errMsgColorJS">window.jQuery('#errMsg').css('color')</js>
+	</targets>
+
+	<messages>
+		<message name="titleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Downloads for your mydlink devices</content>
+		</message>
+		<message name="Firmware">
+			<content language="zh_CN">固件</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Firmware</content>
+		</message>
+		<message name="HowDoIUpdate">
+			<content language="zh_CN">如何更新我的固件？</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">How do I update my firmware?</content>
+		</message>
+		<message name="Wizard">
+			<content language="zh_CN">向导</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Wizard</content>
+		</message>
+		<message name="QuickInstallationGuide">
+			<content language="zh_CN">快速安装向导</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Quick Installation Guide</content>
+		</message>
+		<message name="UserManual">
+			<content language="zh_CN">用户手册</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">User Manual</content>
+		</message>
+		<message name="DeviceName1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">DCS-1100, DCS-1100LWired Network Camera</content>
+		</message>
+		<message name="DeviceName2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">DCS-1130, DCS-1130LWireless N Network Camera</content>
+		</message>
+		<message name="DeviceName3">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">DCS-5230LWireless N Pan/Tilt Network Camera</content>
+		</message>
+		<message name="DeviceName4">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">DCS-930LWireless N Network Camera</content>
+		</message>
+		<message name="MydlinkCameras">
+			<content language="zh_CN">mydlink 摄像机</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink Cameras</content>
+		</message>
+	</messages>
+
+	<images>
+		<image name="logoImg">/images/ucp/dlife_logo.gif</image>
+	</images>
+	<downloadItems>		
+		<downloadDevice name="download">
+			<xpaths>
+				<nameXpath>//div[@class='whitebox']/div/table/tbody/tr[#$$#]/td[#$1$#]//td[@class='hilite']</nameXpath>
+				<itemsXpath>//div[@class='whitebox']/div/table/tbody/tr[#$$#]/td[#$1$#]//ul</itemsXpath>
+				<deviceCountXpath>//div[@class='whitebox']//tbody//tbody//tr//img</deviceCountXpath>
+			</xpaths>
+			<deviceNames>
+				<deviceName>DeviceName1</deviceName>
+				<deviceName>DeviceName2</deviceName>
+				<deviceName>DeviceName3</deviceName>
+				<deviceName>DeviceName4</deviceName>
+			</deviceNames>
+			<itemNames>
+				<itemName>Firmware</itemName>
+				<itemName>Wizard</itemName>
+				<itemName>QuickInstallationGuide</itemName>
+				<itemName>UserManual</itemName>
+			</itemNames>
+		</downloadDevice>
+	</downloadItems>
+</info>

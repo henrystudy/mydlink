@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>FAQ</testCaseName>
+	<annotation>
+		<description>test the FAQ page</description>
+		<testCaseVersion>5</testCaseVersion>
+		<created author="yue.chen" date="2011-07-05" />
+		<lastUpdated author="yue.chen" date="2011-07-05" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value="" />
+
+		<Html command="open" target="xml(url).pagePath.Faq" value="" />
+
+		<!-- 1: Verify there are below 2 items on this FAQs page: -->
+		<!-- check title:FAQs -->
+		<Verify expected="xml(faq).message.TitleBarText">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+
+		<!-- check Categories -->
+		<Verify expected="xml(faq).message.CategoriesText">
+			<Html command="getValue" target="xml(faq).xpath.CategoriesText" value="" />
+		</Verify>
+
+		<!-- 2: Verify: -->
+		<!-- (1): "mydlink","DCS-930L,DCS-932L,DCS-940L,DCS-942L","DCS-1100, DCS-1130,DCS-1100L,DCS-1130L" ,"DCS-5230L","DNR-322", "mydlink iphone app" and "mydlink Android app" links display 
+			under "Categories" item. -->
+		<!-- (2): There should be the different icons before each link. -->
+		<!-- (3): Verify all the links work well and all the revelant FAQs web pages should display correctly after clicking the different links. -->
+		<!-- (corresponding product image should be displayed ahead of each product) -->
+		<!-- mydlink -->
+		<Verify expected="xml(faq).message.Mydlink">
+			<Html command="getValue" target="xml(faq).xpath.Mydlink" value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.MydlinkImage" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.MydlinkImage" value="" />
+		</Verify>
+
+		<!-- DCS-930L,DCS-932L,DCS-940L,DCS-942L -->
+		<Verify expected="xml(faq).message.DCS930L">
+			<Html command="getValue" target="xml(faq).xpath.DCS930L" value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.DCS930LImage" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.Image4" value="" />
+		</Verify>
+
+		<Verify expected="xml(faq).message.DCS932L">
+			<Html command="getValue" target="xml(faq).xpath.DCS932L" value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.DCS932LImage" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.Image6" value="" />
+		</Verify>
+
+		<Verify expected="xml(faq).message.DCS940L">
+			<Html command="getValue" target="xml(faq).xpath.DCS940L" value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.DCS940LImage" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.Image8" value="" />
+		</Verify>
+
+		<Verify expected="xml(faq).message.DCS942L">
+			<Html command="getValue" target="xml(faq).xpath.DCS942L" value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.DCS942LImage" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.Image16" value="" />
+		</Verify>
+
+		<!-- DCS-1100, DCS-1130, DCS-1100L, DCS-1130L -->
+		<Verify expected="xml(faq).message.11301100">
+			<Html command="getValue" target="xml(faq).xpath.11301100" value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.11301100Image" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.Image10" value="" />
+		</Verify>
+
+		<!-- DCS-5230L -->
+		<Verify expected="xml(faq).message.CategoriesText">
+			<Html command="getValue" target="xml(faq).xpath.CategoriesText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.MydlinkImage" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.Image2" value="" />
+		</Verify>
+
+		<!-- DNR-322 -->
+		<Verify expected="xml(faq).message.DNR322L">
+			<Html command="getValue" target="xml(faq).xpath.DNR322L" value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.DNR322LImage" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.Image18" value="" />
+		</Verify>
+
+		<!-- mydlink iphone app -->
+		<Verify expected="xml(faq).message.Iphone">
+			<Html command="getValue" target="xml(faq).xpath.Iphone" value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.AppImage" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.Image20" value="" />
+		</Verify>
+
+		<!-- mydlink android app -->
+		<Verify expected="xml(faq).message.Android">
+			<Html command="getValue" target="xml(faq).xpath.Android" value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.AppImage" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.Image20" value="" />
+		</Verify>
+
+		<!-- 3: Verify: -->
+		<!-- (1): there are some FAQs links list under Top FAQs. -->
+		<!-- (2): Verify all the links work well and all the revelant FAQs web pages should display correctly after clicking the different links. -->
+
+		<!-- 4. Verify: All related question page are displayed and match corresponding device. -->
+		<!-- check Top FAQs •What can I do on the mydlink website? •Which web browsers can I use with mydlink? •How do I sign up for a mydlink account? •Why do I see a message about ActiveX 
+			controls when I open my camera's Live Video tab? •Why am I being asked to verify my camera's password when trying to access my camera from mydlink? （The texts have links and mouse over 
+			the link,the word link color truns black with underline) Text: bottom：Copyright©2008-2011 mydlink/D-Link Corporation Inc. All rights reserved. -->
+		<Verify expected="xml(faq).message.TopFaq">
+			<Html command="getValue" target="xml(faq).xpath.TopFaq" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.Faq1">
+			<Html command="getValue" target="xml(faq).xpath.Faq1" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.Faq2">
+			<Html command="getValue" target="xml(faq).xpath.Faq2" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.Faq3">
+			<Html command="getValue" target="xml(faq).xpath.Faq3" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.Faq4">
+			<Html command="getValue" target="xml(faq).xpath.Faq4" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.Faq5">
+			<Html command="getValue" target="xml(faq).xpath.Faq5" value="" />
+		</Verify>
+
+		<!-- Verify that the question displayed for corresponding product and below items should be localized: Paths Link: FAQs > [pruduct name]; FAQs (mouse over the link,the word link color 
+			truns black with underline) TItle: FAQs: [pruduct name] Text Link: Each question Button: Back to Categories -->
+		<!-- mydlink -->
+		<Html command="clickAndWait" target="xml(faq).xpath.Mydlink" value="" />
+		<Verify expected="xml(faq).message.Mydlink" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.TitleBarText" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.BacktoCategoriesButton">
+			<Html command="getValue" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		<Verify expected="xml(faq).message.TitleBarText">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+
+		<!-- DCS-932L -->
+		<Html command="clickAndWait" target="xml(faq).xpath.DCS932L" value="" />
+		<Verify expected="xml(faq).message.DCS932L" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.TitleBarText" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.BacktoCategoriesButton">
+			<Html command="getValue" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		<Verify expected="xml(faq).message.TitleBarText">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+
+		<!-- DCS-940L -->
+		<Html command="clickAndWait" target="xml(faq).xpath.DCS940L" value="" />
+		<Verify expected="xml(faq).message.DCS940L" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.TitleBarText" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.BacktoCategoriesButton">
+			<Html command="getValue" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		<Verify expected="xml(faq).message.TitleBarText">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+
+		<!-- DCS-1100, DCS-1130, DCS-1100L, DCS-1130L -->
+		<Html command="clickAndWait" target="xml(faq).xpath.11301100" value="" />
+		<Verify expected="xml(faq).message.11301100" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.TitleBarText" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.BacktoCategoriesButton">
+			<Html command="getValue" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		<Verify expected="xml(faq).message.TitleBarText">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+
+		<!-- DCS-942L -->
+		<Html command="clickAndWait" target="xml(faq).xpath.DCS942L" value="" />
+		<Verify expected="xml(faq).message.DCS942L" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.TitleBarText" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.BacktoCategoriesButton">
+			<Html command="getValue" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		<Verify expected="xml(faq).message.TitleBarText">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+
+		<!-- DNR-322L -->
+		<Html command="clickAndWait" target="xml(faq).xpath.DNR322L" value="" />
+		<Verify expected="xml(faq).message.DNR322L" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.TitleBarText" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.BacktoCategoriesButton">
+			<Html command="getValue" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		<Verify expected="xml(faq).message.TitleBarText">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+
+		<!-- iphone -->
+		<Html command="clickAndWait" target="xml(faq).xpath.Iphone" value="" />
+		<Verify expected="xml(faq).message.IphoneFAQ" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.TitleBarText" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.BacktoCategoriesButton">
+			<Html command="getValue" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		<Verify expected="xml(faq).message.TitleBarText">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+
+		<!-- android -->
+		<Html command="clickAndWait" target="xml(faq).xpath.Android" value="" />
+		<Verify expected="xml(faq).message.Android" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.TitleBarText" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.BacktoCategoriesButton">
+			<Html command="getValue" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(faq).xpath.BacktoCategoriesButton" value="" />
+		<Verify expected="xml(faq).message.TitleBarText">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+
+		<!-- 5. There will show "Welcome, xxx xxx | Sign out" in the top right corner. -->
+		<Html command="open" target="xml(url).pagePath.Entrance" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Html command="open" target="xml(url).pagePath.Faq" value="" />
+
+		<Verify expected="xml(header).message.Welcome" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Welcome" value="" />
+		</Verify>
+		<Verify expected="account(onLine).firstName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="account(onLine).lastName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SignOut">
+			<Html command="getValue" target="xml(header).xpath.SignOut" value="" />
+		</Verify>
+
+
+	</TestCase>
+</Test>

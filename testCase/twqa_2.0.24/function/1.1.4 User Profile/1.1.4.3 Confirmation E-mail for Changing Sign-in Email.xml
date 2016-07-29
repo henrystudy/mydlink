@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.1.4.1 Edit My Profile page.xml</testCaseName>
+	<annotation>
+		<description>1.1.4.1 Edit My Profile page.xml</description>
+		<testCaseVersion>7</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="yue.chen" date="2011-07-07" />
+		<recordInfo deviceIndex="1" account="Email2" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(Email2).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(Email2).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<!-- 1. Verify the content displayed as below: -->
+		<!-- Hello xxxname, -->
+		<!-- We have received your request to change your sign-in e-mail account. -->
+		<!-- Old e-mail: xxx@xxxxxx -->
+		<!-- New e-mail: XXX@XXXXX -->
+		<!-- Before clicking on the below link to verify your e-mail address, PLEASE be sure close any applications signed in to mydlink, including any browsers logged into the mydlink website. -->
+		<!-- Please click the link below to verify your e-mail address: -->
+		<!-- Xxxxxxxxxxxx -->
+		<!-- If clicking the link doesn't work, copy and paste the URL address into Internet Explorer. -->
+		<!-- If you have received this e-mail in error, please ignore this e-mail and we apologize for the inconvenience. -->
+		<!-- mydlink.com -->
+		<!-- =================================== -->
+		<!-- This e-mail message was sent from a notification-only address that cannot accept incoming e-mail. Please do not reply to this message. -->
+		<!-- If you have any questions, please contact mydlink customer service at www.mydlink.com/contact/ -->
+		<Html command="type" target="xml(myProfile).xpath.signinEmail" value="account(Email2_un).email" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(Email2).pwd" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Html command="waitForElementDisplay" target="xml(myProfile).xpath.VerificationRequired" value="60" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveNsignoutButton" value="" />
+		<Function command="getEmailInfo" target="Email2_un" value="" />
+
+		<!-- 2. Verify the verification URL is valid only for the updated changed email account and the other verification URLs will be expired. -->
+		<Html command="open" target="${link}" value=""></Html>
+
+		<!-- 3. Verify "Successful verification URL" page will display successfully. -->
+		<!-- Verify the title bar is "E-mail Verification". -->
+		<Verify expected="xml(emailverify).message.titleBar">
+			<Html command="getValue" target="xml(emailverify).xpath.titleBar" value=""></Html>
+		</Verify>
+
+		<!-- Verify the text displayed as"Please verify that you wish to use the following e-mail address for your mydlink account sign-in: -->
+		<Verify expected="xml(emailverify).message.text" type="contains">
+			<Html command="getValue" target="xml(emailverify).xpath.texts" value=""></Html>
+		</Verify>
+
+		<!-- [show the changed e-mail account]" -->
+		<Verify expected="account(Email2_un).email" type="contains">
+			<Html command="getValue" target="xml(emailverify).xpath.texts" value=""></Html>
+		</Verify>
+
+		<!-- 4. Verify the text is "Please enter your mydlink password below to confirm:" -->
+		<Verify expected="xml(emailverify).message.textBox" type="contains">
+			<Html command="getValue" target="xml(emailverify).xpath.texts" value=""></Html>
+		</Verify>
+
+		<!-- Verify the input password intext box with Case sensitivity. -->
+		<Html command="type" target="xml(emailverify).xpath.inputBox" value="CaseSensitivity"></Html>
+		<Verify expected="CaseSensitivity">
+			<Html command="getValue" target="xml(emailverify).xpath.inputBox" value=""></Html>
+		</Verify>
+
+		<!-- 5. Verify the text "The password is incorrect. Please try again." with red colour will display under the text box. -->
+		<Html command="type" target="xml(emailverify).xpath.inputBox" value="erropeeqw"></Html>
+		<Html command="clickAndWait" target="xml(emailverify).xpath.ok" value=""></Html>
+		<Verify expected="xml(emailverify).message.warning">
+			<Html command="getValue" target="xml(emailverify).xpath.warning" value=""></Html>
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(emailverify).js.errMsgColorJS" value=""></Html>
+		</Verify>
+
+		<!-- 6. Verify "My Profile" page will display. -->
+		<Html command="type" target="xml(emailverify).xpath.inputBox" value="account(Email2).pwd"></Html>
+		<Html command="clickAndWait" target="xml(emailverify).xpath.ok" value=""></Html>
+
+		<!-- Verify the Bar tittle is :My Profile -->
+		<Verify expected="xml(header).message.MyProfileLink">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLink" value="" />
+		</Verify>
+
+
+		<!-- 7. Verify "Already clicked URL" will display. -->
+		<Html command="open" target="${link}" value=""></Html>
+
+		<!-- Verify the title bar is"E-mail Verification". -->
+		<Verify expected="xml(emailverify).message.titleBar">
+			<Html command="getValue" target="xml(emailverify).xpath.titleBar" value=""></Html>
+		</Verify>
+
+		<!-- Verify the text displayed as"The verification link has already been used, and the e-mail account has already been verified. Please click on the button below to return to the 
+			mydlink home page to sign in." -->
+		<Verify expected="xml(emailverify).message.alreadyText">
+			<Html command="getValue" target="xml(emailverify).xpath.alreadyText" value=""></Html>
+		</Verify>
+
+		<!-- Verify there is a "Sign In" button and click it will go to mydlink home page -->
+		<Verify expected="xml(emailverify).message.signInBtn">
+			<Html command="getValue" target="xml(emailverify).xpath.signInBtn" value=""></Html>
+		</Verify>
+
+		<!-- 8. Verify "Expired URL" page will display. -->
+		<!-- Verify the title bar is"E-mail Verification". -->
+		<!-- Verify the text displayed as "The verification link has already expired. If you want to change your e-mail address, please sign in to mydlink, and then go to My Profile to change 
+			it again." -->
+		<!-- Verify there is a "Sign In" button and click it will go to mydlink home page -->
+		<Html command="open" target="xml(url).pagePath.Signout" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(Email2_un).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(Email2_un).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Html command="type" target="xml(myProfile).xpath.signinEmail" value="account(Email2).email" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(Email2_un).pwd" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Html command="waitForElementDisplay" target="xml(myProfile).xpath.VerificationRequired" value="60" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveNsignoutButton" value="" />
+		<Function command="getEmailInfo" target="Email2" value="" />
+
+		<Html command="open" target="xml(url).pagePath.Signout" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(Email2_un).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(Email2_un).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Html command="type" target="xml(myProfile).xpath.signinEmail" value="account(Email2).email" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(Email2_un).pwd" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Html command="waitForElementDisplay" target="xml(myProfile).xpath.VerificationRequired" value="60" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveNsignoutButton" value="" />
+
+		<Html command="open" target="${link}" value=""></Html>
+		<Verify expected="xml(emailverify).message.titleBar">
+			<Html command="getValue" target="xml(emailverify).xpath.titleBar" value=""></Html>
+		</Verify>
+		<Verify expected="xml(emailverify).message.expiredText">
+			<Html command="getValue" target="xml(emailverify).xpath.expiredText" value=""></Html>
+		</Verify>
+		<Verify expected="xml(emailverify).message.signInBtn">
+			<Html command="getValue" target="xml(emailverify).xpath.signInBtn" value=""></Html>
+		</Verify>
+
+		<Function command="getEmailInfo" target="Email2" value="" />
+		<Html command="open" target="${link}" value=""></Html>
+		<Html command="type" target="xml(emailverify).xpath.inputBox" value="account(Email1_un).pwd"></Html>
+		<Html command="clickAndWait" target="xml(emailverify).xpath.ok" value=""></Html>
+		<Verify expected="xml(header).message.MyProfileLink">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLink" value="" />
+		</Verify>
+
+
+	</TestCase>
+</Test>

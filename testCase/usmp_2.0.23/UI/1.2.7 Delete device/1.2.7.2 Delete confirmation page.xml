@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Delete confirmation page</testCaseName>
+	<annotation>
+		<description>test the Delete confirmation page</description>
+		<created author="dayu.lei" date="2011-06-17" />
+		<lastUpdated author="dayu.lei" date="2011-06-17" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		
+		<!-- 1. Login mydlink website and proceed to live view page, that click Delete Devices button
+ Tick one or more devices and then click “Next” button-->
+		<!-- login begin -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox"
+			value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox"
+			value="account(register).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton"
+			value=""></Html>
+		<Verify expected="xml(device).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		<!-- login end -->
+		
+		<Html command="clickAndWait" target="xml(device).xpath.DeleteDeviceBtn"
+			value=""></Html>
+		<Verify expected="xml(device.unbind1).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device.unbind1).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="check" target="xml(device.unbind1).xpath.checkbox"
+			value=""></Html>
+		<Html command="clickAndWait" target="xml(device.unbind1).xpath.next"
+			value=""></Html>
+			
+		<!--2. Check all items/contents in deleting confirmations page.-->
+		
+		<Verify expected="xml(device.unbind2).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device.unbind2).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo"
+				value="" />
+		</Verify>
+		
+		<!-- check header  -->
+		
+		<Verify expected="xml(commonInfo).message.mydlinkLiteLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLiteLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.myDevicesLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myDevicesLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.myProfileLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.myProfileLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.signOutLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.signOutLink"
+				value="" />
+		</Verify>
+		<!-- 检查 HEAD 结束 -->
+		
+		<!-- check footer -->
+		<Verify expected="xml(commonInfo).message.globalDlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.globalDlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.aboutMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.aboutMydlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.termsOfUseLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.termsOfUseLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.privacyPolicyLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.privacyPolicyLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.contactUsLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.contactUsLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.bottom" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.bottom"
+				value="" />
+		</Verify>
+		<!-- check footer end -->
+		
+		<Verify expected="xml(device.unbind2).message.selectdevice">
+			<Html command="getValue" target="xml(device.unbind2).xpath.selectdevice"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind2).message.Confirm">
+			<Html command="getValue" target="xml(device.unbind2).xpath.Confirm"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind2).message.Complete">
+			<Html command="getValue" target="xml(device.unbind2).xpath.Complete"
+				value="" />
+		</Verify>
+		
+		<!-- check step on bg img -->
+		<Verify expected="xml(device.unbind2).image.stepOnBgIMG" type="contains">
+			<Html command="getValue" target="xml(device.unbind1).js.stepOnBg"
+				value="" />
+		</Verify>
+		
+		<!-- check serial No. font color -->
+		<Verify expected="xml(commonInfo).color.white">
+			<Html command="getValue" target="xml(device.unbind1).js.stepNumColor"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).color.purplishblue">
+			<Html command="getValue" target="xml(device.unbind2).js.confirmColor"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).color.gray">
+			<Html command="getValue" target="xml(device.unbind2).js.completeColor"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind2).image.ONBGIMG" type="contains">
+			<Html command="getValue" target="xml(device.unbind2).js.2ConfirmBGIMG"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind2).image.OFFBGIMG" type="contains">
+			<Html command="getValue" target="xml(device.unbind2).js.2CompleteBGIMG"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(device.unbind2).message.CancelButton">
+			<Html command="getValue" target="xml(device.unbind2).xpath.CancelButton"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind2).message.BackButton" type="contains">
+			<Html command="getValue" target="xml(device.unbind2).xpath.BackButton"
+				value="" />
+		</Verify>
+		
+		<Verify expected="xml(device.unbind2).message.Thefollowing">
+			<Html command="getValue" target="xml(device.unbind2).xpath.Thefollowing"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind2).message.warning1">
+			<Html command="getValue" target="xml(device.unbind2).xpath.warning1"
+				value="" />
+		</Verify>
+		<Verify expected="xml(device.unbind2).message.warning2" type="contains">
+			<Html command="getValue" target="xml(device.unbind2).xpath.warning2"
+				value="" />
+		</Verify>	
+		<Verify expected="xml(device.unbind2).message.ifyousure">
+			<Html command="getValue" target="xml(device.unbind2).xpath.ifyousure"
+				value="" />
+		</Verify>	
+			
+		<Verify expected="xml(device.unbind2).image.img1" type="contains">
+			<Html command="getValue" target="xml(device.unbind2).xpath.img1"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.1.modelName">
+			<Html command="getValue" target="xml(device.unbind2).xpath.ModelName1"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.1.sn">
+			<Html command="getValue" target="xml(device.unbind2).xpath.mydlinkNo1"
+				value="" />
+		</Verify>
+		<Verify expected="account(register).device.1.deviceName">
+			<Html command="getValue" target="xml(device.unbind2).xpath.DeviceName1"
+				value="" />
+		</Verify>
+				
+	</TestCase>
+</Test>

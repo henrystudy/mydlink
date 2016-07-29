@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<pagePath name="pagePath">/login</pagePath>
+		<xpath name="titleBar">//div[@id='content_v2']//table//td[1]//p[@class='hilite']</xpath>
+		<xpath name="emailText">//table[@id='signup_table']//tr[2]/td[2]</xpath>
+		<xpath name="emailTextbox">//input[@id='email']</xpath>
+		<xpath name="passwordText">//table[@id='signup_table']//tr[3]//td[2]</xpath>
+		<xpath name="passwordTextbox">//input[@id='password']</xpath>
+		<xpath name="rememberMeCheckBox">//input[@id='RememberMe']</xpath>
+		<xpath name="rememberMeCheckBoxText">//table[@id='signup_table']//tr[5]//label</xpath>
+		<xpath name="signinDivButton">//div[@id='btn_signin']</xpath>
+		<xpath name="nullErrMsg">//td[@id='errMsg']</xpath>
+		<xpath name="errMsg">//td[@id='errMsg']</xpath>
+		<xpath name="forgotYourPassword">//a[@href='/request_password']</xpath>
+
+		<xpath name="NotRegisteredyet">//div[@id='content_v2']//tr[1]/td[2]//p[@class='hilite']</xpath>
+		<xpath name="Toregisterwith">//div[@id='content_v2']//tr[1]/td[2]/p[4]</xpath>
+		<xpath name="Ifyoudo">//div[@id='content_v2']//tr[1]/td[2]/p[6]</xpath>
+		<xpath name="PlacetheCD">//div[@id='content_v2']//tr[1]/td[2]/p[8]</xpath>
+		<xpath name="Macusers">//div[@id='content_v2']//tr[1]/td[2]/p[10]</xpath>
+		<xpath name="more">//div[@id='content_v2']//tr[1]/td[2]/p[12]</xpath>
+		<xpath name="Forgotyourpassword">//div[@id='content_v2']//a[@href='/request_password']</xpath>
+		<xpath name="warning">//td[@id='errMsg']</xpath>
+		<xpath name="warning2">//td[@class='warning']</xpath>
+		
+		<xpath name="HereLink">//td[@class='warning']</xpath>
+		<xpath name="MoreLink">//div[@id='content_v2']//tr[1]/td[2]/p[12]/a</xpath>
+
+		
+		<!-- JS -->
+		<js name="errMsgColorJS">window.jQuery('#errMsg').css('color')</js>
+		
+	</targets>
+	<messages>
+		<message name="signinDivButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign In</content>
+		</message>
+		<message name="forgotYourPassword">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Forgot your password</content>
+		</message>
+		<message name="nullErrMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please enter your e-mail and password to sign in to mydlink.</content>
+		</message>
+		<message name="errMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Invalid e-mail and password combination.</content>
+		</message>
+		<message name="titleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign In to mydlink</content>
+		</message>
+		<message name="emailText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">E-mail:</content>
+		</message>
+		<message name="passwordText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Password:</content>
+		</message>
+		<message name="rememberMeCheckBoxText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Remember me</content>
+		</message>
+		<message name="NotRegisteredyet">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Not Registered yet?</content>
+		</message>
+		<message name="Toregisterwith">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">To register with www.mydlink.com you need to have a mydlink enabled product. Learn more about those products at mydlink.dlink.com.</content>
+		</message>
+		<message name="Ifyoudo">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">If you do not have an active mydlinkTM account, you must run the D-Link Installation Wizard to register with www.mydlink.com.</content>
+		</message>
+		<message name="PlacetheCD">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Place the CD that was included with your mydlinkTM enabled device into your PC's CD-ROM drive, and make sure your computer has an Internet connection. The Installation Wizard will start automatically.</content>
+		</message>
+		<message name="Macusers">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Mac users, please download your installation wizard here. Requires Intel-based Mac running OS X 10.5 or higher.</content>
+		</message>
+		<message name="more">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">[More...]</content>
+		</message>
+		<message name="Forgotyourpassword">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Forgot your password</content>
+		</message>		
+		<message name="warning">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please enter your e-mail and password to sign in to mydlink.</content>
+		</message>
+		<message name="warning2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Invalid e-mail and password combination.</content>
+		</message>
+
+	</messages>
+	<images>
+		<image name="logoImg">/images/ucp/dlife_logo.gif</image>
+	</images>
+</info>

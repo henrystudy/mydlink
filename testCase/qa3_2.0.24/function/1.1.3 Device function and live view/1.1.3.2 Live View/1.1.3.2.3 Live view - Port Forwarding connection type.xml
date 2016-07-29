@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.1.3.2.1 Live view - Port connection type.xml</testCaseName>
+	<annotation>
+		<description>1.1.3.2.1 Live view - Port connection type.xml</description>
+		<testCaseVersion>10</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="yue.chen" date="2011-07-11" />
+		<recordInfo account="Port" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value="" />
+		<!-- login -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(Port).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(Port).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(Port).device.1.sn" value=""></Function>
+		<Assert expected="true">
+			<Html command="waitForElementDisplay" target="xml(device).xpath.win_mydlinkTabBox" value="60"></Html>
+		</Assert>
+		<!-- 1: Verify that following status messages displays in Live Video window gradually with the animation: -->
+		<!-- (1). check if the camera local connection is ok => Checking your local network -->
+		<!-- (2). Wait for response from the device => Finding your camera -->
+		<!-- (3). Connect to the device => Connecting to your camera -->
+
+		<!-- Verify that the real-time video displays in Live Video window after above messages. -->
+		<!-- Verify that the connection time shall be no more than 5 seconds. -->
+		<Verify expected="account(Port).device.1.connectionType">
+			<Function command="getConnectionType" target="120" value="" />
+		</Verify>
+
+		<!-- Verify that the audio also plays and can be heard with real time video. -->
+		<!-- 不能automation -->
+
+		<!-- Verify that the video resolution is 640x480 VGA. -->
+		<Verify expected="width: 640px;" type="contains">
+			<Html command="attribute" target="xml(device).xpath.LiveViewPlayer" value="style" />
+		</Verify>
+		<Verify expected="height: 480px;" type="contains">
+			<Html command="attribute" target="xml(device).xpath.LiveViewPlayer" value="style" />
+		</Verify>
+
+		<!-- Verify that below 3 control buttons are functional. -->
+		<!-- (Don't apply to DCS 5230(L)) -->
+		<!-- zoom out x1 x2 x3 x4 zoom in -->
+
+
+		<!-- Verify that below 7 control buttons are functional.( Some devices also have more buttons ) -->
+		<!-- (Only apply to DCS 5230(L)) -->
+		<!-- -Portion control -->
+		<!-- -Speed -->
+		<!-- -auto pan -->
+		<!-- -stop -->
+		<!-- zoom out x1 x2 x3 x4 zoom in -->
+		<Choose>
+			<When>
+				<Verify expected="DCS-1100,DCS-1100L,DCS-1130L,DCS-1130,DCS-930L" type="in">
+					<Html command="getTarget" target="account(onLine).device.1.modelName" value="" />
+				</Verify>
+			</When>
+			<Do>
+				<Verify expected="false">
+					<Html command="isVisible" target="xml(device).xpath.ButtonSpeed" value="" />
+				</Verify>
+				<Verify expected="false">
+					<Html command="isVisible" target="xml(device).xpath.ButtonAuto" value="" />
+				</Verify>
+				<Verify expected="false">
+					<Html command="isVisible" target="xml(device).xpath.ButtonStop" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonZoomIn" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonZoomOut" value="" />
+				</Verify>
+				<Verify expected="false">
+					<Html command="isVisible" target="xml(device).xpath.ButtonContral" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ZoomBar" value="" />
+				</Verify>
+			</Do>
+			<Otherwise>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonSpeed" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonAuto" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonStop" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonZoomIn" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonZoomOut" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ButtonContral" value="" />
+				</Verify>
+				<Verify expected="true">
+					<Html command="isVisible" target="xml(device).xpath.ZoomBar" value="" />
+				</Verify>
+			</Otherwise>
+		</Choose>
+
+
+		<!-- 2: Verify the web page "Camera Setting" displays, and the tab "Camera Setting" is turned to activated. -->
+		<!-- - Clickable status: grey gradient background tab with text underline rollover effects -->
+		<!-- 找不到这个元素 -->
+
+		<!-- 3: Verify the web page "Camera Info" displays, and the tab "Camera Info" is turned to activated. -->
+		<!-- - Clickable status: grey gradient background tab with text underline rollover effects -->
+		<Html command="click" target="xml(device).xpath.LinkCameraInfoText" value=""></Html>
+		<Html command="sleep" target="3" value=""></Html>
+		<Verify expected="true">
+			<Html command="isVisible" target="xml(device.cameraInfo).xpath.DeviceName" value="" />
+		</Verify>
+
+		<!-- 4: Verify that it's returned to Live View page, and the tab "Live Video" is turned to activated. -->
+		<!-- - Clickable status: grey gradient background tab with text underline rollover effects -->
+		<Html command="click" target="xml(device).xpath.LinkLiveVideoText" value=""></Html>
+		<Html command="sleep" target="3" value=""></Html>
+
+		<!-- 5: Verify the the Live View displayes normal. -->
+		<!-- Verify the web site should be worked normally. -->
+		<Verify expected="account(Port).device.1.connectionType">
+			<Function command="getConnectionType" target="120" value="" />
+		</Verify>
+
+		<!-- 6: Verify the "My Profile" page will be displayed. -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<Verify expected="xml(header).message.MyProfileLink">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLink" value="" />
+		</Verify>
+
+		<!-- 7: Verify it will take you back to Live View UI and the first device in device list is selected by default. -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyDevicesLink" value="" />
+		<Verify expected="dev_on_bg">
+			<Html command="attribute" target="xml(device).xpath.Device1" value="class" />
+		</Verify>
+
+		<!-- 8: Verify that each device can be selected and corresponding real-time video will be displayed in live view window. -->
+
+		<!-- 9: Verify Live view also can be shown as expected. -->
+
+		<!-- 10: Verify it will take you to mydlink home page. -->
+		<Html command="clickAndWait" target="xml(header).xpath.SignOut" value="" />
+		<Verify expected="xml(entrance).message.WhatsMydlinkLink">
+			<Html command="getValue" target="xml(entrance).xpath.WhatsMydlinkLink" value="" />
+		</Verify>
+	</TestCase>
+</Test>

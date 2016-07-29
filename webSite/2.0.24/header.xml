@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- logo -->
+		<xpath name="LogoLink">//a[@class='logo']</xpath>
+		
+		<!-- header  -->
+		<xpath name="MyDevicesLink">//div[@class='content']//a[@href='/device']</xpath>
+		<xpath name="MyDevicesLinkClass">//div[@class='content']//a[@href='/device']/@class</xpath>
+		
+		<xpath name="MyProfileLink">//div[@class='content']//a[@href='/profile']</xpath>
+		<xpath name="MyProfileLinkClass">//div[@class='content']//a[@href='/profile']/@class</xpath>
+		
+		<xpath name="FAQLink">//div[@id='header']/div[@class='header_upline']/span/a[@href='/faq']</xpath>
+		
+		<xpath name="HomeLink">//div[@id='header']/div[@class='header_upline']/span/a[@href='/home']</xpath>
+		
+		<xpath name="SupportLink">//div[@id='header']/div[@class='header_upline']/span/a[@href='/support']</xpath>
+		
+		<xpath name="Language">//div[@id='header']/div[@class='header_upline']/span/a[@id='Lang']</xpath>
+		<xpath name="Language1">//div[@id='language_menu']/ul/li[1]/a</xpath>
+		<xpath name="Language2">//div[@id='language_menu']/ul/li[2]/a</xpath>
+		<xpath name="Language3">//div[@id='language_menu']/ul/li[3]/a</xpath>
+		<xpath name="Language4">//div[@id='language_menu']/ul/li[4]/a</xpath>
+		<xpath name="Language5">//div[@id='language_menu']/ul/li[5]/a</xpath>
+		<xpath name="Language6">//div[@id='language_menu']/ul/li[6]/a</xpath>
+		<xpath name="Language7">//div[@id='language_menu']/ul/li[7]/a</xpath>
+		<xpath name="Language8">//div[@id='language_menu']/ul/li[8]/a</xpath>
+		<xpath name="Language9">//div[@id='language_menu']/ul/li[9]/a</xpath>
+		<xpath name="Language10">//div[@id='language_menu']/ul/li[10]/a</xpath>
+		<xpath name="Language11">//div[@id='language_menu']/ul/li[11]/a</xpath>
+		<xpath name="Language12">//div[@id='language_menu']/ul/li[12]/a</xpath>
+		<xpath name="Language13">//div[@id='language_menu']/ul/li[13]/a</xpath>
+		<xpath name="Language14">//div[@id='language_menu']/ul/li[14]/a</xpath>
+		<xpath name="Language15">//div[@id='language_menu']/ul/li[15]/a</xpath>
+		<xpath name="Language16">//div[@id='language_menu']/ul/li[16]/a</xpath>
+		<xpath name="Language17">//div[@id='language_menu']/ul/li[17]/a</xpath>
+		<xpath name="Language18">//div[@id='language_menu']/ul/li[18]/a</xpath>
+		<xpath name="Language19">//div[@id='language_menu']/ul/li[19]/a</xpath>
+		<xpath name="Language20">//div[@id='language_menu']/ul/li[20]/a</xpath>
+		<xpath name="Language21">//div[@id='language_menu']/ul/li[21]/a</xpath>
+		<xpath name="Language22">//div[@id='language_menu']/ul/li[22]/a</xpath>
+		<xpath name="Language23">//div[@id='language_menu']/ul/li[23]/a</xpath>
+		<xpath name="Language24">//div[@id='language_menu']/ul/li[24]/a</xpath>
+		
+		<xpath name="Welcome">//div[@id='header']/div[@class='header_btmline']</xpath>
+		<xpath name="WelcomeName">//div[@id='header']/div[@class='header_btmline']/strong</xpath>
+		
+		<xpath name="SignOut">//div[@id='header']/div[@class='header_btmline']/a[@href='/signout']</xpath>
+		
+		<js name="LogoImage">window.jQuery('a.logo').css('background-image')</js>
+		
+		<js name="LinkFontColor">window.jQuery('div.header_upline a').css('color')</js>
+		<js name="LinkFontWeight">window.jQuery('div.header_upline a').css('font-weight')</js>
+		
+		<js name="SignoutLinkFontColor">window.jQuery('div.header_btmline a').css('color')</js>
+		<js name="SignoutLinkFontWeight">window.jQuery('div.header_btmline a').css('font-weight')</js>
+	</targets>
+	<messages>
+		<!-- header start -->
+		<message name="MyDevicesLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">My Devices</content>
+		</message>
+		<message name="MyProfileLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">My Profile</content>
+		</message>
+		<message name="HomeLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Home</content>
+		</message>
+		<message name="SignOut">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign out</content>
+		</message>
+		<message name="Welcome">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Welcome</content>
+		</message>
+		<message name="FAQLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">FAQ</content>
+		</message>
+		<message name="SupportLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Support</content>
+		</message>
+		<message name="Language">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Language: English▼</content>
+		</message>
+		<message name="Language_en">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">English</content>
+		</message>
+		<message name="Language_fr">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Française</content>
+		</message>
+		<message name="Language_es">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Español</content>
+		</message>
+		<message name="Language_pt">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Português</content>
+		</message>
+		<message name="Language_zh_TW">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">中文(繁體)</content>
+		</message>
+		<message name="Language_zh_CN">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">中文(简体)</content>
+		</message>
+		<message name="Language_pt_BR">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Português do Brasil</content>
+		</message>
+		<message name="Language_ja">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">日本語</content>
+		</message>
+		<message name="Language_ko">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">한국어</content>
+		</message>
+		<message name="Language_cs">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Česky</content>
+		</message>
+		<message name="Language_da">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Danske</content>
+		</message>
+		<message name="Language_de">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Deutsch</content>
+		</message>
+		<message name="Language_el">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Ελληνικά</content>
+		</message>
+		<message name="Language_hr">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Hrvatski</content>
+		</message>
+		<message name="Language_hu">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Magyar</content>
+		</message>
+		<message name="Language_it">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Italiano</content>
+		</message>
+		<message name="Language_nl">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Nederlandse</content>
+		</message>
+		<message name="Language_no">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Nynorsk</content>
+		</message>
+		<message name="Language_pl">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Polski</content>
+		</message>
+		<message name="Language_ro">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Romanian</content>
+		</message>
+		<message name="Language_sl">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Slovenian</content>
+		</message>
+		<message name="Language_sv">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Svenska</content>
+		</message>
+		<message name="Language_fi">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Suomalainen</content>
+		</message>
+		<!-- header end -->
+	</messages>
+	<images>
+		 <image name="LogoImage">/images/logo_fp.png</image>
+	</images>
+</info>

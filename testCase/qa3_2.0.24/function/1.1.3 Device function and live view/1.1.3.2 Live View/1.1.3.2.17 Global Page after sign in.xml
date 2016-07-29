@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.1.3.2.17 Global Page after sign in.xml</testCaseName>
+	<annotation>
+		<description>1.1.3.2.17 Global Page after sign in.xml</description>
+		<testCaseVersion>1</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-14" />
+		<lastUpdated author="dayu.lei" date="2011-07-14" />
+		<recordInfo deviceIndex="1" account="onLine" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value="" />
+		
+		<!-- open entrance page , sign in -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(offLine).device.1.sn" value=""></Function>
+		<!-- Logo: -->
+		<!-- mydlink(image link) -->
+		<Verify expected="xml(header).image.LogoImage" type="contains">
+			<Html command="getValue" target="xml(header).js.LogoImage" value="" />
+		</Verify>
+		
+		<!-- Title bar: -->
+		<!-- My Devices -->
+		<Verify expected="xml(header).message.MyDevicesLink">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLink" value="" />
+		</Verify>
+		
+		<!-- Verify the live view show normally -->
+		<Function command="selectDevice" target="account(onLine).device.1.sn" value=""></Function>
+		<!-- <Function command="waitForLiveView" target="120" value="" /> -->
+		
+		<!-- Verify the "My Profile" page will be displayed. -->
+		<Verify expected="xml(header).message.MyProfileLink">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLink" value="" />
+		</Verify>
+		
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		
+		<Verify expected="xml(myProfile).message.Sign-inInformation">
+			<Html command="getValue" target="xml(myProfile).xpath.Sign-inInformation"
+				value="" />
+		</Verify>
+		<Verify expected="account(onLine).email">
+			<Html command="getValue" target="xml(myProfile).xpath.signinEmail"
+				value="" />
+		</Verify>
+		
+		<!-- Verify it will take you back to Live View UI and the first device in device list is selected by default. -->
+		<Html command="clickAndWait" target="xml(header).xpath.MyDevicesLink" value="" />
+		
+		<!-- the first device in device list is selected by default. -->
+		<Verify expected="dev_on_bg">
+			<Html command="attribute" target="xml(device).xpath.Device1" value="class" />
+		</Verify>
+		
+		<!-- Banners in the right: -->
+		<!-- News -->
+		<Verify expected="xml(device).message.NewsBoardTitle">
+			<Html command="getValue" target="xml(device).xpath.NewsBoardTitle" value="" />
+		</Verify>
+
+		<!-- Support -->
+		<Verify expected="xml(device).message.SupportBoardTitle">
+			<Html command="getValue" target="xml(device).xpath.SupportBoardTitle" value="" />
+		</Verify>
+
+		<!-- mydlink on mobile icon. (Image link) -->
+		<Verify expected="xml(device).image.MydlinkonMobileImage" type="contains">
+			<Html command="getValue" target="xml(device).xpath.MydlinkonMobileImage" value="" />
+		</Verify>
+		
+		<!-- Click "Mydlink on Mobile" the mydlink Lite page will pop up-->
+		<Html command="click" target="xml(device).xpath.MydlinkonMobileLink" value="" />
+		<Html command="selectWindow" target="2" value="" />
+		
+		<!-- Title: mydlink Lite -->
+		<Html command="waitForElementDisplay" target="xml(lite).xpath.TitleBar" value="60"></Html>
+		<Verify expected="xml(lite).message.TitleBar">
+			<Html command="getValue" target="xml(lite).xpath.TitleBar" value="" />
+		</Verify>
+		
+		<Html command="selectWindow" target="1" value="" />
+		
+		<!-- Button: Go-> -->
+		<!-- normal status: normal blue color -->
+		<!-- mouseover status: orange color -->
+		<!--  Click "Go" button in Support, the web page will go to http://xxxx.mydlink.com/support. -->
+		<Verify expected="xml(device).message.SupportOkButton">
+			<Html command="getValue" target="xml(device).xpath.SupportOkButton" value="" />
+		</Verify>
+		<Verify expected="xml(device).image.GoButtonBGImage" type="contains">
+			<Html command="getValue" target="xml(device).js.GoButtonBGImage" value="" />
+		</Verify>
+		<Html command="clickAndWait" target="xml(device).xpath.GoLink" value="" />
+		
+		<Verify expected="xml(support).message.TitleBarText">
+			<Html command="getValue" target="xml(support).xpath.TitleBarText" value="" />
+		</Verify>
+		<Html command="goBack" target="" value="" />
+	
+		<!-- Hyperlink texts: -->
+		<!-- top right corner: FAQ | Support -->
+		<Verify expected="xml(header).message.FAQLink">
+			<Html command="getValue" target="xml(header).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SupportLink">
+			<Html command="getValue" target="xml(header).xpath.SupportLink" value="" />
+		</Verify>
+		
+		<!-- Click "Support", the web page will go to http://xxxx.mydlink.com/support. -->
+		<Html command="click" target="xml(header).xpath.SupportLink" value="" />
+		<Html command="selectWindow" target="3" value="" />
+		<Html command="waitForElementDisplay" target="xml(support).xpath.TitleBarText" value="60"></Html>
+		<Verify expected="xml(support).message.TitleBarText">
+			<Html command="getValue" target="xml(support).xpath.TitleBarText" value="" />
+		</Verify>
+		<Html command="selectWindow" target="1" value="" />
+		
+		<!-- Click "FAQ" the FAQ web page will pop up. -->
+		<Html command="click" target="xml(header).xpath.FAQLink" value="" />
+		<Html command="selectWindow" target="4" value="" />
+		<Html command="waitForElementDisplay" target="xml(faq).xpath.TitleBarText" value="60"></Html>
+		
+		<Verify expected="xml(faq).message.TitleBarText">
+			<Html command="getValue" target="xml(faq).xpath.TitleBarText" value="" />
+		</Verify>
+		<Html command="selectWindow" target="1" value="" />
+		
+		<!-- Dropdown list: the language selections as below: -->
+		<!-- Language English▼ -->
+		<Verify expected="xml(header).message.Language" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Language" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.Language_en" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Language" value="" />
+		</Verify>
+
+		<!-- Française -->
+		<Verify expected="xml(header).message.Language_fr">
+			<Html command="getValue" target="xml(header).xpath.Language1" value="" />
+		</Verify>
+
+		<!-- Español -->
+		<Verify expected="xml(header).message.Language_es">
+			<Html command="getValue" target="xml(header).xpath.Language2" value="" />
+		</Verify>
+
+		<!-- Português -->
+		<Verify expected="xml(header).message.Language_pt">
+			<Html command="getValue" target="xml(header).xpath.Language3" value="" />
+		</Verify>
+
+		<!-- 中文(繁體) -->
+		<Verify expected="xml(header).message.Language_zh_TW">
+			<Html command="getValue" target="xml(header).xpath.Language4" value="" />
+		</Verify>
+
+		<!-- 中文(简体) -->
+		<Verify expected="xml(header).message.Language_zh_CN">
+			<Html command="getValue" target="xml(header).xpath.Language5" value="" />
+		</Verify>
+		
+		<!-- Select "Language", the language of page will translate to the correct language.
+		未写
+		 -->
+		<!-- check sign out begin -->
+		<!-- Click the "Sign out" link on the top right corner of Live View page. -->
+		<Html command="clickAndWait" target="xml(header).xpath.SignOut" value=""></Html>
+		
+		<!-- check Login module -->
+		<Verify expected="xml(entrance).image.SingIntoMydlinkImage" type="contains">
+			<Html command="getEval" target="xml(entrance).js.SingIntoMydlinkImage" value="" />
+		</Verify>
+
+		<!-- check Main promotion area >>>> Subitem: What's mydlink || Access Anywhere || Product Family || Experience mydlink -->
+		<!-- check What's mydlink subitem -->
+		<Verify expected="xml(entrance).message.WhatsMydlinkLink">
+			<Html command="getValue" target="xml(entrance).xpath.WhatsMydlinkLink" value="" />
+		</Verify>
+
+		<Verify expected="xml(entrance).message.WhatsMydlinkText">
+			<Html command="getValue" target="xml(entrance).xpath.WhatsMydlinkText" value="" />
+		</Verify>
+
+		<Verify expected="xml(entrance).message.WhatsMydlinkContent" type="contains">
+			<Html command="getValue" target="xml(entrance).xpath.WhatsMydlinkContent" value="" />
+		</Verify>
+		<!-- check sign out end -->				
+		
+	</TestCase>
+</Test>

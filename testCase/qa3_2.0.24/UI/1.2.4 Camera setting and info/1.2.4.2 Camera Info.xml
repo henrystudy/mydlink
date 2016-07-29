@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Camera Info</testCaseName>
+	<annotation>
+		<description>verify camera info!</description>
+		<testCaseVersion>4</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="dayu.lei" date="2011-06-16" />
+		<recordInfo deviceIndex="1" account="onLine" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		<!-- login -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(onLine).device.1.sn" value=""></Function>
+		<Assert expected="true">
+			<Html command="waitForElementDisplay" target="xml(device).xpath.win_mydlinkTabBox" value="60"></Html>
+		</Assert>
+		<Html command="click" target="xml(device).xpath.LinkCameraInfoText" value=""></Html>
+		<Html command="sleep" target="3" value=""></Html>
+		<!-- Logo: -->
+		<!-- mydlink(image link) -->
+		<!-- Title bar: -->
+		<!-- My Devices -->
+		<!-- Hyperlink texts: -->
+		<!-- top right corner: FAQ | Support -->
+		<!-- normal status: normal white fonts -->
+		<!-- mouseover status: underline effect -->
+		<!-- Dropdown list: the language selections as below: -->
+		<!-- Language English▼ -->
+		<!-- Française -->
+		<!-- Español -->
+		<!-- Português -->
+		<!-- 中文(繁體) -->
+		<!-- 中文(简体) -->
+		<!-- top left Navigation: My Devices | My Profile ("My Devices" is selected by default) -->
+		<!-- selected status: deepen background blue color -->
+		<!-- normal status: white fonts -->
+		<!-- mouseover status: deepen background color effect -->
+		<!-- top right corner: Sign out -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<!-- bottom: Global D-Link || About mydlink || Terms of Use || Privacy Policy || Contact US -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<!-- Banners in the right: -->
+		<!-- News -->
+		<!-- Support -->
+		<!-- mydlink on mobile icon. (Image link) -->
+		<!-- Button: Go-> -->
+		<!-- normal status: normal blue color -->
+		<!-- mouseover status: orange color -->
+		<ImportXML src="commonUI.xml"></ImportXML>
+
+		<!-- Device list: -->
+		<!-- List all registered devices on the left of live view UI -->
+		<!-- Device list item structure: [camera icon] [device name] [mydlink No.] -->
+		<!-- normal status: gray fonts (Normal status for items after in list: no top-border) -->
+		<!-- mouseover status: bright color and change text color of device name to bold black fonts -->
+		<!-- selected status: bright color and change text color of device name to bold black fonts(no top-border) -->
+		<!-- Show below tooltips when mouse over: [device name] ([mydlink No.]) -->
+		<!-- The camera online status icon(a white character "√" in green circle ) displays in right bottom of the camera icon. -->
+
+		<!-- Tabs: -->
+		<!-- Live Video || Camera Info ("Live Video" is selected currently) -->
+		<!-- normal status: bold black fonts -->
+		<!-- mouse over status: underline effect -->
+		<!-- selected status: white background -->
+		<Verify expected="xml(device).message.LinkLiveVideoText">
+			<Html command="getValue" target="xml(device).xpath.LiveVideoText" value="" />
+		</Verify>
+		<Verify expected="xml(device).message.LinkCameraInfoText">
+			<Html command="getValue" target="xml(device).xpath.CameraInfoText" value="" />
+		</Verify>
+		<Verify expected="selected">
+			<Html command="getValue" target="xml(device).xpath.LiveVideoClass" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(device).js.SelectedBGColor" value="" />
+		</Verify>
+
+		<!-- Text: -->
+		<!-- top right corner: Welcome, [user’s First Name] [user’s Last Name] -->
+		<Verify expected="xml(header).message.Welcome" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Welcome" value="" />
+		</Verify>
+		<Verify expected="account(haveNoDevice).firstName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="account(haveNoDevice).lastName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+
+		<!-- middle: -->
+		<!-- Bar title (text): Basic Information -->
+
+		<!-- Camera Name: -->
+		<Verify expected="xml(device.cameraInfo).message.DeviceName" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeviceName" value="" />
+		</Verify>
+		<Verify expected="account(onLine).device.1.deviceName" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeviceName" value="" />
+		</Verify>
+		<!-- mydlink No: -->
+		<!-- Display the “mydlink No.” of this device -->
+		<Verify expected="xml(device.cameraInfo).message.mydlinkNo" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.mydlinkNo" value="" />
+		</Verify>
+		<Verify expected="account(onLine).device.1.sn" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.mydlinkNo" value="" />
+		</Verify>
+		<!-- Model Name: -->
+		<!-- Display the “Model Name” of this device -->
+		<Verify expected="xml(device.cameraInfo).message.ModelName" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.ModelName" value="" />
+		</Verify>
+		<Verify expected="account(onLine).device.1.modelName" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.ModelName" value="" />
+		</Verify>
+		<!-- MAC: -->
+		<!-- Display the “MAC Address” of this device -->
+		<Verify expected="xml(device.cameraInfo).message.MAC" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.MAC" value="" />
+		</Verify>
+		<Verify expected="account(onLine).device.1.mac" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.MAC" value="" />
+		</Verify>
+		<!-- Camera activated on: -->
+		<!-- Display the "Camera activated on" of this device -->
+		<Verify expected="xml(device.cameraInfo).message.DeviceActivatedOn" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeviceActivatedOn" value="" />
+		</Verify>
+
+		<!-- Button: Advance Setting(blue fonts) -->
+		<Verify expected="xml(color).color.Blue">
+			<Html command="getValue" target="xml(device.cameraInfo).js.AdvanceSettingButtonFontColor" value="" />
+		</Verify>
+
+		<!-- Delete Device (blue fonts) -->
+		<Verify expected="xml(color).color.Blue">
+			<Html command="getValue" target="xml(device.cameraInfo).js.DeleteCameraButtonFontColor" value="" />
+		</Verify>
+
+		<!-- bottom: -->
+		<!-- Copyright claims: Copyright © 2008-2011 mydlink/D-Link Corporation Inc. All rights reserved. -->
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom" value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

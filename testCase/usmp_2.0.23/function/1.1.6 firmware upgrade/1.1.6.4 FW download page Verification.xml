@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>FW download page Verification</testCaseName>
+	<annotation>
+		<description>1.1.6.4 FW download page Verification.xml</description>
+		<created author="dayu.lei" date="2011-06-29" />
+		<lastUpdated author="dayu.lei" date="2011-06-29" />
+		<recordInfo deviceIndex="1" account="fw" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login begin -->
+		<Html command="open" target="xml(global).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(global).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(global).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(global).xpath.emailTextbox"
+			value="account(fw).email"></Html>
+		<Html command="type" target="xml(global).xpath.passwordTextbox"
+			value="account(fw).pwd"></Html>
+		<Html command="clickAndWait" target="xml(global).xpath.signinDivButton"
+			value=""></Html>
+		<Verify expected="xml(device).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		<!-- login end -->
+
+		<!-- page test begin -->
+		<Html command="waitForElementDisplay" target="xml(device).xpath.stateMsgBar"
+			value="60" />
+		<Function command="selectDevice" target="account(fw).device.1.sn"
+			value=""></Function>	
+			
+		<!--	1: Verify auto-firmware update page will pop up. -->
+		<Html command="waitForElementDisplay" target="xml(fwupgrade).xpath.UpdateNeededMsg"
+			value="60" />
+		<!--	 (1): "Firmware update needed!" screen will dispay -->
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(fwupgrade).xpath.UpdateNeededMsg"
+				value="" />
+		</Verify>
+		
+		<!--	2:  Verify this camera’s Live Video page will display correctly. -->
+<!--	If the camera's live video page loaded failure, -->
+<!--	"Unable to access your camera's Live View..." page will display.-->
+
+		<Html command="click" target="xml(fwupgrade).xpath.UpdateLater"
+				value="" />
+		<Html command="waitForElementDisplay" target="xml(device).xpath.win_mydlinkTabBox"
+				value="60" />
+		<Html command="click" target="xml(device).xpath.LinkCameraInfoText"
+				value="" />		
+		<Html command="waitForElementDisplay" target="xml(device_cameraInfo).xpath.DownloadLink"
+				value="60" />		
+		<Html command="click" target="xml(device_cameraInfo).xpath.DownloadLink"
+				value="" />			
+		<Html command="selectWindow" target="2" value="" />		
+		<Html command="waitForPageToLoad" target="" value="" />
+		<Verify expected="xml(download).message.titleBar">
+			<Html command="getValue" target="xml(download).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Verify expected="xml(download).downloadItems.download">
+			<Html command="getValue" target="xml(download).downloadItems.download"
+				value="" />
+		</Verify>
+		
+		<!-- check image -->
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo"
+				value="" />
+		</Verify>
+		<!-- check image 结束 -->	
+						
+		<!-- common verify begin -->
+				
+		<!-- check footer -->
+		<Verify expected="xml(commonInfo).message.globalDlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.globalDlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.aboutMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.aboutMydlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.termsOfUseLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.termsOfUseLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.privacyPolicyLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.privacyPolicyLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.contactUsLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.contactUsLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.bottom" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.bottom"
+				value="" />
+		</Verify>
+		
+		<!-- check footer end -->
+		
+	</TestCase>
+</Test>

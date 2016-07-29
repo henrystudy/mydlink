@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Sign in mydlink</testCaseName>
+	<annotation>
+		<description>test sign in mydlink page</description>
+		<created author="dayu.lei" date="2011-06-14" />
+		<lastUpdated author="dayu.lei" date="2011-06-14" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<!-- Logo: -->
+		<!-- mydlink(image link) -->
+		<Verify expected="xml(header).image.LogoImage" type="contains">
+			<Html command="getValue" target="xml(header).js.LogoImage" value="" />
+		</Verify>
+
+		<!-- Title bar: -->
+		<!-- My Devices -->
+		<Verify expected="xml(header).message.MyDevicesLink">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLink" value="" />
+		</Verify>
+
+		<!-- Hyperlink texts: -->
+		<!-- top right corner: FAQ | Support -->
+		<!-- normal status: normal white fonts -->
+		<!-- mouseover status: underline effect -->
+		<Verify expected="xml(header).message.FAQLink">
+			<Html command="getValue" target="xml(header).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SupportLink">
+			<Html command="getValue" target="xml(header).xpath.SupportLink" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(header).js.LinkFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(header).js.LinkFontWeight" value="" />
+		</Verify>
+
+		<!-- Dropdown list: the language selections as below: -->
+		<!-- Language English▼ -->
+		<!-- Française -->
+		<!-- Español -->
+		<!-- Português -->
+		<!-- 中文(繁體) -->
+		<!-- 中文(简体) -->
+		<Verify expected="xml(header).message.Language" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Language" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.Language_en" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Language" value="" />
+		</Verify>
+
+		<!-- top left Navigation: My Devices | My Profile ("My Devices" is selected by default) -->
+		<!-- selected status: deepen background blue color -->
+		<!-- normal status: white fonts -->
+		<!-- mouseover status: deepen background color effect -->
+		<Verify expected="xml(header).message.MyProfileLink">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.MyDevicesLink">
+			<Html command="getValue" target="xml(header).xpath.MyDevicesLink" value="" />
+		</Verify>
+		<!-- <Verify expected="navBtn_on"> -->
+		<!-- <Html command="getValue" target="xml(header).xpath.MyDevicesLinkClass" value="" /> -->
+		<!-- </Verify> -->
+
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(device).js.NavBtn_onFontWeight" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(device).js.NavBtn_onFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(device).js.NavBtnFontWeight" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(device).js.NavBtnFontColor" value="" />
+		</Verify>
+
+		<!-- top right corner: Sign out -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<Verify expected="xml(header).message.SignOut">
+			<Html command="getValue" target="xml(header).xpath.SignOut" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Blue2">
+			<Html command="getValue" target="xml(header).js.SignoutLinkFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(header).js.SignoutLinkFontWeight" value="" />
+		</Verify>
+
+		<!-- bottom: Global D-Link || About mydlink || Terms of Use || Privacy Policy || Contact US -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<Verify expected="xml(footer).message.GlobalDlinkLink">
+			<Html command="getValue" target="xml(footer).xpath.GlobalDlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.AboutMydlinkLink">
+			<Html command="getValue" target="xml(footer).xpath.AboutMydlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.TermsOfUseLink">
+			<Html command="getValue" target="xml(footer).xpath.TermsOfUseLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.PrivacyPolicyLink">
+			<Html command="getValue" target="xml(footer).xpath.PrivacyPolicyLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.ContactUsLink">
+			<Html command="getValue" target="xml(footer).xpath.ContactUsLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Blue2">
+			<Html command="getValue" target="xml(footer).js.LinkFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(footer).js.LinkFontWeight" value="" />
+		</Verify>
+
+		<!-- Banners in the right: -->
+		<!-- News -->
+		<Verify expected="xml(device).message.NewsBoardTitle">
+			<Html command="getValue" target="xml(device).xpath.NewsBoardTitle" value="" />
+		</Verify>
+
+		<!-- Support -->
+		<Verify expected="xml(device).message.SupportBoardTitle">
+			<Html command="getValue" target="xml(device).xpath.SupportBoardTitle" value="" />
+		</Verify>
+
+		<!-- mydlink on mobile icon. (Image link) -->
+		<Verify expected="xml(device).image.MydlinkonMobileImage" type="contains">
+			<Html command="getValue" target="xml(device).xpath.MydlinkonMobileImage" value="" />
+		</Verify>
+
+		<!-- Button: Go-> -->
+		<!-- normal status: normal blue color -->
+		<!-- mouseover status: orange color -->
+		<Verify expected="xml(device).message.SupportOkButton">
+			<Html command="getValue" target="xml(device).xpath.SupportOkButton" value="" />
+		</Verify>
+		<Verify expected="xml(device).image.GoButtonBGImage" type="contains">
+			<Html command="getValue" target="xml(device).js.GoButtonBGImage" value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

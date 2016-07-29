@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>FAQ</testCaseName>
+	<annotation>
+		<description>test the FAQ page</description>
+		<testCaseVersion>2</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-05" />
+		<lastUpdated author="yue.chen" date="2011-07-06" />
+		<recordInfo />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- open mydlink website , and click "Support" link -->
+		<Html command="open" target="xml(url).pagePath.Support" value=""></Html>
+
+		<!-- 1. Verify that the web page will be redirected to the support page of corresponding region site at http://Xsite.mydlink.com/support. (the Xsite should match the actual condition) -->
+		<Verify expected=".mydlink.com/support" type="contains">
+			<Html command="getLocation" target="" value="" />
+		</Verify>
+
+		<!-- 2. Verify that the mouse will turns to hand shape when move onto the product icon and the relevant icon is constricted by square image to indicates the hover status. -->
+		<!-- Verify that all product icons can be seleted and the model name displays as black & bold when selecting it, also the relevant icon is constricted by square image to indicates 
+			the focus -->
+		<!-- status. -->
+		<!-- 未实现 -->
+		<!-- Verify that relevant files will be shown in category column after selecting product icon. -->
+		<Verify expected="DCS-930L (NA) v1.00">
+			<Html command="getValue" target="xml(support).xpath.WizardList" value="" />
+		</Verify>
+		<Html command="runScript" target="xml(support).js.932LButtonClick" value="" />
+		<Html command="sleep" target="2" value="" />
+		<Verify expected="DCS-932L v1.01">
+			<Html command="getValue" target="xml(support).xpath.WizardList" value="" />
+		</Verify>
+		<!-- 3. Verify that all devices should be shown by scrolling using arrow. -->
+		<!-- 4. Verify that the product will scrolls to the end of left or right continuouslly, then the left or right arrow will be disabled. -->
+		<!-- click 1 -->
+		<Html command="mouseDown" target="xml(support).xpath.RightButton" value="" />
+		<Html command="mouseUp" target="xml(support).xpath.RightButton" value="" />
+		<Html command="sleep" target="1" value="" />
+		<Verify expected="floatl arrow_right">
+			<Html command="getValue" target="xml(support).xpath.RightButtonClass" value="" />
+		</Verify>
+		<!-- click 2 -->
+		<Html command="mouseDown" target="xml(support).xpath.RightButton" value="" />
+		<Html command="mouseUp" target="xml(support).xpath.RightButton" value="" />
+		<Html command="sleep" target="1" value="" />
+		<Verify expected="floatl arrow_right">
+			<Html command="getValue" target="xml(support).xpath.RightButtonClass" value="" />
+		</Verify>
+		<!-- click 3 -->
+		<Html command="mouseDown" target="xml(support).xpath.RightButton" value="" />
+		<Html command="mouseUp" target="xml(support).xpath.RightButton" value="" />
+		<Html command="sleep" target="1" value="" />
+		<Verify expected="floatl arrow_right">
+			<Html command="getValue" target="xml(support).xpath.RightButtonClass" value="" />
+		</Verify>
+		<!-- click 4 -->
+		<Html command="mouseDown" target="xml(support).xpath.RightButton" value="" />
+		<Html command="mouseUp" target="xml(support).xpath.RightButton" value="" />
+		<Html command="sleep" target="1" value="" />
+		<Verify expected="floatl arrow_right">
+			<Html command="getValue" target="xml(support).xpath.RightButtonClass" value="" />
+		</Verify>
+		<!-- click 5 -->
+		<Html command="mouseDown" target="xml(support).xpath.RightButton" value="" />
+		<Html command="mouseUp" target="xml(support).xpath.RightButton" value="" />
+		<Html command="sleep" target="1" value="" />
+		<Verify expected="floatl arrow_right">
+			<Html command="getValue" target="xml(support).xpath.RightButtonClass" value="" />
+		</Verify>
+		<!-- click 6 -->
+		<Html command="mouseDown" target="xml(support).xpath.RightButton" value="" />
+		<Html command="mouseUp" target="xml(support).xpath.RightButton" value="" />
+		<Html command="sleep" target="1" value="" />
+		<Verify expected="floatl arrow_right_disable">
+			<Html command="getValue" target="xml(support).xpath.RightButtonClass" value="" />
+		</Verify>
+
+		<!-- 5. Verify that the web page will gets back to entrance page. -->
+		<Html command="clickAndWait" target="xml(header).xpath.LogoLink" value="" />
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(entrance).xpath.EmailLabel" value="" />
+		</Verify>
+		<Html command="goBack" target="" value="" />
+
+		<!-- 6. Verify that the new window will be opened when clicking each file download link. -->
+		<!-- Verify that all files can be downloaded from the new openning window (includes Mac Utility). (includes Setup Software/Firmware/User Manual/Quick Installation Guide) -->
+		<!-- 未实现 -->
+
+		<!-- 7. Verify that the contact us page will be launched at url: http://(Xsite).mydlink.com/contact (The Xsite will be different according to actual conditions) -->
+		<Html command="openWindow" target="xml(footer).xpath.ContactUsLink" value="" />
+		<Verify expected=".mydlink.com/contact" type="contains">
+			<Html command="getLocation" target="" value="" />
+		</Verify>
+		<Html command="selectWindow" target="1" value="" />
+
+		<!-- 8. Verify that the Global D-Link page will be launched at url: http://www.dlink.com/corporate/worldwideoffices -->
+		<Html command="openWindow" target="xml(footer).xpath.GlobalDlinkLink" value="" />
+		<Verify expected="http://www.dlink.com/corporate/worldwideoffices" type="contains">
+			<Html command="getLocation" target="" value="" />
+		</Verify>
+		<Html command="selectWindow" target="1" value="" />
+
+		<!-- 9. Verify that it will links to mydlink lite page. -->
+		<Html command="openWindow" target="xml(support).xpath.MydlinkonMobileLink" value="" />
+		<Verify expected=".mydlink.com/Lite" type="contains">
+			<Html command="getLocation" target="" value="" />
+		</Verify>
+		<Html command="selectWindow" target="1" value="" />
+
+		<!-- 10. Verify that corresponding pages will be displayed normally. -->
+
+	</TestCase>
+</Test>

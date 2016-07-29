@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>FAQ</testCaseName>
+	<annotation>
+		<description>test the FAQ page</description>
+		<created author="yue.chen" date="2011-02-09" />
+		<lastUpdated author="yue.chen" date="2011-02-10" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		
+		<!-- login begin -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>	
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(register).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton"
+			value=""></Html>	
+		<Assert expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar" value="" />
+		</Assert>
+		<!-- login end -->
+		
+		<!-- check page open -->
+		<Html command="waitForElementDisplay" target="xml(device).xpath.LinkCameraInfoText"
+			value="120"></Html>
+		<Html command="click" target="xml(device).xpath.LinkCameraInfoText"
+			value=""></Html>
+		<Html command="waitForElementDisplay" target="xml(device).xpath.checkBox"
+			value="60"></Html>
+		<Html command="openWindow" target="xml(device_cameraInfo).xpath.FAQLink" value=""></Html>
+		
+		<!--1: Check FAQs page displayed.-->
+		<!-- check Content -->
+		<Verify expected="xml(faq).message.titleBar">
+			<Html command="getValue" target="xml(faq).xpath.titleBar" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.Categories">
+			<Html command="getValue" target="xml(faq).xpath.Categories" value="" />
+		</Verify>
+		
+		<!--	2: For the "Categories" item.-->
+		<Verify expected="xml(faq).message.mydlink">
+			<Html command="getValue" target="xml(faq).xpath.mydlink" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.mydlink2">
+			<Html command="getValue" target="xml(faq).xpath.mydlink2" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.mydlink3">
+			<Html command="getValue" target="xml(faq).xpath.mydlink3" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.mydlink4">
+			<Html command="getValue" target="xml(faq).xpath.mydlink4" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.mydlink5">
+			<Html command="getValue" target="xml(faq).xpath.mydlink5" value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.mydlink" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.mydlinkimg"
+				value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.DCS930L" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.mydlinkimg2"
+				value="" />
+		</Verify>
+		<Verify expected="xml(faq).image.DCS1130" type="contains">
+			<Html command="getValue" target="xml(faq).xpath.mydlinkimg3"
+				value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.topFaq">
+			<Html command="getValue" target="xml(faq).xpath.topFaq" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.faq1">
+			<Html command="getValue" target="xml(faq).xpath.faq1" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.faq2">
+			<Html command="getValue" target="xml(faq).xpath.faq2" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.faq3">
+			<Html command="getValue" target="xml(faq).xpath.faq3" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.faq4">
+			<Html command="getValue" target="xml(faq).xpath.faq4" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.faq5">
+			<Html command="getValue" target="xml(faq).xpath.faq5" value="" />
+		</Verify>
+		<!-- 2 -->
+		<Html command="clickAndWait" target="xml(faq).xpath.mydlink" value=""/>
+		<Verify expected="xml(faq).message.FAQs">
+			<Html command="getValue" target="xml(faq).xpath.FAQs" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.link2">
+			<Html command="getValue" target="xml(faq).xpath.link2" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.title2">
+			<Html command="getValue" target="xml(faq).xpath.title2" value="" />
+		</Verify>
+		<Verify expected="xml(faq).message.button">
+			<Html command="getValue" target="xml(faq).xpath.button" value="" />
+		</Verify>
+				
+	</TestCase>
+</Test>

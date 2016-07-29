@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.2 Sign in Sign out </testCaseName>
+	<annotation>
+		<description>1.2.2 Sign in Sign out </description>
+		<testCaseVersion>4</testCaseVersion>
+		<created author="yue.chen" date="2011-07-05" />
+		<lastUpdated author="yue.chen" date="2011-07-06" />
+		<recordInfo />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- Keep account info empty and click "Sign In" to launch "Sign In to mydlink" page, Check all items/contents in the page. -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value=""></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value=""></Html>
+		</Assert>
+
+		<!-- Logo: mydlink -->
+		<Verify expected="xml(header).image.LogoImage" type="contains">
+			<Html command="getValue" target="xml(header).js.LogoImage" value="" />
+		</Verify>
+
+		<!-- Link: top right corner: Sign In to mydlink | Not Registered? | FAQs | Support | （mouse over the link,the word link color truns black with underline) -->
+		<Verify expected="xml(header).message.FAQLink">
+			<Html command="getValue" target="xml(header).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SupportLink">
+			<Html command="getValue" target="xml(header).xpath.SupportLink" value="" />
+		</Verify>
+
+		<!-- bottom: Global D-Link | About mydlink | Terms of Use | Privacy Policy | Contact US (mouse over the link,the word link has underline） -->
+		<ImportXML src="checkfooter.xml" />
+
+		<!-- Under Sign In button: Forgot your password （mouse over the link,the word link color truns black with underline) -->
+		<Verify expected="xml(login).message.signinDivButton">
+			<Html command="getValue" target="xml(login).xpath.signinDivButton" value="" />
+		</Verify>
+		<Verify expected="xml(login).message.forgotYourPassword">
+			<Html command="getValue" target="xml(login).xpath.forgotYourPassword" value="" />
+		</Verify>
+
+		<!-- Title: FAQs -->
+		<!-- Static text: -->
+		<!-- Not Registered yet? -->
+		<Verify expected="xml(login).message.NotRegisteredyet">
+			<Html command="getValue" target="xml(login).xpath.NotRegisteredyet" value="" />
+		</Verify>
+
+		<!-- To register with www.mydlink.com you need to have a mydlink enabled product. Learn more about those products at mydlink.dlink.com. -->
+		<Verify expected="xml(login).message.Toregisterwith">
+			<Html command="getValue" target="xml(login).xpath.Toregisterwith" value="" />
+		</Verify>
+
+		<!-- If you do not have an active mydlinkTM account, you must run the D-Link Installation Wizard to register with www.mydlink.com. -->
+		<Verify expected="xml(login).message.Ifyoudo">
+			<Html command="getValue" target="xml(login).xpath.Ifyoudo" value="" />
+		</Verify>
+
+		<!-- Place the CD that was included with your mydlinkTM-enabled device into your PC's CD-ROM drive, and make sure your computer has an Internet connection. The Installation Wizard 
+			will start automatically. -->
+		<Verify expected="xml(login).message.PlacetheCD">
+			<Html command="getValue" target="xml(login).xpath.PlacetheCD" value="" />
+		</Verify>
+
+		<!-- Mac users,please download your installation wizard here.Requires Intelbased Mac running OS X 10.5 or higher. -->
+		<Verify expected="xml(login).message.Macusers">
+			<Html command="getValue" target="xml(login).xpath.Macusers" value="" />
+		</Verify>
+
+		<!-- [More...] -->
+		<Verify expected="xml(login).message.more">
+			<Html command="getValue" target="xml(login).xpath.more" value="" />
+		</Verify>
+
+		<!-- 2. The text "Please enter your e-mail and password to sign in to -->
+		<!-- mydlink." with red colour will display for user. -->
+		<Verify expected="xml(login).message.warning">
+			<Html command="getValue" target="xml(login).xpath.warning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+
+		<!-- 3. The text "Invalid e-mail and password combination" with red colour -->
+		<!-- will display for user. -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(register).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(wrong).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		<Verify expected="xml(login).message.warning2">
+			<Html command="getValue" target="xml(login).xpath.warning2" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

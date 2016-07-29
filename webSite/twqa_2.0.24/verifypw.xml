@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>	
+		<!-- Xpath -->
+		<xpath name="titleBar"></xpath>
+		<xpath name="inputPwd">//input[@id='mydlink:verifypw:password']</xpath>
+		<xpath name="nextButton">//div[@id='mydlink:verifypw:btn_next']</xpath>
+	</targets>
+	<messages>
+		<message name="titleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Password Verification Needed</content>
+		</message>
+	</messages>
+</info>

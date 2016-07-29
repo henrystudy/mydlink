@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>FAQ</testCaseName>
+	<annotation>
+		<description>test the Entrance page</description>
+		<created author="dayu.lei" date="2011-06-14" />
+		<lastUpdated author="dayu.lei" date="2011-06-14" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		
+		<Html command="open" target="xml(entrance).pagePath.entrance" value=""></Html>
+		
+		<!-- check image  -->
+		<Verify expected="xml(commonInfo).image.mydlinkLogo" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLogo"
+				value="" />
+		</Verify>
+		
+		<!-- check header  -->
+		<Verify expected="xml(commonInfo).message.mydlinkLiteLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.mydlinkLiteLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.signInToMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.signInToMydlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.notRegisteredLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.notRegisteredLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.FAQLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.SupportLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.SupportLink" value="" />
+		</Verify>
+		
+		<!-- check footer -->
+		<Verify expected="xml(commonInfo).message.globalDlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.globalDlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.aboutMydlinkLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.aboutMydlinkLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.termsOfUseLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.termsOfUseLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.privacyPolicyLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.privacyPolicyLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.contactUsLink">
+			<Html command="getValue" target="xml(commonInfo).xpath.contactUsLink"
+				value="" />
+		</Verify>
+		<Verify expected="xml(commonInfo).message.bottom" type="contains">
+			<Html command="getValue" target="xml(commonInfo).xpath.bottom"
+				value="" />
+		</Verify>
+		
+		<!-- check Content -->
+		<Verify expected="xml(entrance).message.NewsAndMaintenanceBarText">
+			<Html command="getValue" target="xml(entrance).xpath.NewsAndMaintenanceBarText" value="" />
+		</Verify>
+		
+	</TestCase>
+</Test>

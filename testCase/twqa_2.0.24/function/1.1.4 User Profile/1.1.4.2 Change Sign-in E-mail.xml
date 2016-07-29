@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.1.4.1 Edit My Profile page.xml</testCaseName>
+	<annotation>
+		<description>1.1.4.1 Edit My Profile page.xml</description>
+		<testCaseVersion>7</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="yue.chen" date="2011-07-07" />
+		<recordInfo deviceIndex="1" account="myprofile" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		<!-- 1. Verify the title displayed as "Sign-in information". -->
+		<!-- Verify user's current mail address will list here and user can enter the new mail address . -->
+		<!-- Check Message.. -->
+		<!-- "Your e-mail address has been verified. -->
+		<!-- Please check and update your profile information below. " -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(Email1).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(Email1).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+
+		<!-- 2. Verify the text "Please enter a valid e-mail address." with red colour will display under the text box. -->
+		<Html command="type" target="xml(myProfile).xpath.signinEmail" value="valid e-mail address" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(Email1).pwd" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Html command="waitForElementDisplay" target="xml(myProfile).xpath.NewEmailWarning" value="60" />
+<!-- 		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveNsignoutButton" value="" /> -->
+		<Verify expected="xml(myProfile).message.ValidE-mailAddress">
+			<Html command="getValue" target="xml(myProfile).xpath.NewEmailWarning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(myProfile).js.WarningColor" value="" />
+		</Verify>
+
+		<!-- 3. Verify the text "This e-mail address already has a mydlink account. Try a different e-mail address." with red colour will display under the text box. -->
+		<Html command="type" target="xml(myProfile).xpath.signinEmail" value="account(onLine).email" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(Email1).pwd" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Html command="sleep" target="3" value="" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveNsignoutButton" value="" />
+		<Verify expected="xml(myProfile).message.AlreadyAccount">
+			<Html command="getValue" target="xml(myProfile).xpath.EmailWarning2" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(myProfile).js.WarningColor" value="" />
+		</Verify>
+
+		<!-- 4. Verify "Verification required! " message will pop up. -->
+		<!-- "You just changed the e-mail address. A verification e-mail will be sent to you. Please check your mailbox and follow the instruction to complete the verification." -->
+		<!-- Click OK to sign out and send the verification. -->
+		<!-- Click Cancel to close the lightbox. -->
+		<!-- <Html command="type" target="xml(myProfile).xpath.signinEmail" value="account(Email1).email" /> -->
+		<!-- <Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(Email1_un).pwd" /> -->
+		<!-- <Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" /> -->
+		<!-- <Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" /> -->
+		<!-- <Html command="click" target="xml(myProfile).xpath.SaveButton" value="" /> -->
+		<!-- <Html command="waitForElementDisplay" target="xml(myProfile).xpath.VerificationRequired" value="60" /> -->
+		<!-- <Verify expected="xml(myProfile).message.VerificationRequired"> -->
+		<!-- <Html command="getValue" target="xml(myProfile).xpath.VerificationRequired" value="" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="xml(myProfile).message.VerificationRequiredText1"> -->
+		<!-- <Html command="getValue" target="xml(myProfile).xpath.VerificationRequiredText1" value="" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="xml(myProfile).message.NotReadyButton"> -->
+		<!-- <Html command="getValue" target="xml(myProfile).xpath.NotReadyButton" value="" /> -->
+		<!-- </Verify> -->
+		<!-- <Verify expected="xml(myProfile).message.SaveNsignoutButton"> -->
+		<!-- <Html command="getValue" target="xml(myProfile).xpath.SaveNsignoutButton" value="" /> -->
+		<!-- </Verify> -->
+		<!-- <Html command="clickAndWait" target="xml(myProfile).xpath.SaveNsignoutButton" value="" /> -->
+
+		<!-- 5. Verify that a verification email was sent to your mailbox. -->
+		<!-- <Function command="getEmailInfo" target="Email1" value="" /> -->
+
+		<!-- Change Sign-in E-mail (unverified account register before 2011/6/30) -->
+
+		<!-- 1. Verify the title displayed as "Sign-in information". -->
+		<!-- Verify user's current mail address will list here and user can enter the new mail address . -->
+		<!-- Check Message. -->
+		<!-- "Your account e-mail has not been verified! -->
+		<!-- Your e-mail address has NOT been verified! Please complete the verification before *D+90 day. You may click to Resend verification e-mail again. -->
+		<!-- Please check and update your profile information below. " -->
+
+
+
+		<!-- 2. Verify that two verification emails was sent to your mailbox. -->
+
+
+
+
+		<!-- 3. Verify "Verification required! " message will pop up. -->
+		<!-- "You just changed the e-mail address. A verification e-mail will be sent to you. Please check your mailbox and follow the instruction to complete the verification." -->
+		<!-- Click OK to sign out and send the verification. -->
+		<!-- Click Cancel to close the lightbox. -->
+
+
+
+		<!-- 4. Verify that My Device page can show normally. -->
+
+		<!-- Change Sign-in E-mail (unverified account register after 2011/6/30) -->
+
+		<!-- 1. Verify the title displayed as "Sign-in information". -->
+		<!-- Verify user's current mail address will list here and user can enter the new mail address . -->
+		<!-- Check Message. -->
+		<!-- "Your account e-mail has not been verified! -->
+		<!-- Your e-mail address has NOT been verified! Please complete the verification before *D+90 day. You may click to Resend verification e-mail again. -->
+		<!-- Please check and update your profile information below. " -->
+
+
+
+		<!-- 2. Verify "Verification required! " message will pop up. -->
+		<!-- "You just changed the e-mail address. A verification e-mail will be sent to you. Please check your mailbox and follow the instruction to complete the verification." -->
+		<!-- Click OK to sign out and send the verification. -->
+		<!-- Click Cancel to close the lightbox. -->
+
+
+
+		<!-- 3. Verify that two verification emails was sent to your mailbox. -->
+
+
+		<!-- 4. "My Device" is disable and gray. -->
+
+		<!-- Change Sign-in E-mail (unverified account after expired) -->
+
+		<!-- 1. Verify the title displayed as "Sign-in information". -->
+		<!-- Verify user's current mail address will list here and user can enter the new mail address . -->
+		<!-- Check Message. -->
+		<!-- "Your account e-mail has not been verified! -->
+		<!-- You may click to Resend verification e-mail again. -->
+		<!-- Please check and update your profile information below. " -->
+
+
+
+		<!-- 2. Verify "Verification required! " message will pop up. -->
+		<!-- "You just changed the e-mail address. A verification e-mail will be sent to you. Please check your mailbox and follow the instruction to complete the verification." -->
+		<!-- Click OK to sign out and send the verification. -->
+		<!-- Click Cancel to close the lightbox. -->
+
+
+
+		<!-- 3. Verify that two verification emails was sent to your mailbox. -->
+
+
+		<!-- 4. "My Device" is disable and gray. -->
+
+
+	</TestCase>
+</Test>

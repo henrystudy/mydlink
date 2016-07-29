@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<pagePath name="pagePath">/Lite</pagePath>
+		<xpath name="TitleBar">//div[@class='content']//div[@class='jeff2']</xpath>
+		<xpath name="MydlinkLite">//div[@class='whitebox']//h2[1]</xpath>
+		<xpath name="FAQs">//div[@class='whitebox']//h2[2]</xpath>
+		<xpath name="IPhoneAppFAQ">//a[@href='/faq/iphone']</xpath>
+		<xpath name="AndroidAppFAQ">//a[@href='/faq/android']</xpath>
+		<xpath name="SharedbyGoogle">//a[@href='http://code.google.com/policies.html']</xpath>
+		<xpath name="CreativeCommons">//a[@href='http://creativecommons.org/licenses/by/3.0/']</xpath>
+		
+		<xpath name="IOS">//a[@href='http://itunes.apple.com/us/app/mydlink-lite/id372571229?mt=8']/img/@src</xpath>
+		<xpath name="Android">//a[@href='https://market.android.com/details?id=com.dlink.mydlink']/img/@src</xpath>
+		
+		<xpath name="SharedbyGoogleOnclick">//a[@href='https://market.android.com/details?id=com.dlink.mydlink']/@onclick</xpath>
+		<xpath name="CreativeCommonsOnclick">//a[@href='https://market.android.com/details?id=com.dlink.mydlink']/@onclick</xpath>
+		<xpath name="IOSOnclick">//a[@href='http://itunes.apple.com/us/app/mydlink-lite/id372571229?mt=8']/@onclick</xpath>
+		<xpath name="AndroidOnclick">//a[@href='https://market.android.com/details?id=com.dlink.mydlink']/@onclick</xpath>
+		
+		<xpath name="MydlinkLite1">//div[@class='whitebox']/table//tr[1]//td[2]/div[1]/p[1]</xpath>
+		<xpath name="MydlinkLite2">//div[@class='whitebox']/table//tr[1]//td[2]/div[1]/p[2]</xpath>
+		<xpath name="MydlinkLite3">//div[@class='whitebox']/table//tr[1]//td[2]/div[1]/p[3]</xpath>
+		<xpath name="MydlinkLiteText">//div[@class='whitebox']/table//tr[1]//td[2]/div[1]/p[5]</xpath>
+		
+	</targets>
+	<images>
+		<image name="IOS">/images/Lite/ios.gif</image>
+		<image name="Android">/images/Lite/android.gif</image>
+	</images>
+	<messages>
+		<message name="MydlinkLite1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">- View your mydlink-enabled camera Live Video feeds.</content>
+		</message>
+		<message name="MydlinkLite2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">- Save snapshots of your Live Video feeds.</content>
+		</message>
+		<message name="MydlinkLite3">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">- View the online status of your mydlink devices.</content>
+		</message>
+		<message name="MydlinkLiteText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Use of mydlink Lite requires a mydlink account. To create a mydlink Lite account, simply run the Setup Wizard on the CD included with your mydlink-enabled product.</content>
+		</message>
+		
+		<message name="SharedbyGoogle">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">shared by Google</content>
+		</message>
+		<message name="CreativeCommons">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Creative Commons 3.0 Attribution License.</content>
+		</message>
+		<message name="TitleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink Lite</content>
+		</message>
+		<message name="MydlinkLite">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink Lite</content>
+		</message>
+		<message name="FAQs">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">FAQs</content>
+		</message>
+		<message name="IPhoneAppFAQ">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">iPhone app FAQ.</content>
+		</message>
+		<message name="AndroidAppFAQ">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Android app FAQ.</content>
+		</message>
+	</messages>
+</info>

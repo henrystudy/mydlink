@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+
+		<!-- Xpath -->
+		<xpath name="DeviceName">//div[@id='win_content']//ul/li[1]</xpath>
+		<xpath name="mydlinkNo">//div[@id='win_content']//ul/li[2]</xpath>
+		<xpath name="ModelName">//div[@id='win_content']//ul/li[3]</xpath>
+		<xpath name="MAC">//div[@id='win_content']//ul/li[4]</xpath>
+		<xpath name="DeviceActivatedOn">//div[@id='win_content']//ul/li[5]</xpath>
+
+		<xpath name="AdvanceSettingButton">//div[@id='btn_advance_setting']</xpath>
+		<xpath name="AdvanceSettingText">//div[@id='win_content']/div/p[1]</xpath>
+		
+		<xpath name="DeleteCameraButton">//div[@id='btn_delete_device']</xpath>
+		<xpath name="DeleteCameraText">//div[@id='win_content']/div/p[3]</xpath>
+
+		<!-- delete device -->
+		<xpath name="DeleteDeviceTitle">//div[@id='mydlink:lbox_content']/div/div/h3</xpath>
+		
+		<xpath name="DeleteDeviceTextPasswordInput">//div[@id='mydlink:lbox_content']//input[@id='mydlink_password']</xpath>
+		<xpath name="DeleteDeviceTextCancelButton">//div[@id='mydlink:lbox_content']//div[@id='btn_cancel']</xpath>
+		<xpath name="DeleteDeviceButton">//div[@id='mydlink:lbox_content']//div[@id='btn_delete_submit']</xpath>
+		
+		<xpath name="DeleteDeviceText1">//div[@id='mydlink:lbox_content']/div/div/p[1]</xpath>
+		<xpath name="DeleteDeviceText2">//div[@id='mydlink:lbox_content']/div/div/p[@style][2]</xpath>
+		<xpath name="DeleteDeviceTextPassword">//div[@id='mydlink:lbox_content']//span[@class='dataItem_sty_1']</xpath>
+		
+		<xpath name="DeleteDeviceDeviceNameText">//div[@id='mydlink:lbox_content']/div/div/ul/li[1]/strong</xpath>
+		<xpath name="DeleteDeviceSNText">//div[@id='mydlink:lbox_content']/div/div/ul/li[2]/strong</xpath>
+		<xpath name="DeleteDeviceModelNameText">//div[@id='mydlink:lbox_content']/div/div/ul/li[3]/strong</xpath>
+		
+		<xpath name="DeleteDeviceDeviceName">//div[@id='mydlink:lbox_content']/div/div/ul/li[1]/span</xpath>
+		<xpath name="DeleteDeviceSN">//div[@id='mydlink:lbox_content']/div/div/ul/li[2]/span</xpath>
+		<xpath name="DeleteDeviceModelName">//div[@id='mydlink:lbox_content']/div/div/ul/li[3]/span</xpath>
+		
+		<xpath name="DeleteDeviceWarningText">//div[@id='mydlink:lbox_content']//div[@class='msgBox_warning']/h3</xpath>
+		<xpath name="DeleteDeviceWarningContext">//div[@id='mydlink:lbox_content']//div[@class='msgBox_warning']/ul/li[1]</xpath>
+		
+		<xpath name="DeleteDevicePasswordWarningContext">//span[@id='password_warning']</xpath>
+		
+		
+		
+		<!-- JS -->
+		<js name="AdvanceSettingButtonFontColor">window.jQuery('#btn_advance_setting').css('color')</js>
+		<js name="DeleteCameraButtonFontColor">window.jQuery('#btn_delete_device').css('color')</js>
+		
+		<js name="DeleteDeviceWarningBGColor">window.jQuery('div.msgBox_warning').css('background-color')</js>
+		
+		<js name="DeleteDeviceWarningColor">window.jQuery('span.warning').css('color')</js>
+		
+		<js name="AdvanceSettingButtonClick">window.jQuery('#btn_advance_setting').click()</js>
+		
+	</targets>
+
+	<messages>
+		<message name="AdvanceSettingText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">You can set up advanced configuration by clicking Advanced Setting Button.</content>
+		</message>
+		<message name="DeleteCameraText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">You can remove your camera by clicking Delete Camera button.</content>
+		</message>
+		<message name="PasswordisIncorrect">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The password is incorrect. Please try again.</content>
+		</message>
+		<message name="DeleteDeviceTextCancelButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Cancel</content>
+		</message>
+		<message name="DeleteDeviceButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Delete Device</content>
+		</message>
+		<message name="DeleteDeviceWarningContext">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Remove the device will also remove any mydlink functions related to the device.</content>
+		</message>
+		<message name="DeleteDeviceWarningText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Warning!</content>
+		</message>
+		<message name="DeleteDeviceModelNameText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Device model:</content>
+		</message>
+		<message name="DeleteDeviceSNText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink No.:</content>
+		</message>
+		<message name="DeleteDeviceDeviceNameText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Device name:</content>
+		</message>
+		<message name="DeleteDeviceText1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The following device will be deleted from your account:</content>
+		</message>
+		<message name="DeleteDeviceText2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please enter your password to proceed:</content>
+		</message>
+		<message name="DeleteDeviceTextPassword">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Password</content>
+		</message>
+		<message name="DeviceName">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Camera Name:</content>
+		</message>
+		<message name="CameraPassword">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Camera Password:</content>
+		</message>
+		<message name="mydlinkNo">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink No.:</content>
+		</message>
+		<message name="ModelName">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Model Name:</content>
+		</message>
+		<message name="MAC">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">MAC:</content>
+		</message>
+		<message name="DeviceActivatedOn">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Camera activated on:</content>
+		</message>
+		<message name="DeleteDeviceTitle">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Delete Device</content>
+		</message>
+	</messages>
+
+	<images>
+		<image name="logoImg">/images/ucp/dlife_logo.gif</image>
+
+	</images>
+
+</info>

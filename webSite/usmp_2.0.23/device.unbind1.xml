@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<pagePath name="pagePath">/device/unbind1</pagePath>
+		<xpath name="skipfwupdate">skipfwupdate</xpath>
+		<xpath name="nextButton">//div[@class='btnbar']//div[@id='btn_next']</xpath>
+		<xpath name="cancelButton">//div[@class='btnbar']/div[@class='btnw floatl']</xpath>
+		<xpath name="selectDeviceOne">//div[@class='productbox']//table//tr[2]//input[@type='checkbox']</xpath>
+		<xpath name="titleBar">//div[@class='content']//div[@class='jeff2']</xpath>
+		<xpath name="signOutLink">//div[@id='header']//td[@align='right']//div[@class='links']/a[3]</xpath>
+		<xpath name="myProfile">//div[@class='links']/a[2]</xpath>
+		<xpath name="deleteDeviceBtn">//div[@class='jeff3']/div/div/div</xpath>
+		<xpath name="selectDeviceText">//td[@class='steps']/table/tbody/tr[1]/td</xpath>
+		<xpath name="confirmText">//td[@class='steps']/table/tbody/tr[2]/td</xpath>
+		<xpath name="completeText">//td[@class='steps']/table/tbody/tr[3]/td</xpath>
+		<xpath name="checkbox">//input[@type='checkbox']</xpath>
+		<xpath name="next">//div[@id='btn_next']</xpath>
+		<xpath name="Pleaseselect">//td[@class='contents']/P[1]</xpath>
+		<xpath name="ModelName">//div[@class='productbox']//th[3]</xpath>
+		<xpath name="DeviceName">//div[@class='productbox']//th[4]</xpath>
+		<xpath name="mydlinkNo">//div[@class='productbox']//th[5]</xpath>
+		
+		<xpath name="checkbox1">//table[@class='grid']//tr[2]//input[@type='checkbox']</xpath>
+		<xpath name="checkbox2">//table[@class='grid']//tr[3]//input[@type='checkbox']</xpath>
+		<xpath name="checkbox3">//table[@class='grid']//tr[4]//input[@type='checkbox']</xpath>
+		<xpath name="checkbox4">//table[@class='grid']//tr[5]//input[@type='checkbox']</xpath>
+		
+		<xpath name="ModelName1">//table[@class='grid']//tr[2]//td[3]</xpath>
+		<xpath name="ModelName2">//table[@class='grid']//tr[3]//td[3]</xpath>
+		<xpath name="ModelName3">//table[@class='grid']//tr[4]//td[3]</xpath>
+		<xpath name="ModelName4">//table[@class='grid']//tr[5]//td[3]</xpath>
+		
+		<xpath name="DeviceName1">//table[@class='grid']//tr[2]//td[4]</xpath>
+		<xpath name="DeviceName2">//table[@class='grid']//tr[3]//td[4]</xpath>
+		<xpath name="DeviceName3">//table[@class='grid']//tr[4]//td[4]</xpath>
+		<xpath name="DeviceName4">//table[@class='grid']//tr[5]//td[4]</xpath>
+		
+		<xpath name="DeviceNo1">//table[@class='grid']//tr[2]//td[5]</xpath>
+		<xpath name="DeviceNo2">//table[@class='grid']//tr[3]//td[5]</xpath>
+		<xpath name="DeviceNo3">//table[@class='grid']//tr[4]//td[5]</xpath>
+		<xpath name="DeviceNo4">//table[@class='grid']//tr[5]//td[5]</xpath>
+		
+		<xpath name="Checkbox4">//div[@class='productbox']/table[1]/tbody/tr[5]/td[1]/input[1]</xpath>
+
+		<js name="stepOnBg">window.jQuery('td.step_on_bg').css('backgroundImage')</js>
+		
+		<js name="stepOnColor">window.jQuery('div.step_on').css('color')</js>
+		
+		<js name="stepOnNumBg">window.jQuery('span.stepn').css('backgroundImage')</js>
+		
+		<js name="stepOffNumBg">window.jQuery('td.step span.stepn').css('backgroundImage')</js>
+		
+<!--		<js name="stepOffBg">window.jQuery('td.step').css('backgroundColor')</js>-->
+		<js name="stepNumColor">window.jQuery('span.stepn').css('color')</js>
+		<js name="stepOffColor">window.jQuery('td.step').css('color')</js>
+		
+		
+	</targets>
+	<messages>
+		<message name="nextButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Next ></content>
+		</message>
+		<message name="cancelButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Cancel</content>
+		</message>
+		
+		<message name="titleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Delete Devices</content>
+		</message>
+		<message name="signOutLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign out</content>
+		</message>
+		<message name="Maintenance">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">MAINTENANCE</content>
+		</message>
+		<message name="ButtonOK">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">OK</content>
+		</message>
+		<message name="ErrorPasswordMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The password is incorrect. Please try again.</content>
+		</message>
+		<message name="selectDeviceText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">1Select Device</content>
+		</message>
+		<message name="confirmText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">2Confirm</content>
+		</message>
+		<message name="completeText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">3Complete</content>
+		</message>
+		<message name="Pleaseselect">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please select the devices you want to delete from your account, then click Next.</content>
+		</message>
+		<message name="ModelName">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Model Name</content>
+		</message>
+		<message name="DeviceName">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Device Name</content>
+		</message>
+		<message name="mydlinkNo">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink No.</content>
+		</message>
+	
+		
+	</messages>
+	<images>
+		<image name="stepOnBg">images/newgraphics/vtab_on.gif</image>
+		<image name="stepOnNumBg">images/newgraphics/i_on.gif</image>
+		<image name="stepOffNumBg">images/newgraphics/i_off.gif</image>
+	</images>
+<!--	<colors>-->
+<!--		<color name="stepOnColor">#336699</color>-->
+<!--		<color name="stepNumColor">white</color>-->
+<!--		<color name="stepOffColor">#cccccc</color>-->
+<!--	</colors>-->
+</info>

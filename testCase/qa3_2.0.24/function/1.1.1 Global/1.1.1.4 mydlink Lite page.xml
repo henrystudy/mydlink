@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.1.3 mydlink Lite page.xml</testCaseName>
+	<annotation>
+		<description>1.2.1.3 mydlink Lite page.xml</description>
+		<testCaseVersion>6</testCaseVersion>
+		<created author="YUE.CHEN" date="2011-07-05" />
+		<lastUpdated author="YUE.CHEN" date="2011-07-05" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		<!-- 1. Verify that mydlink Lite page is displayed. -->
+		<Html command="open" target="xml(url).pagePath.Lite" value=""></Html>
+		<!-- check Title : mydlink Lite -->
+		<Assert expected="xml(lite).message.TitleBar" type="contains">
+			<Html command="getValue" target="xml(lite).xpath.TitleBar" value="" />
+		</Assert>
+
+		<!-- Verify that below item and contents are displayed in required local language and conforms to the form/fit. -->
+		<!-- Make sure all strings on screens fit the UI elements: screen space, buttons, dropdown lists are correct, make sure none of the lines are truncated or cut off. -->
+		<!-- check logo : mydlink -->
+		<Verify expected="xml(header).image.LogoImage" type="contains">
+			<Html command="getValue" target="xml(header).js.LogoImage" value="" />
+		</Verify>
+
+		<!-- Title: mydlink Lite -->
+		<Assert expected="xml(lite).message.TitleBar">
+			<Html command="getValue" target="xml(lite).xpath.TitleBar" value="" />
+		</Assert>
+
+		<!-- Link: top right corner: Home | FAQ | Support （mouse over the link,the word color truns black with underline) -->
+		<Verify expected="xml(header).message.HomeLink">
+			<Html command="getValue" target="xml(header).xpath.HomeLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.FAQLink">
+			<Html command="getValue" target="xml(header).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SupportLink">
+			<Html command="getValue" target="xml(header).xpath.SupportLink" value="" />
+		</Verify>
+
+		<!-- bottom: Global D-Link | About mydlink | Terms of Use | Privacy Policy | Contact US (mouse over the link,the word link has underline） -->
+		<ImportXML src="checkfooter.xml" />
+
+		<!-- on the right: FAQs -->
+		<Verify expected="xml(lite).message.FAQs">
+			<Html command="getValue" target="xml(lite).xpath.FAQs" value="" />
+		</Verify>
+
+		<!-- - iPhone app FAQ -->
+		<Verify expected="xml(lite).message.IPhoneAppFAQ">
+			<Html command="getValue" target="xml(lite).xpath.IPhoneAppFAQ" value="" />
+		</Verify>
+
+		<!-- - Android app FAQ -->
+		<Verify expected="xml(lite).message.AndroidAppFAQ">
+			<Html command="getValue" target="xml(lite).xpath.AndroidAppFAQ" value="" />
+		</Verify>
+
+		<!-- Under Image: shared by Google -->
+		<Verify expected="xml(lite).message.SharedbyGoogle">
+			<Html command="getValue" target="xml(lite).xpath.SharedbyGoogle" value="" />
+		</Verify>
+
+		<!-- Creative Commons 3.0 Attribution -->
+		<Verify expected="xml(lite).message.CreativeCommons">
+			<Html command="getValue" target="xml(lite).xpath.CreativeCommons" value="" />
+		</Verify>
+
+		<!-- check License Image: bottom right: Available on the App Store Andriod market left: image of mydlink Lite on iOS mobile image of mydlink Lite on android mobile -->
+		<Verify expected="xml(lite).image.IOS" type="contains">
+			<Html command="getValue" target="xml(lite).xpath.IOS" value="" />
+		</Verify>
+		<Verify expected="xml(lite).image.Android" type="contains">
+			<Html command="getValue" target="xml(lite).xpath.Android" value="" />
+		</Verify>
+
+		<!-- Text Board: -->
+		<!-- right : mydlink Lite -->
+		<Verify expected="xml(lite).message.MydlinkLite">
+			<Html command="getValue" target="xml(lite).xpath.MydlinkLite" value="" />
+		</Verify>
+		
+		<!-- - View your mydlink-enabled camera Live Video feeds. -->
+		<Verify expected="xml(lite).message.MydlinkLite1">
+			<Html command="getValue" target="xml(lite).xpath.MydlinkLite1" value="" />
+		</Verify>
+		
+		<!-- - Save snapshots of your Live Video feeds. -->
+		<Verify expected="xml(lite).message.MydlinkLite2">
+			<Html command="getValue" target="xml(lite).xpath.MydlinkLite2" value="" />
+		</Verify>
+		
+		<!-- - View the online status of your mydlink devices. -->
+		<Verify expected="xml(lite).message.MydlinkLite3">
+			<Html command="getValue" target="xml(lite).xpath.MydlinkLite3" value="" />
+		</Verify>
+		
+		<!-- Use of mydlink Lite requires a mydlink account. To create a mydlink Lite account. simply run the Setup Wizard on the CD included with your mydlink-enabled product. -->
+		<Verify expected="xml(lite).message.MydlinkLiteText">
+			<Html command="getValue" target="xml(lite).xpath.MydlinkLiteText" value="" />
+		</Verify>
+		
+		<!-- check Text >>>>> bottom：Copyright©2008-2011 mydlink/D-Link Corporation Inc. All rights reserved. -->
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom" value="" />
+		</Verify>
+
+		<!-- 2. It links to http://code.google.com/policies.html in new window. -->
+		<!-- 3. It links to http://creativecommons.org/licenses/by/3.0/ in new window. -->
+		<!-- 4. It links to the FAQ page for iphone http://www.mydlink.com/faq/iphone -->
+		<!-- 5. It links to the FAQ page for android http://www.mydlink.com/faq/android -->
+		<!-- 6. It links to mydlink Lite page on iTunes service in new window. http://itunes.apple.com/us/app/mydlink-lite/id372571229?mt=8 -->
+		<!-- 7. It links to mydlink Lite page on android market in new window. (TBD) -->
+
+
+	</TestCase>
+</Test>
+	

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.6.2 FW Update progressing.xml</testCaseName>
+	<annotation>
+		<description>1.2.6.2 FW Update progressing.xml</description>
+		<testCaseVersion>4</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="yue.chen" date="2011-07-07" />
+		<recordInfo account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value="" />
+		<!-- login -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(register).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(register).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Html command="open" target="xml(url).pagePath.Contact" value=""></Html>
+
+		<!-- Logo: mydlink(image) -->
+		<Verify expected="xml(header).image.LogoImage" type="contains">
+			<Html command="getValue" target="xml(header).js.LogoImage" value="" />
+		</Verify>
+
+		<!-- Title: Contact mydlink. -->
+		<Verify expected="xml(contact).message.titleBar">
+			<Html command="getValue" target="xml(contact).xpath.titleBar" value="" />
+		</Verify>
+
+		<!-- Hyperlink: -->
+		<!-- top right corner: Home | FAQ | Support -->
+		<Verify expected="xml(header).message.HomeLink">
+			<Html command="getValue" target="xml(header).xpath.HomeLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.FAQLink">
+			<Html command="getValue" target="xml(header).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SupportLink">
+			<Html command="getValue" target="xml(header).xpath.SupportLink" value="" />
+		</Verify>
+		<!-- Welcome, xxx xxx | Sign out -->
+		<Verify expected="xml(header).message.Welcome" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Welcome" value="" />
+		</Verify>
+		<Verify expected="account(register).firstName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="account(register).lastName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SignOut">
+			<Html command="getValue" target="xml(header).xpath.SignOut" value="" />
+		</Verify>
+		<!-- contents:more... -->
+		<!-- bottom:Global D-Link || About mydlink || Terms of Use || Privacy Policy || Contact Us -->
+		<!-- Verify that the hyperlinks in top right corner and bottom change into black color with underline and the hyperlinks in the bottom only change with underline after moving the 
+			cursor on hyperlinks . -->
+		<ImportXML src="checkfooter.xml" />
+
+		<!-- Texts: -->
+		<!-- contents: -->
+		<!-- !Please note that only mydlink-enabled devices can be used with the mydlink service. mydlink-enabled devices come in mydlink branded packaging, and include a label on the device 
+			that has a mydlink no. printed on it. If your device does not have this label, then it cannot be used with the mydlink service.more...("mydlink-ebabled devices.....printed on it" displayed 
+			with red color). -->
+		<!-- Please enter your questions or suggestions below. -->
+		<Verify expected="xml(contact).message.note">
+			<Html command="getValue" target="xml(contact).xpath.note" value="" />
+		</Verify>
+		<Verify expected="xml(contact).message.redNote">
+			<Html command="getValue" target="xml(contact).xpath.redNote" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(contact).js.redNoteColorJS" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(contact).js.redNoteFont-WeightJS" value="" />
+		</Verify>
+		<Verify expected="xml(contact).message.questions">
+			<Html command="getValue" target="xml(contact).xpath.questions" value="" />
+		</Verify>
+
+		<!-- bottom:Copyright©2008-2011 mydlink/D-Link Corporation Inc. All rights reserved. -->
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom" value="" />
+		</Verify>
+		<!-- (Note: All fields must be filled in.) -->
+		<!-- Input boxes: -->
+		<!-- First Name: -->
+		<!-- Last Name: -->
+		<!-- E-mail: -->
+		<!-- mydlink No.: -->
+		<!-- Description: -->
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(contact).xpath.firstnameBox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(contact).xpath.lastnameBox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(contact).xpath.contactEmailBox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(contact).xpath.MyDlinkNoBox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(contact).xpath.DescriptionBox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.InstallationDevicecheckbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.mydlinkregistrationcheckbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.DeviceProblemcheckbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.mydlinkwebsitecheckbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.Productinquirycheckbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.Suggestioncheckbox" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(contact).xpath.Otherscheckbox" value="" />
+		</Verify>
+		<!-- Verify that "(Maximum characters:1024)" is displayed above the Description input box. -->
+		<Verify expected="xml(contact).message.note2">
+			<Html command="getValue" target="xml(contact).xpath.note2" value="" />
+		</Verify>
+		<Verify expected="xml(contact).message.Description" type="contains">
+			<Html command="getValue" target="xml(contact).xpath.Description" value="" />
+		</Verify>
+		<Verify expected="xml(contact).message.Maximum" type="contains">
+			<Html command="getValue" target="xml(contact).xpath.Description" value="" />
+		</Verify>
+		<Verify expected="xml(contact).message.regionNote">
+			<Html command="getValue" target="xml(contact).xpath.regionNote" value="" />
+		</Verify>
+		<!-- Dropdown list: -->
+		<!-- Product: -->
+		<!-- Verify that: 1. DCS series devices and "Others" are displayed in the Product dropdown list. -->
+		<!-- 2. The default is "Others" -->
+		<Verify expected="Others">
+			<Html command="getValue" target="xml(contact).xpath.selectProduct" value="" />
+		</Verify>
+
+		<!-- Region: -->
+		<!-- Verify that: 1."Please select..." and all regiona displayed in region dropdown list. -->
+		<!-- 2.The default is "Please select" -->
+		<!-- 3.(If you have already purchased a mydlink device, please select the region where you purchased it) displayed under the region dropdown list. -->
+		<!-- Check boxes:Subject -->
+		<!-- Installation Device -->
+		<Verify expected="xml(contact).message.InstallationDevice">
+			<Html command="getValue" target="xml(contact).xpath.InstallationDevice" value="" />
+		</Verify>
+		<!-- Device Problem -->
+		<Verify expected="xml(contact).message.DeviceProblem">
+			<Html command="getValue" target="xml(contact).xpath.DeviceProblem" value="" />
+		</Verify>
+		<!-- mydlink registration -->
+		<Verify expected="xml(contact).message.mydlinkregistration">
+			<Html command="getValue" target="xml(contact).xpath.mydlinkregistration" value="" />
+		</Verify>
+		<!-- mydlink website -->
+		<Verify expected="xml(contact).message.mydlinkwebsite">
+			<Html command="getValue" target="xml(contact).xpath.mydlinkwebsite" value="" />
+		</Verify>
+		<!-- Product inquiry -->
+		<Verify expected="xml(contact).message.Productinquiry">
+			<Html command="getValue" target="xml(contact).xpath.Productinquiry" value="" />
+		</Verify>
+		<!-- Suggestion -->
+		<Verify expected="xml(contact).message.Suggestion">
+			<Html command="getValue" target="xml(contact).xpath.Suggestion" value="" />
+		</Verify>
+		<!-- Others -->
+		<Verify expected="xml(contact).message.Others">
+			<Html command="getValue" target="xml(contact).xpath.Others" value="" />
+		</Verify>
+		<!-- Button:Submit -->
+		<Verify expected="xml(contact).message.submit">
+			<Html command="getValue" target="xml(contact).xpath.submit" value="" />
+		</Verify>
+		<!-- 3.Verify that "Please enter your first name." displayed with red color under first name input box. -->
+		<!-- Verify that "Please enter your last name." displayed with red color under last name input box. -->
+		<!-- Verify that "Please enter a valid e-mail address." displayed with red color under E-mail input box. -->
+		<!-- Verify that "Please select a region" displayed with red color under region dropdown list. -->
+		<!-- Verify that "Please select at least one subject." displayed with red color under subject check boxes. -->
+		<!-- Verify that "Please enter your question or suggestion." displayed with red color under description input box. -->
+		<Html command="type" target="xml(contact).xpath.firstnameBox" value=""></Html>
+		<Html command="type" target="xml(contact).xpath.lastnameBox" value=""></Html>
+		<Html command="type" target="xml(contact).xpath.contactEmailBox" value=""></Html>
+		<!-- <Html command="type" target="xml(contact).xpath.MyDlinkNoBox" value=""></Html> -->
+		<Html command="clickAndWait" target="xml(contact).xpath.submit" value=""></Html>
+		<Verify expected="xml(contact).message.submitwarning1">
+			<Html command="getValue" target="xml(contact).xpath.submitwarning1" value="" />
+		</Verify>
+		<Verify expected="xml(contact).message.submitwarning2">
+			<Html command="getValue" target="xml(contact).xpath.submitwarning2" value="" />
+		</Verify>
+		<Verify expected="xml(contact).message.submitwarning3">
+			<Html command="getValue" target="xml(contact).xpath.submitwarning3" value="" />
+		</Verify>
+		<!-- <Verify expected="xml(contact).message.submitwarning4"> -->
+		<!-- <Html command="getValue" target="xml(contact).xpath.submitwarning4" value="" /> -->
+		<!-- </Verify> -->
+		<Verify expected="xml(contact).message.submitwarning5">
+			<Html command="getValue" target="xml(contact).xpath.submitwarning5" value="" />
+		</Verify>
+		<Verify expected="xml(contact).message.submitwarning6">
+			<Html command="getValue" target="xml(contact).xpath.submitwarning6" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(contact).js.redWarningColorJS" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(contact).js.redWarning-WeightJS" value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.7.7 Delete Device (2.0.24 and later)</testCaseName>
+	<annotation>
+		<description>1.2.7.7 Delete Device (2.0.24 and later)</description>
+		<testCaseVersion>1</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="yue.chen" date="2011-07-11" />
+		<recordInfo account="Port" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value="" />
+		<!-- login -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(Port).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(Port).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(Port).device.1.sn" value=""></Function>
+		<Assert expected="true">
+			<Html command="waitForElementDisplay" target="xml(device).xpath.win_mydlinkTabBox" value="60"></Html>
+		</Assert>
+		<Html command="click" target="xml(device).xpath.LinkCameraInfoText" value=""></Html>
+		<Html command="sleep" target="3" value=""></Html>
+		<!-- 1. Verify that following status messages displays in camera’s 8-digit ddns URL window gradually with the animation: -->
+		<!-- Check if the camera local connection is ok => Checking your local network -->
+		<!-- Wait for response from the device => Finding your camera -->
+		<!-- Connect to the device => Connecting to your camera -->
+
+		<!-- 2. Verify the information as below -->
+		<!-- Camera Name: -->
+		<Verify expected="xml(device.cameraInfo).message.DeviceName" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeviceName" value="" />
+		</Verify>
+		<Verify expected="account(Port).device.1.deviceName" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeviceName" value="" />
+		</Verify>
+
+		<!-- mydlink No: -->
+		<!-- Display the “mydlink No.” of this device -->
+		<Verify expected="xml(device.cameraInfo).message.mydlinkNo" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.mydlinkNo" value="" />
+		</Verify>
+		<Verify expected="account(Port).device.1.sn" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.mydlinkNo" value="" />
+		</Verify>
+
+		<!-- Model Name: -->
+		<!-- Display the “Model Name” of this device -->
+		<Verify expected="xml(device.cameraInfo).message.ModelName" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.ModelName" value="" />
+		</Verify>
+		<Verify expected="account(Port).device.1.modelName" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.ModelName" value="" />
+		</Verify>
+
+		<!-- MAC: -->
+		<!-- Display the “MAC Address” of this device -->
+		<Verify expected="xml(device.cameraInfo).message.MAC" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.MAC" value="" />
+		</Verify>
+		<Verify expected="account(Port).device.1.mac" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.MAC" value="" />
+		</Verify>
+
+		<!-- Camera activated on: -->
+		<!-- Display the "Camera activated on" of this device -->
+		<Verify expected="xml(device.cameraInfo).message.DeviceActivatedOn" type="contains">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeviceActivatedOn" value="" />
+		</Verify>
+
+		<!-- You can set up advance configuration by clicking Advance Setting Button. -->
+		<Verify expected="xml(device.cameraInfo).message.AdvanceSettingText">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.AdvanceSettingText" value="" />
+		</Verify>
+
+		<!-- You can remove your camera by clicking Delete Camera button. -->
+		<Verify expected="xml(device.cameraInfo).message.DeleteCameraText">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteCameraText" value="" />
+		</Verify>
+
+		<!-- 3. Verify a dialog login box of device GUI pops up. -->
+		<!-- Verify that show error msg. -->
+		<!-- 不能automation -->
+
+		<!-- 4. Verify that go to camera’s 8-digit ddns URL with rePort to the “MAINTENANCE” page of the Camera Web Page. -->
+		<!-- (Note: In mydlink design, we provide user have a like DDNS of all camera. Like "http://12345678.cn.mydlink.com/". The 8 code, "12345678", is unique for each device. So user can 
+			use the -->
+		<!-- easy URL to connect his device. In the portal design , there are two button let user to configure device , these is done by the URL. These are device/setting and -->
+		<!-- device/information. ) -->
+	
+		<Html command="openDevicePage" target="account(Port).device.1.sn" value="settings"></Html>
+		<Html command="addCustomRequestHeader" target="account(Port).device.1.userName" value="account(Port).device.1.passwd"></Html>
+		<Html command="waitForElementDisplay" target="xml(deviceWebPage).xpath.headerTitle" value="120"></Html>
+		<Verify expected="setup,SETUP" type="in">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteCameraText" value="" />
+		</Verify>
+		<!-- 5. There will pop up "Delete Device" window. -->
+
+		<!-- Delete Device -->
+
+		<!-- The following device will be deleted from your account: -->
+
+		<!-- Device name: DCS-1130 -->
+		<!-- mydlink No.: 30035083 -->
+		<!-- Device model: DCS-1130 -->
+
+		<!-- Warning! -->
+		<!-- Remove the device will also remove any mydlink functions related to the device. -->
+		<!-- Please enter your password to proceed: -->
+
+
+	</TestCase>
+</Test>

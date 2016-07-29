@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+		<pagePath name="pagePath">d:\DCS-1130\index_frame.html</pagePath>
+		
+		<!-- Xpath -->
+		<xpath name="StartButton">//span[@id='home_4']</xpath>
+		<xpath name="Router_wps">//span[@id='router_wps_10']</xpath>
+		<xpath name="install_1_7">//span[@id='install_1_7']</xpath>
+		<xpath name="install_2_next">//span[@id='install_2_next']</xpath>
+		<xpath name="install_4_11">//span[@id='install_4_11']</xpath>
+		<xpath name="install_3_9">//span[@id='install_3_9']</xpath>
+		<xpath name="select_cam_20">//span[@id='select_cam_20']</xpath>
+		<xpath name="select_cam_7">//span[@id='select_cam_7']</xpath>
+		<xpath name="passwd_old">//input[@id='passwd_old']</xpath>
+		<xpath name="pwd_confirm_18">//span[@id='pwd_confirm_18']</xpath>
+		<xpath name="lan_22">//span[@id='lan_22']</xpath>
+		<xpath name="HaveAccoutYes">//input[@type='radio'][1]</xpath>
+		<xpath name="HaveAccoutNo">//input[@type='radio'][2]</xpath>
+		<xpath name="dlife_email">//input[@id='dlife_email']</xpath>
+		<xpath name="dlife_passwd">//input[@id='dlife_passwd']</xpath>
+		<xpath name="dlife_signup_email">//input[@id='dlife_signup_email']</xpath>
+		<xpath name="dlife_signup_passwd">//input[@id='dlife_signup_passwd']</xpath>
+		<xpath name="dlife_signup_passwd_retype">//input[@id='dlife_signup_passwd_retype']</xpath>
+		<xpath name="dlife_signup_name_first">//input[@id='dlife_signup_name_first']</xpath>
+		<xpath name="dlife_signup_name_last">//input[@id='dlife_signup_name_last']</xpath>
+		<xpath name="dlife_signup_EULA">//input[@id='dlife_signup_EULA']</xpath>
+
+		<!-- JS -->
+		<js name="buttonFontColorJS">window.jQuery('div.btnw div').css('color')</js>
+		<js name="buttonFontBgImgJS">window.jQuery('div.btnw div').css('background-image')</js>
+	</targets>
+
+	<messages>
+	</messages>
+	
+</info>

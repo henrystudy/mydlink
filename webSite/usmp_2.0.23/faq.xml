@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<pagePath name="pagePath">/faq</pagePath>
+		
+		<pagePath name="pagePath3">/faq/DCS930L</pagePath>
+		<pagePath name="pagePath4">/faq/11301100</pagePath>
+		<pagePath name="pagePath5">/faq/iphone</pagePath>
+		<pagePath name="pagePath6">/faq/android</pagePath>
+		
+		<pagePath name="pagePath2">/faq/mydlink</pagePath>
+		<xpath name="FAQs">//div[@class='content']//a[@href='/faq']</xpath>
+		<xpath name="link2">//div[@class='content']/div[1]/strong</xpath>
+		<xpath name="title2">//div[@class='jeff2']</xpath>
+		<xpath name="button">//div[@class='btnw floatl']</xpath>
+
+		
+		<xpath name="titleBar">//span[@class='floatl']</xpath>
+		<xpath name="Categories">//div[@class='whitebox']//td[1]/div</xpath>
+		<xpath name="mydlink">//div[@class='whitebox']//a[@href='/faq/mydlink']</xpath>
+		<xpath name="mydlink2">//div[@class='whitebox']//a[@href='/faq/DCS930L']</xpath>
+		<xpath name="mydlink3">//div[@class='whitebox']//a[@href='/faq/11301100']</xpath>
+		<xpath name="mydlink4">//div[@class='whitebox']//a[@href='/faq/iphone']</xpath>
+		<xpath name="mydlink5">//div[@class='whitebox']//a[@href='/faq/android']</xpath>
+		<xpath name="mydlink6">//div[@class='whitebox']//a[@href='/faq/DCS5230L']</xpath>
+		<xpath name="mydlink7">//div[@class='whitebox']//a[@href='/faq/DSM350']</xpath>
+		<xpath name="mydlinkimg">//div[@class='whitebox']//tr[2]/td[1]/img/@src</xpath>
+		<xpath name="mydlinkimg2">//div[@class='whitebox']//tr[4]/td[1]/img/@src</xpath>
+		<xpath name="mydlinkimg3">//div[@class='whitebox']//tr[6]/td[1]/img/@src</xpath>
+		<xpath name="mydlinkimg4">//div[@class='whitebox']//tr[8]/td[1]/img/@src</xpath>
+		<xpath name="mydlinkimg5">//div[@class='whitebox']//tr[10]/td[1]/img/@src</xpath>
+		<xpath name="mydlinkimg6">//div[@class='whitebox']//tr[12]/td[1]/img/@src</xpath>
+		
+		
+		
+		
+		<xpath name="topFaq">//div[@class='whitebox']//td[2]/div</xpath>
+		<xpath name="faq1">//li[1]/a</xpath>
+		<xpath name="faq2">//li[2]/a</xpath>
+		<xpath name="faq3">//li[3]/a</xpath>
+		<xpath name="faq4">//li[4]/a</xpath>
+		<xpath name="faq5">//li[5]/a</xpath>
+		
+	</targets>
+	<messages>
+		<message name="titleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">FAQs</content>
+		</message>
+		<message name="Categories">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Categories</content>
+		</message>
+		<message name="mydlink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink</content>
+		</message>
+		<message name="mydlink2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">DCS-930L, DCS-932L</content>
+		</message>
+		<message name="mydlink3">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">DCS-1100, DCS-1130, DCS-1100L, DCS-1130L</content>
+		</message>
+		<message name="mydlink4">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink iphone app</content>
+		</message>
+		<message name="mydlink5">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink Android app</content>
+		</message>
+		<message name="mydlink6">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">DCS-5230L</content>
+		</message>
+		<message name="mydlink7">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">DSM-350</content>
+		</message>
+		<message name="topFaq">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Top FAQs</content>
+		</message>
+		<message name="faq1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">What can I do on the mydlink website?</content>
+		</message>
+		<message name="faq2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Which web browsers can I use with mydlink?</content>
+		</message>
+		<message name="faq3">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">How do I sign up for a mydlink account?</content>
+		</message>
+		<message name="faq4">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Why do I see a message about ActiveX controls when I open my camera's Live Video tab?</content>
+		</message>
+		<message name="faq5">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Why am I being asked to verify my camera's password when trying to access my camera from mydlink?</content>
+		</message>
+
+		<message name="FAQs">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">FAQs</content>
+		</message>
+		<message name="link2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mydlink</content>
+		</message>
+		<message name="title2">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">FAQs: mydlink</content>
+		</message>
+		<message name="button">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Back to Categories</content>
+		</message>
+
+
+	</messages>
+	<images>
+		<image name="logoImg">/images/ucp/dlife_logo.gif</image>
+		<image name="mydlink">/images/ucp/d_logo.gif</image>
+		<image name="DCS930L">/images/products/DCS930L.gif</image>
+		<image name="DCS1130">/images/products/DCS1130.gif</image>
+		<image name="DCS5230L">/images/products/DCS5230L.gif</image>
+		<image name="DSM350">/images/products/DSM350.gif</image>
+		<image name="mydlink_lite">/images/products/mydlink_lite.gif</image>
+	</images>
+</info>

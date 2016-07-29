@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>FAQ</testCaseName>
+	<annotation>
+		<description>test the FAQ page</description>
+		<testCaseVersion>2</testCaseVersion>
+		<created author="dayu.lei" date="2011-07-05" />
+		<lastUpdated author="yue.chen" date="2011-07-06" />
+		<recordInfo />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- open mydlink website , and click "Support" link -->
+		<Html command="open" target="xml(url).pagePath.Support" value=""></Html>
+
+		<!-- 1. Verify that the web page will be redirected to the support page of corresponding region site at http://Xsite.mydlink.com/support. (the Xsite should match the actual condition) -->
+
+		<!-- 2. Verify that below content & items are displayed as well-format and corresponding local language: -->
+
+		<!-- check URL: http://(Xsite).mydlink.com/support -->
+		<Verify expected=".mydlink.com/support" type="contains">
+			<Html command="getLocation" target="" value="" />
+		</Verify>
+
+		<!-- check Title Page title: Support (Dispays as bold & white with blue background) -->
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(support).js.TitleBarFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(support).js.TitleBarFontWeight" value="" />
+		</Verify>
+		<Verify expected="xml(support).image.TitleBarBGImage" type="contains">
+			<Html command="getValue" target="xml(support).js.TitleBarBGImage" value="" />
+		</Verify>
+		<Verify expected="xml(support).message.TitleBarText">
+			<Html command="getValue" target="xml(support).xpath.TitleBarText" value="" />
+		</Verify>
+
+		<!-- check Category Title: Setup Software/User Manual/Firmware/Quick Installation Guide (Dispays as bold & black) -->
+		<Verify expected="xml(support).message.WizardText">
+			<Html command="getValue" target="xml(support).xpath.CategoryTitle1" value="" />
+		</Verify>
+		<Verify expected="xml(support).message.UserManualText">
+			<Html command="getValue" target="xml(support).xpath.CategoryTitle2" value="" />
+		</Verify>
+		<Verify expected="xml(support).message.FirmwareText">
+			<Html command="getValue" target="xml(support).xpath.CategoryTitle3" value="" />
+		</Verify>
+		<Verify expected="xml(support).message.QuickInstallationGuideText">
+			<Html command="getValue" target="xml(support).xpath.CategoryTitle4" value="" />
+		</Verify>
+
+		<!-- (Dispays as bold & black) -->
+		<Verify expected="xml(color).color.Black">
+			<Html command="getValue" target="xml(support).js.CategoryTitleFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(support).js.CategoryTitleFontWeight" value="" />
+		</Verify>
+
+		<!-- check Light box title: Contact Options (Dispays as bold & white with blue background) -->
+		<Verify expected="xml(support).message.ContactOptionsText">
+			<Html command="getValue" target="xml(support).xpath.ContactOptionsText" value="" />
+		</Verify>
+
+		<!-- (Dispays as bold & white with blue background) -->
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(support).js.ContactOptionsTextFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(support).js.ContactOptionsTextFontWeight" value="" />
+		</Verify>
+		<Verify expected="xml(support).image.ContactOptionsTextBGImage" type="contains">
+			<Html command="getValue" target="xml(support).js.ContactOptionsTextBGImage" value="" />
+		</Verify>
+
+		<!-- check Logo : : mydlink (image link/will take you back to entrance page when clicking it) -->
+		<Html command="clickAndWait" target="xml(header).xpath.LogoLink" value="" />
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(entrance).xpath.EmailLabel" value="" />
+		</Verify>
+		<Html command="goBack" target="" value="" />
+
+		<!-- check Link : (all the links should be displayed as blue color, and the color turns to black with underline when moving mouse on it, also the mouse turns to hand shape) Top right 
+			corner: Home| FAQ | Support -->
+		<Verify expected="xml(header).message.HomeLink">
+			<Html command="getValue" target="xml(header).xpath.HomeLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.FAQLink">
+			<Html command="getValue" target="xml(header).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SupportLink">
+			<Html command="getValue" target="xml(header).xpath.SupportLink" value="" />
+		</Verify>
+
+		<!-- check Top right corner: Welcome, first name and last name | Sign out (These two item only display after login) -->
+
+		<!-- check Footer : Global D-Link | About mydlink | Terms of Use |Privacy Policy | Contact Us -->
+		<ImportXML src="checkfooter.xml" />
+
+		<!-- check Within Contact Options: Mail Customer Service Contact to Global D-Link -->
+		<Verify expected="xml(support).message.MailCustomerServiceText">
+			<Html command="getValue" target="xml(support).xpath.MailCustomerServiceText" value="" />
+		</Verify>
+		<Verify expected="xml(support).message.ContacttoGlobalD-LinkText">
+			<Html command="getValue" target="xml(support).xpath.ContacttoGlobalD-LinkText" value="" />
+		</Verify>
+
+		<!-- check Category files: All the file links under each type of material/item column Image: Corresponding product icon of each model with model name under icon, also includs the 
+			two arrows on the both ends of product line (Thers images locates in the first line below page title) The background image of "Contact Options" window The mobile mydlink image link 
+			with text "mydlink on mobile..." on it The background image of each category column -->
+		<Verify expected="xml(support).image.ArrowLeftBGImage" type="contains">
+			<Html command="getValue" target="xml(support).js.ArrowLeftBGImage" value="" />
+		</Verify>
+		<Verify expected="xml(support).image.ArrowRightBGImage" type="contains">
+			<Html command="getValue" target="xml(support).js.ArrowRightBGImage" value="" />
+		</Verify>
+		<Verify expected="xml(support).image.ContactOptionsBGImage" type="contains">
+			<Html command="getValue" target="xml(support).js.ContactOptionsBGImage" value="" />
+		</Verify>
+		<Verify expected="xml(support).image.MydlinkonMobileImage" type="contains">
+			<Html command="getValue" target="xml(support).xpath.MydlinkonMobileImage" value="" />
+		</Verify>
+		<Verify expected="xml(support).image.CategoryColumnBGImage" type="contains">
+			<Html command="getValue" target="xml(support).js.CategoryColumnBGImage" value="" />
+		</Verify>
+		<Verify expected="xml(support).image.CategoryColumnBGImage" type="contains">
+			<Html command="getValue" target="xml(support).js.CategoryColumnBGImage" value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

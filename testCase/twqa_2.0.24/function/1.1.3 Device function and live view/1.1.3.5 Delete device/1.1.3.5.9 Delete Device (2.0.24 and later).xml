@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.7.7 Delete Device (2.0.24 and later)</testCaseName>
+	<annotation>
+		<description>1.2.7.7 Delete Device (2.0.24 and later)</description>
+		<testCaseVersion>1</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="yue.chen" date="2011-07-11" />
+		<recordInfo account="onLine" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value="" />
+		<!-- login -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Function command="selectDevice" target="account(onLine).device.1.sn" value=""></Function>
+		<Assert expected="true">
+			<Html command="waitForElementDisplay" target="xml(device).xpath.win_mydlinkTabBox" value="60"></Html>
+		</Assert>
+		<Html command="click" target="xml(device).xpath.LinkCameraInfoText" value=""></Html>
+		<Assert expected="true">
+			<Html command="waitForElementDisplay" target="xml(device.cameraInfo).xpath.DeleteCameraButton" value="60"></Html>
+		</Assert>
+		<Html command="click" target="xml(device.cameraInfo).xpath.DeleteCameraButton" value=""></Html>
+
+		<!-- 1: "Delete Device" window pops up. -->
+		<Verify expected="true">
+			<Html command="waitForElementDisplay" target="xml(device.cameraInfo).xpath.DeleteDeviceTitle" value="60"></Html>
+		</Verify>
+
+		<!-- 2: The "Delete Device" window close and the web page back to Camera Info page. -->
+		<Html command="click" target="xml(device.cameraInfo).xpath.DeleteDeviceTextCancelButton" value=""></Html>
+		<Html command="sleep" target="2" value=""></Html>
+		<Verify expected="false">
+			<Html command="isVisible" target="xml(device.cameraInfo).xpath.DeleteDeviceTitle" value=""></Html>
+		</Verify>
+
+		<!-- 3: Error message "The password is incorrect. Please try again." is displayed with red font -->
+		<Html command="click" target="xml(device.cameraInfo).xpath.DeleteCameraButton" value=""></Html>
+		<Html command="waitForElementDisplay" target="xml(device.cameraInfo).xpath.DeleteDeviceTitle" value="60"></Html>
+		<Html command="type" target="xml(device.cameraInfo).xpath.DeleteDeviceTextPasswordInput" value="errorpp"></Html>
+		<Html command="click" target="xml(device.cameraInfo).xpath.DeleteDeviceButton" value=""></Html>
+		<Html command="sleep" target="3" value=""></Html>
+		<Verify expected="xml(device.cameraInfo).message.PasswordisIncorrect">
+			<Html command="getValue" target="xml(device.cameraInfo).xpath.DeleteDevicePasswordWarningContext" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(device.cameraInfo).js.DeleteDeviceWarningColor" value="" />
+		</Verify>
+		<!-- 4: Another Delete Device page shows the complete delete information. -->
+		<!-- "Delete Device -->
+		<!-- The following device has been successfully deleted from your mydlink account: -->
+		<!-- Deivce name: DCS-1130 -->
+		<!-- mydlink No.: 30035083 -->
+		<!-- Device model: DCS-1130 -->
+		<!-- To add the device to a mydlink account and enable remote access to it, please run the device's Setup Wizard again from its included CD, or you can download the Setup Wizard from -->
+		<!-- the Support page." -->
+		<!-- 不能automation -->
+
+		<!-- 5. The Support page will pop up http://xxxx.mydlink.com/support. -->
+		<Verify expected="/support" type="contains">
+			<Html command="attribute" target="xml(header).xpath.SupportLink" value="href" />
+		</Verify>
+		<Verify expected="">
+			<Html command="attribute" target="xml(header).xpath.SupportLink" value="target" />
+		</Verify>
+
+		<!-- 6. The "Delete Device" window is closed and the device is deleted from mydlink. -->
+		<!-- 不能automation -->
+		
+		<!-- 7. Verify that the camera is reset to factory default. -->
+		<!-- 不能automation -->
+
+
+	</TestCase>
+</Test>

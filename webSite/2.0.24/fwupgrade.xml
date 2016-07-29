@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<!-- path -->
+		
+		<!-- Xpath -->
+		<xpath name="UpdateNeededMsg">//div[@id='div_fwUpgrade']/p[1]</xpath>
+		<xpath name="UpdateNeededMsgDetail">//div[@id='div_fwUpgrade']/p[3]</xpath>
+<!--		<xpath name="UpdateLater">//div[@id='div_fwUpgrade']//div[@class='btnw floatl']</xpath>-->
+		
+		<xpath name="UpdateInformation">//div[@id='div_fwUpgrade']/table/tbody/tr[1]/th[1]</xpath>
+		<xpath name="EstimatedUpdateTime">//div[@id='div_fwUpgrade']/table/tbody/tr[1]/th[2]</xpath>
+		
+
+		<xpath name="WhatsNewInThisVersion">//table[@class='grid']//tr[3]/td/div[1]</xpath>
+		<xpath name="NewVersionNotes">//table[@class='grid']//tr[3]/td/div[2]</xpath>
+		<xpath name="UpdateNow">//div[@id='div_fwUpgrade']/div[@class='btn floatl']</xpath>
+		<xpath name="UpdateLater">//div[@id='div_fwUpgrade']/div[@class='btnw floatl']</xpath>
+		<xpath name="InstallingFirmware">//div[@id='LB_FwUpgrade']/div/p[3]</xpath>
+		<xpath name="InstallingFirmwareImg">//div[@id='LB_FwUpgrade']/div/p[3]/img/@src</xpath>
+		<xpath name="UpdatingYourFirmware">//div[@id='LB_FwUpgrade']/div/p[7]</xpath>
+		<xpath name="DoNotUnplug">//div[@id='LB_FwUpgrade']/div/p[8]</xpath>
+		<xpath name="CurrentFirmwareVersion">//div[@id='div_fwUpgrade']/table/tbody/tr[2]/td[1]/p[1]</xpath>
+		<xpath name="NewFirmwareVersion">//div[@id='div_fwUpgrade']/table/tbody/tr[2]/td[1]/p[2]</xpath>
+		<xpath name="FileSize">//div[@id='div_fwUpgrade']/table/tbody/tr[2]/td[1]/p[3]</xpath>
+		
+		
+		<xpath name="DialUp56">//div[@id='div_fwUpgrade']/table/tbody/tr[2]/td[2]</xpath>
+		<xpath name="DSLCable256">//div[@id='div_fwUpgrade']/table/tbody/tr[2]/td[2]</xpath>
+		<xpath name="DSLCable768">//div[@id='div_fwUpgrade']/table/tbody/tr[2]/td[2]</xpath>
+		<xpath name="T1">//div[@id='div_fwUpgrade']/table/tbody/tr[2]/td[2]</xpath>
+		
+		<xpath name="Warning">//div[@id='div_instruction_dcs11x0']/p</xpath>
+		<xpath name="WarningDetailOne">//div[@id='div_instruction_dcs11x0']/p</xpath>
+		<xpath name="WarningDetailTwo">//div[@id='div_instruction_dcs11x0']/p</xpath>
+		
+		
+		
+		
+		
+		
+		
+<!--		 home page data:begin-->
+		<xpath name="LogoLink">//div[@id='header']//td[1]/a</xpath>
+		
+<!--		 home page data:end-->
+		
+		<!-- JS -->
+		<js name="UpdateNeededMsgFontWeight">window.jQuery('#div_fwUpgrade p').css('font-weight')</js>
+		<js name="UpdateNeededMsgFontColor">window.jQuery('#div_fwUpgrade p').css('color')</js>
+		<js name="UpdateLaterButtonFontColor">window.jQuery('#btn_skip').css('color')</js>
+		<js name="warningColorJS">window.jQuery('p.warning').css('color')</js>
+		<js name="warningFontJS">window.jQuery('p.warning').css('font-weight')</js>
+		<js name="UpdateNeededMsgColor">window.jQuery('#div_fwUpgrade p').css('color')</js>
+	</targets>
+	
+	<messages>
+		<message name="UpdateNeededMsg">
+			<content language="zh_CN">需要固件更新！</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Firmware update needed!</content>
+		</message>
+		<message name="UpdateNeededMsgDetail">
+			<content language="zh_CN">设备估计需要更新，从而确保得到设备的最佳表现。</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Your device's firmware needs to be updated in order to ensure that you get the best performance out of your device.</content>
+		</message>
+		<message name="UpdateInformation">
+			<content language="zh_CN">更新信息:</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Update information:</content>
+		</message>
+		<message name="CurrentFirmwareVersion">
+			<content language="zh_CN">当前固件版本: </content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Current Firmware Version</content>
+		</message>
+		<message name="NewFirmwareVersion">
+			<content language="zh_CN">新固件版本:</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">New Firmware Version:</content>
+		</message>
+		<message name="FileSize">
+			<content language="zh_CN">文件大小: </content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">File Size:</content>
+		</message>
+		<message name="WhatsNewInThisVersion">
+			<content language="zh_CN">此版本所更新的？</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">What's new in this version?</content>
+		</message>
+		<message name="M">
+			<content language="zh_CN">M</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">M</content>
+		</message>
+		<message name="Mins">
+			<content language="zh_CN">分钟</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">mins</content>
+		</message>
+		<message name="Sec">
+			<content language="zh_CN">秒数</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">sec</content>
+		</message>
+		<message name="EstimatedUpdateTime">
+			<content language="zh_CN">预计更新时间:</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Estimated update time:</content>
+		</message>
+		<message name="DialUp56">
+			<content language="zh_CN">拨号 (56 K): </content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Dial-up (56K):</content>
+		</message>
+		<message name="DSLCable256">
+			<content language="zh_CN">DSL/线缆 (256K): </content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">DSL/Cable (256K):</content>
+		</message>
+		<message name="DSLCable768">
+			<content language="zh_CN">DSL/线缆 (768K):</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">DSL/Cable (768K):</content>
+		</message>
+		<message name="T1">
+			<content language="zh_CN">T1 (1.5M):</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">T1 (1.5M):</content>
+		</message>
+		<message name="UpdateLater">
+			<content language="zh_CN">稍后更新</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Update later</content>
+		</message>
+		<message name="UpdateNow">
+			<content language="zh_CN">现在更新</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Update now</content>
+		</message>
+		<message name="Warning">
+			<content language="zh_CN">警告 :</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Warning</content>
+		</message>
+		<message name="WarningDetailOne">
+			<content language="zh_CN">(1) 在升级时，请使用有线Internet连接。</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please use a wired Internet connection for your device when updating.</content>
+		</message>
+		<message name="WarningDetailTwo">
+			<content language="zh_CN">(2) 在升级时，请不要拔掉设备。</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please do not unplug your device while it is updating.</content>
+		</message>
+		<message name="NewVersionNotes">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Maintenance release for advanced remote access support.</content>
+		</message>
+		<message name="LiveVideoPageLoadedFailureMsg">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Unable to access your camera's Live Video.</content>
+		</message>
+		<message name="InstallingFirmware">
+			<content language="zh_CN">安装固件...</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Installing firmware...</content>
+		</message>
+		<message name="UpdatingYourFirmware">
+			<content language="zh_CN">升级固件所占用的时间将基于您的Internet连接和带宽。</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Updating your firmware may take some time depending on your Internet connection and bandwidth.</content>
+		</message>
+		<message name="DoNotUnplug">
+			<content language="zh_CN">在固件升级过程中，不要拔掉摄像机或计算机。</content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Do not unplug your camera or computer during the firmware update process.</content>
+		</message>
+		<message name="TheFirmwareUpdateUnsuccessful">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The firmware update was unsuccessful.</content>
+		</message>
+		<message name="PleaseClickRetry">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Please click Retry to try updating the firmware again.</content>
+		</message>
+		<message name="IfHavingProblems">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">If you are having problems auto-updating the firmware, click here to manually update your firmware through your device's web interface.</content>
+		</message>
+		<message name="Retry">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Retry</content>
+		</message>
+		<message name="TheFirmwareUpdateSuccessful">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">The firmware update was successful!</content>
+		</message>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+	</messages>
+	
+	<images>
+		<image name="logoImg">/images/ucp/dlife_logo.gif</image>
+		<image name="InstallingFirmwareImg">/images/ucp/progress-circle.gif</image>
+	</images>
+	
+</info>

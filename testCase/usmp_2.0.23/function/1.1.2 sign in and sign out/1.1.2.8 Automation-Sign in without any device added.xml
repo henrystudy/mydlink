@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Automation-Sign in</testCaseName>
+	<annotation>
+		<description>Automation-Sign in without any device added</description>
+		<created author="dayu.lei" date="2011-06-21" />
+		<lastUpdated author="dayu.lei" date="2011-06-21" />
+		<recordInfo account="haveNoDevice" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+		
+		<!-- 1. 
+		Click "Sign In to mydlink" on the left top of the page.
+		Log in with your eamil address and password.
+		-->
+		<!-- login begin -->
+
+		<Html command="open" target="xml(entrance).pagePath.pagePath" value=""></Html>
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+		
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(haveNoDevice).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(haveNoDevice).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+		
+		<!-- login end -->
+	
+		<!--2. Check the UI for "No Device" page-->
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar" value="" />
+		</Verify>
+		<Verify expected="xml(device).message.noDevice">
+			<Html command="getValue" target="xml(device).xpath.noDevice" value="" />
+		</Verify>
+		
+		<!--3. Click "Sign out" on the left top of the screen.-->
+		<Html command="clickAndWait" target="xml(device).xpath.signOutLink" value=""></Html>
+		<Verify expected="xml(entrance).message.NewsAndMaintenanceBarText">
+			<Html command="getValue" target="xml(entrance).xpath.NewsAndMaintenanceBarText" value="" />
+		</Verify>
+				
+	</TestCase>
+</Test>

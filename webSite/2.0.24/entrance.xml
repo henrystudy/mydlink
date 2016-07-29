@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<xpath name="EmailInput">//form[@id='signin']/div/input[@id='email']</xpath>
+		<xpath name="EmailLabel">//div[@id='user_field']/div</xpath>
+		
+		<xpath name="PasswordInput">//form[@id='signin']/div/input[@id='password']</xpath>
+		<xpath name="PasswordLabel">//div[@id='password_field']/div</xpath>
+		
+		<xpath name="SignInButton">//a[@id='btn_signin']</xpath>
+		
+		<xpath name="ForgotYourPasswordLink">//a[@href='/request_password']</xpath>
+		<xpath name="NotRegisteredLink">//a[@href='/content/notreg']</xpath>
+		
+		<xpath name="RememberMeLabel">//form[@id='signin']/div[3]</xpath>
+		<xpath name="RememberMeCheckBox">//div[@id='re_checkbox_icon']</xpath>
+		<xpath name="RememberMeCheckBoxClass">//div[@id='re_checkbox_icon']/@class</xpath>
+		
+		
+		<xpath name="WhatsMydlinkLink">//div[@id='menu_selection']/a[@href='#whatsmydlink']</xpath>
+		<xpath name="WhatsMydlinkImage">//div[@id='whatsmydlink']/img/@src</xpath>
+		<xpath name="WhatsMydlinkText">//div[@id='whatsmydlink']/div[@class]/span</xpath>
+		<xpath name="WhatsMydlinkContent">//div[@id='whatsmydlink']/div[@class]/p</xpath>
+		<xpath name="WhatsMydlinkButton">//div[@id='whatsmydlink']/div[@class]/a[@href='/whats_mydlink']</xpath>
+		
+		<xpath name="AccessAnywhereLink">//div[@id='menu_selection']/a[@href='#accessanywhere']</xpath>
+		<xpath name="AccessAnywhereImage">//div[@id='accessanywhere']/img/@src</xpath>
+		<xpath name="AccessAnywhereText">//div[@id='accessanywhere']/div[@class]/span</xpath>
+		<xpath name="AccessAnywhereContent">//div[@id='accessanywhere']/div[@class]/p</xpath>
+		<xpath name="AccessAnywhereButton">//div[@id='accessanywhere']/div[@class]/a[@href='/Lite']</xpath>
+		
+		<xpath name="FacebookImageLink">//div[@class='header_btmline']/a[1]</xpath>
+		<xpath name="TwitterImageLink">//div[@class='header_btmline']/a[2]</xpath>
+		
+			
+		<xpath name="ProductFamilyLink">//div[@id='menu_selection']/a[@href='#productfamily']</xpath>
+		<xpath name="CameraImg">//div[@id='model_list']/div[1]/div/img</xpath>
+		<xpath name="DeviceName1">//div[@id='model_list']/div[1]/div/h1</xpath>
+		<xpath name="DeviceText1">//div[@id='model_list']/div[1]/div/h2</xpath>
+		<xpath name="DeviceText1">//div[@id='model_list']/div[1]/div/h2</xpath>
+		<xpath name="LearnMoreLink1">//div[@id='model_list']/div[@class='family_item'][1]//a</xpath>
+		<xpath name="LearnMoreLink2">//div[@id='model_list']/div[@class='family_item'][2]//a</xpath>
+		<xpath name="LearnMoreLink3">//div[@id='model_list']/div[@class='family_item'][3]//a</xpath>
+		<xpath name="LearnMoreLink4">//div[@id='model_list']/div[@class='family_item'][4]//a</xpath>
+		<xpath name="LearnMoreLink5">//div[@id='model_list']/div[@class='family_item'][5]//a</xpath>
+		<xpath name="LearnMoreLink6">//div[@id='model_list']/div[@class='family_item'][6]//a</xpath>
+		<xpath name="LearnMoreLink7">//div[@id='model_list']/div[@class='family_item'][7]//a</xpath>
+		<xpath name="LearnMoreLink8">//div[@id='model_list']/div[@class='family_item'][8]//a</xpath>
+		
+		<xpath name="ExperienceMydlinkLink">//div[@id='menu_selection']/a[@href='#experience']</xpath>
+		<xpath name="ExperienceMydlinkImage">//div[@id='experience']/img/@src</xpath>
+		<xpath name="ExperienceMydlinkText">//div[@id='experience']/div[@class]/span</xpath>
+		<xpath name="ExperienceMydlinkContent">//div[@id='experience']/div[@class]/p</xpath>
+		<xpath name="ExperienceMydlinkButton">//div[@id='experience']/div[@class]/a[@href='/try']</xpath>
+
+		<xpath name="NewsMaintenanceImage">//div[@class='other_content']/div[@class='news_panel']/img/@src</xpath>
+		<xpath name="NewsMaintenanceTitle">//div[@class='other_content']/div[@class='news_panel']//div[@class='news_header']</xpath>
+		<xpath name="NewsMaintenanceNews1">//div[@class='other_content']//div[@class='news_list']/div/li[1]</xpath>
+		<xpath name="NewsMaintenanceNewsTime1">//div[@class='other_content']//div[@class='news_list']/div/li[1]/span</xpath>
+		<xpath name="NewsMaintenanceNewsLink1">//div[@class='other_content']//div[@class='news_list']/div/li[1]/a</xpath>
+		<xpath name="NewsMaintenanceNews2">//div[@class='other_content']//div[@class='news_list']/div/li[2]</xpath>
+		<xpath name="NewsMaintenanceNewsTime2">//div[@class='other_content']//div[@class='news_list']/div/li[2]/span</xpath>
+		<xpath name="NewsMaintenanceNewsLink2">//div[@class='other_content']//div[@class='news_list']/div/li[2]/a</xpath>
+		<xpath name="NewsMaintenanceNews3">//div[@class='other_content']//div[@class='news_list']/div/li[3]</xpath>
+		<xpath name="NewsMaintenanceNewsTime3">//div[@class='other_content']//div[@class='news_list']/div/li[3]/span</xpath>
+		<xpath name="NewsMaintenanceNewsLink3">//div[@class='other_content']//div[@class='news_list']/div/li[3]/a</xpath>
+		<xpath name="NewsMaintenanceNews4">//div[@class='other_content']//div[@class='news_list']/div/li[4]</xpath>
+		<xpath name="NewsMaintenanceNewsTime4">//div[@class='other_content']//div[@class='news_list']/div/li[4]/span</xpath>
+		<xpath name="NewsMaintenanceNewsLink4">//div[@class='other_content']//div[@class='news_list']/div/li[4]/a</xpath>
+		
+		<xpath name="SupportDownloadImage">//div[@class='support_panel']/img/@src</xpath>
+		<xpath name="SupportDownloadText">//div[@class='support_panel']//div[@class='support_header']</xpath>
+		<xpath name="SupportDownloadContent">//div[@class='support_panel']//p</xpath>
+		<xpath name="SupportDownloadButton">//div[@class='support_panel']//a</xpath>
+		
+		<xpath name="NewsUpButton">//div[@class='news_UpBtn']/a</xpath>
+		<xpath name="NewsDownButton">//div[@class='news_DownBtn']/a</xpath>
+		<xpath name="News1">//div[@class='news_item']/li[1]</xpath>
+		<xpath name="News2">//div[@class='news_item']/li[2]</xpath>
+		<xpath name="News3">//div[@class='news_item']/li[3]</xpath>
+		<xpath name="News4">//div[@class='news_item']/li[4]</xpath>
+		
+		<js name="SingIntoMydlinkImage">window.jQuery('div.login_panel').css('background-image')</js>
+		<js name="FacebookImage">window.jQuery('a.fp_fb_btn').css('background-image')</js>
+		<js name="TwitterImage">window.jQuery('a.fp_tw_btn').css('background-image')</js>
+		<js name="UserFontColor">window.jQuery('#user_field div').css('color')</js>
+		<js name="PasswordFontColor">window.jQuery('#password_field div').css('color')</js>
+		<js name="ArrowLeftBGImage">window.jQuery('.btn_disabled').css('background-image')</js>
+		<js name="ArrowRightBGImage">window.jQuery('div#arrow_right a').css('background-image')</js>
+		<js name="NewImg">window.jQuery('div.label_new').css('background-image')</js>
+		<js name="TextFontColor">window.jQuery('h2').css('color')</js>
+		<js name="SupportDownloadButton">window.jQuery('div.support_btn a').css('background-image')</js>
+		
+		<js name="SupportDownloadButton">window.jQuery('div.news_UpBtn a').click()</js>
+		
+		<js name="RememberMeBoxClick">$('#RememberMe').click();$('#re_checkbox_icon').removeClass().addClass(is_remember_checked() ? 're_checkbox_filled' : 're_checkbox'); </js>
+			
+	</targets>
+	
+	<messages>
+		<message name="ForgotYourPasswordLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Forgot your password?</content>
+		</message>
+		<message name="RememberMeLabel">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Remember me</content>
+		</message>
+		<message name="NotRegisteredLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Not Registered?</content>
+		</message>
+		<message name="SignInButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Sign in</content>
+		</message>
+		<message name="EmailLabel">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Name@example.com</content>
+		</message>
+		<message name="PasswordLabel">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Password</content>
+		</message>
+		<message name="WhatsMydlinkLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">What's mydlink</content>
+		</message>
+		<message name="WhatsMydlinkText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">See your home from anywhere</content>
+		</message>
+		<message name="WhatsMydlinkContent">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">With mydlink-enabled network cameras, it's simple to keep an eye on your home and everything in it from anywhere.</content>
+		</message>
+		<message name="WhatsMydlinkButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">More Details</content>
+		</message>
+		<message name="AccessAnywhereLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Access Anywhere</content>
+		</message>
+		
+		<message name="AccessAnywhereText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Access anywhere anytime mydlink™ makes it easy</content>
+		</message>
+		
+		<message name="AccessAnywhereContent">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">We create mydlink.com so you can access your live camera feed from any Internet-connected computer or mobile device anywhere anytime.</content>
+		</message>
+		
+		<message name="AccessAnywhereText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">We create mydlink.com so you can access your live camera feed from any internet-connected computer or mobile device anywhere anytime.</content>
+		</message>
+		
+		<message name="AccessAnywhereButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">More Details</content>
+		</message>
+		
+		<message name="ProductFamilyLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Product Family</content>
+		</message>
+			
+		<message name="ExperienceMydlinkLink">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Experience mydlink</content>
+		</message>
+		
+		<message name="ExperienceMydlinkText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Take a remote camera for a spin.</content>
+		</message>
+		
+		<message name="ExperienceMydlinkContent">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Explore mydlink before you register with your own mydlink-enabled IP camera.</content>
+		</message>
+		
+		<message name="ExperienceMydlinkButton">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Try It Now</content>
+		</message>
+		
+		<message name="NewsMaintenanceTitle">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">News &amp; Maintenance</content>
+		</message>
+		
+		<message name="NewsMaintenanceNews1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">2011/6/23 12:00 1111111111 1111111111 1111111111 111...</content>
+		</message>
+		
+		<message name="NewsMaintenanceNewsTime1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">2011/6/23 12:00</content>
+		</message>
+		
+		<message name="SupportDownloadText">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Support</content>
+		</message>
+		
+		<message name="SupportDownloadContent">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Setup wizard</content>
+		</message>
+		
+		<message name="DeviceName1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">DCS-942L</content>
+		</message>
+		
+		<message name="DeviceText1">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">Enhanced Wireless N Day/Night Network Camera</content>
+		</message>
+		
+	</messages>
+	<images>
+	<image name="AccessAnywhereImage">/images/newgraphics/2access_img.jpg</image>
+	<image name="ArrowLeftBGImage">/images/frontpage/slide_prevBtn.jpg</image>
+	<image name="ArrowRightBGImage">/images/frontpage/slide_nextBtn.jpg</image>
+	<image name="SingIntoMydlinkImage">images/frontpage/login_bg.jpg</image>
+	<image name="FacebookImage">images/frontpage/fbBtn_bg.png</image>
+	<image name="TwitterImage">images/frontpage/tweetBtn_bg.png</image>
+	<image name="NewImg">images/frontpage/product_new.jpg</image>
+	<image name="ExperienceMydlinkImage">images/newgraphics/4experience_img.jpg</image>
+	<image name="NewsMaintenanceImage">/images/newgraphics/news_icon.jpg</image>
+	<image name="SupportDownloadImage">/images/newgraphics/support_icon.jpg</image>
+	<image name="SupportDownloadButton">images/frontpage/support_btn.jpg</image>
+	</images>
+</info>

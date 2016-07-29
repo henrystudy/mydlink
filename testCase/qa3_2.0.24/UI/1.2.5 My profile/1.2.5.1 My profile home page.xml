@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.2.5.1 My profile home page.xml</testCaseName>
+	<annotation>
+		<description>1.2.5.1 My profile home page.xml</description>
+		<testCaseVersion>4</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-16" />
+		<lastUpdated author="yue.chen" date="2011-07-07" />
+		<recordInfo deviceIndex="1" account="myprofileUnverified" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- open entrance page , sign in -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(myprofileUnverified).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(myprofileUnverified).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value=""></Html>
+		<Assert expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Assert>
+		<Html command="clickAndWait" target="xml(header).xpath.MyProfileLink" value="" />
+		<!-- Logo: -->
+		<!-- mydlink(image link) -->
+		<Verify expected="xml(header).image.LogoImage" type="contains">
+			<Html command="getValue" target="xml(header).js.LogoImage" value="" />
+		</Verify>
+
+		<!-- Title bar: -->
+		<!-- My Devices -->
+		<Verify expected="xml(header).message.MyProfileLink">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLink" value="" />
+		</Verify>
+
+		<!-- Hyperlink texts: -->
+		<!-- top right corner: FAQ | Support -->
+		<!-- normal status: normal white fonts -->
+		<!-- mouseover status: underline effect -->
+		<Verify expected="xml(header).message.FAQLink">
+			<Html command="getValue" target="xml(header).xpath.FAQLink" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.SupportLink">
+			<Html command="getValue" target="xml(header).xpath.SupportLink" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(header).js.LinkFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(header).js.LinkFontWeight" value="" />
+		</Verify>
+
+		<!-- Dropdown list: the language selections as below: -->
+		<!-- Language English▼ -->
+		<!-- Française -->
+		<!-- Español -->
+		<!-- Português -->
+		<!-- 中文(繁體) -->
+		<!-- 中文(简体) -->
+		<Verify expected="xml(header).message.Language" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Language" value="" />
+		</Verify>
+		<Verify expected="xml(header).message.Language_en" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Language" value="" />
+		</Verify>
+
+		<!-- Française -->
+		<Verify expected="xml(header).message.Language_fr">
+			<Html command="getValue" target="xml(header).xpath.Language1" value="" />
+		</Verify>
+
+		<!-- Español -->
+		<Verify expected="xml(header).message.Language_es">
+			<Html command="getValue" target="xml(header).xpath.Language2" value="" />
+		</Verify>
+
+		<!-- Português -->
+		<Verify expected="xml(header).message.Language_pt">
+			<Html command="getValue" target="xml(header).xpath.Language3" value="" />
+		</Verify>
+
+		<!-- 中文(繁體) -->
+		<Verify expected="xml(header).message.Language_zh_TW">
+			<Html command="getValue" target="xml(header).xpath.Language4" value="" />
+		</Verify>
+
+		<!-- 中文(简体) -->
+		<Verify expected="xml(header).message.Language_zh_CN">
+			<Html command="getValue" target="xml(header).xpath.Language5" value="" />
+		</Verify>
+
+		<!-- top left Navigation: My Devices | My Profile ("My Devices" is selected by default) -->
+		<!-- selected status: deepen background blue color -->
+		<!-- normal status: white fonts -->
+		<!-- mouseover status: deepen background color effect -->
+		<Verify expected="xml(header).message.MyProfileLink">
+			<Html command="getValue" target="xml(header).xpath.MyProfileLink" value="" />
+		</Verify>
+
+		<!-- <Verify expected="navBtn_on"> -->
+		<!-- <Html command="getValue" target="xml(header).xpath.MyDevicesLinkClass" value="" /> -->
+		<!-- </Verify> -->
+
+		<Verify expected="xml(font).font.Bold">
+			<Html command="getValue" target="xml(device).js.NavBtn_onFontWeight" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(device).js.NavBtn_onFontColor" value="" />
+		</Verify>
+
+		<!-- top right corner: Sign out -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<Verify expected="xml(header).message.SignOut">
+			<Html command="getValue" target="xml(header).xpath.SignOut" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Blue2">
+			<Html command="getValue" target="xml(header).js.SignoutLinkFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(header).js.SignoutLinkFontWeight" value="" />
+		</Verify>
+
+		<!-- bottom: Global D-Link || About mydlink || Terms of Use || Privacy Policy || Contact US -->
+		<!-- normal status: normal blue fonts -->
+		<!-- mouseover status: underline effect -->
+		<Verify expected="xml(footer).message.GlobalDlinkLink">
+			<Html command="getValue" target="xml(footer).xpath.GlobalDlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.AboutMydlinkLink">
+			<Html command="getValue" target="xml(footer).xpath.AboutMydlinkLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.TermsOfUseLink">
+			<Html command="getValue" target="xml(footer).xpath.TermsOfUseLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.PrivacyPolicyLink">
+			<Html command="getValue" target="xml(footer).xpath.PrivacyPolicyLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.ContactUsLink">
+			<Html command="getValue" target="xml(footer).xpath.ContactUsLink" value="" />
+		</Verify>
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Blue2">
+			<Html command="getValue" target="xml(footer).js.LinkFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(font).font.Normal">
+			<Html command="getValue" target="xml(footer).js.LinkFontWeight" value="" />
+		</Verify>
+
+		<!-- Banners in the right: -->
+		<!-- News -->
+		<Verify expected="xml(device).message.NewsBoardTitle">
+			<Html command="getValue" target="xml(device).xpath.NewsBoardTitle" value="" />
+		</Verify>
+
+		<!-- Support -->
+		<Verify expected="xml(device).message.SupportBoardTitle">
+			<Html command="getValue" target="xml(device).xpath.SupportBoardTitle" value="" />
+		</Verify>
+
+		<!-- mydlink on mobile icon. (Image link) -->
+		<Verify expected="xml(device).image.MydlinkonMobileImage" type="contains">
+			<Html command="getValue" target="xml(device).xpath.MydlinkonMobileImage" value="" />
+		</Verify>
+
+		<!-- Button: Go-> -->
+		<!-- normal status: normal blue color -->
+		<!-- mouseover status: orange color -->
+		<Verify expected="xml(device).message.SupportOkButton">
+			<Html command="getValue" target="xml(device).xpath.SupportOkButton" value="" />
+		</Verify>
+		<Verify expected="xml(device).image.GoButtonBGImage" type="contains">
+			<Html command="getValue" target="xml(device).js.GoButtonBGImage" value="" />
+		</Verify>
+
+		<!-- Button: -->
+		<!-- Resend verification e-mail(Only for unverified account). -->
+		<!-- 1.Verify "A new verification e-mail has been sent" highlighted box pops up after click "Resend verification e-mail" button. -->
+		<!-- 2.Verify the light box displayed below: -->
+		<!-- A new verification e-mail has been sent! -->
+		<!-- Please check your mailbox and follow the instruction to complete the verification. -->
+		<!-- Button:OK(Blue background and white font) -->
+		<Verify expected="xml(myProfile).message.ResendVerificationE-mail">
+			<Html command="getValue" target="xml(myProfile).xpath.ResendVerificationE-mail" value="" />
+		</Verify>
+
+		<Html command="click" target="xml(myProfile).xpath.ResendVerificationE-mail" value="" />
+
+		<Html command="waitForElementDisplay" target="xml(myProfile).xpath.AVerificationE-mailSent" value="30" />
+
+		<Verify expected="xml(myProfile).message.ResendVerificationE-mail">
+			<Html command="getValue" target="xml(myProfile).xpath.ResendVerificationE-mail" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.AVerificationE-mailSent">
+			<Html command="getValue" target="xml(myProfile).xpath.AVerificationE-mailSent" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.AVerificationE-mailSentText">
+			<Html command="getValue" target="xml(myProfile).xpath.AVerificationE-mailSentText" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.AVerificationE-mailSentButton">
+			<Html command="getValue" target="xml(myProfile).xpath.AVerificationE-mailSentButton" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(myProfile).js.AVerificationE-mailSentButtonFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).image.BlueButtonBG" type="contains">
+			<Html command="getValue" target="xml(myProfile).js.AVerificationE-mailSentButtonBG" value="" />
+		</Verify>
+
+		<Html command="click" target="xml(myProfile).xpath.AVerificationE-mailSentButton" value="" />
+
+
+		<!-- Text: -->
+		<!-- top right corner: Welcome, [user’s First Name] [user’s Last Name] -->
+		<Verify expected="xml(header).message.Welcome" type="contains">
+			<Html command="getValue" target="xml(header).xpath.Welcome" value="" />
+		</Verify>
+		<Verify expected="account(myprofileUnverified).firstName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+		<Verify expected="account(myprofileUnverified).lastName" type="contains">
+			<Html command="getValue" target="xml(header).xpath.WelcomeName" value="" />
+		</Verify>
+
+		<!-- Save -->
+		<!-- Reset -->
+		<!-- 1.Verify the two buttons displayed as gray fonts by default. -->
+		<!-- 2.Verify "Save" button displayed as white font with blue background and "Reset" button displayed as blue font with white background after changing My Profile information. -->
+		<Verify expected="xml(color).color.Gray">
+			<Html command="getValue" target="xml(myProfile).js.SaveFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Gray">
+			<Html command="getValue" target="xml(myProfile).js.ResetFontColor" value="" />
+		</Verify>
+
+		<Verify expected="xml(myProfile).image.WhiteButtonBG" type="contains">
+			<Html command="getValue" target="xml(myProfile).js.SaveButtonBG" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).image.WhiteButtonBG" type="contains">
+			<Html command="getValue" target="xml(myProfile).js.ResetButtonBG" value="" />
+		</Verify>
+		<Html command="type" target="xml(myProfile).xpath.CityValue" value="CityValue" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Verify expected="xml(color).color.White">
+			<Html command="getValue" target="xml(myProfile).js.SaveFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Blue">
+			<Html command="getValue" target="xml(myProfile).js.ResetFontColor" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).image.BlueButtonBG" type="contains">
+			<Html command="getValue" target="xml(myProfile).js.SaveButtonBG" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).image.WhiteButtonBG" type="contains">
+			<Html command="getValue" target="xml(myProfile).js.ResetButtonBG" value="" />
+		</Verify>
+
+		<!-- Text: -->
+		<!-- middle: -->
+		<!-- For unverfied account register before *D day -->
+		<!-- ! Your account e-mail has not been verified! -->
+		<!-- Verify the warning statement is displayed wtih red font. -->
+		<!-- Your e-mail address has NOT been verified! Please complete the verification before *D+90 day. You may click to Resend verification e-mail again. -->
+		<!-- Please check and update your profile information below. -->
+		<!-- For unverfied account register after *D day -->
+		<!-- Your e-mail address has NOT been verified! -->
+		<!-- Please complete the verification NOW before you can access the device list. You may click to Resend verification e-mail again. -->
+		<!-- Please check and update your profile information below. -->
+		<!-- (Note:*D day: the release date of mydlink v2.0.24 (2011/6/30)) -->
+		<!-- Verfy the texts displayed with pink background. -->
+		<Verify expected="xml(myProfile).message.NotBeenVerified">
+			<Html command="getValue" target="xml(myProfile).xpath.NotBeenVerified" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.NotBeenVerifiedText1">
+			<Html command="getValue" target="xml(myProfile).xpath.NotBeenVerifiedText1" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.NotBeenVerifiedText2">
+			<Html command="getValue" target="xml(myProfile).xpath.NotBeenVerifiedText2" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Pink">
+			<Html command="getValue" target="xml(myProfile).js.NotBeenVerifiedBGColor" value="" />
+		</Verify>
+
+		<!-- For verified account -->
+		<!-- Your e-mail address has been verified. -->
+		<!-- Please check and update your profile information below. -->
+
+		<!-- bottom: -->
+		<!-- Copyright claims: Copyright © 2008-2011 mydlink/D-Link Corporation Inc. All rights reserved. -->
+		<Verify expected="xml(footer).message.Bottom" type="contains">
+			<Html command="getValue" target="xml(footer).xpath.Bottom" value="" />
+		</Verify>
+
+		<!-- Input boxes: -->
+		<!-- Sign-in information: -->
+		<Verify expected="xml(myProfile).message.Sign-inInformation" type="contains">
+			<Html command="getValue" target="xml(myProfile).xpath.Sign-inInformation" value="" />
+		</Verify>
+
+		<!-- E-mail Address -->
+		<Verify expected="xml(myProfile).message.E-mailAddress" type="contains">
+			<Html command="getValue" target="xml(myProfile).xpath.E-mailAddress" value="" />
+		</Verify>
+
+		<!-- 1.Verify the sign-in account displayed by default. -->
+		<Verify expected="account(myprofileUnverified).email" type="contains">
+			<Html command="getValue" target="xml(myProfile).xpath.signinEmail" value="" />
+		</Verify>
+
+		<!-- 2.Verify "! unverified" displayed with red color for unverified account and "verified" displayed with green color for verified account. -->
+		<Verify expected="xml(myProfile).message.UnverifiedText">
+			<Html command="getValue" target="xml(myProfile).xpath.UnverifiedText" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red" type="contains">
+			<Html command="getValue" target="xml(myProfile).js.UnverifiedColor" value="" />
+		</Verify>
+
+		<!-- Current Password -->
+		<Verify expected="xml(myProfile).message.CurrentPassword">
+			<Html command="getValue" target="xml(myProfile).xpath.CurrentPassword" value="" />
+		</Verify>
+
+
+		<!-- Verified the default password is empty. -->
+		<Verify expected="">
+			<Html command="getValue" target="xml(myProfile).xpath.CurrentPasswordValue" value="" />
+		</Verify>
+
+		<!-- New Password -->
+		<Verify expected="xml(myProfile).message.NewPassword">
+			<Html command="getValue" target="xml(myProfile).xpath.NewPassword" value="" />
+		</Verify>
+		<!-- Confirm New Password -->
+		<Verify expected="xml(myProfile).message.ConfirmNewPassword">
+			<Html command="getValue" target="xml(myProfile).xpath.ConfirmNewPassword" value="" />
+		</Verify>
+		<!-- (The "New Password and Confirm New Password" is displayed after clicking change password link.) -->
+		<Verify expected="false">
+			<Html command="isVisible" target="xml(myProfile).xpath.NewPassword" value="" />
+		</Verify>
+		<Verify expected="false">
+			<Html command="isVisible" target="xml(myProfile).xpath.ConfirmNewPassword" value="" />
+		</Verify>
+		<Html command="click" target="xml(myProfile).xpath.ChangePassword" value="" />
+		<Html command="sleep" target="2" value="" />
+		<Verify expected="true">
+			<Html command="isVisible" target="xml(myProfile).xpath.NewPassword" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isVisible" target="xml(myProfile).xpath.ConfirmNewPassword" value="" />
+		</Verify>
+
+		<!-- Profile information: -->
+		<Verify expected="xml(myProfile).message.ProfileInformation">
+			<Html command="getValue" target="xml(myProfile).xpath.ProfileInformation" value="" />
+		</Verify>
+
+		<!-- First Name -->
+		<Verify expected="xml(myProfile).message.LabelFirstNameText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelFirstNameText" value="" />
+		</Verify>
+
+		<!-- Last Name -->
+		<Verify expected="xml(myProfile).message.LabelLastNameText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelLastNameText" value="" />
+		</Verify>
+
+		<!-- 1.Verify the contents are consistent with the wizard by default. -->
+		<!-- Address -->
+		<Verify expected="xml(myProfile).message.LabelAddressText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelAddressText" value="" />
+		</Verify>
+
+		<!-- City -->
+		<Verify expected="xml(myProfile).message.LabelCityText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelCityText" value="" />
+		</Verify>
+
+		<!-- State/Province -->
+		<Verify expected="xml(myProfile).message.LabelStateProvinceText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelStateProvinceText" value="" />
+		</Verify>
+
+		<!-- ZIP/Postal code -->
+		<Verify expected="xml(myProfile).message.LabelZIPPostalCodeText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelZIPPostalCodeText" value="" />
+		</Verify>
+
+		<!-- Phone -->
+		<Verify expected="xml(myProfile).message.LabelPhoneText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelPhoneText" value="" />
+		</Verify>
+
+		<!-- Radio button -->
+		<!-- Gender Male Female -->
+		<Verify expected="xml(myProfile).message.LabelGenderText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelGenderText" value="" />
+		</Verify>
+		<!-- Dropdown list -->
+		<!-- Date of Birth -->
+		<Verify expected="xml(myProfile).message.LabelGenderText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelGenderText" value="" />
+		</Verify>
+
+		<!-- Laguage -->
+		<Verify expected="xml(myProfile).message.LabelContactMeInText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelContactMeInText" value="" />
+		</Verify>
+
+		<!-- Country -->
+		<Verify expected="xml(myProfile).message.LabelCountryText">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelCountryText" value="" />
+		</Verify>
+
+		<!-- 1.Verify the default date of birth is 1900 January 01. -->
+		<Verify expected="1900">
+			<Html command="getSelectedLabel" target="xml(myProfile).xpath.DateOfBirthYearValue" value="" />
+		</Verify>
+		<Verify expected="January">
+			<Html command="getSelectedLabel" target="xml(myProfile).xpath.DateOfBirthMonthValue" value="" />
+		</Verify>
+		<Verify expected="01">
+			<Html command="getSelectedLabel" target="xml(myProfile).xpath.DateOfBirthDayValue" value="" />
+		</Verify>
+
+		<!-- 2.Verify the default language is consistent with wizard. -->
+		<Verify expected="English">
+			<Html command="getSelectedLabel" target="xml(myProfile).xpath.ContactMeInValue" value="" />
+		</Verify>
+
+		<!-- 3.verify the default content in country is "Please select..." -->
+		<Verify expected="United States">
+			<Html command="getSelectedLabel" target="xml(myProfile).xpath.CountryValue" value="" />
+		</Verify>
+
+		<!-- Check Box -->
+		<!-- I would like to receive new product information from D-Link -->
+		<Verify expected="xml(myProfile).message.LabelIWouldLike">
+			<Html command="getValue" target="xml(myProfile).xpath.IWouldLikeText" value="" />
+		</Verify>
+
+		<!-- Verify the default is unchecked. -->
+		<Verify expected="off">
+			<Html command="getValue" target="xml(myProfile).xpath.IWouldLikeInput" value="" />
+		</Verify>
+
+		<!-- 2.Verify "Please enter your first name." displayed with red color. (Note: Not input the first name and click Save button) -->
+		<!-- 3.Verify "Please enter your last name." displayed with red color. (Note: Not input the last name and click Save button) -->
+		<!-- 1.Verify "ZIP/Postal code contains invalid characters." displayed with red color. (Note:Input the invalid characters and click Save button) -->
+		<!-- 2.Verify "Phone number contains invalid characters." displayed with red color. (Note:Input the invalid characters and click Save button) -->
+
+		<Html command="type" target="xml(myProfile).xpath.FirstNameValue" value="" />
+		<Html command="type" target="xml(myProfile).xpath.LastNameValue" value="" />
+		<Html command="type" target="xml(myProfile).xpath.ZIPPostalCodeValue" value="中国" />
+		<Html command="type" target="xml(myProfile).xpath.PhoneValue" value="中国" />
+		<Html command="type" target="xml(myProfile).xpath.CurrentPasswordValue" value="account(myprofileUnverified).pwd" />
+		<Html command="click" target="xml(myProfile).xpath.GenderMaleValue" value="" />
+		<Html command="click" target="xml(myProfile).xpath.GenderFemaleValue" value="" />
+		<Html command="clickAndWait" target="xml(myProfile).xpath.SaveButton" value="" />
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(myProfile).js.WarningColor" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.FirstNameWarningText">
+			<Html command="getValue" target="xml(myProfile).xpath.FirstNameWarningText" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.LastNameWarningText">
+			<Html command="getValue" target="xml(myProfile).xpath.LastNameWarningText" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.LabelZIPPostalCodeWarning">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelZIPPostalCodeWarning" value="" />
+		</Verify>
+		<Verify expected="xml(myProfile).message.LabelPhoneWarning">
+			<Html command="getValue" target="xml(myProfile).xpath.LabelPhoneWarning" value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

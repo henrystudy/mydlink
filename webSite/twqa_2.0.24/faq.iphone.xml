@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/website.xsd">
+	<targets>
+		<pagePath name="pagePath">/faq/iphone</pagePath>
+		<xpath name="TitleBar">//div[@class='content']//div[@class='jeff2']</xpath>
+	
+	</targets>
+	<messages>
+		<message name="TitleBar">
+			<content language="zh_CN"></content>
+			<content language="zh_TW"></content>
+			<content language="fr"></content>
+			<content language="en">FAQs: mydlink iphone app</content>
+		</message>
+	</messages>
+</info>

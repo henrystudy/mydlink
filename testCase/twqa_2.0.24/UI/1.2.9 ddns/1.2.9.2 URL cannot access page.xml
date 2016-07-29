@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>URL cannot access page</testCaseName>
+	<annotation>
+		<description>1.2.9.2 URL cannot access page.xml</description>
+		<testCaseVersion>3</testCaseVersion>
+		<created author="dayu.lei" date="2011-06-20" />
+		<lastUpdated author="dayu.lei" date="2011-06-20" />
+		<recordInfo deviceIndex="1" account="register" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login out -->
+		<Html command="open" target="xml(url).pagePath.Signout" value="" />
+
+		<!-- check page open -->
+		<Html command="open" target="xml(url).pagePath.TWQA_19549277"
+			value="" />
+		<Html command="waitForElementDisplay" target="xml(deviceWebPage).xpath.ddnsBottom"
+			value="60"></Html>
+		<Html command="clickAndWait" target="xml(deviceWebPage).xpath.ddnsOKButton"
+			value=""></Html>
+		<Verify expected="xml(login).message.titleBar" type="contains">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox"
+			value="account(haveNoDevice).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox"
+			value="account(haveNoDevice).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton"
+			value=""></Html>
+		<Html command="waitForElementDisplay" target="xml(deviceWebPage).xpath.ddnsBottom2"
+			value="60"></Html>
+		<Html command="sleep" target="3" value=""></Html>
+		
+		<!-- Logo:mydlink(image) -->
+		<Verify expected="xml(deviceWebPage).image.mydlink_logo" type="contains">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.mydlink_logo"
+				value="" />
+		</Verify>
+		
+		<!-- Text: -->
+		<!-- This mydlink Direct URL cannot be accessed. -->
+		<Html command="selectFrame" target="content" value=""></Html>
+		<Verify expected="xml(deviceWebPage).message.ddnsMessage2_1">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsMessage2_1"
+				value="" />
+		</Verify>
+		
+		<!-- This may be due to one of the following reasons: -->
+		<Verify expected="xml(deviceWebPage).message.ddnsMessage2_2">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsMessage2_2"
+				value="" />
+		</Verify>
+		
+		<!-- •The device has not been registered with a mydlink account yet. -->
+		<Verify expected="xml(deviceWebPage).message.ddnsMessage2_3">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsMessage2_3"
+				value="" />
+		</Verify>
+		
+		<!-- •The device has been registered to another mydlink account. -->
+		<Verify expected="xml(deviceWebPage).message.ddnsMessage2_4">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsMessage2_4"
+				value="" />
+		</Verify>
+		
+		<!-- Please check the mydlink Direct URL and your device and try again. -->
+		<Verify expected="xml(deviceWebPage).message.ddnsMessage2_5"
+			type="contains">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsMessage2_5"
+				value="" />
+		</Verify>
+		
+		<!-- bottom:Copyright © 2010 D-Link Corporation Inc. All rights reserved. -->
+		<Verify expected="xml(deviceWebPage).message.ddnsBottom">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.ddnsBottom2"
+				value="" />
+		</Verify>
+
+	</TestCase>
+</Test>

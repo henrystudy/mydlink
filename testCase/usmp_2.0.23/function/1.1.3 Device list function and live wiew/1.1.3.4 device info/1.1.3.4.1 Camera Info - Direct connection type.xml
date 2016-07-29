@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>Camera Info - Direct connection type</testCaseName>
+	<annotation>
+		<description>1.1.3.4.1 Camera Info - Direct connection type.xml</description>
+		<created author="dayu.lei" date="2011-06-22" />
+		<lastUpdated author="dayu.lei" date="2011-06-22" />
+		<recordInfo deviceIndex="1" account="Direct" />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- login begin -->
+		<Html command="open" target="xml(login).pagePath.pagePath" value=""></Html>
+
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar"
+				value="" />
+		</Verify>
+		<Html command="type" target="xml(login).xpath.emailTextbox"
+			value="account(Direct).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox"
+			value="account(Direct).pwd"></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton"
+			value=""></Html>
+		<Verify expected="xml(device).message.titleBar">
+			<Html command="getValue" target="xml(device).xpath.titleBar"
+				value="" />
+		</Verify>
+		
+		<!-- select device -->
+		<Function command="selectDevice" target="account(Direct).device.1.sn"
+			value=""></Function>
+		
+		<!-- click Camera Info link -->
+		<Html command="waitForElementDisplay" target="xml(device).xpath.win_mydlinkTabBox"
+			value="60"></Html>
+		<Html command="click" target="xml(device).xpath.LinkCameraInfoText"
+			value=""></Html>
+		<!-- wait for BasicInformation element present-->
+		<Html command="waitForElementDisplay" target="xml(device_cameraInfo).xpath.BasicInformation"
+			value="60"></Html>
+			
+			
+		<!-- device web page -->
+		<Html command="openWindow" target="xml(device_cameraInfo).xpath.passwordLink"
+			value="60"></Html>
+		<Html command="addCustomRequestHeader" target="account(Direct).device.1.userName" value="account(Direct).device.1.passwd"></Html>
+		
+		<Html command="selectWindow" target="2" value=""></Html>
+		
+		<!-- check message -->
+		<Html command="waitForElementDisplay" target="xml(deviceWebPage).xpath.stateMsgBar"
+			value="60"></Html>
+		<Html command="waitForElementDisplay" target="xml(deviceWebPage).xpath.headerTitle"
+			value="120"></Html>
+		<Verify expected="account(Direct).device.1.modelName" type="contains">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.headerTitle"
+				value="" />
+		</Verify>
+		<Verify expected="xml(deviceWebPage).message.Maintenance" type="contains">
+			<Html command="getValue" target="xml(deviceWebPage).xpath.selectedTab"
+				value="" />
+		</Verify>
+						
+	</TestCase>
+</Test>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mydlink.com/testcase.xsd">
+	<testCaseName>1.1.2.1 Sign in mydlink.xml</testCaseName>
+	<annotation>
+		<description>1.1.2.1 Sign in mydlink.xml</description>
+		<testCaseVersion>7</testCaseVersion>
+		<created author="yue.chen" date="2011-07-05" />
+		<lastUpdated author="yue.chen" date="2011-07-06" />
+		<recordInfo />
+	</annotation>
+	<TestCase>
+		<Function command="setLanguage" target="" value=""></Function>
+
+		<!-- 1. Ghost a clean OS. -->
+		<!-- Launch the browser. -->
+		<!-- Input the address: **www.mydlink.com** (This url could be different according to actual conditions) -->
+		<!-- (Note: For below testing, you should make sure your test PC has installed Flashplayer, and enable internet connection) -->
+		<!-- 1. Verify the partal entrance page can be launched successfully. -->
+		<Verify expected="xml(entrance).message.WhatsMydlinkLink">
+			<Html command="getValue" target="xml(entrance).xpath.WhatsMydlinkLink" value="" />
+		</Verify>
+
+		<!-- 2. Go back to entrance page, without input any email and password. -->
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value=""></Html>
+
+		<!-- Click "Sign In" button on the top right corner of the root page. -->
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value="" />
+
+		<!-- 2. Verify "Sign In to mydlink page" displayed successfully. -->
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+
+		<!-- Verify the text "Please enter your e-mail and password to sign in to mydlink." with red colour will display for user. -->
+		<Verify expected="xml(login).message.nullErrMsg">
+			<Html command="getValue" target="xml(login).xpath.warning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+
+		<!-- 3. Go back to entrance page, input your sign-in email and empty password in the box -->
+		<Html command="goBack" target="" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value=""></Html>
+
+		<!-- Click "Sign In" button on the top right corner of the root page. -->
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value="" />
+
+		<!-- 3. Verify "Sign In to mydlink page" displayed successfully. -->
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+
+		<!-- Verify the text "Invalid e-mail and password combination" with red colour will display for user -->
+		<Verify expected="xml(login).message.errMsg">
+			<Html command="getValue" target="xml(login).xpath.warning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+
+		<!-- 4. Go back to entrance page, input your sign-in email and invalid password in the box -->
+		<Html command="goBack" target="" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="中国"></Html>
+
+		<!-- Click "Sign In" button on the top right corner of the root page. -->
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value="" />
+
+		<!-- 4. Verify "Sign In to mydlink page" displayed successfully. -->
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+
+		<!-- Verify the text "Invalid e-mail and password combination" with red colour will display for user. -->
+		<Verify expected="xml(login).message.errMsg">
+			<Html command="getValue" target="xml(login).xpath.warning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+
+		<!-- 5. Go back to entrance page, input an un-register email and valid password in the box. -->
+		<Html command="goBack" target="" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(unRegister).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(unRegister).pwd"></Html>
+
+		<!-- Click "Sign In" button on the top right corner of the root page. -->
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value="" />
+
+		<!-- 5. Verify "Sign In to mydlink page" displayed successfully. -->
+		<Verify expected="xml(login).message.titleBar">
+			<Html command="getValue" target="xml(login).xpath.titleBar" value="" />
+		</Verify>
+
+		<!-- Verify the text "Invalid e-mail and password combination" with red colour will display for user. -->
+		<Verify expected="xml(login).message.errMsg">
+			<Html command="getValue" target="xml(login).xpath.warning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+
+		<!-- 6. Go back to entrance page, input your sign-in email and correct password. -->
+		<Html command="goBack" target="" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+		<Html command="clickAndWait" target="xml(entrance).xpath.SignInButton" value="" />
+
+		<!-- 6. Verify user can log in to live view page successfully. -->
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Verify>
+
+		<!-- 7. Sign out and go to "Sign In to mydlink" page by clicking "Sign in" button on entrance page without inputting account info. -->
+		<Html command="clickAndWait" target="xml(header).xpath.SignOut" value=""></Html>
+		<Html command="open" target="xml(url).pagePath.Login" value=""></Html>
+
+		<!-- Keep the account and password empty and click "Sign In" button in Sign In mydlink page. -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value=""></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value=""></Html>
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+
+		<!-- 7. Verify the text "Please enter your e-mail and password to sign in to mydlink." with red colour will display for user. -->
+		<Verify expected="xml(login).message.nullErrMsg">
+			<Html command="getValue" target="xml(login).xpath.warning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+
+		<!-- 8. Input your sign-in email and empty password in the box. -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value=""></Html>
+
+		<!-- Click "Sign In" button in Sign In mydlink page. -->
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+
+		<!-- 8. Verify the text "Invalid e-mail and password combination" with red colour will display for user. -->
+		<Verify expected="xml(login).message.errMsg">
+			<Html command="getValue" target="xml(login).xpath.warning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+
+		<!-- 9. Input your sign-in email and invalid password in the box. -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="中国"></Html>
+
+		<!-- Click "Sign In" button in Sign In mydlink page. -->
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+
+		<!-- 9. Verify the text "Invalid e-mail and password combination" with red colour will display for user. -->
+		<Verify expected="xml(login).message.errMsg">
+			<Html command="getValue" target="xml(login).xpath.warning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+
+		<!-- 10. Input an un-register email and valid password in the box. -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(unRegister).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(unRegister).pwd"></Html>
+
+		<!-- Click "Sign In" button in Sign In mydlink page. -->
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+
+		<!-- 10. Verify the text "Invalid e-mail and password combination" with red colour will display for user. -->
+		<Verify expected="xml(login).message.errMsg">
+			<Html command="getValue" target="xml(login).xpath.warning" value="" />
+		</Verify>
+		<Verify expected="xml(color).color.Red">
+			<Html command="getValue" target="xml(login).js.errMsgColorJS" value="" />
+		</Verify>
+
+		<!-- 11. Input your sign-in email and correct password. -->
+		<Html command="type" target="xml(login).xpath.emailTextbox" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(login).xpath.passwordTextbox" value="account(onLine).pwd"></Html>
+
+		<!-- Click "Sign In" button in Sign In mydlink page. -->
+		<Html command="clickAndWait" target="xml(login).xpath.signinDivButton" value=""></Html>
+
+		<!-- 11. Verify user can log in successfully. -->
+		<Verify expected="true">
+			<Html command="isElementPresent" target="xml(header).xpath.SignOut" value=""></Html>
+		</Verify>
+
+		<!-- 12. Sign out and navigate to "Sign In to mydlink" page. -->
+		<Html command="clickAndWait" target="xml(header).xpath.SignOut" value=""></Html>
+
+		<!-- Click "here" link on the lower right corner of the Sign In to mydlink page. -->
+		<!-- 12. Verify the MAC OS setup wizard can be downloaded successfully. -->
+		<!-- 未完成 -->
+
+		<!-- 13. Click "More" link on the bottom right corner of the Sign In to mydlink page. -->
+		<Html command="open" target="xml(url).pagePath.Login" value=""></Html>
+		<Html command="openWindow" target="xml(login).xpath.MoreLink" value=""></Html>
+		
+		<!-- 13. Verify the "Not Registered" page is displayed successfully. -->
+		<Verify expected="xml(notreg).message.ContentText1" type="contains">
+			<Html command="getValue" target="xml(notreg).xpath.ContentText" value="" />
+		</Verify>
+
+		<!-- 14. Go back to entrance page, input your account on the Sign in box (top right corner), switch the cursor to password input box, and inout password, then switch the cursor to 
+			account in put box. -->
+		<Html command="selectWindow" target="1" value=""></Html>
+		<Html command="open" target="xml(url).pagePath.Entrance" value=""></Html>
+		<Html command="type" target="xml(entrance).xpath.EmailInput" value="account(onLine).email"></Html>
+		<Html command="type" target="xml(entrance).xpath.PasswordInput" value="account(onLine).pwd"></Html>
+
+		<!-- 14. Verify the previous account info is still in box and editable, the previous account should not be empty. -->
+		<Html command="focus" target="xml(entrance).xpath.PasswordInput" value=""></Html>
+		<Html command="focus" target="xml(entrance).xpath.EmailInput" value=""></Html>
+		<Html command="focus" target="xml(entrance).xpath.PasswordInput" value=""></Html>
+		<Verify expected="account(onLine).email">
+			<Html command="getValue" target="xml(entrance).xpath.EmailInput" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(entrance).xpath.EmailInput" value="" />
+		</Verify>
+
+		<!-- 15. Input account info and switch to password input box. -->
+		<!-- 15. Verify the previous password info is still in box and editable, the previous password should not be empty. -->
+		<Html command="focus" target="xml(entrance).xpath.EmailInput" value=""></Html>
+		<Html command="focus" target="xml(entrance).xpath.PasswordInput" value=""></Html>
+		<Html command="focus" target="xml(entrance).xpath.EmailInput" value=""></Html>
+		<Verify expected="account(onLine).pwd">
+			<Html command="getValue" target="xml(entrance).xpath.PasswordInput" value="" />
+		</Verify>
+		<Verify expected="true">
+			<Html command="isEditable" target="xml(entrance).xpath.PasswordInput" value="" />
+		</Verify>
+	</TestCase>
+</Test>
